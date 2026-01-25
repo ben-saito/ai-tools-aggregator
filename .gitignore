@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Sensitive (add as needed)
+# secrets/
+# *.key
