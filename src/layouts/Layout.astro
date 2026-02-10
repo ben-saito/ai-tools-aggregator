@@ -2,9 +2,21 @@
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  canonical?: string;
 }
 
-const { title, description = 'Discover the best AI tools for 2026' } = Astro.props;
+const { 
+  title, 
+  description = 'Discover the best AI tools for 2026. Curated directory of 50+ AI tools across 10 categories including text generation, image creation, coding assistants, and more.',
+  image = '/og-image.png',
+  canonical
+} = Astro.props;
+
+const siteUrl = Astro.site || 'https://ai-tools-aggregator.vercel.app';
+const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
+const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const pageTitle = `${title} | AI Tools Aggregator`;
 ---
 
 <!doctype html>
@@ -14,7 +26,27 @@ const { title, description = 'Discover the best AI tools for 2026' } = Astro.pro
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} | AI Tools Aggregator</title>
+    <link rel="canonical" href={fullCanonical} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={fullCanonical} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImage} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={fullCanonical} />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={fullImage} />
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="AI tools, AI directory, ChatGPT, Midjourney, AI software, artificial intelligence, machine learning tools" />
+    
+    <title>{pageTitle}</title>
   </head>
   <body class="min-h-screen bg-white text-gray-900">
     <slot />
