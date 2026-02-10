@@ -1,356 +1,264 @@
-# Marketing Strategy - AI Tools Aggregator
+# Marketing & Social Media Strategy
 
-## 🎯 Overall Strategy: Build in Public
+## 📧 Email Address Setup
 
-**Philosophy**: Transparency builds trust and attracts early users.
+### Recommended Email
+**Primary**: `contact@aitoolsaggregator.com` または `hello@aitoolsaggregator.com`
 
----
+### Free Alternative (Immediate)
+**Gmail**: `aitoolsaggregator@gmail.com`
 
-## 📱 X (Twitter) Strategy
+### Setup Steps
 
-### Launch Timeline
+#### Option 1: Custom Domain Email (Recommended)
+1. Purchase domain: `aitoolsaggregator.com`
+2. Set up email forwarding or Google Workspace
+3. Create aliases:
+   - `contact@` - Main contact
+   - `support@` - User support
+   - `vendors@` - Vendor inquiries
+   - `press@` - Media inquiries
 
-**Week 1: Pre-Launch Teasers (Now - Launch)**
-- Day 1: Announce project start
-- Day 2-3: Share progress updates
-- Day 4-5: Sneak peeks of UI
-- Day 6: Countdown to launch
-- Day 7: Official launch
-
-**Week 2-4: Growth Phase**
-- Daily: Share tool discoveries, tips
-- Weekly: Progress metrics
-- Engage with AI community
-
-### Content Pillars
-
-**1. Build in Public (40%)**
-- Development progress
-- Tech stack decisions
-- Code snippets
-- Challenges & solutions
-- Metrics & milestones
-
-**2. Value Content (40%)**
-- AI tool recommendations
-- Comparison threads
-- Use case tutorials
-- Industry trends
-- Tool tips & tricks
-
-**3. Engagement (20%)**
-- Polls ("Which AI tool do you use most?")
-- Questions to community
-- Retweet user submissions
-- Celebrate featured tools
-
-### Post Templates
-
-**Progress Update**:
-```
-🚀 Day X of building AI Tools Aggregator
-
-✅ [Achievement]
-🔄 Working on: [Current task]
-📊 Stats: [Metric]
-
-Built with Astro + Tailwind
-#BuildInPublic #AITools #WebDev
-```
-
-**Tool Feature**:
-```
-💎 Featured AI Tool: [Tool Name]
-
-Category: [Category]
-Use case: [Primary use]
-Why we love it: [Reason]
-
-[Screenshot/Demo]
-
-Discover 50+ more tools at [URL]
-#AITools #[Category]
-```
-
-**Milestone**:
-```
-🎉 Milestone achieved!
-
-[Metric/Achievement]
-
-From 0 to [number] in [time]
-
-Next goal: [Next milestone]
-
-Thank you to everyone supporting this journey!
-#BuildInPublic #AI
-```
-
-### Hashtag Strategy
-
-**Primary** (use always):
-- #AITools
-- #BuildInPublic
-
-**Category-specific** (rotate):
-- #ChatGPT #TextAI
-- #AIArt #MidJourney
-- #AIVideo #Sora
-- #CodingAI #GitHubCopilot
-
-**Tech** (when relevant):
-- #Astro #TailwindCSS
-- #WebDev #IndieHacker
-
-### Engagement Tactics
-
-1. **Tag relevant accounts**:
-   - Tool creators when featuring
-   - AI influencers
-   - Tech communities
-
-2. **Reply to trending AI threads**:
-   - Search: "AI tools", "ChatGPT alternative"
-   - Add value, don't spam
-   - Include subtle link
-
-3. **Collaborate**:
-   - AI tool creators (cross-promotion)
-   - Tech bloggers (guest posts)
-   - YouTube reviewers (feature videos)
+#### Option 2: Gmail (Quick Start)
+1. Create Gmail: `aitoolsaggregator@gmail.com`
+2. Enable 2FA for security
+3. Set up email signature with branding
 
 ---
 
-## 🚀 Launch Strategy
+## 🌐 Social Media Account Setup
 
-### Day 1: Soft Launch
+### Priority 1: Essential (Week 5)
 
-**X Posts (3-4)**:
-1. Morning: "I built something..."
-2. Afternoon: Feature showcase
-3. Evening: Thank you + ask for feedback
+#### 1. **Twitter/X** (@AIToolsHub または @AIToolsAgg)
+- **Purpose**: Daily updates, engagement, trending
+- **Strategy**: 
+  - Share new tool listings
+  - AI industry news
+  - Engage with AI community
+  - Hashtags: #AITools #ArtificialIntelligence #ProductivityTools
 
-**Communities**:
-- Post on Hacker News (Show HN)
-- Share in Reddit: r/SideProject, r/InternetIsBeautiful
-- Discord: AI communities
-- Indie Hackers
+#### 2. **Product Hunt**
+- **Purpose**: Launch platform, visibility
+- **Profile**: Company profile + personal maker account
+- **Strategy**: Prepare launch day materials
 
-### Week 1: Product Hunt
-
-**Preparation**:
-- Create hunter account
-- Prepare assets (logo, screenshots, GIF)
-- Write compelling description
-- Schedule for Tuesday/Wednesday (best days)
-
-**Launch Day**:
-- Go live early (12:01 AM PST)
-- Engage with every comment
-- Share on X throughout day
-- Ask community for upvotes
-
-**Post-Launch**:
-- Thank supporters
-- Share "We're #1 Product of the Day" (if achieved)
-- Write launch retrospective
+#### 3. **LinkedIn** (Company Page)
+- **Purpose**: B2B networking, professional audience
+- **Strategy**: 
+  - Share industry insights
+  - Vendor success stories
+  - Product updates
 
 ---
 
-## 📊 Content Calendar (First Month)
+### Priority 2: Growth (Week 6-8)
 
-### Week 1: Launch
-- Mon: Announce launch on X
-- Tue: Post on Product Hunt
-- Wed: Share initial metrics
-- Thu: Feature top 3 tools
-- Fri: Week 1 recap + learnings
+#### 4. **Discord Server**
+- **Purpose**: Community building
+- **Channels**:
+  - #general - Community chat
+  - #tool-recommendations - User requests
+  - #feedback - Product feedback
+  - #announcements - Updates
 
-### Week 2: Build Trust
-- Daily: Share 1 tool/day
-- Mid-week: Behind-the-scenes tech thread
-- Weekend: "How I built this in 1 week" blog post
+#### 5. **Reddit**
+- **Subreddits to engage**:
+  - r/SaaS
+  - r/Entrepreneur
+  - r/ArtificialIntelligence
+  - r/InternetIsBeautiful
+- **Strategy**: Share genuinely helpful content, avoid spam
 
-### Week 3: Engagement
-- Mon: Poll: "Which category do you use most?"
-- Wed: AMA (Ask Me Anything) thread
-- Fri: User submission spotlight
-
-### Week 4: Growth
-- Mon: Milestone announcement (1000 visitors?)
-- Wed: Comparison post (vs competitors)
-- Fri: Month 1 retrospective
+#### 6. **Facebook Page**
+- **Purpose**: Broader audience reach
+- **Content**: Tool highlights, tips & tricks
 
 ---
 
-## 🎬 Video Content (Optional)
+### Priority 3: Optional (Month 2-3)
 
-**YouTube**:
-- "I built an AI tools directory in 1 week"
-- "Top 10 AI tools for [category]"
-- "How to get your AI tool featured"
+#### 7. **Instagram** (@aitoolsaggregator)
+- **Purpose**: Visual content, younger audience
+- **Content**: Tool screenshots, infographics
 
-**TikTok/Instagram Reels**:
-- Quick tool demos (15-30 sec)
-- "AI tool of the day"
-- Before/after comparisons
+#### 8. **YouTube**
+- **Purpose**: Video tutorials, tool demos
+- **Content**: "Top 10 AI Tools for..." series
 
----
-
-## 📧 Email Marketing
-
-### Newsletter Strategy
-
-**Frequency**: Weekly
-
-**Content**:
-- 3 new tools added this week
-- 1 deep dive on trending tool
-- 1 use case tutorial
-- Community submissions
-
-**Growth**:
-- Exit intent popup (10% conversion)
-- Footer signup form
-- "Subscribe for weekly AI tool discoveries"
-
-**Tool**: Substack (free) or ConvertKit ($29/mo)
+#### 9. **TikTok**
+- **Purpose**: Viral potential, Gen Z reach
+- **Content**: Quick tool demos, tips
 
 ---
 
-## 🤝 Partnerships
+## 📝 Account Creation Checklist
 
-### Tool Creators
-- Offer free listing
-- Ask for social media shoutout
-- Feature in newsletter
+### Step 1: Email Setup
+- [ ] Create email: `aitoolsaggregator@gmail.com`
+- [ ] Enable 2FA
+- [ ] Set up email signature
+- [ ] Create password (use password manager)
+- [ ] Save credentials securely
 
-### Affiliates
-- Sign up for tool affiliate programs
-- Add affiliate links (disclose clearly)
-- Earn commission on conversions
+### Step 2: Social Media Accounts
+- [ ] **Twitter/X**
+  - [ ] Username: @AIToolsAgg (or similar)
+  - [ ] Profile pic: Logo (512x512)
+  - [ ] Header image: 1500x500
+  - [ ] Bio: "Discover 50+ AI tools | Reviews, ratings, comparisons | 🚀 ai-tools-aggregator.vercel.app"
+  - [ ] Pin tweet: Launch announcement
 
-### Influencers
-- DM micro-influencers (10k-100k followers)
-- Offer exclusive early access
-- Ask for honest review
+- [ ] **Product Hunt**
+  - [ ] Maker account
+  - [ ] Company profile
+  - [ ] Verify email
+  - [ ] Add team members
 
----
+- [ ] **LinkedIn**
+  - [ ] Create Company Page
+  - [ ] Logo + cover image
+  - [ ] Company description
+  - [ ] Website link
+  - [ ] Industry: Software Development
 
-## 📈 Metrics to Track
+- [ ] **Discord**
+  - [ ] Create server
+  - [ ] Set up channels
+  - [ ] Create roles (Admin, Moderator, Member, Vendor)
+  - [ ] Welcome message
+  - [ ] Rules channel
 
-### Week 1:
-- Unique visitors
-- Tools viewed
-- Social shares
-- Newsletter signups
-
-### Month 1:
-- DAU/MAU
-- Top traffic sources
-- Most viewed tools
-- Conversion rate (submit tool)
-
-### Quarter 1:
-- MRR (Monthly Recurring Revenue)
-- Premium listings sold
-- Newsletter subscribers
-- Social media followers
-
----
-
-## 💰 Monetization Timeline
-
-**Month 1**: Free only (build audience)
-**Month 2**: Introduce premium listings
-**Month 3**: Add sponsored slots
-**Month 6**: Launch newsletter sponsorships
-
-**Revenue Goal**:
-- Year 1: $30k-60k ARR
-- Year 2: $100k+ ARR
+- [ ] **Facebook**
+  - [ ] Create Page
+  - [ ] Profile + cover photo
+  - [ ] About section
+  - [ ] CTA button: "Visit Website"
 
 ---
 
-## 🎯 Quick Wins (This Week)
+## 🎨 Branding Assets Needed
 
-1. ✅ Build the site (DONE)
-2. **🔄 Post launch on X (TODAY)**
-3. Submit to Hacker News (Tomorrow)
-4. Post on Reddit (This week)
-5. Launch on Product Hunt (Next week)
+### Visual Assets
+- [ ] Logo (multiple sizes: 512x512, 1024x1024, vector)
+- [ ] Profile picture (circular crop)
+- [ ] Cover images (each platform has different sizes)
+- [ ] Color palette document
+- [ ] Typography guidelines
 
----
-
-## 📝 First X Post (Ready to send)
-
-**Option 1: Story-driven**
-```
-🚀 I spent the last week building something
-
-The problem: Finding good AI tools is chaos
-- 100s of new tools every month
-- No single source of truth
-- Hard to compare options
-
-The solution: AI Tools Aggregator
-- 50+ curated tools
-- 10 categories
-- Fast search
-- Free forever
-
-Built with Astro + Tailwind in 1 week
-
-Check it out: [URL]
-
-#BuildInPublic #AITools #IndieHacker
-```
-
-**Option 2: Value-first**
-```
-💎 I curated 50+ AI tools so you don't have to
-
-Categories:
-💬 Text (ChatGPT, Claude, Gemini)
-🎨 Image (Midjourney, DALL-E, Flux)
-💻 Code (Copilot, Cursor, v0)
-🎥 Video (Runway, Sora, HeyGen)
-+ 6 more
-
-All in one searchable directory
-
-Free. No signup. Just tools.
-
-[URL]
-
-#AITools #Productivity
-```
-
-**Option 3: Technical (for devs)**
-```
-Built a complete AI tools directory in 1 week
-
-Tech stack:
-- Astro 4.x (SSG)
-- Tailwind CSS
-- JSON database
-- Vercel hosting
-
-Results:
-✅ 63 static pages
-✅ <1s load time
-✅ Perfect Lighthouse score
-✅ 0 dependencies drama
-
-Open source coming soon
-
-[URL]
-
-#Astro #BuildInPublic #WebDev
-```
+### Copy Assets
+- [ ] Short bio (160 chars for Twitter)
+- [ ] Long bio (500 chars)
+- [ ] Tagline: "Discover the best AI tools for 2026"
+- [ ] Value proposition
+- [ ] Launch announcement template
 
 ---
 
-**Recommendation**: Start with Option 1 (story-driven) for broadest appeal.
+## 📅 Content Calendar (Week 5-6)
 
-Post immediately after deployment!
+### Daily Posts (Twitter)
+- Monday: New tool spotlight
+- Tuesday: Use case tutorial
+- Wednesday: Industry news
+- Thursday: User testimonial (future)
+- Friday: Weekend tool roundup
+- Saturday: Community highlight
+- Sunday: Next week preview
+
+### Weekly Posts (LinkedIn)
+- Monday: Industry insights
+- Thursday: Product update
+
+### Launch Week (Product Hunt)
+- Day -7: Teaser campaign starts
+- Day -3: Final preparations
+- Day 0: Launch!
+- Day +1: Thank supporters
+- Day +7: Results recap
+
+---
+
+## 🎯 Goals & Metrics
+
+### Week 5-6 (Pre-Launch)
+- Twitter: 100 followers
+- Product Hunt: Profile complete
+- LinkedIn: Company page live
+- Discord: Server set up
+
+### Month 2 (Post-Launch)
+- Twitter: 500 followers
+- Product Hunt: 200+ upvotes on launch
+- LinkedIn: 100 followers
+- Discord: 50 members
+
+### Month 6
+- Twitter: 2,000 followers
+- LinkedIn: 500 followers
+- Discord: 200 members
+- Newsletter: 1,000 subscribers
+
+---
+
+## 🔐 Security Best Practices
+
+1. **Use Strong, Unique Passwords**
+   - Use password manager (1Password, Bitwarden, LastPass)
+   - Never reuse passwords
+
+2. **Enable 2FA Everywhere**
+   - Use authenticator app (Google Authenticator, Authy)
+   - Save backup codes
+
+3. **Secure Email Access**
+   - Enable login alerts
+   - Review connected apps regularly
+
+4. **Share Access Carefully**
+   - Use official team features
+   - Never share passwords directly
+   - Revoke access when needed
+
+---
+
+## 📋 Quick Start Checklist (This Week)
+
+### Must Do (Priority 1)
+1. [ ] Create email: `aitoolsaggregator@gmail.com`
+2. [ ] Set up Twitter account
+3. [ ] Create Product Hunt maker account
+4. [ ] Prepare profile images and bios
+
+### Should Do (Priority 2)
+5. [ ] Create LinkedIn Company Page
+6. [ ] Set up Discord server
+7. [ ] Design social media graphics
+
+### Can Do Later (Priority 3)
+8. [ ] Facebook Page
+9. [ ] Instagram account
+10. [ ] YouTube channel
+
+---
+
+## 🎬 Next Steps
+
+1. **つとむ様にお願いすること**:
+   - Gmail作成: `aitoolsaggregator@gmail.com`
+   - パスワードマネージャーに保存
+   - 2FA有効化
+
+2. **その後の流れ**:
+   - 各SNSアカウント作成（上記チェックリスト参照）
+   - プロフィール画像・カバー画像準備
+   - バイオ・説明文準備
+
+3. **私ができること**:
+   - SNS投稿テンプレート作成
+   - コンテンツカレンダー作成
+   - Product Hunt Launch準備
+
+---
+
+**Status**: 📋 準備中 | **Next**: メールアドレス取得 → SNSアカウント作成
