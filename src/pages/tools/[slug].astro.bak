@@ -3,8 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ReviewSection from '../../components/ReviewSection.astro';
 import LeadGenWidget from '../../components/LeadGenWidget.astro';
-import TagInput from "../../components/TagInput.astro";
-
 import { getAllTools } from '../../lib/tools';
 
 export const prerender = true;
@@ -130,9 +128,6 @@ const schemaData = {
             </div>
           )}
         </dl>
-
-      <TagInput toolId={tool.id} />
-
       </div>
 
       <ReviewSection toolId={tool.id} />

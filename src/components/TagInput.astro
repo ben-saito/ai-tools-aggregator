@@ -1,0 +1,184 @@
+---
+interface Props {
+  toolId: string;
+}
+
+const { toolId } = Astro.props;
+---
+
+<div class="rounded-lg border border-gray-200 bg-white p-6" data-tool-id={toolId}>
+  <h3 class="mb-4 text-lg font-bold text-gray-900">Tags</h3>
+  
+  <!-- Existing tags -->
+  <div id="tags-display" class="mb-4 flex flex-wrap gap-2">
+    <div class="text-sm text-gray-500">Loading tags...</div>
+  </div>
+
+  <!-- Add tag form -->
+  <div id="add-tag-form-container" class="hidden">
+    <form id="add-tag-form" class="flex gap-2">
+      <input
+        type="text"
+        id="tag-input"
+        placeholder="Add a tag... (e.g. 'productivity', 'free')"
+        class="flex-1 rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+        maxlength="50"
+        list="tag-suggestions"
+      />
+      <datalist id="tag-suggestions">
+        <!-- Will be populated dynamically -->
+      </datalist>
+      <button
+        type="submit"
+        class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700"
+      >
+        Add Tag
+      </button>
+    </form>
+  </div>
+
+  <!-- Login prompt -->
+  <div id="tag-login-prompt" class="hidden text-sm text-gray-500">
+    <a href="/login" class="text-primary-600 hover:underline">Login</a> to add tags
+  </div>
+</div>
+
+<script>
+  import { supabase } from '../lib/supabase';
+
+  const tagSection = document.querySelector('[data-tool-id]');
+  const toolId = tagSection?.getAttribute('data-tool-id');
+
+  if (!toolId) {
+    console.error('No toolId found');
+  } else {
+    loadTags();
+    setupTagForm();
+  }
+
+  async function loadTags() {
+    if (!toolId) return;
+
+    try {
+      // Get all tags for this tool with counts
+      const { data: tags, error } = await supabase
+        .from('tool_tag_counts')
+        .select('*')
+        .eq('tool_id', toolId)
+        .order('tag_count', { ascending: false });
+
+      if (error) throw error;
+
+      const tagsDisplay = document.getElementById('tags-display');
+      if (!tagsDisplay) return;
+
+      if (tags && tags.length > 0) {
+        tagsDisplay.innerHTML = tags.map(tag => `
+          <a 
+            href="/search?tag=${encodeURIComponent(tag.tag_name)}"
+            class="inline-flex items-center gap-1 rounded-full bg-primary-50 px-3 py-1 text-sm font-medium text-primary-700 hover:bg-primary-100"
+          >
+            ${escapeHtml(tag.tag_name)}
+            <span class="text-xs text-primary-600">${tag.tag_count}</span>
+          </a>
+        `).join('');
+      } else {
+        tagsDisplay.innerHTML = '<div class="text-sm text-gray-500">No tags yet. Be the first to add one!</div>';
+      }
+    } catch (error) {
+      console.error('Error loading tags:', error);
+    }
+  }
+
+  async function setupTagForm() {
+    const { data: { session } } = await supabase.auth.getSession();
+    const formContainer = document.getElementById('add-tag-form-container');
+    const loginPrompt = document.getElementById('tag-login-prompt');
+
+    if (session) {
+      formContainer?.classList.remove('hidden');
+      
+      // Load popular tags for autocomplete
+      loadPopularTags();
+
+      // Add form submit handler
+      const form = document.getElementById('add-tag-form');
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        await addTag(session.user.id);
+      });
+    } else {
+      loginPrompt?.classList.remove('hidden');
+    }
+  }
+
+  async function loadPopularTags() {
+    try {
+      const { data: popularTags, error } = await supabase
+        .from('popular_tags')
+        .select('tag_name')
+        .limit(20);
+
+      if (error) throw error;
+
+      const datalist = document.getElementById('tag-suggestions');
+      if (datalist && popularTags) {
+        datalist.innerHTML = popularTags.map(tag => 
+          `<option value="${escapeHtml(tag.tag_name)}">`
+        ).join('');
+      }
+    } catch (error) {
+      console.error('Error loading popular tags:', error);
+    }
+  }
+
+  async function addTag(userId: string) {
+    if (!toolId) return;
+
+    const input = document.getElementById('tag-input') as HTMLInputElement;
+    if (!input) return;
+
+    const tagName = input.value.trim().toLowerCase();
+
+    if (!tagName) {
+      alert('Please enter a tag');
+      return;
+    }
+
+    if (tagName.length > 50) {
+      alert('Tag must be 50 characters or less');
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('tool_tags')
+        .insert({
+          tool_id: toolId,
+          tag_name: tagName,
+          user_id: userId
+        });
+
+      if (error) {
+        if (error.code === '23505') {
+          alert('You have already added this tag');
+        } else {
+          throw error;
+        }
+        return;
+      }
+
+      input.value = '';
+      loadTags(); // Reload tags
+    } catch (error) {
+      console.error('Error adding tag:', error);
+      alert('Failed to add tag. Please try again.');
+    }
+  }
+
+  function escapeHtml(text: string): string {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+</script>
