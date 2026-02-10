@@ -1,14 +1,17 @@
 ---
 import { categories } from '../lib/tools';
 import AuthButton from './AuthButton.astro';
+import MobileNav from './MobileNav.astro';
 ---
 
-<header class="border-b border-gray-200 bg-white">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-    <a href="/" class="text-xl font-bold text-primary-600">
+<header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
+    <a href="/" class="text-lg font-bold text-primary-600 sm:text-xl">
       🤖 AI Tools Aggregator
     </a>
-    <div class="flex items-center gap-6">
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden items-center gap-4 lg:flex lg:gap-6">
       <a href="/" class="text-gray-600 hover:text-primary-600">Home</a>
       <a href="/search" class="text-gray-600 hover:text-primary-600">Search</a>
       <a href="/rankings" class="text-gray-600 hover:text-primary-600">Rankings</a>
@@ -37,5 +40,8 @@ import AuthButton from './AuthButton.astro';
       <a href="/about" class="text-gray-600 hover:text-primary-600">About</a>
       <AuthButton />
     </div>
+    
+    <!-- Mobile Navigation Button -->
+    <MobileNav />
   </nav>
 </header>
