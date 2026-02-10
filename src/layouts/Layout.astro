@@ -18,6 +18,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
 const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 const pageTitle = `${title} | AI Tools Aggregator`;
 import ComparisonBar from '../components/ComparisonBar.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 ---
 
 <!doctype html>
@@ -65,6 +66,23 @@ import ComparisonBar from '../components/ComparisonBar.astro';
   <body class="min-h-screen bg-white text-gray-900">
     <slot />
     
+    <footer class="mt-20 border-t border-gray-100 bg-gray-50 py-12">
+      <div class="mx-auto max-w-4xl px-4">
+        <div class="grid gap-8 md:grid-cols-2">
+          <div>
+            <h3 class="text-lg font-bold text-gray-900">AI Tools Aggregator</h3>
+            <p class="mt-2 text-sm text-gray-600">Discover the best AI tools for 2026. Curated directory of 50+ AI tools across 10 categories.</p>
+          </div>
+          <div>
+             <NewsletterSignup />
+          </div>
+        </div>
+        <div class="mt-8 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} AI Tools Aggregator. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
     <!-- Global Analytics -->
     <script is:inline>
       (async function() {
