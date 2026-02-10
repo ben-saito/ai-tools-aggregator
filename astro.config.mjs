@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,7 +8,7 @@ export default defineConfig({
     tailwind()
     // Sitemap will be added after first successful deployment
   ],
-  output: 'hybrid', // Hybrid rendering (Static + SSR)
+  output: 'server', // Server-side rendering (Astro 5)
   adapter: vercel(),
   site: 'https://ai-tools-aggregator-seven.vercel.app',
   compressHTML: true,
