@@ -16,7 +16,7 @@ import { categories } from '../lib/tools';
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
-        <div class="invisible absolute right-0 mt-2 w-64 rounded-lg border border-gray-200 bg-white py-2 shadow-lg group-hover:visible">
+        <div class="invisible absolute right-0 mt-2 w-64 rounded-lg border border-gray-200 bg-white py-2 shadow-lg group-hover:visible z-50">
           {categories.map((category) => (
             <a
               href={`/categories/${category.slug}`}
@@ -28,6 +28,10 @@ import { categories } from '../lib/tools';
           ))}
         </div>
       </div>
+      <a href="/submit" class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">
+        Submit Tool
+      </a>
+      <a href="/about" class="text-gray-600 hover:text-primary-600">About</a>
     </div>
   </nav>
 </header>
