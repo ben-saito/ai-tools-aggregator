@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Tool",
+  "type": "object",
+  "required": ["id", "name", "url", "category", "description"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier (slug)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Tool name"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Official website URL"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "text-generation",
+        "image-generation",
+        "video-generation",
+        "audio-music",
+        "code-development",
+        "marketing-sales",
+        "productivity",
+        "research-education",
+        "design-creative",
+        "data-analytics"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Short description (1-2 sentences)"
+    },
+    "pricing": {
+      "type": "string",
+      "enum": ["free", "freemium", "paid", "open-source"],
+      "default": "freemium"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Related tags/features"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Highlight on homepage"
+    },
+    "premium": {
+      "type": "boolean",
+      "default": false,
+      "description": "Premium listing (paid)"
+    },
+    "logoUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Logo image URL"
+    },
+    "addedAt": {
+      "type": "string",
+      "format": "date",
+      "description": "Date added to database"
+    }
+  }
+}
