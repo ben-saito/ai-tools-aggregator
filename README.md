@@ -1,190 +1,241 @@
 # AI Tools Aggregator
 
-**A curated directory of 50+ AI tools for 2026**
+A curated directory of the best AI tools for 2026, built with Astro 4.x and Tailwind CSS.
 
-## 🎯 Project Overview
-
-AI Tools Aggregator is a modern, fast, and SEO-optimized directory of AI tools across 10 categories. Built with Astro for maximum performance and Vercel for global CDN deployment.
-
-### Key Features
-
-- 🚀 **Blazing Fast**: Static site generation with Astro
-- 🔍 **SEO Optimized**: Server-side rendering for search engines
-- 📱 **Responsive**: Mobile-first design with Tailwind CSS
-- 🌙 **Dark Mode**: System-aware theme switching
-- 🏷️ **10 Categories**: Organized by use case
-- 🔎 **Search**: Client-side search with Fuse.js
-- 💰 **Monetization**: Premium listings and sponsored slots
-
-## 📊 Categories
-
-1. **Text Generation** - ChatGPT, Claude, Gemini
-2. **Image Generation** - Midjourney, DALL-E, Stable Diffusion
-3. **Video Generation** - Runway, Synthesia, HeyGen
-4. **Audio & Music** - ElevenLabs, Suno, Descript
-5. **Code Development** - GitHub Copilot, Cursor, v0.dev
-6. **Marketing & Sales** - Jasper, Copy.ai, Writesonic
-7. **Productivity** - Notion AI, Grammarly, Motion
-8. **Research & Education** - Perplexity, ChatPDF, Consensus
-9. **Design & Creative** - Canva AI, Gamma, Framer
-10. **Data & Analytics** - Tableau Pulse, Julius AI
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **Framework**: Astro 4.x (Static Site Generation)
-- **Styling**: Tailwind CSS 3.x
-- **Search**: Fuse.js (client-side)
-- **Icons**: Heroicons
-
-### Data
-- **Source**: JSON files (`data/tools.json`)
-- **Future**: Notion API integration (optional)
-
-### Deployment
-- **Hosting**: Vercel (Free tier)
-- **CDN**: Global edge network
-- **Domain**: TBD (aitoolsdb.com, aitools.directory)
-
-## 📁 Project Structure
-
-```
-ai-tools-aggregator/
-├── src/
-│   ├── pages/
-│   │   ├── index.astro          # Homepage
-│   │   ├── categories/
-│   │   │   └── [category].astro # Category pages
-│   │   └── tools/
-│   │       └── [id].astro       # Tool detail pages
-│   ├── components/
-│   │   ├── Header.astro         # Navigation
-│   │   ├── ToolCard.astro       # Tool preview card
-│   │   ├── SearchBar.astro      # Search component
-│   │   └── CategoryNav.astro    # Category filter
-│   ├── layouts/
-│   │   └── Layout.astro         # Base layout
-│   └── lib/
-│       ├── tools.ts             # Data loader
-│       └── search.ts            # Search utilities
-├── data/
-│   ├── tools.json               # 50 AI tools
-│   └── schema.json              # Data schema
-├── public/
-│   └── favicon.ico
-├── tailwind.config.mjs
-├── astro.config.mjs
-└── package.json
-```
-
-## 🚀 Development
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ (using nodebrew: v22.22.0)
-- pnpm (recommended) or npm
+- Node.js 18+ and npm
 
-### Setup
+### Installation
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd ai-tools-aggregator
+
 # Install dependencies
 npm install
 
-# Start dev server
+# Start development server
 npm run dev
+```
 
-# Build for production
+Visit `http://localhost:4321` to see the site.
+
+### Build for Production
+
+```bash
+# Build the site
 npm run build
 
 # Preview production build
 npm run preview
 ```
 
-### Environment Variables
+## ✨ Features
 
-Create `.env` file (optional, for future Notion integration):
+- **50+ Curated Tools**: Hand-picked AI tools across 10 categories
+- **Fast & Lightweight**: Built with Astro for optimal performance (Static Site Generation)
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Search Functionality**: Real-time client-side search
+- **Category Browsing**: Organized by 10 major categories
+- **Tool Details**: Dedicated pages for each tool with features and use cases
+- **Free to Use**: Open source and free for everyone
 
-```env
-NOTION_API_KEY=your_key_here
-NOTION_DATABASE_ID=your_db_id_here
+## 📂 Categories
+
+We cover 10 major AI tool categories:
+
+1. 💬 **Text Generation** - AI writing assistants and chatbots
+2. 🎨 **Image Generation** - AI art and image creation tools
+3. 🎥 **Video Generation** - AI video creation and editing
+4. 🎵 **Audio & Music** - AI music production and audio tools
+5. 💻 **Code Development** - AI coding assistants
+6. 📈 **Marketing & Sales** - AI marketing automation
+7. ⚡ **Productivity** - AI productivity enhancers
+8. 📚 **Research & Education** - AI learning tools
+9. 🖌️ **Design & Creative** - AI design tools
+10. 📊 **Data & Analytics** - AI data analysis tools
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Astro 4.x](https://astro.build) - Static Site Generator
+- **Styling**: [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS
+- **TypeScript**: Type-safe development
+- **Data**: JSON-based (no database required)
+- **Deployment**: Vercel / Netlify / Cloudflare Pages (all supported)
+
+## 📁 Project Structure
+
+```
+/
+├── public/             # Static assets (favicon, images)
+├── src/
+│   ├── components/     # Reusable Astro components
+│   │   ├── Header.astro
+│   │   ├── ToolCard.astro
+│   │   └── SearchBar.astro
+│   ├── layouts/        # Page layouts
+│   │   └── Layout.astro
+│   ├── pages/          # File-based routing
+│   │   ├── index.astro                 # Home page
+│   │   ├── categories/[slug].astro     # Category pages
+│   │   └── tools/[slug].astro          # Tool detail pages
+│   ├── lib/            # Utilities and data handling
+│   │   ├── tools.ts    # Data access functions
+│   │   └── types.ts    # TypeScript types
+│   └── styles/         # Global styles
+│       └── global.css
+├── data/
+│   ├── tools.json      # Tools database (50+ tools)
+│   └── schema.json     # Data schema definition
+└── package.json
 ```
 
-## 📈 Roadmap
+## 🌐 Deployment
 
-### Phase 1: MVP (Week 1) ✅ IN PROGRESS
-- [x] Project setup
-- [x] Data schema
-- [x] 50 tools curated
-- [ ] Astro configuration
-- [ ] Basic UI components
-- [ ] Homepage
-- [ ] Category pages
-- [ ] Tool detail pages
-- [ ] Search functionality
+### Deploy to Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import project to Vercel
+3. Vercel auto-detects Astro and deploys
+
+Or use Vercel CLI:
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Deploy to Netlify
+
+```bash
+# Build command
+npm run build
+
+# Publish directory
+dist
+```
+
+### Deploy to Cloudflare Pages
+
+1. Connect your GitHub repository
+2. Set build command: `npm run build`
+3. Set output directory: `dist`
+
+## 📝 Adding New Tools
+
+Edit `data/tools.json`:
+
+```json
+{
+  "id": "new-tool",
+  "name": "New AI Tool",
+  "description": "Brief description",
+  "category": "Text Generation",
+  "pricing": "freemium",
+  "url": "https://example.com",
+  "logoUrl": "https://example.com/logo.png",
+  "featured": false,
+  "features": [
+    "Feature 1",
+    "Feature 2"
+  ],
+  "useCases": [
+    "Use case 1"
+  ]
+}
+```
+
+## 🎨 Customization
+
+### Update Colors
+
+Edit `tailwind.config.mjs`:
+
+```js
+theme: {
+  extend: {
+    colors: {
+      primary: {
+        // Your custom colors
+      }
+    }
+  }
+}
+```
+
+### Add Categories
+
+Edit `src/lib/tools.ts`:
+
+```ts
+export const categories = [
+  { slug: 'new-category', name: 'New Category', icon: '🔥', description: 'Description' },
+  // ...
+];
+```
+
+## 📈 MVP Roadmap
+
+### Phase 1: Core Features (Week 1) ✅
+- [x] Project setup with Astro + Tailwind
+- [x] Data schema and 50 tools
+- [x] Homepage with featured tools
+- [x] Category pages
+- [x] Tool detail pages
+- [x] Search functionality
+- [x] Responsive design
+
+### Phase 2: Deployment & Optimization (Week 2)
 - [ ] Deploy to Vercel
+- [ ] SEO optimization (meta tags, sitemap)
+- [ ] Performance optimization
+- [ ] Analytics integration (Google Analytics)
 
-### Phase 2: Enhancement (Week 2-3)
-- [ ] User submissions
-- [ ] Reviews and ratings
-- [ ] Featured tools section
-- [ ] Newsletter signup
-- [ ] Analytics (Plausible/Vercel)
+### Phase 3: Monetization (Week 3-4)
+- [ ] Premium listings feature
+- [ ] Sponsored tool slots
+- [ ] Submit tool form
+- [ ] Admin dashboard (optional)
 
-### Phase 3: Monetization (Week 4+)
-- [ ] Premium listings ($99/month)
-- [ ] Sponsored placements
-- [ ] Affiliate links
-- [ ] Self-service submission portal
+## 🎯 Business Model
 
-## 💰 Business Model
+### Free Tier
+- Basic listing in directory
+- Category page inclusion
+- Search visibility
 
-### Revenue Streams
-1. **Premium Listings**: $99-499/month per tool
-2. **Sponsored Placements**: $1,000-5,000/month
-3. **Affiliate Commissions**: Ongoing passive income
+### Premium Listing ($99/month)
+- Featured on homepage
+- Priority in search results
+- Enhanced listing with custom description
+- Direct contact button
 
-### Target ARR
-- 10 premium listings × $99/mo = $990/mo → $11,880/year
-- 5 sponsors × $1,000/mo = $5,000/mo → $60,000/year
-- **Total Year 1 Target**: $71,880 ARR
+### Sponsored Slots ($299/month)
+- Top banner placement
+- Category page sponsorship
+- Newsletter mentions (future)
 
-### Scaling to 100M ARR
-- Requires: 10,000+ tools, 1M+ monthly visitors
-- Conversion: 1% to premium = 100 listings → $1.2M ARR
-- Timeline: 2-3 years with aggressive growth
+## 📊 Target Metrics
 
-## 📝 Data Schema
-
-Each tool entry contains:
-- `id` (slug)
-- `name`
-- `url`
-- `category`
-- `description` (200 chars max)
-- `pricing` (free/freemium/paid/open-source)
-- `tags` (array)
-- `featured` (boolean)
-- `premium` (boolean)
-- `logoUrl`
-- `addedAt` (date)
-
-See `data/schema.json` for full JSON schema.
+**Year 1 Goals:**
+- **Monthly visitors**: 10,000+
+- **Listed tools**: 200+
+- **Premium listings**: 10-20
+- **Annual Revenue**: $30,000-60,000
 
 ## 🤝 Contributing
 
-This is currently a solo project. Contributions may be accepted in the future.
+Contributions welcome! Please open an issue or submit a PR.
 
 ## 📄 License
 
-© 2026 AI Tools Aggregator. All rights reserved.
+MIT License - feel free to use this project for your own purposes.
 
-## 📞 Contact
+## 🙏 Credits
 
-- Project Lead: つとむ様
-- Development: フロウ (AI Assistant)
-- Status: MVP Development (Week 1/7)
+Built with ❤️ using Astro and Tailwind CSS.
 
----
-
-**Last Updated**: 2026-02-10
-**Version**: 0.1.0-alpha
-**Launch Target**: 2026-02-17
+Data sources: Public AI tool directories, product launches, community recommendations.

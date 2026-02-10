@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import ToolCard from '../components/ToolCard.astro';
+import SearchBar from '../components/SearchBar.astro';
 import { getAllTools, getFeaturedTools, categories } from '../lib/tools';
 
 const tools = getAllTools();
@@ -16,6 +17,9 @@ const featuredTools = getFeaturedTools();
       <p class="mt-4 text-lg text-gray-600">
         Discover {tools.length}+ curated AI tools across {categories.length} categories
       </p>
+      <div class="mx-auto mt-6 max-w-2xl">
+        <SearchBar />
+      </div>
     </section>
 
     <section class="mb-12">
