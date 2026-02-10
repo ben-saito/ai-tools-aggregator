@@ -90,20 +90,6 @@
     </div>
   </div>
 
-  <!-- Active Tag Filter -->
-  <div id="active-tag-container" class="mt-4 hidden">
-    <div class="flex items-center gap-2">
-      <span class="text-sm text-gray-700">Tag:</span>
-      <span id="active-tag" class="inline-flex items-center gap-1 rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-700"></span>
-      <button
-        id="clear-tag"
-        class="text-sm text-gray-600 hover:text-gray-900"
-      >
-        Clear
-      </button>
-    </div>
-  </div>
-
   <!-- Results Count -->
   <div class="mt-4 text-sm text-gray-600">
     <span id="results-count">Loading...</span>
@@ -135,26 +121,6 @@
     const sortBy = document.getElementById('sort-by');
     const resultsContainer = document.getElementById('search-results');
     const resultsCount = document.getElementById('results-count');
-    const activeTagContainer = document.getElementById('active-tag-container');
-    const activeTagSpan = document.getElementById('active-tag');
-    const clearTagBtn = document.getElementById('clear-tag');
-
-    // Get tag from URL parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const tagFilter = urlParams.get('tag');
-
-    // Display active tag if present
-    if (tagFilter) {
-      activeTagContainer.classList.remove('hidden');
-      activeTagSpan.textContent = tagFilter;
-    }
-
-    // Clear tag filter
-    clearTagBtn?.addEventListener('click', () => {
-      const url = new URL(window.location.href);
-      url.searchParams.delete('tag');
-      window.location.href = url.toString();
-    });
 
     let debounceTimer;
 
@@ -173,40 +139,9 @@
       `;
 
       try {
-        // If tag filter is present, first get tool IDs with that tag
-        let filteredToolIds = null;
-        if (tagFilter) {
-          const { data: taggedTools } = await supabase
-            .from('tool_tags')
-            .select('tool_id')
-            .eq('tag_name', tagFilter);
-          
-          if (taggedTools && taggedTools.length > 0) {
-            filteredToolIds = taggedTools.map(t => t.tool_id);
-          } else {
-            // No tools with this tag
-            filteredToolIds = [];
-          }
-        }
-
         let dbQuery = supabase
           .from('tools')
           .select('*');
-
-        // Apply tag filter
-        if (filteredToolIds !== null) {
-          if (filteredToolIds.length === 0) {
-            // No results for this tag
-            resultsContainer.innerHTML = `
-              <div class="col-span-full text-center py-12">
-                <p class="text-gray-600">No tools found with tag "${tagFilter}"</p>
-              </div>
-            `;
-            resultsCount.textContent = 'No tools found';
-            return;
-          }
-          dbQuery = dbQuery.in('id', filteredToolIds);
-        }
 
         // Apply full-text search if query exists
         if (query) {
