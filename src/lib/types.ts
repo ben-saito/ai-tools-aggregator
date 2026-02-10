@@ -10,4 +10,7 @@ export interface Tool {
   premium: boolean;
   logoUrl: string;
   addedAt: string;
+  websiteUrl?: string;
+  features?: string[];
+  useCases?: string[];
 }

@@ -1,0 +1,17 @@
+# AI Tools Aggregator - Robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://ai-tools-aggregator.vercel.app/sitemap-index.xml
+
+# Crawl-delay (optional, for polite bots)
+Crawl-delay: 1
+
+# Block common bot patterns (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
