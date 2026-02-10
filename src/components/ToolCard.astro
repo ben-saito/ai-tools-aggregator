@@ -11,30 +11,96 @@ interface Props {
 }
 
 import AddToCompare from './AddToCompare.astro';
+import FavoriteButton from './FavoriteButton.astro';
 
 const { id, name, description, category, pricing, url, logoUrl, featured } = Astro.props;
 ---
 
-<a 
-  href={`/tools/${id}`} 
-  class={`block rounded-lg border p-4 transition hover:shadow-lg ${featured ? 'border-primary-500 shadow-md' : 'border-gray-200'}`}
+<div 
+  class={`rounded-lg border p-4 transition hover:shadow-lg ${featured ? 'border-primary-500 shadow-md' : 'border-gray-200'}`}
   data-tool-card
   data-tool-name={name}
   data-tool-description={description}
   data-tool-category={category}
 >
-  <div class="flex items-start gap-3">
-    {logoUrl && <img src={logoUrl} alt={name} class="h-8 w-8 rounded" loading="lazy" />}
-    <div class="flex-1">
-      <div class="flex items-start justify-between">
-        <h3 class="font-semibold text-gray-900">{name}</h3>
-        <AddToCompare toolId={id} />
-      </div>
-      <p class="mt-1 text-sm text-gray-600 line-clamp-2">{description}</p>
-      <div class="mt-2 flex gap-2">
-        <span class="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-600">{category}</span>
-        <span class="rounded bg-primary-50 px-2 py-0.5 text-xs text-primary-700">{pricing}</span>
+  <a href={`/tools/${id}`} class="block">
+    <div class="flex items-start gap-3">
+      {logoUrl && <img src={logoUrl} alt={name} class="h-8 w-8 rounded" loading="lazy" />}
+      <div class="flex-1">
+        <div class="flex items-start justify-between gap-2">
+          <h3 class="font-semibold text-gray-900">{name}</h3>
+          <div class="flex items-center gap-1 shrink-0">
+            <div onclick="event.stopPropagation(); event.preventDefault();">
+              <FavoriteButton toolId={id} size="small" />
+            </div>
+            <div onclick="event.stopPropagation(); event.preventDefault();">
+              <AddToCompare toolId={id} />
+            </div>
+          </div>
+        </div>
+        <p class="mt-1 text-sm text-gray-600 line-clamp-2">{description}</p>
+        <div class="mt-2 flex flex-wrap gap-2">
+          <span class="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-600">{category}</span>
+          <span class="rounded bg-primary-50 px-2 py-0.5 text-xs text-primary-700">{pricing}</span>
+        </div>
+        <!-- Tags will be loaded dynamically -->
+        <div class="mt-2 flex flex-wrap gap-1" data-tool-tags={id}></div>
       </div>
     </div>
-  </div>
-</a>
+  </a>
+</div>
+
+<script>
+  import { supabase } from '../lib/supabase';
+
+  // Load tags for all tool cards
+  async function loadToolCardTags() {
+    const tagContainers = document.querySelectorAll('[data-tool-tags]');
+    
+    for (const container of tagContainers) {
+      const toolId = container.getAttribute('data-tool-tags');
+      if (!toolId) continue;
+
+      try {
+        const { data: tags, error } = await supabase
+          .from('tool_tag_counts')
+          .select('tag_name, tag_count')
+          .eq('tool_id', toolId)
+          .order('tag_count', { ascending: false })
+          .limit(3);
+
+        if (error) throw error;
+
+        if (tags && tags.length > 0) {
+          container.innerHTML = tags.map(tag => `
+            <a 
+              href="/search?tag=${encodeURIComponent(tag.tag_name)}"
+              class="inline-flex items-center rounded-full bg-gray-50 px-2 py-0.5 text-xs text-gray-600 hover:bg-gray-100"
+              onclick="event.stopPropagation();"
+            >
+              ${escapeHtml(tag.tag_name)}
+            </a>
+          `).join('');
+        }
+      } catch (error) {
+        console.error('Error loading tags for tool', toolId, error);
+      }
+    }
+  }
+
+  function escapeHtml(text: string): string {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Load tags when Supabase is ready
+  if (window.__supabaseReady) {
+    loadToolCardTags();
+  } else {
+    window.addEventListener('supabase-ready', loadToolCardTags);
+  }
+
+  // Also load after a delay to catch dynamically rendered cards
+  setTimeout(loadToolCardTags, 1000);
+</script>
