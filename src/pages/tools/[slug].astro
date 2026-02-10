@@ -2,10 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ReviewSection from '../../components/ReviewSection.astro';
+import ReviewEditModal from '../../components/ReviewEditModal.astro';
+import ReportModal from '../../components/ReportModal.astro';
 import LeadGenWidget from '../../components/LeadGenWidget.astro';
 import TagInput from "../../components/TagInput.astro";
 import FavoriteButton from "../../components/FavoriteButton.astro";
-
 
 import { getAllTools } from '../../lib/tools';
 
@@ -150,4 +151,8 @@ const schemaData = {
 
     </article>
   </main>
+
+  <!-- Modals -->
+  <ReviewEditModal />
+  <ReportModal />
 </Layout>
