@@ -1,5 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
-import toolsData from '../data/tools.json' assert { type: 'json' };
+import { readFileSync } from 'fs';
+
+const toolsData = JSON.parse(readFileSync('./data/tools.json', 'utf8'));
 
 const supabaseUrl = process.env.PUBLIC_SUPABASE_URL || 'https://mqksqezqbauqymftrydy.supabase.co';
 const supabaseKey = process.env.SUPABASE_SERVICE_KEY; // Use service key for admin operations

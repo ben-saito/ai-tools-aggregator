@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getToolById } from '../lib/tools';
+import type { Tool } from '../lib/types';
+
+const toolsParam = Astro.url.searchParams.get('tools');
+const toolIds = toolsParam ? toolsParam.split(',') : [];
+
+const tools: Tool[] = toolIds
+  .map(id => getToolById(id))
+  .filter((tool): tool is Tool => !!tool);
+
+const hasTools = tools.length > 0;
+---
+
+<Layout title="Compare AI Tools" description="Compare features, pricing, and capabilities of top AI tools side-by-side.">
+  <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <a href="/" class="mb-4 inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+        <svg class="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Tools
+      </a>
+      <h1 class="text-3xl font-bold text-gray-900">Compare Tools</h1>
+      <p class="mt-2 text-gray-600">Analyze features, pricing, and suitability side-by-side.</p>
+    </div>
+
+    {!hasTools ? (
+      <div class="rounded-lg border-2 border-dashed border-gray-300 p-12 text-center">
+        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        </svg>
+        <h3 class="mt-2 text-sm font-medium text-gray-900">No tools selected</h3>
+        <p class="mt-1 text-sm text-gray-500">Go back and select tools to compare.</p>
+        <div class="mt-6">
+          <a href="/" class="inline-flex items-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700">
+            Browse Tools
+          </a>
+        </div>
+      </div>
+    ) : (
+      <div class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-4 text-left text-sm font-medium text-gray-500 w-1/4">Feature</th>
+                {tools.map(tool => (
+                  <th scope="col" class="px-6 py-4 text-left text-sm font-medium text-gray-900 w-1/4 relative group">
+                     {/* Remove button */}
+                     <button
+                        data-remove-tool={tool.id}
+                        class="absolute top-2 right-2 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                        title="Remove from comparison"
+                     >
+                       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                       </svg>
+                     </button>
+
+                    <div class="flex flex-col items-center">
+                      <img src={tool.logoUrl || '/placeholder.png'} alt={tool.name} class="mb-3 h-12 w-12 rounded object-contain" />
+                      <a href={`/tools/${tool.id}`} class="text-lg font-bold hover:text-primary-600">{tool.name}</a>
+                    </div>
+                  </th>
+                ))}
+                {/* Fill empty columns if less than 3 */}
+                {Array.from({ length: 3 - tools.length }).map(() => (
+                   <th scope="col" class="px-6 py-4 text-center text-sm font-medium text-gray-400 border-l border-dashed w-1/4">
+                     <div class="flex flex-col items-center justify-center h-full min-h-[100px]">
+                        <span class="mb-2">Empty Slot</span>
+                        <a href="/" class="text-xs text-primary-600 hover:underline">Add Tool</a>
+                     </div>
+                   </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              {/* Category */}
+              <tr>
+                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">Category</td>
+                {tools.map(tool => (
+                  <td class="px-6 py-4 text-sm text-gray-500 text-center">
+                    <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+                      {tool.category}
+                    </span>
+                  </td>
+                ))}
+                {Array.from({ length: 3 - tools.length }).map(() => <td class="px-6 py-4"></td>)}
+              </tr>
+
+              {/* Pricing */}
+              <tr>
+                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">Pricing</td>
+                {tools.map(tool => (
+                  <td class="px-6 py-4 text-sm text-gray-500 text-center capitalize">{tool.pricing}</td>
+                ))}
+                {Array.from({ length: 3 - tools.length }).map(() => <td class="px-6 py-4"></td>)}
+              </tr>
+              
+              {/* Description */}
+              <tr>
+                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">Description</td>
+                {tools.map(tool => (
+                  <td class="px-6 py-4 text-sm text-gray-500">{tool.description}</td>
+                ))}
+                {Array.from({ length: 3 - tools.length }).map(() => <td class="px-6 py-4"></td>)}
+              </tr>
+
+              {/* Tags */}
+               <tr>
+                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">Tags</td>
+                {tools.map(tool => (
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    <div class="flex flex-wrap justify-center gap-1">
+                        {tool.tags.map(tag => (
+                            <span class="inline-flex items-center rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                  </td>
+                ))}
+                {Array.from({ length: 3 - tools.length }).map(() => <td class="px-6 py-4"></td>)}
+              </tr>
+
+              {/* Features - Mock data if not present or handle gracefully */}
+               <tr>
+                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">Key Features</td>
+                {tools.map(tool => (
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                     <ul class="list-disc pl-4 space-y-1 text-left">
+                        {/* If features exist in schema utilize them, otherwise mock for now or leave empty */}
+                        {tool.features && tool.features.length > 0 ? (
+                            tool.features.map(f => <li>{f}</li>)
+                        ) : (
+                            <li class="text-gray-400 italic">No specific features listed</li>
+                        )}
+                     </ul>
+                  </td>
+                ))}
+                {Array.from({ length: 3 - tools.length }).map(() => <td class="px-6 py-4"></td>)}
+              </tr>
+
+              {/* CTA */}
+              <tr>
+                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900"></td>
+                {tools.map(tool => (
+                  <td class="px-6 py-4 text-center">
+                    <a 
+                      href={tool.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center justify-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                    >
+                      Visit Website
+                      <svg class="-mr-1 ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </td>
+                ))}
+                {Array.from({ length: 3 - tools.length }).map(() => <td class="px-6 py-4"></td>)}
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    )}
+  </main>
+</Layout>
+
+<script>
+    import { toggleTool } from '../stores/comparisonStore';
+
+    // Handle remove buttons
+    const removeButtons = document.querySelectorAll('[data-remove-tool]');
+    removeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+             const id = btn.getAttribute('data-remove-tool');
+             if(id) {
+                 // Remove from store
+                 toggleTool(id);
+                 // Reload page with updated params
+                 // We need to read store state to construct new URL, but toggleTool is async/store based.
+                 // Actually easier to just get current URL params, remove id, and reload.
+                 const url = new URL(window.location.href);
+                 const tools = url.searchParams.get('tools')?.split(',') || [];
+                 const newTools = tools.filter(t => t !== id);
+                 if (newTools.length > 0) {
+                     url.searchParams.set('tools', newTools.join(','));
+                 } else {
+                     url.searchParams.delete('tools');
+                 }
+                 window.location.href = url.toString();
+             }
+        });
+    });
+</script>

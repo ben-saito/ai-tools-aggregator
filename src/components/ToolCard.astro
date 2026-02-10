@@ -10,6 +10,8 @@ interface Props {
   featured?: boolean;
 }
 
+import AddToCompare from './AddToCompare.astro';
+
 const { id, name, description, category, pricing, url, logoUrl, featured } = Astro.props;
 ---
 
@@ -24,7 +26,10 @@ const { id, name, description, category, pricing, url, logoUrl, featured } = Ast
   <div class="flex items-start gap-3">
     {logoUrl && <img src={logoUrl} alt={name} class="h-8 w-8 rounded" loading="lazy" />}
     <div class="flex-1">
-      <h3 class="font-semibold text-gray-900">{name}</h3>
+      <div class="flex items-start justify-between">
+        <h3 class="font-semibold text-gray-900">{name}</h3>
+        <AddToCompare toolId={id} />
+      </div>
       <p class="mt-1 text-sm text-gray-600 line-clamp-2">{description}</p>
       <div class="mt-2 flex gap-2">
         <span class="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-600">{category}</span>

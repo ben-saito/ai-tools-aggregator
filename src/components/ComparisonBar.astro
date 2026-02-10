@@ -1,0 +1,62 @@
+
+<div 
+  id="comparison-bar" 
+  class="fixed bottom-0 left-0 right-0 z-50 transform border-t border-gray-200 bg-white p-4 shadow-lg transition-transform duration-300 translate-y-full"
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-between">
+    <div class="flex items-center gap-4">
+      <span class="text-sm font-medium text-gray-700">
+        <span id="comparison-count">0</span> tools selected
+      </span>
+      <div id="comparison-thumbnails" class="flex gap-2">
+        {/* Thumbnails will be injected here */}
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button 
+        id="clear-comparison"
+        class="text-sm text-gray-500 hover:text-gray-700"
+      >
+        Clear
+      </button>
+      <a 
+        href="/compare" 
+        id="compare-button"
+        class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700"
+      >
+        Compare Now
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { selectedToolsMap, clearComparison } from '../stores/comparisonStore';
+  
+  const bar = document.getElementById('comparison-bar');
+  const countSpan = document.getElementById('comparison-count');
+  const clearBtn = document.getElementById('clear-comparison');
+  const compareBtn = document.getElementById('compare-button') as HTMLAnchorElement;
+
+  selectedToolsMap.subscribe(tools => {
+    const selectedIds = Object.keys(tools);
+    const count = selectedIds.length;
+    
+    if (countSpan) countSpan.textContent = count.toString();
+    
+    if (count > 0) {
+      bar?.classList.remove('translate-y-full');
+    } else {
+      bar?.classList.add('translate-y-full');
+    }
+
+    // Update link
+    if (compareBtn) {
+      compareBtn.href = `/compare?tools=${selectedIds.join(',')}`;
+    }
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    clearComparison();
+  });
+</script>

@@ -17,6 +17,7 @@ const siteUrl = Astro.site || 'https://ai-tools-aggregator.vercel.app';
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
 const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 const pageTitle = `${title} | AI Tools Aggregator`;
+import ComparisonBar from '../components/ComparisonBar.astro';
 ---
 
 <!doctype html>
@@ -114,8 +115,8 @@ const pageTitle = `${title} | AI Tools Aggregator`;
           trackEvent('tool_view', { tool_id: toolId });
         }
 
-        window.trackAnalytics = trackEvent;
       })();
     </script>
+    <ComparisonBar />
   </body>
 </html>
