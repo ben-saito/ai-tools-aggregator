@@ -6,8 +6,6 @@ interface Props {
 const { toolId } = Astro.props;
 ---
 import ReviewEditModal from "./ReviewEditModal.astro";
-import ReportModal from "./ReportModal.astro";
-
 
 
 <div class="mt-12 border-t border-gray-200 pt-12" data-tool-id={toolId}>
@@ -32,8 +30,6 @@ import ReportModal from "./ReportModal.astro";
   </div>
 
   <!-- Edit/Delete Modals -->
-  <ReportModal />
-
   <ReviewEditModal />
 
 </div>

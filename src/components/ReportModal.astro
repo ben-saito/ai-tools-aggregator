@@ -1,0 +1,158 @@
+<!-- Report Review Modal -->
+<div id="report-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-gray-900 bg-opacity-50">
+  <div class="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
+    <div class="mb-4 flex items-center justify-between">
+      <h3 class="text-xl font-bold text-gray-900">Report Review</h3>
+      <button id="close-report-modal" class="text-gray-400 hover:text-gray-500">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <p class="mb-4 text-sm text-gray-600">
+      Help us keep the community safe by reporting inappropriate content.
+    </p>
+
+    <form id="report-form" class="space-y-4">
+      <input type="hidden" id="report-review-id" />
+      
+      <div>
+        <label class="mb-2 block text-sm font-medium text-gray-700">
+          Reason for reporting <span class="text-red-500">*</span>
+        </label>
+        <div class="space-y-2">
+          <label class="flex items-center gap-2">
+            <input type="radio" name="reason" value="spam" class="text-primary-600 focus:ring-primary-500" required />
+            <span class="text-sm text-gray-700">Spam or misleading</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="radio" name="reason" value="inappropriate" class="text-primary-600 focus:ring-primary-500" />
+            <span class="text-sm text-gray-700">Inappropriate or offensive</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="radio" name="reason" value="misinformation" class="text-primary-600 focus:ring-primary-500" />
+            <span class="text-sm text-gray-700">False or misleading information</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="radio" name="reason" value="other" class="text-primary-600 focus:ring-primary-500" />
+            <span class="text-sm text-gray-700">Other</span>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label for="report-comment" class="mb-2 block text-sm font-medium text-gray-700">
+          Additional details (optional)
+        </label>
+        <textarea
+          id="report-comment"
+          rows="3"
+          class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+          placeholder="Please provide any additional context..."
+        ></textarea>
+      </div>
+
+      <div id="report-auth-error" class="hidden text-sm text-red-600">
+        You must be logged in to report content.
+      </div>
+
+      <div class="flex items-center justify-end gap-3">
+        <button
+          type="button"
+          id="cancel-report-btn"
+          class="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          class="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
+        >
+          Submit Report
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  import { supabase } from '../lib/supabase';
+
+  let reportingReviewId = null;
+
+  const reportModal = document.getElementById('report-modal');
+  const closeReportBtn = document.getElementById('close-report-modal');
+  const cancelReportBtn = document.getElementById('cancel-report-btn');
+  const reportForm = document.getElementById('report-form');
+  const authError = document.getElementById('report-auth-error');
+
+  // Open report modal
+  window.openReportModal = function(reviewId) {
+    reportingReviewId = reviewId;
+    document.getElementById('report-review-id').value = reviewId;
+    reportModal?.classList.remove('hidden');
+    reportModal?.classList.add('flex');
+    authError?.classList.add('hidden');
+    reportForm?.reset();
+  };
+
+  // Close report modal
+  function closeReportModal() {
+    reportModal?.classList.add('hidden');
+    reportModal?.classList.remove('flex');
+    reportingReviewId = null;
+  }
+
+  closeReportBtn?.addEventListener('click', closeReportModal);
+  cancelReportBtn?.addEventListener('click', closeReportModal);
+
+  // Submit report
+  reportForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+      authError?.classList.remove('hidden');
+      return;
+    }
+
+    const formData = new FormData(reportForm);
+    const reason = formData.get('reason');
+    const comment = document.getElementById('report-comment').value;
+
+    if (!reason) {
+      alert('Please select a reason for reporting');
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('reports')
+        .insert({
+          review_id: reportingReviewId,
+          reporter_id: session.user.id,
+          reason: reason,
+          comment: comment || null,
+          status: 'pending'
+        });
+
+      if (error) {
+        // Check if user already reported this review
+        if (error.code === '23505') {
+          alert('You have already reported this review.');
+        } else {
+          throw error;
+        }
+        return;
+      }
+
+      alert('Thank you for your report. We will review it shortly.');
+      closeReportModal();
+    } catch (error) {
+      console.error('Error submitting report:', error);
+      alert('Failed to submit report. Please try again.');
+    }
+  });
+</script>
