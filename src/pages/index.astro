@@ -57,6 +57,14 @@ const schemaData = {
       </div>
     </section>
 
+    <!-- Popular Tags Section -->
+    <section class="mb-12">
+      <h2 class="mb-6 text-2xl font-bold">Popular Tags</h2>
+      <div id="popular-tags-container" class="flex flex-wrap gap-2">
+        <div class="text-sm text-gray-500">Loading popular tags...</div>
+      </div>
+    </section>
+
     <TrendingTools />
 
     <section class="mb-12">
@@ -94,3 +102,62 @@ const schemaData = {
     </section>
   </main>
 </Layout>
+
+<script>
+  import { supabase } from '../lib/supabase';
+
+  async function loadPopularTags() {
+    const container = document.getElementById('popular-tags-container');
+    if (!container) return;
+
+    try {
+      const { data: tags, error } = await supabase
+        .from('popular_tags')
+        .select('tag_name, total_uses, tool_count')
+        .limit(20);
+
+      if (error) throw error;
+
+      if (tags && tags.length > 0) {
+        // Calculate tag sizes based on usage
+        const maxUses = Math.max(...tags.map(t => t.total_uses));
+        const minUses = Math.min(...tags.map(t => t.total_uses));
+
+        container.innerHTML = tags.map(tag => {
+          // Size from 0.875rem to 1.5rem
+          const sizeRatio = (tag.total_uses - minUses) / (maxUses - minUses || 1);
+          const fontSize = 0.875 + (sizeRatio * 0.625); // 0.875rem to 1.5rem
+          
+          return `
+            <a 
+              href="/search?tag=${encodeURIComponent(tag.tag_name)}"
+              class="inline-flex items-center gap-1 rounded-full bg-primary-50 px-3 py-1 font-medium text-primary-700 hover:bg-primary-100 transition-colors"
+              style="font-size: ${fontSize}rem;"
+            >
+              ${escapeHtml(tag.tag_name)}
+              <span class="text-xs opacity-75">${tag.tool_count}</span>
+            </a>
+          `;
+        }).join('');
+      } else {
+        container.innerHTML = '<div class="text-sm text-gray-500">No tags yet. Be the first to add one!</div>';
+      }
+    } catch (error) {
+      console.error('Error loading popular tags:', error);
+      container.innerHTML = '<div class="text-sm text-gray-500">Failed to load tags</div>';
+    }
+  }
+
+  function escapeHtml(text: string): string {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Load when Supabase is ready
+  if (window.__supabaseReady) {
+    loadPopularTags();
+  } else {
+    window.addEventListener('supabase-ready', loadPopularTags);
+  }
+</script>
