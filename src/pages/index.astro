@@ -27,6 +27,31 @@ const featuredTools = getFeaturedTools();
       </div>
     </section>
 
+    <section class="mb-12">
+      <h2 class="mb-6 text-2xl font-bold">Browse by Category</h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {categories.map((category) => {
+          const categoryTools = tools.filter((tool) => tool.category === category.name);
+          return (
+            <a
+              href={`/categories/${category.slug}`}
+              class="group rounded-lg border border-gray-200 p-6 transition hover:border-primary-500 hover:shadow-md"
+            >
+              <div class="flex items-center gap-3">
+                <span class="text-4xl">{category.icon}</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900 group-hover:text-primary-600">
+                    {category.name}
+                  </h3>
+                  <p class="mt-1 text-sm text-gray-500">{categoryTools.length} tools</p>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+
     <section>
       <h2 class="mb-6 text-2xl font-bold">All Tools</h2>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

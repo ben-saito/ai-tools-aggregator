@@ -18,14 +18,14 @@ export function getToolById(id: string): Tool | undefined {
 }
 
 export const categories = [
-  { slug: 'text-generation', name: 'Text Generation', icon: '\u{1F4AC}' },
-  { slug: 'image-generation', name: 'Image Generation', icon: '\u{1F3A8}' },
-  { slug: 'video-generation', name: 'Video Generation', icon: '\u{1F3A5}' },
-  { slug: 'audio-music', name: 'Audio & Music', icon: '\u{1F3B5}' },
-  { slug: 'code-development', name: 'Code Development', icon: '\u{1F4BB}' },
-  { slug: 'marketing-sales', name: 'Marketing & Sales', icon: '\u{1F4C8}' },
-  { slug: 'productivity', name: 'Productivity', icon: '\u{26A1}' },
-  { slug: 'research-education', name: 'Research & Education', icon: '\u{1F4DA}' },
-  { slug: 'design-creative', name: 'Design & Creative', icon: '\u{1F58C}\u{FE0F}' },
-  { slug: 'data-analytics', name: 'Data & Analytics', icon: '\u{1F4CA}' },
+  { slug: 'text-generation', name: 'Text Generation', icon: '💬', description: 'AI-powered writing assistants, chatbots, and content generators' },
+  { slug: 'image-generation', name: 'Image Generation', icon: '🎨', description: 'Create stunning images, art, and graphics with AI' },
+  { slug: 'video-generation', name: 'Video Generation', icon: '🎥', description: 'Generate and edit videos using AI technology' },
+  { slug: 'audio-music', name: 'Audio & Music', icon: '🎵', description: 'AI tools for music production, voice synthesis, and audio editing' },
+  { slug: 'code-development', name: 'Code Development', icon: '💻', description: 'AI coding assistants and development tools' },
+  { slug: 'marketing-sales', name: 'Marketing & Sales', icon: '📈', description: 'Boost your marketing and sales with AI automation' },
+  { slug: 'productivity', name: 'Productivity', icon: '⚡', description: 'Enhance your workflow with AI-powered productivity tools' },
+  { slug: 'research-education', name: 'Research & Education', icon: '📚', description: 'AI tools for learning, research, and knowledge discovery' },
+  { slug: 'design-creative', name: 'Design & Creative', icon: '🖌️', description: 'AI-powered design and creative tools for professionals' },
+  { slug: 'data-analytics', name: 'Data & Analytics', icon: '📊', description: 'Transform data into insights with AI analytics tools' },
 ] as const;

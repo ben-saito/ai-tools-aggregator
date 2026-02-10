@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { getAllTools } from '../../lib/tools';
+
+export async function getStaticPaths() {
+  const tools = getAllTools();
+  return tools.map((tool) => ({
+    params: { slug: tool.id },
+    props: { tool }
+  }));
+}
+
+const { tool } = Astro.props;
+---
+
+<Layout title={`${tool.name} - ${tool.category} | AI Tools Aggregator`}>
+  <Header />
+  <main class="mx-auto max-w-4xl px-4 py-8">
+    <article>
+      <div class="mb-8">
+        <div class="flex items-start gap-4">
+          {tool.logoUrl && (
+            <img src={tool.logoUrl} alt={tool.name} class="h-16 w-16 rounded-lg" />
+          )}
+          <div class="flex-1">
+            <h1 class="text-4xl font-bold">{tool.name}</h1>
+            <div class="mt-2 flex gap-2">
+              <span class="rounded bg-gray-100 px-3 py-1 text-sm text-gray-700">{tool.category}</span>
+              <span class="rounded bg-primary-50 px-3 py-1 text-sm text-primary-700">{tool.pricing}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose max-w-none">
+        <h2>Description</h2>
+        <p class="text-lg text-gray-700">{tool.description}</p>
+
+        {tool.features && tool.features.length > 0 && (
+          <div class="mt-6">
+            <h2>Key Features</h2>
+            <ul class="list-disc pl-6">
+              {tool.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {tool.useCases && tool.useCases.length > 0 && (
+          <div class="mt-6">
+            <h2>Use Cases</h2>
+            <ul class="list-disc pl-6">
+              {tool.useCases.map((useCase) => (
+                <li>{useCase}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div class="mt-8">
+          <a
+            href={tool.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block rounded-lg bg-primary-500 px-6 py-3 font-semibold text-white hover:bg-primary-600"
+          >
+            Visit {tool.name} →
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t pt-8">
+        <h2 class="text-2xl font-bold">Details</h2>
+        <dl class="mt-4 grid gap-4 sm:grid-cols-2">
+          <div>
+            <dt class="font-semibold text-gray-700">Category</dt>
+            <dd class="mt-1 text-gray-600">{tool.category}</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-gray-700">Pricing</dt>
+            <dd class="mt-1 text-gray-600">{tool.pricing}</dd>
+          </div>
+          {tool.websiteUrl && (
+            <div>
+              <dt class="font-semibold text-gray-700">Website</dt>
+              <dd class="mt-1">
+                <a href={tool.websiteUrl} class="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                  {tool.websiteUrl}
+                </a>
+              </dd>
+            </div>
+          )}
+        </dl>
+      </div>
+    </article>
+  </main>
+</Layout>

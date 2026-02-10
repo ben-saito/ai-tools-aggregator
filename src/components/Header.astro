@@ -1,12 +1,33 @@
 ---
-// Header component - navigation bar
+import { categories } from '../lib/tools';
 ---
 
 <header class="border-b border-gray-200 bg-white">
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-    <a href="/" class="text-xl font-bold text-primary-600">AI Tools Aggregator</a>
-    <div class="flex gap-4">
+    <a href="/" class="text-xl font-bold text-primary-600">
+      🤖 AI Tools Aggregator
+    </a>
+    <div class="flex items-center gap-6">
       <a href="/" class="text-gray-600 hover:text-primary-600">Home</a>
+      <div class="group relative">
+        <button class="flex items-center gap-1 text-gray-600 hover:text-primary-600">
+          Categories
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="invisible absolute right-0 mt-2 w-64 rounded-lg border border-gray-200 bg-white py-2 shadow-lg group-hover:visible">
+          {categories.map((category) => (
+            <a
+              href={`/categories/${category.slug}`}
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+            >
+              <span class="mr-2">{category.icon}</span>
+              {category.name}
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   </nav>
 </header>
