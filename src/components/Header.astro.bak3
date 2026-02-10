@@ -37,7 +37,6 @@ import MobileNav from './MobileNav.astro';
       <a href="/submit" class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">
         Submit Tool
       </a>
-      <a href="/favorites" class="text-gray-600 hover:text-primary-600">Favorites</a>
       <a href="/about" class="text-gray-600 hover:text-primary-600">About</a>
       <AuthButton />
     </div>

@@ -1,0 +1,118 @@
+---
+interface Props {
+  toolId: string;
+  size?: 'small' | 'large';
+}
+
+const { toolId, size = 'small' } = Astro.props;
+const sizeClass = size === 'large' ? 'h-6 w-6' : 'h-5 w-5';
+---
+
+<button
+  class={`favorite-btn flex items-center gap-1 text-gray-600 hover:text-red-500 transition-colors ${size === 'large' ? 'text-base' : 'text-sm'}`}
+  data-tool-id={toolId}
+  aria-label="Add to favorites"
+>
+  <svg class={`${sizeClass} favorite-icon`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+  </svg>
+  <span class="favorite-count">0</span>
+</button>
+
+<script>
+  import { supabase } from '../lib/supabase';
+
+  // Initialize favorite buttons
+  document.querySelectorAll('.favorite-btn').forEach(btn => {
+    const toolId = (btn as HTMLElement).dataset.toolId;
+    if (toolId) {
+      initFavoriteButton(btn as HTMLElement, toolId);
+    }
+  });
+
+  async function initFavoriteButton(btn: HTMLElement, toolId: string) {
+    const icon = btn.querySelector('.favorite-icon') as SVGElement;
+    const countSpan = btn.querySelector('.favorite-count') as HTMLElement;
+
+    // Load favorite status and count
+    await updateFavoriteStatus(btn, toolId, icon, countSpan);
+
+    // Add click handler
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session) {
+        window.location.href = '/login';
+        return;
+      }
+
+      // Toggle favorite
+      const isFavorited = icon.classList.contains('favorited');
+
+      if (isFavorited) {
+        // Remove favorite
+        await supabase
+          .from('favorites')
+          .delete()
+          .eq('user_id', session.user.id)
+          .eq('tool_id', toolId);
+      } else {
+        // Add favorite
+        await supabase
+          .from('favorites')
+          .insert({
+            user_id: session.user.id,
+            tool_id: toolId
+          });
+      }
+
+      // Update UI
+      await updateFavoriteStatus(btn, toolId, icon, countSpan);
+    });
+  }
+
+  async function updateFavoriteStatus(
+    btn: HTMLElement,
+    toolId: string,
+    icon: SVGElement,
+    countSpan: HTMLElement
+  ) {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    // Check if user has favorited
+    if (session) {
+      const { data: favorite } = await supabase
+        .from('favorites')
+        .select('id')
+        .eq('user_id', session.user.id)
+        .eq('tool_id', toolId)
+        .single();
+
+      if (favorite) {
+        icon.classList.add('favorited');
+        icon.setAttribute('fill', 'currentColor');
+        btn.classList.add('text-red-500');
+        btn.classList.remove('text-gray-600');
+      } else {
+        icon.classList.remove('favorited');
+        icon.setAttribute('fill', 'none');
+        btn.classList.remove('text-red-500');
+        btn.classList.add('text-gray-600');
+      }
+    }
+
+    // Get favorite count
+    const { data: counts } = await supabase
+      .from('tool_favorite_counts')
+      .select('favorite_count')
+      .eq('tool_id', toolId)
+      .single();
+
+    if (counts && countSpan) {
+      countSpan.textContent = counts.favorite_count.toString();
+    }
+  }
+</script>
