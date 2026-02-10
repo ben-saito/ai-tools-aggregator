@@ -1,0 +1,116 @@
+---
+// Add declaration for window function
+declare global {
+  interface Window {
+    initUpvoteButtons: () => void;
+  }
+}
+
+const { toolId, initialCount = 0 } = Astro.props;
+---
+
+<button
+  class="upvote-btn group flex flex-col items-center rounded-lg border border-gray-200 bg-white px-3 py-2 transition-all hover:border-orange-500 hover:bg-orange-50 data-[voted=true]:border-orange-500 data-[voted=true]:bg-orange-50"
+  data-tool-id={toolId}
+  data-count={initialCount}
+>
+  <svg
+    class="h-4 w-4 text-gray-400 transition-colors group-hover:text-orange-500 group-data-[voted=true]:text-orange-500"
+    fill="currentColor"
+    viewBox="0 0 20 20"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+      clip-rule="evenodd"
+    />
+  </svg>
+  <span
+    class="text-sm font-semibold text-gray-600 group-hover:text-orange-600 group-data-[voted=true]:text-orange-600"
+  >
+    {initialCount}
+  </span>
+</button>
+
+<script>
+  import { supabase } from '../lib/supabase'; // Assuming you have a centralized supabase client, if not I'll inline it or use window
+
+  // Helper to initialize buttons
+  window.initUpvoteButtons = function() {
+    const buttons = document.querySelectorAll('.upvote-btn');
+    
+    buttons.forEach(async (btn) => {
+      // Prevent multiple initializations
+      if (btn.hasAttribute('data-initialized')) return;
+      btn.setAttribute('data-initialized', 'true');
+
+      const toolId = btn.getAttribute('data-tool-id');
+      if (!toolId) return;
+
+      // Check if user has already voted
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        const { data: vote } = await supabase
+          .from('tool_votes')
+          .select('id')
+          .eq('tool_id', toolId)
+          .eq('user_id', session.user.id)
+          .single();
+        
+        if (vote) {
+          btn.setAttribute('data-voted', 'true');
+        }
+      }
+
+      // Add click handler
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session) {
+          alert('Please login to upvote!');
+          return; // Or redirect to login
+        }
+
+        const isVoted = btn.getAttribute('data-voted') === 'true';
+        const currentCount = parseInt(btn.getAttribute('data-count') || '0');
+        const countSpan = btn.querySelector('span');
+        const countSpan2 = btn.querySelector('.upvote-count'); // Handle both structures if needed
+
+        try {
+          if (isVoted) {
+            // Remove vote
+            await supabase.from('tool_votes').delete().eq('tool_id', toolId).eq('user_id', session.user.id);
+            await supabase.rpc('decrement_upvote', { tool_id_param: toolId });
+            
+            btn.removeAttribute('data-voted');
+            const newCount = Math.max(0, currentCount - 1);
+            btn.setAttribute('data-count', newCount.toString());
+            if (countSpan) countSpan.textContent = newCount.toString();
+            if (countSpan2) countSpan2.textContent = newCount.toString();
+          } else {
+            // Add vote
+            await supabase.from('tool_votes').insert({ tool_id: toolId, user_id: session.user.id });
+            await supabase.rpc('increment_upvote', { tool_id_param: toolId });
+
+            btn.setAttribute('data-voted', 'true');
+            const newCount = currentCount + 1;
+            btn.setAttribute('data-count', newCount.toString());
+            if (countSpan) countSpan.textContent = newCount.toString();
+            if (countSpan2) countSpan2.textContent = newCount.toString();
+          }
+        } catch (error) {
+          console.error('Error voting:', error);
+          alert('Failed to vote. Please try again.');
+        }
+      });
+    });
+  }
+
+  // Initialize on load
+  window.initUpvoteButtons();
+  
+  // Re-init on client-side navigation if using View Transitions (Astro 3+)
+  document.addEventListener('astro:page-load', initUpvoteButtons);
+</script>

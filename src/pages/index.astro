@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import ToolCard from '../components/ToolCard.astro';
 import SearchBar from '../components/SearchBar.astro';
 import TrendingTools from '../components/TrendingTools.astro';
+import Leaderboard from '../components/Leaderboard.astro';
 import { getAllTools, getFeaturedTools, categories } from '../lib/tools';
 
 const tools = getAllTools();
@@ -21,6 +22,10 @@ const featuredTools = getFeaturedTools();
       <div class="mx-auto mt-6 max-w-2xl">
         <SearchBar />
       </div>
+    </section>
+
+    <section class="mb-12">
+      <Leaderboard title="Today's Top Launches" />
     </section>
 
     <section class="mb-12">

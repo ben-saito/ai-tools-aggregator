@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import { getToolById } from '../lib/tools';
 import type { Tool } from '../lib/types';
 
+export const prerender = false;
+
 const toolsParam = Astro.url.searchParams.get('tools');
 const toolIds = toolsParam ? toolsParam.split(',') : [];
 
@@ -173,7 +175,20 @@ const hasTools = tools.length > 0;
 </Layout>
 
 <script>
-    import { toggleTool } from '../stores/comparisonStore';
+    import { toggleTool, selectedToolsMap } from '../stores/comparisonStore';
+
+    // Sync URL params to store on load
+    const urlParams = new URLSearchParams(window.location.search);
+    const toolsParam = urlParams.get('tools');
+    if (toolsParam) {
+      const toolIds = toolsParam.split(',');
+      // Update store to match URL
+      // We create a new map
+      const newMap: Record<string, string> = {};
+      toolIds.forEach(id => newMap[id] = 'true');
+      selectedToolsMap.set(newMap);
+    }
+
 
     // Handle remove buttons
     const removeButtons = document.querySelectorAll('[data-remove-tool]');

@@ -43,7 +43,35 @@ export interface ToolStats {
   review_count: number;
   view_count: number;
   trending_score: number;
+  upvote_count: number;
   updated_at: string;
+}
+
+export interface ToolVote {
+  id: string;
+  tool_id: string;
+  user_id: string;
+  created_at: string;
+}
+
+export interface Lead {
+  id: string;
+  tool_id: string;
+  user_id: string;
+  company_name: string;
+  company_size: string;
+  use_case: string;
+  status: 'new' | 'sent' | 'rejected';
+  created_at: string;
+}
+
+export interface ToolOwner {
+  id: string;
+  tool_id: string;
+  user_id: string;
+  status: 'pending' | 'approved' | 'rejected';
+  proof_contact: string;
+  created_at: string;
 }
 
 // Helper functions

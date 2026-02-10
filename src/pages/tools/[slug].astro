@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ReviewSection from '../../components/ReviewSection.astro';
+import LeadGenWidget from '../../components/LeadGenWidget.astro';
 import { getAllTools } from '../../lib/tools';
 
 export async function getStaticPaths() {
@@ -13,6 +14,10 @@ export async function getStaticPaths() {
 }
 
 const { tool } = Astro.props;
+
+// Determine if we should show the lead gen widget
+// For now, show for Paid and Freemium tools
+const showLeadGen = tool.pricing === 'paid' || tool.pricing === 'freemium';
 ---
 
 <Layout title={`${tool.name} - ${tool.category} | AI Tools Aggregator`}>
@@ -37,6 +42,12 @@ const { tool } = Astro.props;
       <div class="prose max-w-none">
         <h2>Description</h2>
         <p class="text-lg text-gray-700">{tool.description}</p>
+
+        {showLeadGen && (
+          <div class="my-8">
+            <LeadGenWidget toolId={tool.id} toolName={tool.name} />
+          </div>
+        )}
 
         {tool.features && tool.features.length > 0 && (
           <div class="mt-6">
@@ -97,6 +108,16 @@ const { tool } = Astro.props;
       </div>
 
       <ReviewSection toolId={tool.id} />
+      <div class="mt-8 border-t border-gray-100 py-6 text-center text-sm text-gray-500">
+        <p>
+          Are you the creator of {tool.name}? 
+          <a href={`/vendor/claim/${tool.id}`} class="ml-1 font-medium text-blue-600 hover:text-blue-500 hover:underline">
+            Claim this page
+          </a> 
+          to manage your listing.
+        </p>
+      </div>
+
     </article>
   </main>
 </Layout>

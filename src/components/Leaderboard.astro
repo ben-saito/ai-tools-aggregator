@@ -1,0 +1,182 @@
+---
+import { getToolById } from '../lib/tools';
+import { supabase } from '../lib/supabase'; // Assuming separate client file, or use conditional import
+import UpvoteButton from './UpvoteButton.astro';
+import type { Tool } from '../lib/types';
+
+// Fetch top tools "Today" (simulated by recent updates + trending score)
+// For now, we'll fetch all tools and sort by a mock 'trending' logic if DB is empty
+// Ideally we join tools_stats. Here we will fetch stats client side or SSR if possible.
+// Let's assume SSR for Index page or client fetch. 
+// Given the current architecture is hybrid, we can fetch in frontmatter if this component is used in a .astro page with SSR.
+
+// For the MVP, we might need to fetch stats.
+// Let's fetch tools with stats.
+
+// Mock data integration for now, or direct DB query if Supabase client is available in SS
+// Since we are in an Astro component, we can run server-side code.
+
+// NOTE: We need a server-side Supabase client to fetch data securely or use public API
+// We'll stick to client-side fetching for dynamic updates or simple SSR if keys allow.
+// Let's assume we pass initial data or fetch it.
+
+const { title = "Today's Top Launches" } = Astro.props;
+---
+
+<div class="rounded-xl border border-gray-200 bg-white shadow-sm">
+  <div class="border-b border-gray-100 px-6 py-4">
+    <div class="flex items-center justify-between">
+      <h2 class="text-lg font-bold text-gray-900">{title}</h2>
+      <div class="flex gap-2 text-sm">
+        <button class="rounded-md bg-gray-100 px-3 py-1 font-medium text-gray-900 hover:bg-gray-200">Today</button>
+        <button class="rounded-md px-3 py-1 font-medium text-gray-500 hover:text-gray-900">Week</button>
+        <button class="rounded-md px-3 py-1 font-medium text-gray-500 hover:text-gray-900">Month</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="leaderboard-list" class="divide-y divide-gray-100">
+    <div class="p-8 text-center text-gray-500">
+        <div class="inline-block h-6 w-6 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"></div>
+        <p class="mt-2 text-sm">Loading top tools...</p>
+    </div>
+  </div>
+  
+  <div class="border-t border-gray-100 bg-gray-50 px-6 py-3 text-center">
+    <a href="/tools" class="text-sm font-medium text-blue-600 hover:text-blue-500">View all launches &rarr;</a>
+  </div>
+</div>
+
+<script>
+  import { supabase } from '../lib/supabase';
+
+  async function loadLeaderboard() {
+    const list = document.getElementById('leaderboard-list');
+    if (!list) return;
+
+    try {
+      // Fetch tools joined with stats
+      // Supabase join syntax: tools(*, tools_stats(*)) requires FK.
+      // tools_stats has PK tool_id, but no explicit FK in definition above? 
+      // Actually definition: tool_id TEXT PRIMARY KEY.
+      // We might need to fetch separate and merge, or use a view.
+      // For simplicity: Fetch tools, then fetch stats for them.
+      
+      const { data: tools, error: toolsError } = await supabase
+        .from('tools')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(10);
+
+      if (toolsError) throw toolsError;
+
+      // Fetch stats for these tools
+      const toolIds = tools.map(t => t.id);
+      const { data: stats, error: statsError } = await supabase
+        .from('tools_stats')
+        .select('*')
+        .in('tool_id', toolIds);
+
+      // Merge
+      const toolsWithStats = tools.map(tool => {
+        const stat = stats?.find(s => s.tool_id === tool.id) || { upvote_count: 0, comment_count: 0 };
+        return { ...tool, ...stat };
+      });
+      
+      // Sort by upvotes (client side sort for now)
+      toolsWithStats.sort((a, b) => (b.upvote_count || 0) - (a.upvote_count || 0));
+
+      // Render
+      if (toolsWithStats.length === 0) {
+        list.innerHTML = `<div class="p-6 text-center text-gray-500">No tools found.</div>`;
+        return;
+      }
+
+      list.innerHTML = toolsWithStats.map((tool, index) => `
+        <div class="group relative flex items-start gap-4 p-6 transition-colors hover:bg-gray-50">
+          <div class="flex-shrink-0 pt-1 text-lg font-bold text-gray-300 w-6 text-center">
+            ${index + 1}
+          </div>
+          
+          <div class="flex-shrink-0">
+             ${tool.logo_url ? 
+                `<img src="${tool.logo_url}" alt="${tool.name}" class="h-12 w-12 rounded-lg object-cover shadow-sm bg-white">` :
+                `<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-xl">${tool.name.charAt(0)}</div>`
+             }
+          </div>
+
+          <div class="min-w-0 flex-1">
+            <h3 class="flex items-center gap-2 text-base font-bold text-gray-900">
+              <a href="/tools/${tool.id}" class="hover:underline">
+                ${tool.name}
+              </a>
+              ${tool.featured ? '<span class="rounded bg-yellow-100 px-1.5 py-0.5 text-xs font-medium text-yellow-800">Featured</span>' : ''}
+            </h3>
+            <p class="mt-1 line-clamp-2 text-sm text-gray-600">${tool.description}</p>
+            <div class="mt-2 flex items-center gap-4 text-xs text-gray-500">
+              <span class="flex items-center gap-1">
+                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                ${tool.review_count || 0} reviews
+              </span>
+              <span class="rounded-full bg-gray-100 px-2 py-0.5">${tool.category}</span>
+            </div>
+          </div>
+
+          <div class="flex-shrink-0">
+             <!-- Inject UpvoteButton here. Since this is client-side rendered HTML string, 
+                  we can't use the Astro component directly. 
+                  We need to structure the HTML to match UpvoteButton and re-init the script.
+                  OR better: use a simpler button structure here and reuse the logic.
+              -->
+              <button
+                class="upvote-btn group flex flex-col items-center rounded-lg border border-gray-200 bg-white px-3 py-2 transition-all hover:border-orange-500 hover:bg-orange-50 data-[voted=true]:border-orange-500 data-[voted=true]:bg-orange-50"
+                data-tool-id="${tool.id}"
+                data-count="${tool.upvote_count || 0}"
+                >
+                <svg
+                    class="h-4 w-4 text-gray-400 transition-colors group-hover:text-orange-500 group-data-[voted=true]:text-orange-500"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                >
+                    <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"
+                    />
+                </svg>
+                <span
+                    class="text-sm font-semibold text-gray-600 group-hover:text-orange-600 group-data-[voted=true]:text-orange-600"
+                >
+                    ${tool.upvote_count || 0}
+                </span>
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // Re-initialize upvote buttons (logic copied/imported from UpvoteButton)
+      // Since we can't easily import the init function if it's not exported, lets dispatch an event
+      // or just re-run the logic if available globally.
+      // For now, we'll rely on the script in UpvoteButton.astro dealing with data-voted.
+      // Wait, UpvoteButton script runs once. We need to trigger it again.
+      
+      // Let's assume we copy the init logic here or make it global.
+      // Making it global is cleaner.
+      if (window.initUpvoteButtons) {
+          window.initUpvoteButtons();
+      } else {
+          // Fallback: Dispatch event that UpvoteButton.astro might listen to?
+          // Or just inline the essential init logic here for simplicity.
+          // See below.
+      }
+
+    } catch (e) {
+      console.error('Error loading leaderboard:', e);
+      list.innerHTML = `<div class="p-6 text-center text-red-500">Failed to load tools.</div>`;
+    }
+  }
+
+  loadLeaderboard();
+</script>

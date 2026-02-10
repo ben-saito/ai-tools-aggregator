@@ -153,3 +153,256 @@ GRANT USAGE ON SCHEMA public TO anon, authenticated;
 GRANT ALL ON ALL TABLES IN SCHEMA public TO anon, authenticated;
 GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO anon, authenticated;
+-- Add is_verified and auth_provider columns to profiles table
+
+ALTER TABLE profiles 
+ADD COLUMN IF NOT EXISTS is_verified BOOLEAN DEFAULT false,
+ADD COLUMN IF NOT EXISTS auth_provider TEXT;
+
+-- Update handle_new_user function to populate these fields
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO public.profiles (id, username, avatar_url, is_verified, auth_provider)
+  VALUES (
+    NEW.id,
+    COALESCE(NEW.raw_user_meta_data->>'username', SPLIT_PART(NEW.email, '@', 1)),
+    NEW.raw_user_meta_data->>'avatar_url',
+    -- Set is_verified to true if provider is github or google (simplified logic for now)
+    (NEW.raw_app_meta_data->>'provider' IN ('github', 'google')),
+    NEW.raw_app_meta_data->>'provider'
+  );
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+-- Add upvote_count to tools_stats
+ALTER TABLE tools_stats 
+ADD COLUMN IF NOT EXISTS upvote_count INTEGER DEFAULT 0;
+
+-- Create tool_votes table to track user votes
+CREATE TABLE IF NOT EXISTS tool_votes (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  tool_id TEXT NOT NULL REFERENCES tools(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  UNIQUE(tool_id, user_id)
+);
+
+-- Enable RLS
+ALTER TABLE tool_votes ENABLE ROW LEVEL SECURITY;
+
+-- Policies
+CREATE POLICY "Tool votes are viewable by everyone"
+  ON tool_votes FOR SELECT
+  USING (true);
+
+CREATE POLICY "Authenticated users can upvote"
+  ON tool_votes FOR INSERT
+  WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Users can remove their own upvote"
+  ON tool_votes FOR DELETE
+  USING (auth.uid() = user_id);
+
+-- Indexes
+CREATE INDEX IF NOT EXISTS tool_votes_tool_id_idx ON tool_votes(tool_id);
+CREATE INDEX IF NOT EXISTS tool_votes_user_id_idx ON tool_votes(user_id);
+
+-- RPC Functions
+CREATE OR REPLACE FUNCTION increment_upvote(tool_id_param TEXT)
+RETURNS VOID AS $$
+BEGIN
+  -- Ensure stats record exists
+  INSERT INTO tools_stats (tool_id, upvote_count)
+  VALUES (tool_id_param, 1)
+  ON CONFLICT (tool_id)
+  DO UPDATE SET 
+    upvote_count = tools_stats.upvote_count + 1,
+    trending_score = tools_stats.trending_score + 10, -- Simple algorithm: 1 upvote = 10 points
+    updated_at = NOW();
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+CREATE OR REPLACE FUNCTION decrement_upvote(tool_id_param TEXT)
+RETURNS VOID AS $$
+BEGIN
+  UPDATE tools_stats
+  SET 
+    upvote_count = GREATEST(upvote_count - 1, 0),
+    trending_score = GREATEST(trending_score - 10, 0),
+    updated_at = NOW()
+  WHERE tool_id = tool_id_param;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+-- Add upvote_count to tools_stats
+ALTER TABLE tools_stats 
+ADD COLUMN IF NOT EXISTS upvote_count INTEGER DEFAULT 0;
+
+-- Create tool_votes table to track user votes
+CREATE TABLE IF NOT EXISTS tool_votes (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  tool_id TEXT NOT NULL REFERENCES tools(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  UNIQUE(tool_id, user_id)
+);
+
+-- Enable RLS
+ALTER TABLE tool_votes ENABLE ROW LEVEL SECURITY;
+
+-- Policies
+CREATE POLICY "Tool votes are viewable by everyone"
+  ON tool_votes FOR SELECT
+  USING (true);
+
+CREATE POLICY "Authenticated users can upvote"
+  ON tool_votes FOR INSERT
+  WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Users can remove their own upvote"
+  ON tool_votes FOR DELETE
+  USING (auth.uid() = user_id);
+
+-- Indexes
+CREATE INDEX IF NOT EXISTS tool_votes_tool_id_idx ON tool_votes(tool_id);
+CREATE INDEX IF NOT EXISTS tool_votes_user_id_idx ON tool_votes(user_id);
+
+-- RPC Functions
+CREATE OR REPLACE FUNCTION increment_upvote(tool_id_param TEXT)
+RETURNS VOID AS $$
+BEGIN
+  -- Ensure stats record exists
+  INSERT INTO tools_stats (tool_id, upvote_count)
+  VALUES (tool_id_param, 1)
+  ON CONFLICT (tool_id)
+  DO UPDATE SET 
+    upvote_count = tools_stats.upvote_count + 1,
+    trending_score = tools_stats.trending_score + 10, -- Simple algorithm: 1 upvote = 10 points
+    updated_at = NOW();
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+CREATE OR REPLACE FUNCTION decrement_upvote(tool_id_param TEXT)
+RETURNS VOID AS $$
+BEGIN
+  UPDATE tools_stats
+  SET 
+    upvote_count = GREATEST(upvote_count - 1, 0),
+    trending_score = GREATEST(trending_score - 10, 0),
+    updated_at = NOW()
+  WHERE tool_id = tool_id_param;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+-- Create tool_owners table
+CREATE TABLE IF NOT EXISTS public.tool_owners (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  tool_id TEXT NOT NULL REFERENCES public.tools(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  status TEXT NOT NULL CHECK (status IN ('pending', 'approved', 'rejected')) DEFAULT 'pending',
+  proof_contact TEXT, -- Email or other contact for verification
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  UNIQUE(tool_id, user_id) -- One claim per user per tool (though effectively one owner per tool usually, but start flexible)
+);
+
+-- Enable RLS
+ALTER TABLE public.tool_owners ENABLE ROW LEVEL SECURITY;
+
+-- Policies
+
+-- Users can insert their own claims
+CREATE POLICY "Users can submit ownership claims"
+  ON public.tool_owners FOR INSERT
+  WITH CHECK (auth.uid() = user_id);
+
+-- Users can view their own claims
+CREATE POLICY "Users can view their own claims"
+  ON public.tool_owners FOR SELECT
+  USING (auth.uid() = user_id);
+
+-- Only admins/approved owners can update/delete? 
+-- For MVP, let's say users can delete their pending claims.
+CREATE POLICY "Users can delete their own pending claims"
+  ON public.tool_owners FOR DELETE
+  USING (auth.uid() = user_id AND status = 'pending');
+
+-- Public/Admins:
+-- We might need an admin role later. For now, assume manual DB updates for approval.
+
+-- Indexes
+CREATE INDEX IF NOT EXISTS idx_tool_owners_user_id ON public.tool_owners(user_id);
+CREATE INDEX IF NOT EXISTS idx_tool_owners_tool_id ON public.tool_owners(tool_id);
+CREATE INDEX IF NOT EXISTS idx_tool_owners_status ON public.tool_owners(status);
+-- Create tool_owners table
+CREATE TABLE IF NOT EXISTS public.tool_owners (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  tool_id TEXT NOT NULL REFERENCES public.tools(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  status TEXT NOT NULL CHECK (status IN ('pending', 'approved', 'rejected')) DEFAULT 'pending',
+  proof_contact TEXT, -- Email or other contact for verification
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  UNIQUE(tool_id, user_id) -- One claim per user per tool (though effectively one owner per tool usually, but start flexible)
+);
+
+-- Enable RLS
+ALTER TABLE public.tool_owners ENABLE ROW LEVEL SECURITY;
+
+-- Policies
+
+-- Users can insert their own claims
+CREATE POLICY "Users can submit ownership claims"
+  ON public.tool_owners FOR INSERT
+  WITH CHECK (auth.uid() = user_id);
+
+-- Users can view their own claims
+CREATE POLICY "Users can view their own claims"
+  ON public.tool_owners FOR SELECT
+  USING (auth.uid() = user_id);
+
+-- Only admins/approved owners can update/delete? 
+-- For MVP, let's say users can delete their pending claims.
+CREATE POLICY "Users can delete their own pending claims"
+  ON public.tool_owners FOR DELETE
+  USING (auth.uid() = user_id AND status = 'pending');
+
+-- Public/Admins:
+-- We might need an admin role later. For now, assume manual DB updates for approval.
+
+-- Indexes
+CREATE INDEX IF NOT EXISTS idx_tool_owners_user_id ON public.tool_owners(user_id);
+CREATE INDEX IF NOT EXISTS idx_tool_owners_tool_id ON public.tool_owners(tool_id);
+CREATE INDEX IF NOT EXISTS idx_tool_owners_status ON public.tool_owners(status);
+-- Create leads table
+CREATE TABLE IF NOT EXISTS public.leads (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  tool_id TEXT NOT NULL REFERENCES public.tools(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES public.profiles(id) ON DELETE SET NULL, -- Optional, but preferred
+  company_name TEXT NOT NULL,
+  company_size TEXT,
+  use_case TEXT,
+  status TEXT NOT NULL CHECK (status IN ('new', 'sent', 'rejected')) DEFAULT 'new',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Enable RLS
+ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
+
+-- Policies
+
+-- Users can insert leads (Anyone can request a demo? Or only auth? Let's say auth for quality)
+CREATE POLICY "Authenticated users can submit leads"
+  ON public.leads FOR INSERT
+  WITH CHECK (auth.role() = 'authenticated'); 
+  -- If we want to force user_id assignment: AND auth.uid() = user_id
+
+-- Tool owners can view leads for their tools
+-- This requires a join with tool_owners, which is complex in RLS sometimes.
+-- For MVP, let's allow users to view leads they submitted?
+CREATE POLICY "Users can view their own submitted leads"
+  ON public.leads FOR SELECT
+  USING (auth.uid() = user_id);
+
+-- Admins/Owners (Complex policy or Admin API)
+-- For now, we will rely on manual DB access or future Admin Dashboard for viewing all leads.
