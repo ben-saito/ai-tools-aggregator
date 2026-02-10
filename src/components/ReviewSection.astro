@@ -6,7 +6,7 @@ interface Props {
 const { toolId } = Astro.props;
 ---
 
-<div class="mt-12 border-t border-gray-200 pt-12">
+<div class="mt-12 border-t border-gray-200 pt-12" data-tool-id={toolId}>
   <h2 class="mb-8 text-2xl font-bold text-gray-900">Reviews & Ratings</h2>
 
   <!-- Reviews Stats -->
@@ -28,10 +28,20 @@ const { toolId } = Astro.props;
   </div>
 </div>
 
-<script define:vars={{ toolId }}>
+<script type="module">
   import { supabase, getToolReviews, getToolStats, submitReview, voteReviewHelpful } from '../lib/supabase';
 
+  // Get toolId from data attribute
+  const reviewSection = document.querySelector('[data-tool-id]');
+  const toolId = reviewSection?.getAttribute('data-tool-id');
+
+  if (!toolId) {
+    console.error('No toolId found');
+  }
+
   async function loadReviews() {
+    if (!toolId) return;
+    
     try {
       const [reviews, stats] = await Promise.all([
         getToolReviews(toolId),
