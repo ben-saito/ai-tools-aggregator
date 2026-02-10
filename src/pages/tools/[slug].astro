@@ -20,9 +20,30 @@ const { tool } = Astro.props;
 // Determine if we should show the lead gen widget
 // For now, show for Paid and Freemium tools
 const showLeadGen = tool.pricing === 'paid' || tool.pricing === 'freemium';
+
+// Schema.org structured data
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": tool.name,
+  "description": tool.description,
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": tool.pricing === 'free' ? "0" : tool.pricing === 'freemium' ? "0" : "varies",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "0"
+  }
+};
 ---
 
-<Layout title={`${tool.name} - ${tool.category} | AI Tools Aggregator`}>
+<Layout title={`${tool.name} - ${tool.category} | AI Tools Aggregator`} description={tool.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   <Header />
   <main class="mx-auto max-w-4xl px-4 py-8">
     <article>

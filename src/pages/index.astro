@@ -9,9 +9,29 @@ import { getAllTools, getFeaturedTools, categories } from '../lib/tools';
 
 const tools = getAllTools();
 const featuredTools = getFeaturedTools();
+
+// Schema.org structured data
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AI Tools Aggregator",
+  "description": "Discover the best AI tools for 2026. Curated directory of 50+ AI tools across 10 categories.",
+  "url": "https://ai-tools-aggregator-seven.vercel.app",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://ai-tools-aggregator-seven.vercel.app/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Tools Aggregator",
+    "url": "https://ai-tools-aggregator-seven.vercel.app"
+  }
+};
 ---
 
 <Layout title="Discover the Best AI Tools for 2026">
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-8">
     <section class="mb-12 text-center">
