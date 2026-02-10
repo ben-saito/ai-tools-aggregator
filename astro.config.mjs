@@ -9,7 +9,9 @@ export default defineConfig({
     // Sitemap will be added after first successful deployment
   ],
   output: 'hybrid', // Hybrid rendering (Static + SSR)
-  adapter: vercel(),
+  adapter: vercel({
+    runtime: 'nodejs20.x', // Use Node.js 20 runtime
+  }),
   site: 'https://ai-tools-aggregator-seven.vercel.app',
   compressHTML: true,
   build: {
