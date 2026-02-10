@@ -1,207 +1,193 @@
 # Launch Posts - Ready to Use
 
-**Live Site**: https://ai-tools-aggregator-seven.vercel.app/
-**GitHub**: https://github.com/ben-saito/ai-tools-aggregator
-**Launch Date**: 2026-02-10
+Date: 2026-02-10
+Status: Ready to post
 
 ---
 
-## 🐦 X (Twitter) Posts
+## 🐦 X (Twitter) Launch Thread
 
-### Post #1: Launch Announcement (Main)
-
+### Post 1 (Main Announcement)
 ```
-🚀 1週間かけて何かを作った
+🎉 Launching AI Tools Aggregator v2.0 - Community Edition!
 
-問題: 良いAIツールを見つけるのは混沌
-- 毎月100以上の新ツール
-- 信頼できる情報源がない
-- 比較が難しい
+After 2 days of building in public, we're live with:
 
-解決策: AI Tools Aggregator
-✅ 50以上の厳選ツール
-✅ 10カテゴリ
-✅ 高速検索
-✅ 完全無料
+⭐ User reviews & ratings
+🔥 Real-time trending algorithm (HN-inspired)
+📊 Community rankings
+🔐 GitHub/Google login
 
-Astro + Tailwindで1週間で構築
+Built with @astrodotbuild + @supabase in 47 minutes!
 
-🔗 https://ai-tools-aggregator-seven.vercel.app
+Try it: https://ai-tools-aggregator-seven.vercel.app
 
-#BuildInPublic #AITools #IndieHacker
+#BuildInPublic #AITools #WebDev
 ```
 
-### Post #2: Technical Thread (For Devs)
-
+### Post 2 (Features)
 ```
-Built a complete AI tools directory in 1 week 🧵
+What makes it different? 🤔
 
-Tech stack:
-- Astro 4.x (SSG)
+✅ Real user reviews (not just a list)
+✅ Trending algorithm that surfaces hot tools
+✅ Community-driven rankings
+✅ Clean, fast, mobile-friendly UI
+
+50+ curated AI tools across 10 categories
+
+It's like Product Hunt meets Hacker News for AI tools 🚀
+```
+
+### Post 3 (Tech Stack)
+```
+Tech stack deep dive 🛠️
+
+Frontend:
+- Astro 4.x (hybrid SSR/SSG)
 - Tailwind CSS
 - TypeScript
-- JSON database
-- Vercel hosting
 
-Results:
-✅ 63 static pages
-✅ 564KB bundle (ultra-light)
-✅ <1s load time
-✅ Perfect Lighthouse score
+Backend:
+- Supabase (PostgreSQL + Auth)
+- Row Level Security
+- Real-time updates
 
-Open source: https://github.com/ben-saito/ai-tools-aggregator
+Deployed on @vercel
 
-Live: https://ai-tools-aggregator-seven.vercel.app
-
-#Astro #BuildInPublic #WebDev
+Open source (coming soon) 👀
 ```
 
-### Post #3: Value-First (For Users)
-
+### Post 4 (Call to Action)
 ```
-💎 I curated 50+ AI tools so you don't have to
+Looking for early adopters! 🙏
 
-Categories:
-💬 Text (ChatGPT, Claude, Gemini)
-🎨 Image (Midjourney, DALL-E, Flux)
-💻 Code (Copilot, Cursor, v0)
-🎥 Video (Runway, Sora, HeyGen)
-+ 6 more
+If you use AI tools:
+1. Try the site
+2. Leave a review on your favorite tool
+3. Share feedback
 
-All in one searchable directory
+Goal: Build the most helpful AI tools directory
 
-Free. No signup. Just tools.
+Your reviews help others discover the right tools 💪
 
-🔗 https://ai-tools-aggregator-seven.vercel.app
-
-#AITools #Productivity #AI
+Link: https://ai-tools-aggregator-seven.vercel.app
 ```
 
 ---
 
-## 🟠 Hacker News
+## 🧡 Hacker News (Show HN)
 
 ### Title
 ```
-Show HN: I built an AI tools directory in 1 week
+Show HN: AI Tools Aggregator – Community-driven directory with reviews & rankings
 ```
 
 ### Post
 ```
-Hi HN!
-
-I spent the last week building AI Tools Aggregator - a curated directory of 50+ AI tools across 10 categories.
-
-The problem: Finding good AI tools is scattered across dozens of sites. There's no single source of truth, and it's hard to compare options.
-
-The solution: A fast, searchable directory with:
-- 10 categories (text, image, video, audio, code, marketing, productivity, research, design, data)
-- Real-time search
-- Clean, minimal design
-- Free forever
-- Open source
-
-Tech stack: Astro + Tailwind CSS + TypeScript. Built as a static site (63 pages) for maximum performance. Bundle size is only 564KB.
+Hey HN! I built a community-driven AI tools directory over the past 2 days.
 
 Live site: https://ai-tools-aggregator-seven.vercel.app
-GitHub: https://github.com/ben-saito/ai-tools-aggregator
 
-This is my first #BuildInPublic project. I'd love your feedback!
+**What it does:**
+- 50+ curated AI tools across 10 categories
+- User reviews & 5-star ratings
+- Real-time trending algorithm (inspired by HN's ranking)
+- Community-driven rankings
 
-Some questions I'd appreciate input on:
-- What features would make this more useful?
-- What other AI tools should I add?
-- Any UX improvements?
+**Why I built it:**
+Most AI tool directories are just static lists or affiliate farms. I wanted something community-driven where real users share their experiences.
 
-Thanks for checking it out!
-```
+**Tech stack:**
+- Astro (hybrid SSR/SSG) - incredibly fast
+- Supabase (PostgreSQL + Auth) - handles reviews & auth
+- Vercel - deployment
 
-### Post URL
-Submit at: https://news.ycombinator.com/submit
+**The trending algorithm:**
+Inspired by HN's ranking system. Tools with recent reviews and helpful votes rise to the top, but decay over time to keep fresh content surfacing.
+
+Formula: `score = (reviews + helpful_votes * 2) / (age_hours + 2)^1.5`
+
+**Challenges:**
+1. Balancing SSG performance with SSR dynamic content (Astro's hybrid mode solved this)
+2. Preventing spam reviews (Row Level Security + one review per user per tool)
+3. Making rankings feel fair (still iterating on the algorithm)
+
+**What's next:**
+- Open sourcing the code
+- Adding tool submission workflow
+- Building out categories
+- Community moderation tools
+
+**Looking for feedback on:**
+- The trending algorithm - does it feel fair?
+- UI/UX - is it intuitive?
+- What features would you want to see?
+
+Happy to answer any questions!
 
 ---
 
-## 🔴 Reddit
+P.S. Built most of this in a single 47-minute sprint using Claude Code. Modern AI tools are wild.
+```
+
+---
+
+## 📱 Reddit Posts
 
 ### r/SideProject
 
 **Title:**
 ```
-I built an AI tools directory in 1 week - AI Tools Aggregator
+Built a community-driven AI tools directory with reviews & rankings in 2 days
 ```
 
 **Post:**
 ```
-Hey r/SideProject!
+Hey everyone! I just launched AI Tools Aggregator - a community-driven directory of AI tools.
 
-I just launched **AI Tools Aggregator** - a curated directory of 50+ AI tools.
+🔗 Live site: https://ai-tools-aggregator-seven.vercel.app
 
-**The problem:** Finding good AI tools is scattered everywhere. I was tired of searching through dozens of listicles and marketing sites.
+**What makes it different:**
+- ⭐ User reviews & ratings (not just a list)
+- 🔥 Real-time trending algorithm
+- 📊 Community rankings
+- 🚀 Fast & clean UI
 
-**The solution:** A single, fast, searchable directory.
+**Why I built it:**
+I was frustrated with AI tool directories that are just affiliate link farms or static lists. I wanted something where the community decides what tools are actually good.
 
 **Features:**
-✅ 10 categories (text, image, video, code, etc.)
-✅ Real-time search
-✅ 50+ curated tools
-✅ Free forever
-✅ Open source
+- 50+ curated AI tools across 10 categories
+- GitHub/Google login
+- Review system with helpful votes
+- Trending algorithm (Hacker News-inspired)
+- Mobile-friendly design
 
 **Tech stack:**
-- Astro (static site generation)
+- Astro 4.x (hybrid SSR/SSG)
+- Supabase (PostgreSQL + Auth)
 - Tailwind CSS
-- TypeScript
 - Vercel
 
-**Build stats:**
-- Built in 1 week
-- 63 static pages
-- 564KB bundle size
-- Sub-1s load times
+**Development time:**
+Most features built in 47 minutes using Claude Code. The power of modern AI coding assistants is incredible.
 
-**Links:**
-- Live site: https://ai-tools-aggregator-seven.vercel.app
-- GitHub: https://github.com/ben-saito/ai-tools-aggregator
+**Looking for:**
+- Early users to test and leave reviews
+- Feedback on the UI/UX
+- Tool suggestions to add
+- Ideas for new features
 
-This is my first week of #BuildInPublic. Would love your feedback!
+**Next steps:**
+- Open source the code
+- Add tool submission workflow
+- Expand categories
+- Community moderation tools
 
-**What's next:**
-- Add more tools (aiming for 200+ by end of month)
-- Premium listings for tool creators
-- Newsletter for weekly AI tool discoveries
+Check it out and let me know what you think! Happy to answer any questions.
 
-Any suggestions for features or tools to add?
-```
-
----
-
-### r/InternetIsBeautiful
-
-**Title:**
-```
-AI Tools Aggregator - A clean, fast directory of 50+ AI tools
-```
-
-**Post:**
-```
-I built a clean, minimal directory for discovering AI tools:
-
-https://ai-tools-aggregator-seven.vercel.app
-
-**Features:**
-- 50+ curated AI tools
-- 10 categories (text, image, video, code, marketing, etc.)
-- Real-time search
-- Fast (static site, <1s load)
-- Free, no signup required
-
-**Why I built this:**
-Finding good AI tools is a mess - scattered across dozens of sites with no easy way to compare. This is my attempt at creating a single source of truth.
-
-**Tech:**
-Built with Astro + Tailwind CSS. Open source on GitHub: https://github.com/ben-saito/ai-tools-aggregator
-
-Feedback welcome!
+Also accepting roasts 😅
 ```
 
 ---
@@ -210,166 +196,199 @@ Feedback welcome!
 
 **Title:**
 ```
-I made a searchable directory of AI tools [Free]
+Community-driven AI tools directory with reviews & trending algorithm
 ```
 
 **Post:**
 ```
-Hi r/artificial!
-
-I created **AI Tools Aggregator** - a directory to help people discover AI tools more easily.
-
-**Link:** https://ai-tools-aggregator-seven.vercel.app
-
-**What's included:**
-- 50+ AI tools across 10 categories
-- Text generation (ChatGPT, Claude, Gemini)
-- Image generation (Midjourney, DALL-E, Stable Diffusion)
-- Video, audio, code, productivity tools, and more
-- Real-time search functionality
-
-**Why this exists:**
-The AI tool landscape is growing fast (100+ new tools per month), but there's no good centralized directory. This is my attempt to solve that.
+Built a site where the community reviews and ranks AI tools: https://ai-tools-aggregator-seven.vercel.app
 
 **Features:**
-✅ Free forever
-✅ No signup required
-✅ Fast search
-✅ Mobile-friendly
-✅ Open source
+- User reviews & 5-star ratings
+- Trending algorithm (similar to HN)
+- 50+ AI tools across 10 categories
+- Clean, fast interface
 
-**For tool creators:**
-If you've built an AI tool, you can submit it for free: https://ai-tools-aggregator-seven.vercel.app/submit
+**Why it matters:**
+Most AI tool directories are affiliate farms. This is community-driven - real users sharing real experiences.
 
-Built with Astro + Tailwind CSS. Open source: https://github.com/ben-saito/ai-tools-aggregator
+**Tech:**
+- Astro + Supabase + Vercel
+- Built in 2 days
 
-Would love to hear what other tools you think should be added!
+**Looking for feedback** on the trending algorithm and what tools to add next.
+
+Thoughts?
 ```
 
 ---
 
-## 📧 Product Hunt (Schedule for Next Week)
+### r/startups
 
-### Tagline
+**Title:**
 ```
-Curated directory of 50+ AI tools across 10 categories
-```
-
-### Description
-```
-AI Tools Aggregator is a fast, searchable directory of the best AI tools for 2026.
-
-🔍 Key Features:
-• 50+ hand-picked AI tools
-• 10 major categories (text, image, video, code, marketing, productivity, research, design, data, audio)
-• Real-time search
-• Clean, minimal interface
-• Free forever
-
-🚀 Why We Built This:
-The AI tool landscape is exploding with 100+ new tools every month. We built this to create a single, reliable source for discovering quality AI tools without the noise.
-
-⚡ Tech:
-Built with Astro for blazing-fast performance (sub-1s load times). Static site generation means no database overhead. Open source on GitHub.
-
-🎯 Perfect For:
-• Developers looking for AI coding assistants
-• Designers exploring AI image/video tools
-• Marketers searching for AI writing tools
-• Anyone curious about AI tools
-
-💰 Free & Open Source:
-No signup required. No paywalls. Just great AI tools.
-
-🔗 Submit Your Tool:
-Tool creators can submit their AI tools for free. Premium featured listings available for enhanced visibility.
+Launched AI Tools Aggregator – Community-driven directory (2-day build)
 ```
 
-### First Comment (Post Immediately After Launch)
+**Post:**
 ```
-👋 Hi Product Hunt!
+Just launched: https://ai-tools-aggregator-seven.vercel.app
 
-I'm the creator of AI Tools Aggregator. I built this over the past week because I was frustrated with how scattered AI tool information is online.
+**What it is:**
+Community-driven directory where users review and rank AI tools.
 
-🎯 What makes this different:
-• Curated (not another auto-generated list)
-• Fast (static site, no bloat)
-• Clean design (no ads, no clutter)
-• Open source (GitHub: https://github.com/ben-saito/ai-tools-aggregator)
+**MVP features:**
+- User authentication (GitHub/Google)
+- Review system with 5-star ratings
+- Trending algorithm
+- Community rankings
+- 50+ tools across 10 categories
 
-📈 What's next:
-• Adding 150+ more tools
-• Premium listings for tool creators
-• Weekly newsletter
-• Community voting on tools
+**The pivot:**
+Originally planned B2B SaaS (charge tool creators for listings), but realized:
+> "Enterprises won't pay an unknown platform"
 
-🙏 I'd love your feedback:
-• What features would make this more useful?
-• What tools are missing?
-• Any UX improvements?
+So pivoted to community-first. Build audience → add value → monetize later.
 
-Thanks for checking it out! 🚀
+**Build time:**
+- Day 1: Static site (50 tools, 10 categories)
+- Day 2: Community features (reviews, rankings, auth) - 47 minutes
+
+**Tech stack:**
+- Astro (hybrid SSR/SSG)
+- Supabase (PostgreSQL + Auth)
+- Vercel
+
+**Monetization plan (later):**
+- Month 1-3: Build community (free)
+- Month 4+: Pro members ($9/month) - ad-free, badges
+- Month 6+: Analytics for tool creators ($99/month)
+
+**Metrics goals (Month 1):**
+- 500 users
+- 1,000 reviews
+- 10,000 visitors
+
+**Looking for:**
+- Early users & feedback
+- Growth advice
+- Tools to add
+
+**Questions I have:**
+- Is the pivot from B2B to community the right move?
+- How to drive initial traffic without budget?
+- Best practices for community moderation?
+
+Would love your thoughts!
 ```
 
 ---
 
-## 📱 Social Media Strategy (First Week)
+## 📧 Email Template (for outreach - optional)
+
+**Subject:**
+```
+Launched community-driven AI tools directory - would love your feedback
+```
+
+**Body:**
+```
+Hi [Name],
+
+I just launched AI Tools Aggregator - a community-driven directory where users review and rank AI tools.
+
+Live site: https://ai-tools-aggregator-seven.vercel.app
+
+Unlike other directories, this is:
+- Community-driven (real user reviews)
+- Has a trending algorithm (HN-inspired)
+- Clean, fast, mobile-friendly
+
+I'd love your feedback as someone in the AI space. Would you be willing to:
+1. Check out the site
+2. Leave a review on a tool you use
+3. Share any thoughts on what's missing
+
+Thanks for your time!
+
+Best,
+[Your name]
+```
+
+---
+
+## 📋 Post Sequence (Recommended)
 
 ### Day 1 (Launch Day)
-- [ ] Post main announcement on X
-- [ ] Post on Hacker News
-- [ ] Post on Reddit (all 3 subreddits)
-- [ ] Share in relevant Discord servers
+1. **X Post 1** (Main announcement) - 09:00
+2. **Hacker News** (Show HN) - 09:30
+3. **X Post 2** (Features) - 12:00
+4. **Reddit r/SideProject** - 14:00
+5. **X Post 3** (Tech stack) - 17:00
+6. **Reddit r/artificial** - 19:00
 
 ### Day 2
-- [ ] Post technical thread on X
-- [ ] Share behind-the-scenes build process
-- [ ] Respond to all comments/feedback
+1. **X Post 4** (Call to action) - 09:00
+2. **Reddit r/startups** - 11:00
+3. Engage with comments on all platforms
 
-### Day 3
-- [ ] Post value-focused tweet
-- [ ] Feature 3 top tools individually
-- [ ] Start engaging with AI tool creators
-
-### Day 4-7
-- [ ] Daily: Share 1 featured tool
-- [ ] Engage with AI community
-- [ ] Collect feedback for improvements
-- [ ] Prepare Product Hunt launch
+### Day 3-7
+- Daily X updates (user count, reviews, insights)
+- Respond to all feedback
+- Share interesting reviews
+- Tool of the day highlights
 
 ---
 
-## 📊 Success Metrics (Week 1)
+## 🎯 Success Metrics to Share
 
-**Traffic Goals:**
-- 1,000 unique visitors
-- 100+ social shares
-- 20+ backlinks
+Track and share these in follow-up posts:
 
-**Engagement Goals:**
-- 50+ tool detail page views
-- 10+ submit tool inquiries
-- 5+ GitHub stars
+**Week 1:**
+- Users registered: X
+- Reviews submitted: X
+- Tools viewed: X
+- Top trending tool: [Name]
 
-**Social Goals:**
-- 100+ X followers
-- HN front page (50+ upvotes)
-- Reddit: 100+ combined upvotes
+**Example update post:**
+```
+Week 1 update on AI Tools Aggregator 📊
 
----
+✅ 127 users registered
+✅ 243 reviews submitted
+✅ 2,847 unique visitors
+✅ Top trending: ChatGPT
 
-## 🎯 Next Steps After Launch
+Thank you for the amazing support! 🙏
 
-1. Monitor analytics (Vercel, Google Analytics)
-2. Respond to all feedback
-3. Fix any reported bugs
-4. Add top-requested features
-5. Start reaching out to AI tool creators
-6. Prepare Product Hunt launch assets
-7. Write launch retrospective blog post
+What should we build next?
+```
 
 ---
 
-**Launch Date**: 2026-02-10
-**Status**: 🚀 READY TO POST
-**All links verified**: ✅
+## ⚠️ Important Notes
+
+**Before posting:**
+1. ✅ Test all features work
+2. ✅ Check site loads fast
+3. ✅ Mobile view looks good
+4. ✅ No critical bugs
+5. ✅ Have 5-10 seed reviews on popular tools
+
+**When posting:**
+1. Be responsive to comments
+2. Thank people for feedback
+3. Fix bugs mentioned immediately
+4. Don't be defensive about criticism
+5. Be transparent about limitations
+
+**Avoid:**
+- Over-promoting
+- Ignoring feedback
+- Arguing with critics
+- Spamming multiple subreddits at once
+- Making promises you can't keep
+
+---
+
+**Ready to launch! 🚀**

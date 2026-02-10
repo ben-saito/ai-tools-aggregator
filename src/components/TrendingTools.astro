@@ -46,7 +46,7 @@
           ...stat,
           tool: tools.find(t => t.id === stat.tool_id)
         }))
-        .filter(item => item.tool);
+        .filter(item => item.tool != null);
 
       container.innerHTML = trendingTools.map(item => `
         <a href="/tools/${item.tool.id}" class="group block rounded-lg border border-gray-200 bg-white p-6 transition hover:border-primary-500 hover:shadow-md">
@@ -108,7 +108,7 @@
           ...stat,
           tool: tools.find(t => t.id === stat.tool_id)
         }))
-        .filter(item => item.tool);
+        .filter(item => item.tool != null);
 
       container.innerHTML = topRatedTools.map(item => `
         <a href="/tools/${item.tool.id}" class="group block rounded-lg border border-gray-200 bg-white p-6 transition hover:border-primary-500 hover:shadow-md">

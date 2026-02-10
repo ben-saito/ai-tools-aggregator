@@ -114,7 +114,7 @@ export const prerender = false; // SSR for reviews
           // Add helpful button listeners
           document.querySelectorAll('.helpful-btn').forEach(btn => {
             btn.addEventListener('click', async (e) => {
-              const reviewId = (e.currentTarget as HTMLElement).dataset.reviewId;
+              const reviewId = e.currentTarget.dataset.reviewId;
               const { data: { session } } = await supabase.auth.getSession();
               
               if (!session) {
@@ -135,7 +135,7 @@ export const prerender = false; // SSR for reviews
     }
   }
 
-  function renderStars(rating: number) {
+  function renderStars(rating) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
@@ -214,9 +214,9 @@ export const prerender = false; // SSR for reviews
       document.getElementById('review-form')?.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const formData = new FormData(e.target as HTMLFormElement);
-        const rating = parseInt(formData.get('rating') as string);
-        const comment = formData.get('comment') as string;
+        const formData = new FormData(e.target);
+        const rating = parseInt(formData.get('rating'));
+        const comment = formData.get('comment');
 
         if (!rating || !comment) {
           alert('Please provide a rating and comment');
@@ -226,14 +226,14 @@ export const prerender = false; // SSR for reviews
         try {
           await submitReview(toolId, session.user.id, rating, comment);
           alert('Review submitted successfully!');
-          (e.target as HTMLFormElement).reset();
+          e.target.reset();
           selectedRating = 0;
           document.querySelectorAll('.rating-star').forEach(s => {
             s.classList.remove('text-yellow-400');
             s.classList.add('text-gray-300');
           });
           loadReviews(); // Reload reviews
-        } catch (error: any) {
+        } catch (error) {
           if (error.code === '23505') {
             alert('You have already reviewed this tool');
           } else {
