@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+export const prerender = false; // SSR for real-time rankings
+---
+
+<Layout
+  title="AI Tools Rankings - Trending & Top Rated"
+  description="Discover trending and top-rated AI tools based on community reviews"
+>
+  <Header />
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <h1 class="mb-8 text-3xl font-bold text-gray-900">AI Tools Rankings</h1>
+
+    <!-- Tabs -->
+    <div class="mb-8 border-b border-gray-200">
+      <nav class="-mb-px flex gap-6">
+        <button class="ranking-tab active border-b-2 border-blue-600 px-1 pb-4 text-sm font-medium text-blue-600" data-tab="trending">
+          🔥 Trending
+        </button>
+        <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-tab="top-rated">
+          ⭐ Top Rated
+        </button>
+        <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-tab="most-reviewed">
+          💬 Most Reviewed
+        </button>
+      </nav>
+    </div>
+
+    <!-- Rankings Content -->
+    <div id="ranking-content" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="col-span-full text-center py-8">
+        <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"></div>
+        <p class="mt-2 text-gray-600">Loading rankings...</p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  import { getTrendingTools, getTopRatedTools } from '../lib/supabase';
+  import { getAllTools } from '../lib/tools';
+
+  type Tab = 'trending' | 'top-rated' | 'most-reviewed';
+  let currentTab: Tab = 'trending';
+
+  async function loadRankings(tab: Tab) {
+    currentTab = tab;
+    const content = document.getElementById('ranking-content');
+    if (!content) return;
+
+    // Update tab styles
+    document.querySelectorAll('.ranking-tab').forEach(btn => {
+      if (btn.getAttribute('data-tab') === tab) {
+        btn.classList.add('active', 'border-blue-600', 'text-blue-600');
+        btn.classList.remove('border-transparent', 'text-gray-500');
+      } else {
+        btn.classList.remove('active', 'border-blue-600', 'text-blue-600');
+        btn.classList.add('border-transparent', 'text-gray-500');
+      }
+    });
+
+    content.innerHTML = `
+      <div class="col-span-full text-center py-8">
+        <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"></div>
+        <p class="mt-2 text-gray-600">Loading rankings...</p>
+      </div>
+    `;
+
+    try {
+      const tools = getAllTools();
+      let statsData;
+
+      if (tab === 'trending') {
+        statsData = await getTrendingTools(20);
+      } else {
+        statsData = await getTopRatedTools(20, 1); // Min 1 review
+        
+        if (tab === 'most-reviewed') {
+          // Sort by review count
+          statsData = statsData.sort((a, b) => b.review_count - a.review_count);
+        }
+      }
+
+      if (statsData.length === 0) {
+        content.innerHTML = `
+          <div class="col-span-full text-center py-12 text-gray-600">
+            No tools found. Be the first to review!
+          </div>
+        `;
+        return;
+      }
+
+      // Match stats with tool data
+      const rankedTools = statsData
+        .map(stat => ({
+          ...stat,
+          tool: tools.find(t => t.id === stat.tool_id)
+        }))
+        .filter(item => item.tool); // Only include tools that exist
+
+      content.innerHTML = rankedTools.map((item, index) => `
+        <div class="rounded-lg border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl font-bold text-gray-300">#${index + 1}</div>
+            <div class="flex-1">
+              ${item.tool.logoUrl ? `
+                <img src="${item.tool.logoUrl}" alt="${item.tool.name}" class="mb-3 h-12 w-12 rounded-lg">
+              ` : ''}
+              <h3 class="text-lg font-semibold text-gray-900">
+                <a href="/tools/${item.tool.id}" class="hover:text-blue-600">
+                  ${item.tool.name}
+                </a>
+              </h3>
+              <p class="mt-1 text-sm text-gray-600">${item.tool.description}</p>
+              
+              <div class="mt-4 flex items-center gap-4 text-sm">
+                <div class="flex items-center gap-1">
+                  <span class="text-yellow-400">⭐</span>
+                  <span class="font-medium">${item.average_rating.toFixed(1)}</span>
+                </div>
+                <div class="text-gray-600">
+                  ${item.review_count} reviews
+                </div>
+                ${tab === 'trending' ? `
+                  <div class="text-orange-600 font-medium">
+                    🔥 ${item.trending_score.toFixed(2)}
+                  </div>
+                ` : ''}
+              </div>
+
+              <div class="mt-4 flex gap-2">
+                <span class="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700">
+                  ${item.tool.category}
+                </span>
+                <span class="rounded bg-blue-50 px-2 py-1 text-xs text-blue-700">
+                  ${item.tool.pricing}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    } catch (error) {
+      console.error('Error loading rankings:', error);
+      content.innerHTML = `
+        <div class="col-span-full text-center py-12 text-red-600">
+          Error loading rankings. Please try again later.
+        </div>
+      `;
+    }
+  }
+
+  // Tab click handlers
+  document.querySelectorAll('.ranking-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.getAttribute('data-tab') as Tab;
+      loadRankings(tab);
+    });
+  });
+
+  // Initial load
+  loadRankings('trending');
+</script>

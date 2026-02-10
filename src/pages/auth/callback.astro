@@ -1,0 +1,33 @@
+---
+export const prerender = false; // SSR required for auth callback
+---
+
+<script>
+  import { supabase } from '../../lib/supabase';
+
+  // Handle auth callback
+  const hashParams = new URLSearchParams(window.location.hash.substring(1));
+  const accessToken = hashParams.get('access_token');
+  const refreshToken = hashParams.get('refresh_token');
+
+  if (accessToken && refreshToken) {
+    // Set session from hash params
+    supabase.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    }).then(() => {
+      // Redirect to home page after successful login
+      window.location.href = '/';
+    });
+  } else {
+    // No tokens, redirect to login
+    window.location.href = '/login';
+  }
+</script>
+
+<div class="flex min-h-screen items-center justify-center">
+  <div class="text-center">
+    <div class="mb-4 inline-block h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"></div>
+    <p class="text-gray-600">Completing sign in...</p>
+  </div>
+</div>

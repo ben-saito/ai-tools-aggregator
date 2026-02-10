@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import ToolCard from '../components/ToolCard.astro';
 import SearchBar from '../components/SearchBar.astro';
+import TrendingTools from '../components/TrendingTools.astro';
 import { getAllTools, getFeaturedTools, categories } from '../lib/tools';
 
 const tools = getAllTools();
@@ -30,6 +31,8 @@ const featuredTools = getFeaturedTools();
         ))}
       </div>
     </section>
+
+    <TrendingTools />
 
     <section class="mb-12">
       <h2 class="mb-6 text-2xl font-bold">Browse by Category</h2>

@@ -1,5 +1,6 @@
 ---
 import { categories } from '../lib/tools';
+import AuthButton from './AuthButton.astro';
 ---
 
 <header class="border-b border-gray-200 bg-white">
@@ -9,6 +10,7 @@ import { categories } from '../lib/tools';
     </a>
     <div class="flex items-center gap-6">
       <a href="/" class="text-gray-600 hover:text-primary-600">Home</a>
+      <a href="/rankings" class="text-gray-600 hover:text-primary-600">Rankings</a>
       <div class="group relative">
         <button class="flex items-center gap-1 text-gray-600 hover:text-primary-600">
           Categories
@@ -32,6 +34,7 @@ import { categories } from '../lib/tools';
         Submit Tool
       </a>
       <a href="/about" class="text-gray-600 hover:text-primary-600">About</a>
+      <AuthButton />
     </div>
   </nav>
 </header>

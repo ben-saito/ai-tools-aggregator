@@ -1,0 +1,63 @@
+---
+// Authentication button component
+// Shows login button if not authenticated, user menu if authenticated
+---
+
+<div id="auth-container" class="flex items-center gap-4">
+  <!-- Will be populated by client-side JS -->
+</div>
+
+<script>
+  import { supabase } from '../lib/supabase';
+
+  async function checkAuth() {
+    const { data: { session } } = await supabase.auth.getSession();
+    const container = document.getElementById('auth-container');
+    if (!container) return;
+
+    if (session) {
+      // User is logged in
+      const user = session.user;
+      const username = user.user_metadata?.username || user.email?.split('@')[0];
+      const avatarUrl = user.user_metadata?.avatar_url;
+
+      container.innerHTML = `
+        <div class="flex items-center gap-3">
+          ${avatarUrl ? `<img src="${avatarUrl}" alt="${username}" class="w-8 h-8 rounded-full">` : ''}
+          <span class="text-sm font-medium">${username}</span>
+          <button id="logout-btn" class="px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors">
+            Logout
+          </button>
+        </div>
+      `;
+
+      // Add logout handler
+      document.getElementById('logout-btn')?.addEventListener('click', async () => {
+        await supabase.auth.signOut();
+        window.location.reload();
+      });
+    } else {
+      // User is not logged in
+      container.innerHTML = `
+        <button id="login-btn" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium">
+          Login to Review
+        </button>
+      `;
+
+      // Add login handler
+      document.getElementById('login-btn')?.addEventListener('click', () => {
+        window.location.href = '/login';
+      });
+    }
+  }
+
+  // Check auth on page load
+  checkAuth();
+
+  // Listen for auth changes
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+      checkAuth();
+    }
+  });
+</script>
