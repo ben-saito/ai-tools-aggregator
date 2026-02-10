@@ -5,6 +5,8 @@ import ReviewSection from '../../components/ReviewSection.astro';
 import LeadGenWidget from '../../components/LeadGenWidget.astro';
 import { getAllTools } from '../../lib/tools';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const tools = getAllTools();
   return tools.map((tool) => ({
