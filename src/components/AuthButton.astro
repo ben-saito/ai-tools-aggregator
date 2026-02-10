@@ -8,12 +8,19 @@
 </div>
 
 <script>
-  // Initialize Supabase
-  const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
-  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
-  const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+  // Wait for Supabase to load
+  async function initAuth() {
+    // Wait for window.supabase to be available
+    while (typeof window.supabase === 'undefined') {
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+    
+    // Initialize Supabase
+    const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-  async function checkAuth() {
+    async function checkAuth() {
     const { data: { session } } = await supabase.auth.getSession();
     const container = document.getElementById('auth-container');
     if (!container) return;
@@ -54,13 +61,17 @@
     }
   }
 
-  // Check auth on page load
-  checkAuth();
+    // Check auth on page load
+    checkAuth();
 
-  // Listen for auth changes
-  supabase.auth.onAuthStateChange((event, session) => {
-    if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
-      checkAuth();
-    }
-  });
+    // Listen for auth changes
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+        checkAuth();
+      }
+    });
+  }
+
+  // Start auth initialization
+  initAuth();
 </script>

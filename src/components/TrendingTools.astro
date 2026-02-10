@@ -24,10 +24,16 @@ const tools = getAllTools();
 </div>
 
 <script>
-  // Initialize Supabase
-  const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
-  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
-  const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+  (async function() {
+    // Wait for Supabase to load
+    while (typeof window.supabase === 'undefined') {
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+
+    // Initialize Supabase
+    const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
 
   // Helper functions
   async function getTrendingTools(limit = 10) {
@@ -181,9 +187,10 @@ const tools = getAllTools();
     }
   }
 
-  // Load on page load
-  loadTrending();
-  loadTopRated();
+    // Load on page load
+    loadTrending();
+    loadTopRated();
+  })();
 </script>
 
 <style>

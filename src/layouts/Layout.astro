@@ -46,12 +46,12 @@ const pageTitle = `${title} | AI Tools Aggregator`;
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="AI tools, AI directory, ChatGPT, Midjourney, AI software, artificial intelligence, machine learning tools" />
     
-    <!-- Supabase Client (loaded globally) -->
-    <script is:inline src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
     <title>{pageTitle}</title>
   </head>
   <body class="min-h-screen bg-white text-gray-900">
     <slot />
+    
+    <!-- Supabase Client - load at end of body -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </body>
 </html>

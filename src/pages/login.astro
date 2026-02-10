@@ -47,30 +47,37 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
-  // Initialize Supabase
-  const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
-  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
-  const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+  (async function() {
+    // Wait for Supabase to load
+    while (typeof window.supabase === 'undefined') {
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
 
-  // GitHub login
-  document.getElementById('github-login')?.addEventListener('click', async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'github',
-      options: {
-        redirectTo: 'https://ai-tools-aggregator-seven.vercel.app/auth/callback',
-      },
-    });
-    if (error) console.error('Login error:', error);
-  });
+    // Initialize Supabase
+    const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-  // Google login
-  document.getElementById('google-login')?.addEventListener('click', async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: 'https://ai-tools-aggregator-seven.vercel.app/auth/callback',
-      },
+    // GitHub login
+    document.getElementById('github-login')?.addEventListener('click', async () => {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'github',
+        options: {
+          redirectTo: 'https://ai-tools-aggregator-seven.vercel.app/auth/callback',
+        },
+      });
+      if (error) console.error('Login error:', error);
     });
-    if (error) console.error('Login error:', error);
-  });
+
+    // Google login
+    document.getElementById('google-login')?.addEventListener('click', async () => {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: 'https://ai-tools-aggregator-seven.vercel.app/auth/callback',
+        },
+      });
+      if (error) console.error('Login error:', error);
+    });
+  })();
 </script>
