@@ -8,7 +8,7 @@ export default defineConfig({
     // Sitemap will be added after first successful deployment
   ],
   output: 'static',
-  site: 'https://ai-tools-aggregator.vercel.app', // Update with actual domain when deployed
+  site: 'https://ai-tools-aggregator-seven.vercel.app',
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
