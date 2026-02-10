@@ -26,7 +26,7 @@ const tools = getAllTools();
 <script>
   (async function() {
     // Wait for Supabase to load
-    while (typeof window.supabase === 'undefined') {
+    while (!window.__supabaseReady && typeof window.supabase === 'undefined') {
       await new Promise(resolve => setTimeout(resolve, 50));
     }
 

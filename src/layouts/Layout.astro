@@ -46,12 +46,22 @@ const pageTitle = `${title} | AI Tools Aggregator`;
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="AI tools, AI directory, ChatGPT, Midjourney, AI software, artificial intelligence, machine learning tools" />
     
+    <!-- Supabase CDN - dynamically loaded -->
+    <script is:inline>
+      (function() {
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+        script.onload = function() {
+          window.__supabaseReady = true;
+          window.dispatchEvent(new Event('supabase-ready'));
+        };
+        document.head.appendChild(script);
+      })();
+    </script>
+    
     <title>{pageTitle}</title>
   </head>
   <body class="min-h-screen bg-white text-gray-900">
     <slot />
-    
-    <!-- Supabase Client - load at end of body -->
-    <script is:inline src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </body>
 </html>
