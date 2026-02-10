@@ -1,0 +1,110 @@
+---
+// Global Analytics Component
+// Place in Layout.astro to track all pages
+---
+
+<script>
+  (async function() {
+    // Wait for Supabase to load
+    while (!window.__supabaseReady && typeof window.supabase === 'undefined') {
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+
+    const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+    // Get or create session ID
+    function getSessionId() {
+      let sessionId = sessionStorage.getItem('analytics_session_id');
+      if (!sessionId) {
+        sessionId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        sessionStorage.setItem('analytics_session_id', sessionId);
+      }
+      return sessionId;
+    }
+
+    // Extract tool ID from path
+    function extractToolId(path) {
+      const match = path.match(/\/tools\/([^\/]+)/);
+      return match ? match[1] : null;
+    }
+
+    // Extract category from path
+    function extractCategory(path) {
+      const match = path.match(/\/categories\/([^\/]+)/);
+      return match ? match[1] : null;
+    }
+
+    // Track event
+    async function trackEvent(event, data = {}) {
+      try {
+        const { data: { session: authSession } } = await supabase.auth.getSession();
+
+        const eventData = {
+          event,
+          tool_id: data.tool_id || extractToolId(window.location.pathname),
+          category: data.category || extractCategory(window.location.pathname),
+          session_id: getSessionId(),
+          user_id: authSession?.user?.id || null,
+          referrer: document.referrer || null,
+          user_agent: navigator.userAgent,
+          ...data,
+        };
+
+        await supabase
+          .from('analytics_events')
+          .insert(eventData);
+
+      } catch (error) {
+        // Fail silently
+        console.debug('Analytics error:', error);
+      }
+    }
+
+    // Track page view on load
+    trackEvent('page_view');
+
+    // Track tool view if on tool page
+    const toolId = extractToolId(window.location.pathname);
+    if (toolId) {
+      trackEvent('tool_view', { tool_id: toolId });
+      
+      // Increment view count
+      try {
+        const { data: existing } = await supabase
+          .from('tools_stats')
+          .select('view_count')
+          .eq('tool_id', toolId)
+          .single();
+
+        if (existing) {
+          await supabase
+            .from('tools_stats')
+            .update({
+              view_count: (existing.view_count || 0) + 1,
+              updated_at: new Date().toISOString(),
+            })
+            .eq('tool_id', toolId);
+        }
+      } catch (error) {
+        console.debug('View count error:', error);
+      }
+    }
+
+    // Track tool clicks (outbound links)
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href]');
+      if (link && link.href && !link.href.startsWith(window.location.origin)) {
+        const linkToolId = extractToolId(link.href) || toolId;
+        if (linkToolId) {
+          trackEvent('tool_click', { tool_id: linkToolId });
+        }
+      }
+    });
+
+    // Expose global tracking function
+    window.trackAnalytics = trackEvent;
+
+  })();
+</script>
