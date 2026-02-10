@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import { getAllTools } from '../lib/tools';
+
+const tools = getAllTools();
 ---
 
 <Layout
@@ -8,7 +11,7 @@ import Header from '../components/Header.astro';
   description="Discover trending and top-rated AI tools based on community reviews"
 >
   <Header />
-  <main class="mx-auto max-w-7xl px-4 py-8">
+  <main class="mx-auto max-w-7xl px-4 py-8" data-tools={JSON.stringify(tools)}>
     <h1 class="mb-8 text-3xl font-bold text-gray-900">AI Tools Rankings</h1>
 
     <!-- Tabs -->
@@ -36,9 +39,42 @@ import Header from '../components/Header.astro';
   </main>
 </Layout>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  import { getTrendingTools, getTopRatedTools } from '../lib/supabase';
-  import { getAllTools } from '../lib/tools';
+  // Initialize Supabase
+  const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+  // Helper functions
+  async function getTrendingTools(limit = 20) {
+    const { data, error } = await supabase
+      .from('tools_stats')
+      .select('*')
+      .order('trending_score', { ascending: false })
+      .limit(limit);
+    if (error) throw error;
+    return data || [];
+  }
+
+  async function getTopRatedTools(limit = 20, minReviews = 1) {
+    const { data, error } = await supabase
+      .from('tools_stats')
+      .select('*')
+      .gte('review_count', minReviews)
+      .order('average_rating', { ascending: false })
+      .limit(limit);
+    if (error) throw error;
+    return data || [];
+  }
+
+  // Get tools from data attribute
+  function getAllTools() {
+    const toolsContainer = document.querySelector('[data-tools]');
+    if (!toolsContainer) return [];
+    const toolsJson = toolsContainer.getAttribute('data-tools');
+    return JSON.parse(toolsJson || '[]');
+  }
 
   type Tab = 'trending' | 'top-rated' | 'most-reviewed';
   let currentTab: Tab = 'trending';

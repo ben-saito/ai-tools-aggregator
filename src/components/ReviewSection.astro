@@ -28,15 +28,87 @@ const { toolId } = Astro.props;
   </div>
 </div>
 
-<script type="module">
-  import { supabase, getToolReviews, getToolStats, submitReview, voteReviewHelpful } from '../lib/supabase';
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
   // Get toolId from data attribute
   const reviewSection = document.querySelector('[data-tool-id]');
   const toolId = reviewSection?.getAttribute('data-tool-id');
 
   if (!toolId) {
     console.error('No toolId found');
+  }
+
+  // Initialize Supabase client
+  const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+  // Helper functions
+  async function getToolReviews(toolId) {
+    const { data, error } = await supabase
+      .from('reviews')
+      .select(`
+        *,
+        profile:profiles(username, avatar_url)
+      `)
+      .eq('tool_id', toolId)
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+    return data;
+  }
+
+  async function getToolStats(toolId) {
+    const { data, error } = await supabase
+      .from('tools_stats')
+      .select('*')
+      .eq('tool_id', toolId)
+      .single();
+
+    if (error && error.code !== 'PGRST116') throw error;
+    return data;
+  }
+
+  async function submitReview(toolId, userId, rating, comment) {
+    const { data, error } = await supabase
+      .from('reviews')
+      .insert({
+        tool_id: toolId,
+        user_id: userId,
+        rating,
+        comment,
+        helpful_count: 0,
+      })
+      .select()
+      .single();
+
+    if (error) throw error;
+    return data;
+  }
+
+  async function voteReviewHelpful(reviewId, userId) {
+    const { data: existing } = await supabase
+      .from('review_votes')
+      .select('id')
+      .eq('review_id', reviewId)
+      .eq('user_id', userId)
+      .single();
+
+    if (existing) {
+      await supabase
+        .from('review_votes')
+        .delete()
+        .eq('id', existing.id);
+      await supabase.rpc('decrement_helpful_count', { review_id: reviewId });
+    } else {
+      await supabase
+        .from('review_votes')
+        .insert({
+          review_id: reviewId,
+          user_id: userId,
+        });
+      await supabase.rpc('increment_helpful_count', { review_id: reviewId });
+    }
   }
 
   async function loadReviews() {
