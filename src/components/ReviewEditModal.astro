@@ -1,0 +1,225 @@
+<!-- Review Edit Modal -->
+<div id="review-edit-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-gray-900 bg-opacity-50">
+  <div class="w-full max-w-2xl rounded-xl bg-white p-6 shadow-xl">
+    <div class="mb-4 flex items-center justify-between">
+      <h3 class="text-xl font-bold text-gray-900">Edit Review</h3>
+      <button id="close-edit-modal" class="text-gray-400 hover:text-gray-500">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <form id="edit-review-form" class="space-y-4">
+      <input type="hidden" id="edit-review-id" />
+      
+      <div>
+        <label class="mb-2 block text-sm font-medium text-gray-700">Rating</label>
+        <div class="flex items-center gap-2">
+          <div id="edit-rating-stars" class="flex gap-1">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <button
+                type="button"
+                data-star={star}
+                class="edit-star-btn text-gray-300 hover:text-yellow-400 focus:outline-none"
+              >
+                <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </button>
+            ))}
+          </div>
+          <span id="edit-rating-value" class="text-sm text-gray-600">0 stars</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="edit-comment" class="mb-2 block text-sm font-medium text-gray-700">
+          Your Review
+        </label>
+        <textarea
+          id="edit-comment"
+          rows="4"
+          class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+          placeholder="Share your experience with this tool..."
+          required
+        ></textarea>
+      </div>
+
+      <div class="flex items-center justify-end gap-3">
+        <button
+          type="button"
+          id="cancel-edit-btn"
+          class="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700"
+        >
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="review-delete-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-gray-900 bg-opacity-50">
+  <div class="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
+    <div class="mb-4">
+      <h3 class="text-lg font-bold text-gray-900">Delete Review</h3>
+      <p class="mt-2 text-sm text-gray-600">
+        Are you sure you want to delete this review? This action cannot be undone.
+      </p>
+    </div>
+
+    <div class="flex items-center justify-end gap-3">
+      <button
+        id="cancel-delete-btn"
+        class="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+      >
+        Cancel
+      </button>
+      <button
+        id="confirm-delete-btn"
+        class="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { supabase } from '../lib/supabase';
+
+  let editingReviewId = null;
+  let deletingReviewId = null;
+  let currentRating = 0;
+
+  // Edit Modal
+  const editModal = document.getElementById('review-edit-modal');
+  const closeEditBtn = document.getElementById('close-edit-modal');
+  const cancelEditBtn = document.getElementById('cancel-edit-btn');
+  const editForm = document.getElementById('edit-review-form');
+
+  // Delete Modal
+  const deleteModal = document.getElementById('review-delete-modal');
+  const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
+  const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
+
+  // Edit star rating
+  const editStarBtns = document.querySelectorAll('.edit-star-btn');
+  editStarBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const star = parseInt(btn.dataset.star);
+      currentRating = star;
+      updateEditStars(star);
+      document.getElementById('edit-rating-value').textContent = `${star} star${star !== 1 ? 's' : ''}`;
+    });
+  });
+
+  function updateEditStars(rating) {
+    editStarBtns.forEach((btn, index) => {
+      if (index < rating) {
+        btn.classList.remove('text-gray-300');
+        btn.classList.add('text-yellow-400');
+      } else {
+        btn.classList.remove('text-yellow-400');
+        btn.classList.add('text-gray-300');
+      }
+    });
+  }
+
+  // Open edit modal
+  window.openEditModal = function(reviewId, rating, comment) {
+    editingReviewId = reviewId;
+    currentRating = rating;
+    
+    document.getElementById('edit-review-id').value = reviewId;
+    document.getElementById('edit-comment').value = comment;
+    updateEditStars(rating);
+    document.getElementById('edit-rating-value').textContent = `${rating} star${rating !== 1 ? 's' : ''}`;
+    
+    editModal?.classList.remove('hidden');
+    editModal?.classList.add('flex');
+  };
+
+  // Close edit modal
+  function closeEditModal() {
+    editModal?.classList.add('hidden');
+    editModal?.classList.remove('flex');
+    editingReviewId = null;
+    currentRating = 0;
+  }
+
+  closeEditBtn?.addEventListener('click', closeEditModal);
+  cancelEditBtn?.addEventListener('click', closeEditModal);
+
+  // Submit edit
+  editForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const comment = document.getElementById('edit-comment').value;
+    
+    if (currentRating === 0) {
+      alert('Please select a rating');
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('reviews')
+        .update({
+          rating: currentRating,
+          comment: comment,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', editingReviewId);
+
+      if (error) throw error;
+
+      closeEditModal();
+      window.location.reload(); // Reload to show updated review
+    } catch (error) {
+      console.error('Error updating review:', error);
+      alert('Failed to update review. Please try again.');
+    }
+  });
+
+  // Open delete modal
+  window.openDeleteModal = function(reviewId) {
+    deletingReviewId = reviewId;
+    deleteModal?.classList.remove('hidden');
+    deleteModal?.classList.add('flex');
+  };
+
+  // Close delete modal
+  function closeDeleteModal() {
+    deleteModal?.classList.add('hidden');
+    deleteModal?.classList.remove('flex');
+    deletingReviewId = null;
+  }
+
+  cancelDeleteBtn?.addEventListener('click', closeDeleteModal);
+
+  // Confirm delete
+  confirmDeleteBtn?.addEventListener('click', async () => {
+    try {
+      const { error } = await supabase
+        .from('reviews')
+        .delete()
+        .eq('id', deletingReviewId);
+
+      if (error) throw error;
+
+      closeDeleteModal();
+      window.location.reload(); // Reload to show updated list
+    } catch (error) {
+      console.error('Error deleting review:', error);
+      alert('Failed to delete review. Please try again.');
+    }
+  });
+</script>
