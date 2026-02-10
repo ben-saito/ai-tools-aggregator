@@ -3,6 +3,8 @@ import Layout from '../../../layouts/Layout.astro';
 
 // This page is a protected route. We'll use client-side auth check for MVP.
 // Ideally SSR with middleware.
+
+export const prerender = false; // SSR required for dynamic content
 ---
 
 <Layout title="Vendor Dashboard">
