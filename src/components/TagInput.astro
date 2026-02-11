@@ -44,17 +44,27 @@ const { toolId } = Astro.props;
 </div>
 
 <script>
-  import { supabase } from '../lib/supabase';
+  (async function() {
+    // Wait for Supabase to load
+    while (!window.__supabaseReady && typeof window.supabase === 'undefined') {
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
 
-  const tagSection = document.querySelector('[data-tool-id]');
-  const toolId = tagSection?.getAttribute('data-tool-id');
+    // Initialize Supabase client
+    const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-  if (!toolId) {
-    console.error('No toolId found');
-  } else {
+    const tagSection = document.querySelector('[data-tool-id]');
+    const toolId = tagSection?.getAttribute('data-tool-id');
+
+    if (!toolId) {
+      console.error('No toolId found');
+      return;
+    }
+
     loadTags();
     setupTagForm();
-  }
 
   async function loadTags() {
     if (!toolId) return;
@@ -181,4 +191,5 @@ const { toolId } = Astro.props;
     div.textContent = text;
     return div.innerHTML;
   }
+  })();
 </script>
