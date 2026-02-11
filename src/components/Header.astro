@@ -48,14 +48,16 @@ const currentPath = Astro.url.pathname;
       <!-- Language Switcher -->
       <div class="flex items-center gap-1 rounded-lg border border-gray-300 bg-white">
         <a 
-          href={lang === 'en' ? currentPath : `/${currentPath}`}
+          href={lang === 'ja' ? currentPath.replace('/ja', '') : currentPath}
           class={`px-3 py-1 text-sm font-medium transition ${lang === 'en' ? 'bg-primary-600 text-white rounded-lg' : 'text-gray-600 hover:text-primary-600'}`}
+          data-lang="en"
         >
           EN
         </a>
         <a 
           href={lang === 'ja' ? currentPath : `/ja${currentPath}`}
           class={`px-3 py-1 text-sm font-medium transition ${lang === 'ja' ? 'bg-primary-600 text-white rounded-lg' : 'text-gray-600 hover:text-primary-600'}`}
+          data-lang="ja"
         >
           JA
         </a>
@@ -70,16 +72,35 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-  // Store language preference
-  document.querySelectorAll('a[href^="/ja"]').forEach(link => {
-    link.addEventListener('click', () => {
-      localStorage.setItem('preferred-lang', 'ja');
+  // Store and apply language preference
+  document.addEventListener('DOMContentLoaded', () => {
+    // Store language when clicking language links
+    document.querySelectorAll('a[data-lang]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const lang = link.getAttribute('data-lang');
+        localStorage.setItem('preferred-lang', lang);
+      });
     });
-  });
-  
-  document.querySelectorAll('a[href^="/en"]').forEach(link => {
-    link.addEventListener('click', () => {
-      localStorage.setItem('preferred-lang', 'en');
-    });
+
+    // Auto-redirect to preferred language on page load (only on homepage or if language doesn't match)
+    const preferredLang = localStorage.getItem('preferred-lang');
+    const currentPath = window.location.pathname;
+    const isJaPath = currentPath.startsWith('/ja');
+    const currentLang = isJaPath ? 'ja' : 'en';
+
+    if (preferredLang && preferredLang !== currentLang) {
+      // Construct the target URL
+      let targetPath = currentPath;
+      if (preferredLang === 'ja' && !isJaPath) {
+        targetPath = '/ja' + currentPath;
+      } else if (preferredLang === 'en' && isJaPath) {
+        targetPath = currentPath.replace('/ja', '');
+      }
+      
+      // Only redirect if the path actually changed
+      if (targetPath !== currentPath) {
+        window.location.href = targetPath;
+      }
+    }
   });
 </script>

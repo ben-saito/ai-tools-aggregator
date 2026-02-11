@@ -1,0 +1,58 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ToolCard from '../../../components/ToolCard.astro';
+import { supabase } from '../../../lib/supabase';
+import { useTranslations } from '../../../lib/i18n';
+import { categories } from '../../../lib/tools';
+
+const { category } = Astro.params;
+const lang = 'ja'; // Fixed to Japanese
+const t = useTranslations(lang);
+
+// Get category details from static data
+const categoryData = categories.find((cat) => cat.slug === category);
+
+if (!categoryData) {
+  return Astro.redirect('/404');
+}
+
+// Get tools in this category
+const { data: tools, error } = await supabase
+  .from('tools')
+  .select('*')
+  .eq('category', categoryData.slug)
+  .order('name');
+
+if (error) {
+  console.error('Error loading tools:', error);
+}
+---
+
+<Layout title={`${categoryData.name} | ${t('siteTitle')}`}>
+  <main class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-4">{categoryData.icon} {categoryData.name}</h1>
+      {categoryData.description && (
+        <p class="text-gray-600 dark:text-gray-400 text-lg">
+          {categoryData.description}
+        </p>
+      )}
+    </div>
+
+    <!-- Tools Grid -->
+    {tools && tools.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {tools.map((tool: any) => (
+          <ToolCard tool={tool} />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-gray-600 dark:text-gray-400 text-lg">
+          {t('noToolsFound') || 'No tools found in this category.'}
+        </p>
+      </div>
+    )}
+  </main>
+</Layout>
