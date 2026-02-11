@@ -84,14 +84,14 @@ const schemaData = {
           rel="noopener noreferrer"
           class="block w-full rounded-lg bg-blue-600 px-6 py-3 text-center font-semibold text-white hover:bg-blue-700"
         >
-          {t('visitWebsite') || 'Visit Website'}
+          {t('tool.visitWebsite')}
         </a>
       </div>
     </div>
 
     <!-- Description -->
     <div class="mb-8">
-      <h2 class="mb-4 text-2xl font-bold">{t('description') || 'Description'}</h2>
+      <h2 class="mb-4 text-2xl font-bold">{t('tool.description')}</h2>
       <p class="text-lg text-gray-700">{tool.description}</p>
     </div>
 
@@ -108,18 +108,18 @@ const schemaData = {
     <!-- Details -->
     <div class="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <div class="rounded-lg border border-gray-200 bg-white p-6">
-        <h3 class="mb-2 text-sm font-semibold text-gray-500">{t('category') || 'Category'}</h3>
+        <h3 class="mb-2 text-sm font-semibold text-gray-500">{t('tool.category')}</h3>
         <p class="text-lg font-medium">{tool.category}</p>
       </div>
       <div class="rounded-lg border border-gray-200 bg-white p-6">
-        <h3 class="mb-2 text-sm font-semibold text-gray-500">{t('pricing') || 'Pricing'}</h3>
+        <h3 class="mb-2 text-sm font-semibold text-gray-500">{t('tool.pricing')}</h3>
         <p class="text-lg font-medium capitalize">{tool.pricing}</p>
       </div>
       {tool.verified && (
         <div class="rounded-lg border border-gray-200 bg-white p-6">
-          <h3 class="mb-2 text-sm font-semibold text-gray-500">{t('status') || 'Status'}</h3>
+          <h3 class="mb-2 text-sm font-semibold text-gray-500">{t('tool.status')}</h3>
           <div class="flex items-center gap-2">
-            <span class="text-lg font-medium">{t('verified') || 'Verified'}</span>
+            <span class="text-lg font-medium">{t('tool.verified')}</span>
             <svg class="h-5 w-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>

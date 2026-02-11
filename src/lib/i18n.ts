@@ -73,6 +73,29 @@ export const ui = {
     'common.free': 'Free',
     'common.paid': 'Paid',
     'common.freemium': 'Freemium',
+    
+    // Tool Page
+    'tool.visitWebsite': 'Visit Website',
+    'tool.description': 'Description',
+    'tool.category': 'Category',
+    'tool.pricing': 'Pricing',
+    'tool.status': 'Status',
+    'tool.verified': 'Verified',
+    'tool.interested': 'Interested in {name} for your team?',
+    'tool.requestDemo': 'Request a demo or contact sales directly.',
+    'tool.companyName': 'Company Name',
+    'tool.companySize': 'Company Size',
+    'tool.useCase': 'Use Case / Notes',
+    'tool.mustLogin': 'You must be logged in to request a demo.',
+    'tool.tags': 'Tags',
+    'tool.loadingTags': 'Loading tags...',
+    'tool.loginToAddTags': 'Login to add tags',
+    
+    // Category Page
+    'category.noToolsFound': 'No tools found in this category.',
+    
+    // Site
+    'site.title': 'AI Tools Hub',
   },
   ja: {
     // Hero Section
@@ -141,6 +164,29 @@ export const ui = {
     'common.free': '無料',
     'common.paid': '有料',
     'common.freemium': 'フリーミアム',
+    
+    // Tool Page
+    'tool.visitWebsite': 'ウェブサイトを訪問',
+    'tool.description': '説明',
+    'tool.category': 'カテゴリ',
+    'tool.pricing': '価格',
+    'tool.status': 'ステータス',
+    'tool.verified': '認証済み',
+    'tool.interested': '{name}をチームで利用しませんか？',
+    'tool.requestDemo': 'デモのリクエストまたは営業に直接お問い合わせください。',
+    'tool.companyName': '会社名',
+    'tool.companySize': '会社規模',
+    'tool.useCase': '用途 / 備考',
+    'tool.mustLogin': 'デモをリクエストするにはログインが必要です。',
+    'tool.tags': 'タグ',
+    'tool.loadingTags': 'タグを読み込み中...',
+    'tool.loginToAddTags': 'タグを追加するにはログイン',
+    
+    // Category Page
+    'category.noToolsFound': 'このカテゴリにツールが見つかりませんでした。',
+    
+    // Site
+    'site.title': 'AI Tools Hub',
   },
 } as const;
 
