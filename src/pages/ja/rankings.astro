@@ -2,29 +2,33 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import { getAllTools } from '../../lib/tools';
+import { getLangFromUrl, useTranslations } from '../../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const tools = getAllTools();
 ---
 
 <Layout
-  title="AI Tools Rankings - Trending & Top Rated"
-  description="Discover trending and top-rated AI tools based on community reviews"
+  title={t('rankings.title')}
+  description={t('rankings.description')}
 >
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-8" data-tools={JSON.stringify(tools)}>
-    <h1 class="mb-8 text-3xl font-bold text-gray-900">AI Tools Rankings</h1>
+    <h1 class="mb-8 text-3xl font-bold text-gray-900">{t('rankings.pageTitle')}</h1>
 
     <!-- Tabs -->
     <div class="mb-8 border-b border-gray-200">
       <nav class="-mb-px flex gap-6">
         <button class="ranking-tab active border-b-2 border-blue-600 px-1 pb-4 text-sm font-medium text-blue-600" data-tab="trending">
-          🔥 Trending
+          🔥 {t('rankings.trending')}
         </button>
         <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-tab="top-rated">
-          ⭐ Top Rated
+          ⭐ {t('rankings.topRated')}
         </button>
         <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-tab="most-reviewed">
-          💬 Most Reviewed
+          💬 {t('rankings.mostReviewed')}
         </button>
       </nav>
     </div>
@@ -33,7 +37,7 @@ const tools = getAllTools();
     <div id="ranking-content" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       <div class="col-span-full text-center py-8">
         <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"></div>
-        <p class="mt-2 text-gray-600">Loading rankings...</p>
+        <p class="mt-2 text-gray-600">{t('rankings.loading')}</p>
       </div>
     </div>
   </main>

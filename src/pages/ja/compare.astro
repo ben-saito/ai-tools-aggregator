@@ -2,6 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import { getToolById } from '../../lib/tools';
 import type { Tool } from '../../lib/types';
+import { getLangFromUrl, useTranslations } from '../../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 export const prerender = false;
 
@@ -15,17 +19,17 @@ const tools: Tool[] = toolIds
 const hasTools = tools.length > 0;
 ---
 
-<Layout title="Compare AI Tools" description="Compare features, pricing, and capabilities of top AI tools side-by-side.">
+<Layout title={t('compare.title')} description={t('compare.description')}>
   <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
     <div class="mb-8">
-      <a href="/" class="mb-4 inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <a href="/ja" class="mb-4 inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
         <svg class="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-        Back to Tools
+        {t('compare.backToTools')}
       </a>
-      <h1 class="text-3xl font-bold text-gray-900">Compare Tools</h1>
-      <p class="mt-2 text-gray-600">Analyze features, pricing, and suitability side-by-side.</p>
+      <h1 class="text-3xl font-bold text-gray-900">{t('compare.pageTitle')}</h1>
+      <p class="mt-2 text-gray-600">{t('compare.subtitle')}</p>
     </div>
 
     {!hasTools ? (
@@ -33,11 +37,11 @@ const hasTools = tools.length > 0;
         <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
         </svg>
-        <h3 class="mt-2 text-sm font-medium text-gray-900">No tools selected</h3>
-        <p class="mt-1 text-sm text-gray-500">Go back and select tools to compare.</p>
+        <h3 class="mt-2 text-sm font-medium text-gray-900">{t('compare.noTools')}</h3>
+        <p class="mt-1 text-sm text-gray-500">{t('compare.noToolsDesc')}</p>
         <div class="mt-6">
-          <a href="/" class="inline-flex items-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700">
-            Browse Tools
+          <a href="/ja" class="inline-flex items-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700">
+            {t('compare.browseTools')}
           </a>
         </div>
       </div>
@@ -47,7 +51,7 @@ const hasTools = tools.length > 0;
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
               <tr>
-                <th scope="col" class="px-6 py-4 text-left text-sm font-medium text-gray-500 w-1/4">Feature</th>
+                <th scope="col" class="px-6 py-4 text-left text-sm font-medium text-gray-500 w-1/4">{t('compare.feature')}</th>
                 {tools.map(tool => (
                   <th scope="col" class="px-6 py-4 text-left text-sm font-medium text-gray-900 w-1/4 relative group">
                      {/* Remove button */}
@@ -81,7 +85,7 @@ const hasTools = tools.length > 0;
             <tbody class="divide-y divide-gray-200 bg-white">
               {/* Category */}
               <tr>
-                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">Category</td>
+                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">{t('compare.category')}</td>
                 {tools.map(tool => (
                   <td class="px-6 py-4 text-sm text-gray-500 text-center">
                     <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
@@ -94,7 +98,7 @@ const hasTools = tools.length > 0;
 
               {/* Pricing */}
               <tr>
-                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">Pricing</td>
+                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">{t('compare.pricing')}</td>
                 {tools.map(tool => (
                   <td class="px-6 py-4 text-sm text-gray-500 text-center capitalize">{tool.pricing}</td>
                 ))}
@@ -103,7 +107,7 @@ const hasTools = tools.length > 0;
               
               {/* Description */}
               <tr>
-                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">Description</td>
+                <td class="bg-gray-50 px-6 py-4 text-sm font-medium text-gray-900">{t('compare.description')}</td>
                 {tools.map(tool => (
                   <td class="px-6 py-4 text-sm text-gray-500">{tool.description}</td>
                 ))}
@@ -156,7 +160,7 @@ const hasTools = tools.length > 0;
                       rel="noopener noreferrer"
                       class="inline-flex items-center justify-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                     >
-                      Visit Website
+                      {t('tool.visitWebsite')}
                       <svg class="-mr-1 ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>

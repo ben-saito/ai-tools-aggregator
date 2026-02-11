@@ -164,6 +164,64 @@ export const ui = {
     'submit.form.pricing.select': 'Select pricing',
     'submit.form.submit': 'Submit Tool',
     'submit.form.submitting': 'Submitting...',
+    
+    // Search Page
+    'search.title': 'Search AI Tools',
+    'search.description': 'Search and filter from 49+ AI tools with advanced search capabilities',
+    'search.pageTitle': 'Search AI Tools',
+    'search.subtitle': 'Find the perfect AI tool with advanced search and filters',
+    
+    // Favorites Page
+    'favorites.title': 'My Favorites | AI Tools Aggregator',
+    'favorites.pageTitle': 'My Favorites',
+    'favorites.subtitle': 'Tools you\'ve saved for later',
+    'favorites.loading': 'Loading...',
+    'favorites.loginRequired': 'Please login to view your favorites',
+    'favorites.loginButton': 'Login',
+    'favorites.noFavorites': 'No favorites yet',
+    'favorites.noFavoritesDesc': 'Start exploring and save your favorite tools!',
+    'favorites.browseTools': 'Browse Tools',
+    
+    // Rankings Page
+    'rankings.title': 'AI Tools Rankings - Trending & Top Rated',
+    'rankings.description': 'Discover trending and top-rated AI tools based on community reviews',
+    'rankings.pageTitle': 'AI Tools Rankings',
+    'rankings.trending': 'Trending',
+    'rankings.topRated': 'Top Rated',
+    'rankings.mostReviewed': 'Most Reviewed',
+    'rankings.loading': 'Loading rankings...',
+    'rankings.reviews': 'reviews',
+    'rankings.noData': 'No data available',
+    
+    // Compare Page
+    'compare.title': 'Compare AI Tools',
+    'compare.description': 'Compare features, pricing, and capabilities of top AI tools side-by-side.',
+    'compare.backToTools': 'Back to Tools',
+    'compare.pageTitle': 'Compare Tools',
+    'compare.subtitle': 'Analyze features, pricing, and suitability side-by-side.',
+    'compare.noTools': 'No tools selected',
+    'compare.noToolsDesc': 'Go back and select tools to compare.',
+    'compare.browseTools': 'Browse Tools',
+    'compare.feature': 'Feature',
+    'compare.remove': 'Remove from comparison',
+    'compare.name': 'Name',
+    'compare.category': 'Category',
+    'compare.pricing': 'Pricing',
+    'compare.description': 'Description',
+    'compare.website': 'Website',
+    'compare.visit': 'Visit',
+    
+    // Profile Page
+    'profile.title': 'User Profile',
+    'profile.loading': 'Loading profile...',
+    'profile.notFound': 'User not found',
+    'profile.reviews': 'Reviews',
+    'profile.favorites': 'Favorites',
+    'profile.submissions': 'Submissions',
+    'profile.memberSince': 'Member since',
+    'profile.noReviews': 'No reviews yet',
+    'profile.noFavorites': 'No favorites yet',
+    'profile.noSubmissions': 'No submissions yet',
   },
   ja: {
     // Hero Section
@@ -323,6 +381,64 @@ export const ui = {
     'submit.form.pricing.select': '価格を選択',
     'submit.form.submit': 'ツールを登録',
     'submit.form.submitting': '登録中...',
+    
+    // Search Page
+    'search.title': 'AIツールを検索',
+    'search.description': '49以上のAIツールから高度な検索機能で検索・フィルタリング',
+    'search.pageTitle': 'AIツールを検索',
+    'search.subtitle': '高度な検索とフィルターで最適なAIツールを見つけよう',
+    
+    // Favorites Page
+    'favorites.title': 'お気に入り | AI Tools Aggregator',
+    'favorites.pageTitle': 'お気に入り',
+    'favorites.subtitle': '後で使うために保存したツール',
+    'favorites.loading': '読み込み中...',
+    'favorites.loginRequired': 'お気に入りを表示するにはログインしてください',
+    'favorites.loginButton': 'ログイン',
+    'favorites.noFavorites': 'まだお気に入りがありません',
+    'favorites.noFavoritesDesc': '探索を始めて、お気に入りのツールを保存しましょう！',
+    'favorites.browseTools': 'ツールを見る',
+    
+    // Rankings Page
+    'rankings.title': 'AIツールランキング - トレンド & 高評価',
+    'rankings.description': 'コミュニティレビューに基づくトレンド・高評価のAIツールを発見',
+    'rankings.pageTitle': 'AIツールランキング',
+    'rankings.trending': 'トレンド',
+    'rankings.topRated': '高評価',
+    'rankings.mostReviewed': 'レビュー数',
+    'rankings.loading': 'ランキングを読み込み中...',
+    'rankings.reviews': 'レビュー',
+    'rankings.noData': 'データがありません',
+    
+    // Compare Page
+    'compare.title': 'AIツールを比較',
+    'compare.description': '主要AIツールの機能、価格、性能を並べて比較。',
+    'compare.backToTools': 'ツール一覧に戻る',
+    'compare.pageTitle': 'ツールを比較',
+    'compare.subtitle': '機能、価格、適合性を並べて分析。',
+    'compare.noTools': 'ツールが選択されていません',
+    'compare.noToolsDesc': '戻って比較するツールを選択してください。',
+    'compare.browseTools': 'ツールを見る',
+    'compare.feature': '機能',
+    'compare.remove': '比較から削除',
+    'compare.name': '名前',
+    'compare.category': 'カテゴリ',
+    'compare.pricing': '価格',
+    'compare.description': '説明',
+    'compare.website': 'ウェブサイト',
+    'compare.visit': '訪問',
+    
+    // Profile Page
+    'profile.title': 'ユーザープロフィール',
+    'profile.loading': 'プロフィールを読み込み中...',
+    'profile.notFound': 'ユーザーが見つかりません',
+    'profile.reviews': 'レビュー',
+    'profile.favorites': 'お気に入り',
+    'profile.submissions': '登録したツール',
+    'profile.memberSince': '登録日',
+    'profile.noReviews': 'まだレビューがありません',
+    'profile.noFavorites': 'まだお気に入りがありません',
+    'profile.noSubmissions': 'まだ登録したツールがありません',
   },
 } as const;
 

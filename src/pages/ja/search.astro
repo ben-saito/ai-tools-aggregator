@@ -2,18 +2,22 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import AdvancedSearch from '../../components/AdvancedSearch.astro';
+import { getLangFromUrl, useTranslations } from '../../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout 
-  title="Search AI Tools"
-  description="Search and filter from 49+ AI tools with advanced search capabilities"
+  title={t('search.title')}
+  description={t('search.description')}
 >
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-8">
     <div class="mb-8 text-center">
-      <h1 class="text-4xl font-bold mb-4">Search AI Tools</h1>
+      <h1 class="text-4xl font-bold mb-4">{t('search.pageTitle')}</h1>
       <p class="text-xl text-gray-600">
-        Find the perfect AI tool with advanced search and filters
+        {t('search.subtitle')}
       </p>
     </div>
 

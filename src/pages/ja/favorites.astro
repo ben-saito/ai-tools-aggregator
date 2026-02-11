@@ -1,24 +1,28 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import { getLangFromUrl, useTranslations } from '../../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 export const prerender = false; // Dynamic page for user favorites
 ---
 
-<Layout title="My Favorites | AI Tools Aggregator">
+<Layout title={t('favorites.title')}>
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-8">
     <div class="mb-8">
-      <h1 class="text-4xl font-bold text-gray-900">My Favorites</h1>
+      <h1 class="text-4xl font-bold text-gray-900">{t('favorites.pageTitle')}</h1>
       <p class="mt-2 text-lg text-gray-600">
-        Tools you've saved for later
+        {t('favorites.subtitle')}
       </p>
     </div>
 
     <!-- Auth check -->
     <div id="auth-check" class="rounded-lg bg-white p-12 text-center shadow">
       <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-primary-600"></div>
-      <p class="mt-4 text-gray-600">Loading...</p>
+      <p class="mt-4 text-gray-600">{t('favorites.loading')}</p>
     </div>
 
     <!-- Favorites list -->
@@ -30,11 +34,11 @@ export const prerender = false; // Dynamic page for user favorites
         <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
         </svg>
-        <h3 class="mt-2 text-sm font-medium text-gray-900">No favorites yet</h3>
-        <p class="mt-1 text-sm text-gray-500">Start exploring and save your favorite tools!</p>
+        <h3 class="mt-2 text-sm font-medium text-gray-900">{t('favorites.noFavorites')}</h3>
+        <p class="mt-1 text-sm text-gray-500">{t('favorites.noFavoritesDesc')}</p>
         <div class="mt-6">
-          <a href="/" class="inline-flex items-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">
-            Browse Tools
+          <a href="/ja" class="inline-flex items-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">
+            {t('favorites.browseTools')}
           </a>
         </div>
       </div>
@@ -56,9 +60,9 @@ export const prerender = false; // Dynamic page for user favorites
       if (authCheck) {
         authCheck.innerHTML = `
           <div>
-            <p class="mb-4 text-gray-600">Please login to view your favorites</p>
-            <a href="/login" class="inline-flex items-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">
-              Login
+            <p class="mb-4 text-gray-600">お気に入りを表示するにはログインしてください</p>
+            <a href="/ja/login" class="inline-flex items-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">
+              ログイン
             </a>
           </div>
         `;
