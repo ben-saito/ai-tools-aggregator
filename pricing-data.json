@@ -1,0 +1,91 @@
+[
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "pricing_type": "freemium",
+    "plans": [
+      { "name": "Free", "price": 0, "billing": "forever" },
+      { "name": "Go", "price": 9, "billing": "monthly" },
+      { "name": "Plus", "price": 20, "billing": "monthly" },
+      { "name": "Pro", "price": 200, "billing": "monthly" }
+    ],
+    "price_display": "Free, $9/mo, $20/mo, $200/mo",
+    "currency": "USD"
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Copilot",
+    "pricing_type": "freemium",
+    "plans": [
+      { "name": "Free", "price": 0, "billing": "forever" },
+      { "name": "Pro", "price": 10, "billing": "monthly", "annual": 100 },
+      { "name": "Pro+", "price": 39, "billing": "monthly", "annual": 390 }
+    ],
+    "price_display": "Free, $10/mo, $39/mo",
+    "currency": "USD"
+  },
+  {
+    "id": "heygen",
+    "name": "HeyGen",
+    "pricing_type": "freemium",
+    "plans": [
+      { "name": "Free", "price": 0, "billing": "forever", "limits": "3 videos/month" },
+      { "name": "Creator", "price": 29, "billing": "monthly" },
+      { "name": "Pro", "price": 99, "billing": "monthly" }
+    ],
+    "price_display": "Free, $29/mo, $99/mo",
+    "currency": "USD"
+  },
+  {
+    "id": "codeium",
+    "name": "Codeium",
+    "pricing_type": "freemium",
+    "plans": [
+      { "name": "Free", "price": 0, "billing": "forever" },
+      { "name": "Pro", "price": 15, "billing": "monthly" },
+      { "name": "Teams", "price": 30, "billing": "per user/month" }
+    ],
+    "price_display": "Free, $15/mo, $30/user/mo",
+    "currency": "USD"
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "pricing_type": "freemium",
+    "plans": [
+      { "name": "Free", "price": 0, "billing": "forever" },
+      { "name": "Pro", "price": 20, "billing": "monthly", "annual": 200 },
+      { "name": "Max", "price": 100, "billing": "per person/month" },
+      { "name": "Team", "price": 25, "billing": "per seat/month", "annual": 20 }
+    ],
+    "price_display": "Free, $20/mo, $100+/mo",
+    "currency": "USD"
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "pricing_type": "freemium",
+    "plans": [
+      { "name": "Hobby", "price": 0, "billing": "forever" },
+      { "name": "Individual", "price": 60, "billing": "monthly" },
+      { "name": "Teams", "price": 40, "billing": "per user/month" },
+      { "name": "Enterprise", "price": null, "billing": "custom" }
+    ],
+    "price_display": "Free, $60/mo, $40/user/mo",
+    "currency": "USD"
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "pricing_type": "paid",
+    "plans": [
+      { "name": "Basic", "price": 10, "billing": "monthly" },
+      { "name": "Standard", "price": 30, "billing": "monthly" },
+      { "name": "Pro", "price": 60, "billing": "monthly" },
+      { "name": "Mega", "price": 120, "billing": "monthly" }
+    ],
+    "price_display": "$10/mo, $30/mo, $60/mo, $120/mo",
+    "currency": "USD",
+    "note": "No free plan"
+  }
+]

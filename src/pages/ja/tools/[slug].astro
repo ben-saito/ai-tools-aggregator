@@ -10,6 +10,7 @@ import FavoriteButton from "../../../components/FavoriteButton.astro";
 
 import { getAllTools, getToolById } from '../../../lib/tools';
 import { useTranslations } from '../../../lib/i18n';
+import { getToolPricing, getPriceDisplay } from '../../../lib/pricing-data';
 
 const { slug } = Astro.params;
 const lang = 'ja'; // Fixed to Japanese
@@ -24,6 +25,10 @@ if (!tool) {
 
 // Determine if we should show the lead gen widget
 const showLeadGen = tool.pricing === 'paid' || tool.pricing === 'freemium';
+
+// Get pricing information
+const toolPricing = getToolPricing(tool.id);
+const priceDisplay = getPriceDisplay(tool.id, 'ja');
 
 // Schema.org structured data
 const schemaData = {
@@ -94,6 +99,25 @@ const schemaData = {
       <h2 class="mb-4 text-2xl font-bold">{t('tool.description')}</h2>
       <p class="text-lg text-gray-700">{tool.description}</p>
     </div>
+
+    <!-- Pricing -->
+    {priceDisplay && (
+      <div class="mb-8 rounded-lg border border-gray-200 bg-gray-50 p-6">
+        <h2 class="mb-4 text-2xl font-bold">{t('tool.pricing')}</h2>
+        <p class="text-2xl font-bold text-primary-600">{priceDisplay}</p>
+        {toolPricing && toolPricing.note && (
+          <p class="text-sm text-gray-600 mt-2">{toolPricing.note}</p>
+        )}
+        <a
+          href={tool.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-flex items-center text-sm text-primary-600 hover:text-primary-700 font-medium"
+        >
+          詳細な価格プランを見る →
+        </a>
+      </div>
+    )}
 
     <!-- Lead Generation Widget -->
     {showLeadGen && (

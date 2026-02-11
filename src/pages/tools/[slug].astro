@@ -9,6 +9,7 @@ import TagInput from "../../components/TagInput.astro";
 import FavoriteButton from "../../components/FavoriteButton.astro";
 
 import { getAllTools, getToolById } from '../../lib/tools';
+import { getToolPricing, getPriceDisplay } from '../../lib/pricing-data';
 
 const { slug } = Astro.params;
 
@@ -22,6 +23,10 @@ if (!tool) {
 // Determine if we should show the lead gen widget
 // For now, show for Paid and Freemium tools
 const showLeadGen = tool.pricing === 'paid' || tool.pricing === 'freemium';
+
+// Get pricing information
+const toolPricing = getToolPricing(tool.id);
+const priceDisplay = getPriceDisplay(tool.id, 'en');
 
 // Schema.org structured data
 const schemaData = {
@@ -67,6 +72,24 @@ const schemaData = {
       <div class="prose max-w-none">
         <h2>Description</h2>
         <p class="text-lg text-gray-700">{tool.description}</p>
+
+        {priceDisplay && (
+          <div class="my-6 rounded-lg border border-gray-200 bg-gray-50 p-6">
+            <h2 class="!mt-0 mb-4">Pricing</h2>
+            <p class="text-2xl font-bold text-primary-600 !mt-0">{priceDisplay}</p>
+            {toolPricing && toolPricing.note && (
+              <p class="text-sm text-gray-600 mt-2">{toolPricing.note}</p>
+            )}
+            <a
+              href={tool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-flex items-center text-sm text-primary-600 hover:text-primary-700 font-medium"
+            >
+              View detailed pricing plans →
+            </a>
+          </div>
+        )}
 
         {showLeadGen && (
           <div class="my-8">
