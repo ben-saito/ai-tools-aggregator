@@ -398,9 +398,12 @@ import ReportModal from "./ReportModal.astro";
 
 <!-- Add edit/delete/report buttons to review cards -->
 <script>
-  import { supabase } from '../lib/supabase';
-
   async function addReviewActionButtons() {
+    // Use the supabase client created in the main script
+    const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+    
     // Wait for reviews to load
     await new Promise(resolve => setTimeout(resolve, 1000));
 
