@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { supabase } from '../../lib/supabase';
+import { useTranslations, getLangFromUrl } from '../../lib/i18n';
+
+const { category } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Get category details
+const { data: categories } = await supabase
+  .from('categories')
+  .select('*')
+  .eq('slug', category)
+  .single();
+
+if (!categories) {
+  return Astro.redirect('/404');
+}
+
+// Get tools in this category
+const { data: tools, error } = await supabase
+  .from('tools')
+  .select('*')
+  .eq('category', categories.slug)
+  .order('name');
+
+if (error) {
+  console.error('Error loading tools:', error);
+}
+
+// For static generation
+export async function getStaticPaths() {
+  const { data: categories } = await supabase
+    .from('categories')
+    .select('slug');
+  
+  return categories?.map(cat => ({
+    params: { category: cat.slug }
+  })) || [];
+}
+---
+
+<Layout title={`${categories.name} | ${t.siteTitle}`}>
+  <main class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-4">{categories.name}</h1>
+      {categories.description && (
+        <p class="text-gray-600 dark:text-gray-400 text-lg">
+          {categories.description}
+        </p>
+      )}
+    </div>
+
+    <!-- Tools Grid -->
+    {tools && tools.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {tools.map((tool: any) => (
+          <ToolCard tool={tool} />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-gray-600 dark:text-gray-400 text-lg">
+          {t.noToolsFound || 'No tools found in this category.'}
+        </p>
+      </div>
+    )}
+  </main>
+</Layout>
