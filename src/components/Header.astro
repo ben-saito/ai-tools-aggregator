@@ -17,9 +17,9 @@ const currentPath = Astro.url.pathname;
     
     <!-- Desktop Navigation -->
     <div class="hidden items-center gap-4 lg:flex lg:gap-6">
-      <a href="/" class="text-gray-600 hover:text-primary-600">Home</a>
-      <a href="/search" class="text-gray-600 hover:text-primary-600">Search</a>
-      <a href="/rankings" class="text-gray-600 hover:text-primary-600">Rankings</a>
+      <a href={lang === 'ja' ? '/ja' : '/'} class="text-gray-600 hover:text-primary-600">Home</a>
+      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="text-gray-600 hover:text-primary-600">Search</a>
+      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="text-gray-600 hover:text-primary-600">Rankings</a>
       <div class="group relative">
         <button class="flex items-center gap-1 text-gray-600 hover:text-primary-600">
           Categories
@@ -27,23 +27,25 @@ const currentPath = Astro.url.pathname;
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
-        <div class="invisible absolute right-0 mt-2 w-64 rounded-lg border border-gray-200 bg-white py-2 shadow-lg group-hover:visible z-50">
-          {categories.map((category) => (
-            <a
-              href={`/categories/${category.slug}`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-            >
-              <span class="mr-2">{category.icon}</span>
-              {category.name}
-            </a>
-          ))}
+        <div class="pointer-events-none absolute right-0 top-full pt-2 w-64 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 z-50">
+          <div class="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
+            {categories.map((category) => (
+              <a
+                href={lang === 'ja' ? `/ja/categories/${category.slug}` : `/categories/${category.slug}`}
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+              >
+                <span class="mr-2">{category.icon}</span>
+                {category.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-      <a href="/submit" class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">
+      <a href={lang === 'ja' ? '/ja/submit' : '/submit'} class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">
         Submit Tool
       </a>
-      <a href="/favorites" class="text-gray-600 hover:text-primary-600">Favorites</a>
-      <a href="/about" class="text-gray-600 hover:text-primary-600">About</a>
+      <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="text-gray-600 hover:text-primary-600">Favorites</a>
+      <a href={lang === 'ja' ? '/ja/about' : '/about'} class="text-gray-600 hover:text-primary-600">About</a>
       
       <!-- Language Switcher -->
       <div class="flex items-center gap-1 rounded-lg border border-gray-300 bg-white">

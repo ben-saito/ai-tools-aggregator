@@ -1,5 +1,8 @@
 ---
 import { categories } from '../lib/tools';
+import { getLangFromUrl } from '../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!-- Mobile menu button -->
@@ -32,15 +35,15 @@ import { categories } from '../lib/tools';
       </button>
     </div>
     <nav class="overflow-y-auto p-4">
-      <a href="/" class="block py-3 text-gray-700 hover:text-primary-600">Home</a>
-      <a href="/search" class="block py-3 text-gray-700 hover:text-primary-600">Search</a>
-      <a href="/rankings" class="block py-3 text-gray-700 hover:text-primary-600">Rankings</a>
+      <a href={lang === 'ja' ? '/ja' : '/'} class="block py-3 text-gray-700 hover:text-primary-600">Home</a>
+      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="block py-3 text-gray-700 hover:text-primary-600">Search</a>
+      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="block py-3 text-gray-700 hover:text-primary-600">Rankings</a>
       
       <div class="mt-2 border-t border-gray-200 pt-2">
         <p class="mb-2 text-sm font-semibold text-gray-500">Categories</p>
         {categories.map((category) => (
           <a
-            href={`/categories/${category.slug}`}
+            href={lang === 'ja' ? `/ja/categories/${category.slug}` : `/categories/${category.slug}`}
             class="block py-2 pl-3 text-sm text-gray-700 hover:text-primary-600"
           >
             <span class="mr-2">{category.icon}</span>
@@ -50,12 +53,12 @@ import { categories } from '../lib/tools';
       </div>
       
       <div class="mt-4 border-t border-gray-200 pt-4">
-        <a href="/submit" class="block rounded-lg bg-primary-600 px-4 py-3 text-center font-semibold text-white hover:bg-primary-700">
+        <a href={lang === 'ja' ? '/ja/submit' : '/submit'} class="block rounded-lg bg-primary-600 px-4 py-3 text-center font-semibold text-white hover:bg-primary-700">
           Submit Tool
         </a>
-        <a href="/favorites" class="block py-3 text-gray-700 hover:text-primary-600">Favorites</a>
-        <a href="/about" class="mt-2 block py-3 text-gray-700 hover:text-primary-600">About</a>
-        <a href="/login" class="mt-2 block py-3 text-gray-700 hover:text-primary-600">Login</a>
+        <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="block py-3 text-gray-700 hover:text-primary-600">Favorites</a>
+        <a href={lang === 'ja' ? '/ja/about' : '/about'} class="mt-2 block py-3 text-gray-700 hover:text-primary-600">About</a>
+        <a href={lang === 'ja' ? '/ja/login' : '/login'} class="mt-2 block py-3 text-gray-700 hover:text-primary-600">Login</a>
       </div>
     </nav>
   </div>
