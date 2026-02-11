@@ -3,15 +3,15 @@
 ## 📧 Email Address Setup
 
 ### Recommended Email
-**Primary**: `contact@aitoolshub.com` または `hello@aitoolshub.com`
+**Primary**: `contact@aitoolsaggregator.com` または `hello@aitoolsaggregator.com`
 
 ### Free Alternative (Immediate)
-**Gmail**: `aitoolshub@gmail.com`
+**Gmail**: `aitoolsaggregator@gmail.com`
 
 ### Setup Steps
 
 #### Option 1: Custom Domain Email (Recommended)
-1. Purchase domain: `aitoolshub.com`
+1. Purchase domain: `aitoolsaggregator.com`
 2. Set up email forwarding or Google Workspace
 3. Create aliases:
    - `contact@` - Main contact
@@ -20,7 +20,7 @@
    - `press@` - Media inquiries
 
 #### Option 2: Gmail (Quick Start)
-1. Create Gmail: `aitoolshub@gmail.com`
+1. Create Gmail: `aitoolsaggregator@gmail.com`
 2. Enable 2FA for security
 3. Set up email signature with branding
 
@@ -30,7 +30,7 @@
 
 ### Priority 1: Essential (Week 5)
 
-#### 1. **Twitter/X** (@AIToolsHub または @AIToolsHub)
+#### 1. **Twitter/X** (@AIToolsHub または @AIToolsAgg)
 - **Purpose**: Daily updates, engagement, trending
 - **Strategy**: 
   - Share new tool listings
@@ -78,7 +78,7 @@
 
 ### Priority 3: Optional (Month 2-3)
 
-#### 7. **Instagram** (@aitoolshub)
+#### 7. **Instagram** (@aitoolsaggregator)
 - **Purpose**: Visual content, younger audience
 - **Content**: Tool screenshots, infographics
 
@@ -95,7 +95,7 @@
 ## 📝 Account Creation Checklist
 
 ### Step 1: Email Setup
-- [ ] Create email: `aitoolshub@gmail.com`
+- [ ] Create email: `aitoolsaggregator@gmail.com`
 - [ ] Enable 2FA
 - [ ] Set up email signature
 - [ ] Create password (use password manager)
@@ -103,7 +103,7 @@
 
 ### Step 2: Social Media Accounts
 - [ ] **Twitter/X**
-  - [ ] Username: @AIToolsHub (or similar)
+  - [ ] Username: @AIToolsAgg (or similar)
   - [ ] Profile pic: Logo (512x512)
   - [ ] Header image: 1500x500
   - [ ] Bio: "Discover 50+ AI tools | Reviews, ratings, comparisons | 🚀 ai-tools-aggregator.vercel.app"
@@ -225,7 +225,7 @@
 ## 📋 Quick Start Checklist (This Week)
 
 ### Must Do (Priority 1)
-1. [ ] Create email: `aitoolshub@gmail.com`
+1. [ ] Create email: `aitoolsaggregator@gmail.com`
 2. [ ] Set up Twitter account
 3. [ ] Create Product Hunt maker account
 4. [ ] Prepare profile images and bios
@@ -245,7 +245,7 @@
 ## 🎬 Next Steps
 
 1. **つとむ様にお願いすること**:
-   - Gmail作成: `aitoolshub@gmail.com`
+   - Gmail作成: `aitoolsaggregator@gmail.com`
    - パスワードマネージャーに保存
    - 2FA有効化
 
