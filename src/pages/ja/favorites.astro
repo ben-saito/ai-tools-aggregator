@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+export const prerender = false; // Dynamic page for user favorites
+---
+
+<Layout title="My Favorites | AI Tools Aggregator">
+  <Header />
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold text-gray-900">My Favorites</h1>
+      <p class="mt-2 text-lg text-gray-600">
+        Tools you've saved for later
+      </p>
+    </div>
+
+    <!-- Auth check -->
+    <div id="auth-check" class="rounded-lg bg-white p-12 text-center shadow">
+      <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-primary-600"></div>
+      <p class="mt-4 text-gray-600">Loading...</p>
+    </div>
+
+    <!-- Favorites list -->
+    <div id="favorites-list" class="hidden">
+      <div id="favorites-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Will be populated dynamically -->
+      </div>
+      <div id="no-favorites" class="hidden rounded-lg border-2 border-dashed border-gray-300 p-12 text-center">
+        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+        <h3 class="mt-2 text-sm font-medium text-gray-900">No favorites yet</h3>
+        <p class="mt-1 text-sm text-gray-500">Start exploring and save your favorite tools!</p>
+        <div class="mt-6">
+          <a href="/" class="inline-flex items-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">
+            Browse Tools
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  import { supabase } from '../../lib/supabase';
+  import { getAllTools } from '../../lib/tools';
+
+  async function loadFavorites() {
+    const authCheck = document.getElementById('auth-check');
+    const favoritesList = document.getElementById('favorites-list');
+
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+      if (authCheck) {
+        authCheck.innerHTML = `
+          <div>
+            <p class="mb-4 text-gray-600">Please login to view your favorites</p>
+            <a href="/login" class="inline-flex items-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">
+              Login
+            </a>
+          </div>
+        `;
+      }
+      return;
+    }
+
+    authCheck?.classList.add('hidden');
+    favoritesList?.classList.remove('hidden');
+
+    // Load favorites
+    const { data: favorites, error } = await supabase
+      .from('favorites')
+      .select('tool_id, created_at')
+      .eq('user_id', session.user.id)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error loading favorites:', error);
+      return;
+    }
+
+    const grid = document.getElementById('favorites-grid');
+    const noFavorites = document.getElementById('no-favorites');
+
+    if (!favorites || favorites.length === 0) {
+      grid?.classList.add('hidden');
+      noFavorites?.classList.remove('hidden');
+      return;
+    }
+
+    // Get tool details
+    const allTools = getAllTools();
+    const favoriteTools = favorites
+      .map(fav => allTools.find(tool => tool.id === fav.tool_id))
+      .filter(Boolean);
+
+    if (grid) {
+      grid.innerHTML = favoriteTools.map(tool => `
+        <a 
+          href="/tools/${tool.id}" 
+          class="block rounded-lg border border-gray-200 p-4 transition hover:shadow-lg"
+        >
+          <div class="flex items-start gap-3">
+            ${tool.logoUrl ? `<img src="${tool.logoUrl}" alt="${tool.name}" class="h-8 w-8 rounded" loading="lazy" />` : ''}
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900">${tool.name}</h3>
+              <p class="mt-1 text-sm text-gray-600 line-clamp-2">${tool.description}</p>
+              <div class="mt-2 flex gap-2">
+                <span class="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-600">${tool.category}</span>
+                <span class="rounded bg-primary-50 px-2 py-0.5 text-xs text-primary-700">${tool.pricing}</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+  }
+
+  // Wait for Supabase to be ready
+  if (window.__supabaseReady) {
+    loadFavorites();
+  } else {
+    window.addEventListener('supabase-ready', loadFavorites);
+  }
+</script>

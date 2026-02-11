@@ -1,0 +1,176 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { supabase } from '../../../../lib/supabase';
+import { getToolById } from '../../../../lib/tools';
+
+export const prerender = false;
+
+const { id } = Astro.params;
+const tool = getToolById(id!);
+
+if (!tool) {
+  return Astro.redirect('/404');
+}
+
+// Check for existing claim logic would ideally be server-side here if we had SSR with user context.
+// Since we auth on client for now, we'll handle the form submission and status check on client.
+---
+
+<Layout title={`Claim Ownership: ${tool.name}`}>
+  <main class="mx-auto max-w-3xl px-4 py-12">
+    <div class="mb-8 text-center">
+      <h1 class="text-3xl font-bold text-gray-900">Claim Ownership of {tool.name}</h1>
+      <p class="mt-2 text-gray-600">
+        Prove that you are the creator or authorized representative of this tool to access the vendor dashboard.
+      </p>
+    </div>
+
+    <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+      <div id="auth-check" class="text-center">
+        <p class="mb-4 text-gray-600">Checking your authentication status...</p>
+      </div>
+
+      <form id="claim-form" class="hidden space-y-6">
+        <div>
+          <label for="proof_contact" class="block text-sm font-medium text-gray-700">
+            Work Email or Contact for Verification
+          </label>
+          <div class="mt-1">
+            <input
+              type="text"
+              name="proof_contact"
+              id="proof_contact"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              placeholder="founder@company.com"
+              required
+            />
+          </div>
+          <p class="mt-2 text-sm text-gray-500">
+            We will use this to verify your connection to the tool's domain.
+          </p>
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            class="flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Submit Claim
+          </button>
+        </div>
+      </form>
+
+      <div id="success-message" class="hidden text-center">
+        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+          <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="mt-2 text-lg font-medium text-gray-900">Claim Submitted!</h3>
+        <p class="mt-1 text-gray-500">
+          We have received your request. We will review it shortly.
+          <br/>
+          Check the <a href="/vendor/dashboard" class="text-blue-600 hover:underline">Vendor Dashboard</a> for status updates.
+        </p>
+      </div>
+       <div id="existing-claim-message" class="hidden text-center">
+        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100">
+          <svg class="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <h3 class="mt-2 text-lg font-medium text-gray-900">Already Claimed</h3>
+        <p class="mt-1 text-gray-500">
+          You or someone else has already submitted a claim for this tool.
+           <br/>
+          Check the <a href="/vendor/dashboard" class="text-blue-600 hover:underline">Vendor Dashboard</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script define:vars={{ toolId: tool.id }}>
+  import { supabase } from '../../../../../lib/supabase';
+
+  const authCheck = document.getElementById('auth-check');
+  const claimForm = document.getElementById('claim-form');
+  const successMessage = document.getElementById('success-message');
+  const existingClaimMessage = document.getElementById('existing-claim-message');
+  const proofInput = document.getElementById('proof_contact');
+
+  async function init() {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+      if (authCheck) authCheck.innerHTML = `
+        <p class="mb-4 text-red-600">You must be logged in to claim a tool.</p>
+        <button id="login-btn" class="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Log In</button>
+      `;
+      document.getElementById('login-btn')?.addEventListener('click', async () => {
+         const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'google', // Or flexible
+            options: {
+                redirectTo: window.location.href,
+            },
+        });
+        if (error) console.error(error);
+      });
+      return;
+    }
+
+    if (authCheck) authCheck.classList.add('hidden');
+    
+    // Check if already claimed by this user
+    const { data: existingClaim, error: claimError } = await supabase
+        .from('tool_owners')
+        .select('*')
+        .eq('tool_id', toolId)
+        .eq('user_id', session.user.id)
+        .single();
+    
+    // Also user might be owner? check if tool is already owned by *anyone*? 
+    // Usually only one owner, but we might allow multiple.
+    // For now check if THIS user claimed it.
+
+    if (existingClaim) {
+        if (existingClaimMessage) existingClaimMessage.classList.remove('hidden');
+        return;
+    }
+
+    if (claimForm) {
+        claimForm.classList.remove('hidden'); // Show form
+        
+        // Pre-fill email if available
+        if (session.user.email && proofInput) {
+            proofInput.value = session.user.email;
+        }
+
+        claimForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const contact = proofInput.value;
+
+            try {
+                const { error } = await supabase
+                    .from('tool_owners')
+                    .insert({
+                        tool_id: toolId,
+                        user_id: session.user.id,
+                        proof_contact: contact,
+                        status: 'pending' // Default in DB, but explicit is fine
+                    });
+
+                if (error) throw error;
+
+                claimForm.classList.add('hidden');
+                if (successMessage) successMessage.classList.remove('hidden');
+
+            } catch (err) {
+                alert('Error submitting claim: ' + err.message);
+            }
+        });
+    }
+  }
+
+  init();
+</script>

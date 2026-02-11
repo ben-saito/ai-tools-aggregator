@@ -1,0 +1,311 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout 
+  title="Submit Your AI Tool" 
+  description="Get your AI tool listed on AI Tools Aggregator. Free and instant listing."
+>
+  <Header />
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-4">Submit Your AI Tool</h1>
+      <p class="text-xl text-gray-600">
+        Get your tool in front of thousands of users looking for AI solutions. Listed instantly!
+      </p>
+    </div>
+
+    <!-- Success/Error Messages -->
+    <div id="message-container" class="mb-6 hidden">
+      <div id="success-message" class="hidden rounded-lg bg-green-50 border border-green-200 p-4">
+        <div class="flex items-start gap-3">
+          <svg class="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <div>
+            <h3 class="font-semibold text-green-900">Tool submitted successfully!</h3>
+            <p class="text-green-700 mt-1">Your tool is now live. <a href="" id="tool-link" class="underline font-medium">View it here</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="error-message" class="hidden rounded-lg bg-red-50 border border-red-200 p-4">
+        <div class="flex items-start gap-3">
+          <svg class="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+          <div>
+            <h3 class="font-semibold text-red-900">Error submitting tool</h3>
+            <p class="text-red-700 mt-1" id="error-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Auth Check -->
+    <div id="auth-check" class="mb-8 rounded-lg bg-blue-50 border border-blue-200 p-6">
+      <div class="flex items-start gap-3">
+        <svg class="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <div>
+          <h3 class="font-semibold text-blue-900">Login required</h3>
+          <p class="text-blue-700 mt-1">Please <a href="/login" class="underline font-medium">login</a> to submit your tool. This helps prevent spam.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submission Form -->
+    <div id="submission-form" class="hidden rounded-lg border border-gray-200 bg-white p-8">
+      <form id="tool-form" class="space-y-6">
+        <div>
+          <label for="tool_name" class="block text-sm font-medium text-gray-700 mb-2">
+            Tool Name *
+          </label>
+          <input
+            type="text"
+            id="tool_name"
+            name="tool_name"
+            required
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            placeholder="e.g., ChatGPT"
+          />
+        </div>
+
+        <div>
+          <label for="website" class="block text-sm font-medium text-gray-700 mb-2">
+            Website URL *
+          </label>
+          <input
+            type="url"
+            id="website"
+            name="website"
+            required
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            placeholder="https://example.com"
+          />
+          <p class="mt-1 text-sm text-gray-500">
+            This will be checked for duplicates
+          </p>
+        </div>
+
+        <div>
+          <label for="category" class="block text-sm font-medium text-gray-700 mb-2">
+            Category *
+          </label>
+          <select
+            id="category"
+            name="category"
+            required
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          >
+            <option value="">Select a category...</option>
+            <option value="text-generation">Text Generation</option>
+            <option value="image-generation">Image Generation</option>
+            <option value="video-generation">Video Generation</option>
+            <option value="audio-music">Audio & Music</option>
+            <option value="code-development">Code Development</option>
+            <option value="marketing-sales">Marketing & Sales</option>
+            <option value="productivity">Productivity</option>
+            <option value="research-education">Research & Education</option>
+            <option value="design-creative">Design & Creative</option>
+            <option value="data-analytics">Data & Analytics</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+            Description * (max 200 characters)
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            required
+            maxlength="200"
+            rows="3"
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            placeholder="Brief description of your AI tool..."
+          ></textarea>
+          <p class="mt-1 text-sm text-gray-500">
+            <span id="char-count">0</span>/200 characters
+          </p>
+        </div>
+
+        <div>
+          <label for="pricing" class="block text-sm font-medium text-gray-700 mb-2">
+            Pricing Model *
+          </label>
+          <select
+            id="pricing"
+            name="pricing"
+            required
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          >
+            <option value="">Select pricing...</option>
+            <option value="free">Free</option>
+            <option value="freemium">Freemium</option>
+            <option value="paid">Paid</option>
+            <option value="open-source">Open Source</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="logo_url" class="block text-sm font-medium text-gray-700 mb-2">
+            Logo URL (optional)
+          </label>
+          <input
+            type="url"
+            id="logo_url"
+            name="logo_url"
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            placeholder="https://example.com/logo.png"
+          />
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Submit Tool
+          </button>
+        </div>
+
+        <p class="text-sm text-gray-500">
+          By submitting, you agree to our terms and confirm you have the right to list this tool.
+          Your tool will appear instantly on the site.
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    (async function() {
+      // Wait for Supabase to load
+      while (!window.__supabaseReady && typeof window.supabase === 'undefined') {
+        await new Promise(resolve => setTimeout(resolve, 50));
+      }
+
+      const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+      const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+      const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+      // Character counter
+      const textarea = document.getElementById('description');
+      const charCount = document.getElementById('char-count');
+      textarea?.addEventListener('input', () => {
+        if (charCount) {
+          charCount.textContent = textarea.value.length.toString();
+        }
+      });
+
+      // Check authentication
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      const authCheck = document.getElementById('auth-check');
+      const submissionForm = document.getElementById('submission-form');
+
+      if (session) {
+        authCheck.classList.add('hidden');
+        submissionForm.classList.remove('hidden');
+      } else {
+        authCheck.classList.remove('hidden');
+        submissionForm.classList.add('hidden');
+      }
+
+      // Form submission
+      const form = document.getElementById('tool-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const messageContainer = document.getElementById('message-container');
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
+      const errorText = document.getElementById('error-text');
+      const toolLink = document.getElementById('tool-link');
+
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!session) {
+          window.location.href = '/login';
+          return;
+        }
+
+        // Disable submit button
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        // Hide messages
+        messageContainer.classList.add('hidden');
+        successMessage.classList.add('hidden');
+        errorMessage.classList.add('hidden');
+
+        const formData = new FormData(e.target);
+        const toolName = formData.get('tool_name');
+        const website = formData.get('website');
+        const category = formData.get('category');
+        const description = formData.get('description');
+        const pricing = formData.get('pricing');
+        const logoUrl = formData.get('logo_url') || null;
+
+        // Generate slug
+        const slug = toolName.toString().toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-');
+
+        try {
+          // Check for duplicate URL
+          const { data: existingTool } = await supabase
+            .from('tools')
+            .select('id')
+            .eq('url', website)
+            .single();
+
+          if (existingTool) {
+            throw new Error('A tool with this URL already exists');
+          }
+
+          // Insert tool
+          const { data, error } = await supabase
+            .from('tools')
+            .insert({
+              id: slug,
+              name: toolName,
+              description: description,
+              category: category,
+              pricing: pricing,
+              url: website,
+              website_url: website,
+              logo_url: logoUrl,
+              submitted_by: session.user.id,
+            })
+            .select()
+            .single();
+
+          if (error) throw error;
+
+          // Show success
+          messageContainer.classList.remove('hidden');
+          successMessage.classList.remove('hidden');
+          toolLink.href = `/tools/${slug}`;
+          toolLink.textContent = 'View it here';
+
+          // Reset form
+          form.reset();
+          charCount.textContent = '0';
+
+        } catch (error) {
+          console.error('Submission error:', error);
+          messageContainer.classList.remove('hidden');
+          errorMessage.classList.remove('hidden');
+          errorText.textContent = error.message || 'An error occurred. Please try again.';
+        } finally {
+          // Re-enable button
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Tool';
+        }
+      });
+    })();
+  </script>
+</Layout>

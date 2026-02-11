@@ -1,0 +1,138 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout 
+  title="About Us" 
+  description="Learn about AI Tools Aggregator - a curated directory of the best AI tools for 2026"
+>
+  <Header />
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    <article class="prose prose-lg max-w-none">
+      <h1 class="text-4xl font-bold mb-6">About AI Tools Aggregator</h1>
+      
+      <p class="text-xl text-gray-600 mb-8">
+        Your trusted source for discovering and comparing AI tools across 10 major categories.
+      </p>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Our Mission</h2>
+        <p class="text-gray-700">
+          We curate and organize the best AI tools to help individuals and businesses discover solutions 
+          that enhance productivity, creativity, and innovation. With AI technology evolving rapidly, 
+          we aim to be your go-to resource for finding the right tools for your needs.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">What We Offer</h2>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <svg class="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <strong class="text-gray-900">Curated Selection</strong>
+              <p class="text-gray-600 mt-1">Every tool is hand-picked and verified for quality and usefulness.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <strong class="text-gray-900">Organized Categories</strong>
+              <p class="text-gray-600 mt-1">10 major categories covering text, image, video, audio, code, and more.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <strong class="text-gray-900">Regular Updates</strong>
+              <p class="text-gray-600 mt-1">We continuously add new tools and update existing listings.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <strong class="text-gray-900">Free to Use</strong>
+              <p class="text-gray-600 mt-1">Access our entire directory without any subscription fees.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Categories We Cover</h2>
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">💬</div>
+            <div class="font-semibold text-sm">Text Generation</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">🎨</div>
+            <div class="font-semibold text-sm">Image Generation</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">🎥</div>
+            <div class="font-semibold text-sm">Video Generation</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">🎵</div>
+            <div class="font-semibold text-sm">Audio & Music</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">💻</div>
+            <div class="font-semibold text-sm">Code Development</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">📈</div>
+            <div class="font-semibold text-sm">Marketing & Sales</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">⚡</div>
+            <div class="font-semibold text-sm">Productivity</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">📚</div>
+            <div class="font-semibold text-sm">Research & Education</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">🖌️</div>
+            <div class="font-semibold text-sm">Design & Creative</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-4">
+            <div class="text-2xl mb-2">📊</div>
+            <div class="font-semibold text-sm">Data & Analytics</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">For Tool Developers</h2>
+        <p class="text-gray-700 mb-4">
+          Are you building an AI tool? We'd love to feature it! Check out our 
+          <a href="/submit" class="text-primary-600 hover:underline">submission page</a> to get your tool listed.
+        </p>
+        <p class="text-gray-600 text-sm">
+          We offer both free listings and premium featured placements for increased visibility.
+        </p>
+      </section>
+
+      <section class="rounded-lg bg-gray-50 p-8">
+        <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
+        <p class="text-gray-700 mb-4">
+          Have questions, suggestions, or want to partner with us?
+        </p>
+        <p class="text-gray-600">
+          Email us at: <a href="mailto:hello@aitools.directory" class="text-primary-600 hover:underline">hello@aitools.directory</a>
+        </p>
+      </section>
+    </article>
+  </main>
+</Layout>

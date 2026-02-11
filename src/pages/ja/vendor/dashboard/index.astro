@@ -1,0 +1,210 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+
+// This page is a protected route. We'll use client-side auth check for MVP.
+// Ideally SSR with middleware.
+
+export const prerender = false; // SSR required for dynamic content
+---
+
+<Layout title="Vendor Dashboard">
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <div class="mb-8 flex items-center justify-between">
+      <h1 class="text-3xl font-bold text-gray-900">Vendor Dashboard</h1>
+      <a href="/tools" class="text-sm font-medium text-blue-600 hover:text-blue-500">
+        Browse more tools to claim &rarr;
+      </a>
+    </div>
+
+    <div id="auth-check" class="rounded-lg bg-white p-12 text-center shadow">
+      <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+      </div>
+      <p class="mt-4 text-gray-600">Verifying access...</p>
+    </div>
+
+    <div id="dashboard-content" class="hidden space-y-8">
+        <!-- Overview Stats -->
+        <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <p class="text-sm font-medium text-gray-500">Total Tools</p>
+                <p class="mt-2 text-3xl font-bold text-gray-900" id="stat-total-tools">-</p>
+            </div>
+            <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <p class="text-sm font-medium text-gray-500">Total Views</p>
+                <p class="mt-2 text-3xl font-bold text-gray-900" id="stat-total-views">-</p>
+            </div>
+             <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <p class="text-sm font-medium text-gray-500">Total Upvotes</p>
+                <p class="mt-2 text-3xl font-bold text-gray-900" id="stat-total-upvotes">-</p>
+            </div>
+             <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <p class="text-sm font-medium text-gray-500">Total Reviews</p>
+                <p class="mt-2 text-3xl font-bold text-gray-900" id="stat-total-reviews">-</p>
+            </div>
+        </section>
+
+        <!-- Tool List -->
+        <section>
+            <h2 class="mb-4 text-xl font-bold text-gray-900">My Tools</h2>
+             <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tool Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Views</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Upvotes</th>
+                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reviews</th>
+                            <th scope="col" class="relative px-6 py-3"><span class="sr-only">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tool-list-body" class="bg-white divide-y divide-gray-200">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+                 <div id="no-tools-msg" class="hidden p-8 text-center text-gray-500">
+                    You haven't claimed any tools yet. <a href="/tools" class="text-blue-600 hover:underline">Find your tool</a> to claim ownership.
+                </div>
+            </div>
+        </section>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  import { supabase } from '../../../../lib/supabase';
+
+  const authCheck = document.getElementById('auth-check');
+  const dashboardContent = document.getElementById('dashboard-content');
+  const toolListBody = document.getElementById('tool-list-body');
+  const noToolsMsg = document.getElementById('no-tools-msg');
+
+  // Stats elements
+  const statTotalTools = document.getElementById('stat-total-tools');
+  const statTotalViews = document.getElementById('stat-total-views');
+  const statTotalUpvotes = document.getElementById('stat-total-upvotes');
+  const statTotalReviews = document.getElementById('stat-total-reviews');
+
+  async function init() {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+        window.location.href = '/'; // Or login page
+        return;
+    }
+
+    // Fetch owned tools
+    const { data: ownerships, error } = await supabase
+        .from('tool_owners')
+        .select(`
+            *,
+            tool:tools(id, name, logo_url),
+            stats:tools_stats(*) 
+        `) // Note: joined stats requires FK or we fetch separately. 
+        // tool_owners references tools. tools doesn't reference tools_stats directly (PK matchup).
+        // Supabase nested join might not work if no FK from tools -> tools_stats.
+        // tools_stats references nothing? No, tool_id is PK.
+        // We can't easily join tools_stats via tools in one query unless tools_stats has FK to tools (it does implicitly via ID but no constraint? checks schema).
+        // Schema says: tools_stats (tool_id PK).
+        // Let's fetch ownerships, then fetch stats for those tool IDs.
+        .eq('user_id', session.user.id);
+
+    if (error) {
+        console.error('Error fetching ownerships:', error);
+        authCheck.innerHTML = `<p class="text-red-500">Error loading dashboard.</p>`;
+        return;
+    }
+
+    // Fetch stats separately
+    const toolIds = ownerships.map(o => o.tool_id);
+    let statsMap = {};
+    if (toolIds.length > 0) {
+        const { data: stats } = await supabase
+            .from('tools_stats')
+            .select('*')
+            .in('tool_id', toolIds);
+        
+        stats?.forEach(s => {
+            statsMap[s.tool_id] = s;
+        });
+    }
+
+    // Hide loader, show content
+    authCheck.classList.add('hidden');
+    dashboardContent.classList.remove('hidden');
+
+    if (ownerships.length === 0) {
+        noToolsMsg.classList.remove('hidden');
+        // Set stats to 0
+        if(statTotalTools) statTotalTools.textContent = '0';
+        if(statTotalViews) statTotalViews.textContent = '0';
+        if(statTotalUpvotes) statTotalUpvotes.textContent = '0';
+        if(statTotalReviews) statTotalReviews.textContent = '0';
+        return;
+    }
+
+    // Calculate Aggregates
+    let totalViews = 0;
+    let totalUpvotes = 0;
+    let totalReviews = 0;
+
+    toolListBody.innerHTML = ownerships.map(owner => {
+        const tool = owner.tool;
+        // @ts-ignore
+        const stat = statsMap[tool.id] || { view_count: 0, upvote_count: 0, review_count: 0 };
+        
+        // Add to totals if approved (or maybe all?) Let's count all for now or just approved.
+        if (owner.status === 'approved') {
+            totalViews += (stat.view_count || 0);
+            totalUpvotes += (stat.upvote_count || 0);
+            totalReviews += (stat.review_count || 0);
+        }
+
+        return `
+            <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                            ${tool.logo_url ? `<img class="h-10 w-10 rounded-full object-cover" src="${tool.logo_url}" alt="">` : `<div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center font-bold">${tool.name.charAt(0)}</div>`}
+                        </div>
+                        <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">${tool.name}</div>
+                            <div class="text-sm text-gray-500"><a href="/tools/${tool.id}" target="_blank" class="hover:underline">View Page</a></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                        owner.status === 'approved' ? 'bg-green-100 text-green-800' : 
+                        owner.status === 'rejected' ? 'bg-red-100 text-red-800' : 
+                        'bg-yellow-100 text-yellow-800'
+                    }">
+                        ${owner.status.charAt(0).toUpperCase() + owner.status.slice(1)}
+                    </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    ${stat.view_count || 0}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    ${stat.upvote_count || 0}
+                </td>
+                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    ${stat.review_count || 0}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    ${owner.status === 'approved' ? `<a href="/vendor/dashboard/${tool.id}" class="text-blue-600 hover:text-blue-900">Details</a>` : '<span class="text-gray-400">Details</span>'}
+                </td>
+            </tr>
+        `;
+    }).join('');
+
+    // Update stats UI
+    if(statTotalTools) statTotalTools.textContent = ownerships.length.toString();
+    if(statTotalViews) statTotalViews.textContent = totalViews.toLocaleString();
+    if(statTotalUpvotes) statTotalUpvotes.textContent = totalUpvotes.toLocaleString();
+    if(statTotalReviews) statTotalReviews.textContent = totalReviews.toLocaleString();
+  }
+
+  init();
+</script>

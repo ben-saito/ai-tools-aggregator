@@ -1,0 +1,42 @@
+---
+---
+
+<script>
+  (async function() {
+    // Wait for Supabase to load
+    while (!window.__supabaseReady && typeof window.supabase === 'undefined') {
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+
+    // Initialize Supabase
+    const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+    // Handle auth callback
+    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    const accessToken = hashParams.get('access_token');
+    const refreshToken = hashParams.get('refresh_token');
+
+    if (accessToken && refreshToken) {
+      // Set session from hash params
+      supabase.auth.setSession({
+        access_token: accessToken,
+        refresh_token: refreshToken,
+      }).then(() => {
+        // Redirect to home page after successful login
+        window.location.href = '/';
+      });
+    } else {
+      // No tokens, redirect to login
+      window.location.href = '/login';
+    }
+  })();
+</script>
+
+<div class="flex min-h-screen items-center justify-center">
+  <div class="text-center">
+    <div class="mb-4 inline-block h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"></div>
+    <p class="text-gray-600">Completing sign in...</p>
+  </div>
+</div>
