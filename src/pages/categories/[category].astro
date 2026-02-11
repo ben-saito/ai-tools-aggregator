@@ -29,17 +29,6 @@ const { data: tools, error } = await supabase
 if (error) {
   console.error('Error loading tools:', error);
 }
-
-// For static generation
-export async function getStaticPaths() {
-  const { data: categories } = await supabase
-    .from('categories')
-    .select('slug');
-  
-  return categories?.map(cat => ({
-    params: { category: cat.slug }
-  })) || [];
-}
 ---
 
 <Layout title={`${categories.name} | ${t.siteTitle}`}>
