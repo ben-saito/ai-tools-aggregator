@@ -186,12 +186,14 @@ export const ui = {
     'rankings.title': 'AI Tools Rankings - Trending & Top Rated',
     'rankings.description': 'Discover trending and top-rated AI tools based on community reviews',
     'rankings.pageTitle': 'AI Tools Rankings',
+    'rankings.totalScore': 'Total Score',
     'rankings.trending': 'Trending',
     'rankings.topRated': 'Top Rated',
     'rankings.mostReviewed': 'Most Reviewed',
     'rankings.loading': 'Loading rankings...',
     'rankings.reviews': 'reviews',
     'rankings.noData': 'No data available',
+    'rankings.noScores': 'No scores available yet.',
     
     // Compare Page
     'compare.title': 'Compare AI Tools',
@@ -403,12 +405,14 @@ export const ui = {
     'rankings.title': 'AIツールランキング - トレンド & 高評価',
     'rankings.description': 'コミュニティレビューに基づくトレンド・高評価のAIツールを発見',
     'rankings.pageTitle': 'AIツールランキング',
+    'rankings.totalScore': '総合スコア',
     'rankings.trending': 'トレンド',
     'rankings.topRated': '高評価',
     'rankings.mostReviewed': 'レビュー数',
     'rankings.loading': 'ランキングを読み込み中...',
     'rankings.reviews': 'レビュー',
     'rankings.noData': 'データがありません',
+    'rankings.noScores': 'まだスコアがありません。',
     
     // Compare Page
     'compare.title': 'AIツールを比較',

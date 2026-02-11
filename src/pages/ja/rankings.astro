@@ -21,7 +21,10 @@ const tools = getAllTools();
     <!-- Tabs -->
     <div class="mb-8 border-b border-gray-200">
       <nav class="-mb-px flex gap-6">
-        <button class="ranking-tab active border-b-2 border-blue-600 px-1 pb-4 text-sm font-medium text-blue-600" data-tab="trending">
+        <button class="ranking-tab active border-b-2 border-blue-600 px-1 pb-4 text-sm font-medium text-blue-600" data-tab="total-score">
+          🏆 {t('rankings.totalScore')}
+        </button>
+        <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-tab="trending">
           🔥 {t('rankings.trending')}
         </button>
         <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-tab="top-rated">
@@ -85,8 +88,8 @@ const tools = getAllTools();
     return JSON.parse(toolsJson || '[]');
   }
 
-  type Tab = 'trending' | 'top-rated' | 'most-reviewed';
-  let currentTab: Tab = 'trending';
+  type Tab = 'total-score' | 'trending' | 'top-rated' | 'most-reviewed';
+  let currentTab: Tab = 'total-score';
 
   async function loadRankings(tab: Tab) {
     currentTab = tab;
@@ -114,6 +117,43 @@ const tools = getAllTools();
     try {
       const tools = getAllTools();
       let statsData;
+      let scoresData = [];
+
+      if (tab === 'total-score') {
+        const { data: scores, error } = await supabase.from('tool_scores').select('*').order('total_score', { ascending: false }).limit(20);
+        if (error) throw error;
+        scoresData = scores || [];
+        
+        if (scoresData.length === 0) {
+          content.innerHTML = '<div class="col-span-full text-center py-12 text-gray-600">まだスコアがありません。</div>';
+          return;
+        }
+        
+        const rankedTools = scoresData.map(score => ({ ...score, tool: tools.find(t => t.id === score.tool_id) })).filter(item => item.tool);
+        content.innerHTML = rankedTools.map((item, index) => `
+          <div class="rounded-lg border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
+            <div class="flex items-start gap-4">
+              <div class="text-3xl font-bold text-gray-300">#${index + 1}</div>
+              <div class="flex-1">
+                ${item.tool.logoUrl ? `<img src="${item.tool.logoUrl}" alt="${item.tool.name}" class="mb-3 h-12 w-12 rounded-lg">` : ''}
+                <h3 class="text-lg font-semibold text-gray-900"><a href="/ja/tools/${item.tool.id}" class="hover:text-blue-600">${item.tool.name}</a></h3>
+                <p class="mt-1 text-sm text-gray-600">${item.tool.description}</p>
+                <div class="mt-4 rounded bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm font-medium text-gray-700">総合スコア</span>
+                    <span class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">${item.total_score.toFixed(1)}</span>
+                  </div>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <span class="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700">${item.tool.category}</span>
+                  <span class="rounded bg-blue-50 px-2 py-1 text-xs text-blue-700">${item.tool.pricing}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        return;
+      }
 
       if (tab === 'trending') {
         statsData = await getTrendingTools(20);
@@ -204,6 +244,6 @@ const tools = getAllTools();
   });
 
     // Initial load
-    loadRankings('trending');
+    loadRankings('total-score');
   })();
 </script>
