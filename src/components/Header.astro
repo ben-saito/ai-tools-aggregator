@@ -72,35 +72,15 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-  // Store and apply language preference
+  // Store language preference when clicking language links
   document.addEventListener('DOMContentLoaded', () => {
-    // Store language when clicking language links
     document.querySelectorAll('a[data-lang]').forEach(link => {
       link.addEventListener('click', (e) => {
         const lang = link.getAttribute('data-lang');
         localStorage.setItem('preferred-lang', lang);
+        // Clear redirect flag to allow redirection after manual language change
+        sessionStorage.removeItem('lang-redirected');
       });
     });
-
-    // Auto-redirect to preferred language on page load (only on homepage or if language doesn't match)
-    const preferredLang = localStorage.getItem('preferred-lang');
-    const currentPath = window.location.pathname;
-    const isJaPath = currentPath.startsWith('/ja');
-    const currentLang = isJaPath ? 'ja' : 'en';
-
-    if (preferredLang && preferredLang !== currentLang) {
-      // Construct the target URL
-      let targetPath = currentPath;
-      if (preferredLang === 'ja' && !isJaPath) {
-        targetPath = '/ja' + currentPath;
-      } else if (preferredLang === 'en' && isJaPath) {
-        targetPath = currentPath.replace('/ja', '');
-      }
-      
-      // Only redirect if the path actually changed
-      if (targetPath !== currentPath) {
-        window.location.href = targetPath;
-      }
-    }
   });
 </script>
