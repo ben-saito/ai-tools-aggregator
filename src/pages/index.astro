@@ -6,6 +6,10 @@ import SearchBar from '../components/SearchBar.astro';
 import TrendingTools from '../components/TrendingTools.astro';
 import Leaderboard from '../components/Leaderboard.astro';
 import { getAllTools, getFeaturedTools, categories } from '../lib/tools';
+import { getLangFromUrl, useTranslations } from '../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const tools = getAllTools();
 const featuredTools = getFeaturedTools();
@@ -15,7 +19,7 @@ const schemaData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "AI Tools Hub",
-  "description": "Discover the best AI tools for 2026. Curated directory of 50+ AI tools across 10 categories.",
+  "description": t('hero.description'),
   "url": "https://ai-tools-aggregator-seven.vercel.app",
   "potentialAction": {
     "@type": "SearchAction",
@@ -30,74 +34,226 @@ const schemaData = {
 };
 ---
 
-<Layout title="Discover the Best AI Tools for 2026">
+<Layout title={`${t('hero.title')} ${t('hero.subtitle')}`}>
   <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   <Header />
-  <main class="mx-auto max-w-7xl px-4 py-8">
-    <section class="mb-12 text-center">
-      <h1 class="text-4xl font-bold">AI Tools Hub</h1>
-      <p class="mt-4 text-lg text-gray-600">
-        Discover {tools.length}+ curated AI tools across {categories.length} categories
-      </p>
-      <div class="mx-auto mt-6 max-w-2xl">
-        <SearchBar />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-primary-50 to-white py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="text-center">
+          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+            {t('hero.title')}<br />
+            <span class="text-primary-600">{t('hero.subtitle')}</span>
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
+            {t('hero.description')}
+          </p>
+          
+          <!-- Features -->
+          <div class="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-3">
+            <div class="rounded-lg bg-white p-6 shadow-sm">
+              <div class="text-3xl">✨</div>
+              <h3 class="mt-3 font-semibold text-gray-900">{t('hero.feature1')}</h3>
+              <p class="mt-1 text-sm text-gray-600">{t('hero.feature1.desc')}</p>
+            </div>
+            <div class="rounded-lg bg-white p-6 shadow-sm">
+              <div class="text-3xl">🔍</div>
+              <h3 class="mt-3 font-semibold text-gray-900">{t('hero.feature2')}</h3>
+              <p class="mt-1 text-sm text-gray-600">{t('hero.feature2.desc')}</p>
+            </div>
+            <div class="rounded-lg bg-white p-6 shadow-sm">
+              <div class="text-3xl">💾</div>
+              <h3 class="mt-3 font-semibold text-gray-900">{t('hero.feature3')}</h3>
+              <p class="mt-1 text-sm text-gray-600">{t('hero.feature3.desc')}</p>
+            </div>
+          </div>
+          
+          <!-- Search Bar CTA -->
+          <div class="mx-auto mt-10 max-w-2xl">
+            <SearchBar />
+            <p class="mt-4 text-sm text-gray-500">{t('cta.subtitle')}</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="mb-12">
-      <Leaderboard title="Today's Top Launches" />
-    </section>
-
-    <section class="mb-12">
-      <h2 class="mb-6 text-2xl font-bold">Featured Tools</h2>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {featuredTools.map((tool) => (
-          <ToolCard {...tool} />
-        ))}
+    <!-- Stats Section -->
+    <section class="border-y border-gray-200 bg-white py-12">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="grid gap-8 sm:grid-cols-4 text-center">
+          <div>
+            <div class="text-4xl font-bold text-primary-600">{tools.length}+</div>
+            <div class="mt-2 text-sm text-gray-600">{t('stats.tools')}</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-primary-600">{categories.length}</div>
+            <div class="mt-2 text-sm text-gray-600">{t('stats.categories')}</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-primary-600">500+</div>
+            <div class="mt-2 text-sm text-gray-600">{t('stats.reviews')}</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-primary-600">1000+</div>
+            <div class="mt-2 text-sm text-gray-600">{t('stats.users')}</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Popular Tags Section -->
-    <section class="mb-12">
-      <h2 class="mb-6 text-2xl font-bold">Popular Tags</h2>
-      <div id="popular-tags-container" class="flex flex-wrap gap-2">
-        <div class="text-sm text-gray-500">Loading popular tags...</div>
+    <!-- Problem Section -->
+    <section class="bg-gray-50 py-16">
+      <div class="mx-auto max-w-7xl px-4">
+        <h2 class="text-center text-3xl font-bold text-gray-900">{t('problem.title')}</h2>
+        <div class="mx-auto mt-10 grid max-w-3xl gap-4">
+          <div class="flex items-start gap-3 rounded-lg bg-white p-6 shadow-sm">
+            <span class="text-2xl">❌</span>
+            <p class="text-gray-700">{t('problem.1')}</p>
+          </div>
+          <div class="flex items-start gap-3 rounded-lg bg-white p-6 shadow-sm">
+            <span class="text-2xl">⏰</span>
+            <p class="text-gray-700">{t('problem.2')}</p>
+          </div>
+          <div class="flex items-start gap-3 rounded-lg bg-white p-6 shadow-sm">
+            <span class="text-2xl">🤔</span>
+            <p class="text-gray-700">{t('problem.3')}</p>
+          </div>
+          <div class="flex items-start gap-3 rounded-lg bg-white p-6 shadow-sm">
+            <span class="text-2xl">📋</span>
+            <p class="text-gray-700">{t('problem.4')}</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <TrendingTools />
+    <!-- Solution Section -->
+    <section class="py-16">
+      <div class="mx-auto max-w-7xl px-4">
+        <h2 class="text-center text-3xl font-bold text-gray-900">{t('solution.title')}</h2>
+        <div class="mx-auto mt-10 grid max-w-5xl gap-8 md:grid-cols-2">
+          <div class="rounded-lg border border-gray-200 p-8">
+            <div class="text-4xl">✅</div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-900">{t('solution.1.title')}</h3>
+            <p class="mt-3 text-gray-600">{t('solution.1.desc')}</p>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-8">
+            <div class="text-4xl">⚡</div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-900">{t('solution.2.title')}</h3>
+            <p class="mt-3 text-gray-600">{t('solution.2.desc')}</p>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-8">
+            <div class="text-4xl">⭐</div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-900">{t('solution.3.title')}</h3>
+            <p class="mt-3 text-gray-600">{t('solution.3.desc')}</p>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-8">
+            <div class="text-4xl">🎯</div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-900">{t('solution.4.title')}</h3>
+            <p class="mt-3 text-gray-600">{t('solution.4.desc')}</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="mb-12">
-      <h2 class="mb-6 text-2xl font-bold">Browse by Category</h2>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {categories.map((category) => {
-          const categoryTools = tools.filter((tool) => tool.category === category.name);
-          return (
-            <a
-              href={`/categories/${category.slug}`}
-              class="group rounded-lg border border-gray-200 p-6 transition hover:border-primary-500 hover:shadow-md"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-4xl">{category.icon}</span>
-                <div class="flex-1">
-                  <h3 class="font-semibold text-gray-900 group-hover:text-primary-600">
-                    {category.name}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">{categoryTools.length} tools</p>
+    <!-- How It Works -->
+    <section class="bg-primary-50 py-16">
+      <div class="mx-auto max-w-7xl px-4">
+        <h2 class="text-center text-3xl font-bold text-gray-900">{t('howitworks.title')}</h2>
+        <div class="mx-auto mt-10 grid max-w-4xl gap-8 md:grid-cols-3">
+          <div class="text-center">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary-600 text-2xl font-bold text-white">1</div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-900">{t('howitworks.step1')}</h3>
+            <p class="mt-2 text-gray-600">{t('howitworks.step1.desc')}</p>
+          </div>
+          <div class="text-center">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary-600 text-2xl font-bold text-white">2</div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-900">{t('howitworks.step2')}</h3>
+            <p class="mt-2 text-gray-600">{t('howitworks.step2.desc')}</p>
+          </div>
+          <div class="text-center">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary-600 text-2xl font-bold text-white">3</div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-900">{t('howitworks.step3')}</h3>
+            <p class="mt-2 text-gray-600">{t('howitworks.step3.desc')}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Tools & Leaderboard -->
+    <section class="mx-auto max-w-7xl px-4 py-16">
+      <div class="mb-12">
+        <Leaderboard title="Today's Top Launches" />
+      </div>
+
+      <div class="mb-12">
+        <h2 class="mb-6 text-2xl font-bold">{t('common.featured')}</h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredTools.map((tool) => (
+            <ToolCard {...tool} />
+          ))}
+        </div>
+      </div>
+
+      <!-- Popular Tags Section -->
+      <div class="mb-12">
+        <h2 class="mb-6 text-2xl font-bold">{t('common.popular')}</h2>
+        <div id="popular-tags-container" class="flex flex-wrap gap-2">
+          <div class="text-sm text-gray-500">Loading popular tags...</div>
+        </div>
+      </div>
+
+      <TrendingTools />
+
+      <div class="mb-12">
+        <h2 class="mb-6 text-2xl font-bold">{t('common.browse')}</h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {categories.map((category) => {
+            const categoryTools = tools.filter((tool) => tool.category === category.name);
+            return (
+              <a
+                href={`/categories/${category.slug}`}
+                class="group rounded-lg border border-gray-200 p-6 transition hover:border-primary-500 hover:shadow-md"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="text-4xl">{category.icon}</span>
+                  <div class="flex-1">
+                    <h3 class="font-semibold text-gray-900 group-hover:text-primary-600">
+                      {category.name}
+                    </h3>
+                    <p class="mt-1 text-sm text-gray-500">{categoryTools.length} tools</p>
+                  </div>
                 </div>
-              </div>
-            </a>
-          );
-        })}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      <div>
+        <h2 class="mb-6 text-2xl font-bold">{t('common.all')}</h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {tools.map((tool) => (
+            <ToolCard {...tool} />
+          ))}
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2 class="mb-6 text-2xl font-bold">All Tools</h2>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {tools.map((tool) => (
-          <ToolCard {...tool} />
-        ))}
+    <!-- Final CTA -->
+    <section class="bg-gradient-to-r from-primary-600 to-primary-700 py-16">
+      <div class="mx-auto max-w-4xl px-4 text-center">
+        <h2 class="text-3xl font-bold text-white">{t('cta.final')}</h2>
+        <p class="mt-4 text-lg text-primary-100">{t('cta.subtitle')}</p>
+        <div class="mx-auto mt-8 max-w-xl">
+          <a 
+            href="#search"
+            class="inline-block rounded-lg bg-white px-8 py-3 text-lg font-semibold text-primary-600 shadow-lg transition hover:bg-gray-50"
+          >
+            {t('hero.cta')}
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -119,14 +275,12 @@ const schemaData = {
       if (error) throw error;
 
       if (tags && tags.length > 0) {
-        // Calculate tag sizes based on usage
         const maxUses = Math.max(...tags.map(t => t.total_uses));
         const minUses = Math.min(...tags.map(t => t.total_uses));
 
         container.innerHTML = tags.map(tag => {
-          // Size from 0.875rem to 1.5rem
           const sizeRatio = (tag.total_uses - minUses) / (maxUses - minUses || 1);
-          const fontSize = 0.875 + (sizeRatio * 0.625); // 0.875rem to 1.5rem
+          const fontSize = 0.875 + (sizeRatio * 0.625);
           
           return `
             <a 
@@ -154,7 +308,6 @@ const schemaData = {
     return div.innerHTML;
   }
 
-  // Load when Supabase is ready
   if (window.__supabaseReady) {
     loadPopularTags();
   } else {

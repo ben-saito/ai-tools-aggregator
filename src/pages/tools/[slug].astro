@@ -10,7 +10,7 @@ import FavoriteButton from "../../components/FavoriteButton.astro";
 
 import { getAllTools } from '../../lib/tools';
 
-export const prerender = true;
+export const prerender = false;
 
 export async function getStaticPaths() {
   const tools = getAllTools();

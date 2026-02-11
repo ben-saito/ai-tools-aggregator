@@ -1,0 +1,11 @@
+---
+// Redirect to main index with ja lang parameter
+// The main index.astro will handle language detection
+import { getLangFromUrl } from '../../lib/i18n';
+
+// This page structure allows for /ja/ URL path
+// and the main index.astro will render Japanese content
+export const prerender = false;
+
+return Astro.redirect('/?lang=ja');
+---
