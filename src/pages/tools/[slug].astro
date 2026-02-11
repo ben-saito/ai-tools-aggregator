@@ -8,19 +8,16 @@ import LeadGenWidget from '../../components/LeadGenWidget.astro';
 import TagInput from "../../components/TagInput.astro";
 import FavoriteButton from "../../components/FavoriteButton.astro";
 
-import { getAllTools } from '../../lib/tools';
+import { getAllTools, getToolById } from '../../lib/tools';
 
-export const prerender = false;
+const { slug } = Astro.params;
 
-export async function getStaticPaths() {
-  const tools = getAllTools();
-  return tools.map((tool) => ({
-    params: { slug: tool.id },
-    props: { tool }
-  }));
+// Get tool from static data
+const tool = getToolById(slug as string);
+
+if (!tool) {
+  return Astro.redirect('/404');
 }
-
-const { tool } = Astro.props;
 
 // Determine if we should show the lead gen widget
 // For now, show for Paid and Freemium tools
