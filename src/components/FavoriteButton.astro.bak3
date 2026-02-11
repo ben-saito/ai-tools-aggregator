@@ -20,10 +20,7 @@ const sizeClass = size === 'large' ? 'h-6 w-6' : 'h-5 w-5';
 </button>
 
 <script>
-  // Initialize Supabase client
-  const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
-  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
-  const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+  import { supabase } from '../lib/supabase';
 
   // Initialize favorite buttons
   document.querySelectorAll('.favorite-btn').forEach(btn => {
