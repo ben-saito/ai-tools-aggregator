@@ -30,7 +30,7 @@
 
 ### Priority 1: Essential (Week 5)
 
-#### 1. **Twitter/X** (@AIToolsHub または @AIToolsHub)
+#### 1. **Twitter/X** (@AIToolsHubHQHQ または @AIToolsHubHQHQ)
 - **Purpose**: Daily updates, engagement, trending
 - **Strategy**: 
   - Share new tool listings
@@ -103,7 +103,7 @@
 
 ### Step 2: Social Media Accounts
 - [ ] **Twitter/X**
-  - [ ] Username: @AIToolsHub (or similar)
+  - [ ] Username: @AIToolsHubHQHQ (or similar)
   - [ ] Profile pic: Logo (512x512)
   - [ ] Header image: 1500x500
   - [ ] Bio: "Discover 50+ AI tools | Reviews, ratings, comparisons | 🚀 ai-tools-aggregator.vercel.app"

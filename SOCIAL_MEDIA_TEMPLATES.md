@@ -326,7 +326,7 @@ In this video, I [what you do in the video].
 We're building the most comprehensive directory of AI tools. Discover, compare, and choose the best AI tools for your needs.
 
 Website: https://ai-tools-aggregator-seven.vercel.app
-Twitter: @AIToolsHub
+Twitter: @AIToolsHubHQHQ
 Discord: [Link]
 
 👍 Like this video if you found it helpful!
@@ -366,7 +366,7 @@ The AI Tools Hub Team
 
 ---
 
-P.S. Follow us on Twitter @AIToolsHub for daily AI tool updates!
+P.S. Follow us on Twitter @AIToolsHubHQHQ for daily AI tool updates!
 ```
 
 ### Weekly Newsletter
