@@ -3,19 +3,16 @@ import Layout from '../../layouts/Layout.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { supabase } from '../../lib/supabase';
 import { useTranslations, getLangFromUrl } from '../../lib/i18n';
+import { categories } from '../../lib/tools';
 
 const { category } = Astro.params;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Get category details
-const { data: categories } = await supabase
-  .from('categories')
-  .select('*')
-  .eq('slug', category)
-  .single();
+// Get category details from static data
+const categoryData = categories.find((cat) => cat.slug === category);
 
-if (!categories) {
+if (!categoryData) {
   return Astro.redirect('/404');
 }
 
@@ -23,7 +20,7 @@ if (!categories) {
 const { data: tools, error } = await supabase
   .from('tools')
   .select('*')
-  .eq('category', categories.slug)
+  .eq('category', categoryData.slug)
   .order('name');
 
 if (error) {
@@ -31,14 +28,14 @@ if (error) {
 }
 ---
 
-<Layout title={`${categories.name} | ${t.siteTitle}`}>
+<Layout title={`${categoryData.name} | ${t.siteTitle}`}>
   <main class="container mx-auto px-4 py-8">
     <!-- Header -->
     <div class="mb-8">
-      <h1 class="text-4xl font-bold mb-4">{categories.name}</h1>
-      {categories.description && (
+      <h1 class="text-4xl font-bold mb-4">{categoryData.icon} {categoryData.name}</h1>
+      {categoryData.description && (
         <p class="text-gray-600 dark:text-gray-400 text-lg">
-          {categories.description}
+          {categoryData.description}
         </p>
       )}
     </div>
