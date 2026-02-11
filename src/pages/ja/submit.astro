@@ -1,18 +1,22 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import { getLangFromUrl, useTranslations } from '../../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout 
-  title="Submit Your AI Tool" 
-  description="Get your AI tool listed on AI Tools Aggregator. Free and instant listing."
+  title={t('submit.title')}
+  description={t('submit.description')}
 >
   <Header />
   <main class="mx-auto max-w-4xl px-4 py-12">
     <div class="mb-8">
-      <h1 class="text-4xl font-bold mb-4">Submit Your AI Tool</h1>
+      <h1 class="text-4xl font-bold mb-4">{t('submit.title')}</h1>
       <p class="text-xl text-gray-600">
-        Get your tool in front of thousands of users looking for AI solutions. Listed instantly!
+        {t('submit.subtitle')}
       </p>
     </div>
 
@@ -24,8 +28,8 @@ import Header from '../../components/Header.astro';
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
           </svg>
           <div>
-            <h3 class="font-semibold text-green-900">Tool submitted successfully!</h3>
-            <p class="text-green-700 mt-1">Your tool is now live. <a href="" id="tool-link" class="underline font-medium">View it here</a></p>
+            <h3 class="font-semibold text-green-900">{t('submit.success.title')}</h3>
+            <p class="text-green-700 mt-1">{t('submit.success.text')} <a href="" id="tool-link" class="underline font-medium">{t('submit.success.link')}</a></p>
           </div>
         </div>
       </div>
@@ -36,7 +40,7 @@ import Header from '../../components/Header.astro';
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
           <div>
-            <h3 class="font-semibold text-red-900">Error submitting tool</h3>
+            <h3 class="font-semibold text-red-900">{t('submit.error.title')}</h3>
             <p class="text-red-700 mt-1" id="error-text"></p>
           </div>
         </div>
@@ -50,8 +54,8 @@ import Header from '../../components/Header.astro';
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
         <div>
-          <h3 class="font-semibold text-blue-900">Login required</h3>
-          <p class="text-blue-700 mt-1">Please <a href="/login" class="underline font-medium">login</a> to submit your tool. This helps prevent spam.</p>
+          <h3 class="font-semibold text-blue-900">{t('submit.authRequired.title')}</h3>
+          <p class="text-blue-700 mt-1">{t('submit.authRequired.text')} <a href="/ja/login" class="underline font-medium">{t('submit.authRequired.button')}</a></p>
         </div>
       </div>
     </div>
@@ -61,7 +65,7 @@ import Header from '../../components/Header.astro';
       <form id="tool-form" class="space-y-6">
         <div>
           <label for="tool_name" class="block text-sm font-medium text-gray-700 mb-2">
-            Tool Name *
+            {t('submit.form.name')} *
           </label>
           <input
             type="text"
@@ -69,13 +73,13 @@ import Header from '../../components/Header.astro';
             name="tool_name"
             required
             class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-            placeholder="e.g., ChatGPT"
+            placeholder={t('submit.form.name.placeholder')}
           />
         </div>
 
         <div>
           <label for="website" class="block text-sm font-medium text-gray-700 mb-2">
-            Website URL *
+            {t('submit.form.url')} *
           </label>
           <input
             type="url"
@@ -83,7 +87,7 @@ import Header from '../../components/Header.astro';
             name="website"
             required
             class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-            placeholder="https://example.com"
+            placeholder={t('submit.form.url.placeholder')}
           />
           <p class="mt-1 text-sm text-gray-500">
             This will be checked for duplicates
@@ -92,7 +96,7 @@ import Header from '../../components/Header.astro';
 
         <div>
           <label for="category" class="block text-sm font-medium text-gray-700 mb-2">
-            Category *
+            {t('submit.form.category')} *
           </label>
           <select
             id="category"
@@ -100,23 +104,23 @@ import Header from '../../components/Header.astro';
             required
             class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
-            <option value="">Select a category...</option>
-            <option value="text-generation">Text Generation</option>
-            <option value="image-generation">Image Generation</option>
-            <option value="video-generation">Video Generation</option>
-            <option value="audio-music">Audio & Music</option>
-            <option value="code-development">Code Development</option>
-            <option value="marketing-sales">Marketing & Sales</option>
-            <option value="productivity">Productivity</option>
-            <option value="research-education">Research & Education</option>
-            <option value="design-creative">Design & Creative</option>
-            <option value="data-analytics">Data & Analytics</option>
+            <option value="">{t('submit.form.category.select')}</option>
+            <option value="text-generation">{t('about.categories.text')}</option>
+            <option value="image-generation">{t('about.categories.image')}</option>
+            <option value="video-generation">{t('about.categories.video')}</option>
+            <option value="audio-music">{t('about.categories.audio')}</option>
+            <option value="code-development">{t('about.categories.code')}</option>
+            <option value="marketing-sales">{t('about.categories.marketing')}</option>
+            <option value="productivity">{t('about.categories.productivity')}</option>
+            <option value="research-education">{t('about.categories.research')}</option>
+            <option value="design-creative">{t('about.categories.design')}</option>
+            <option value="data-analytics">{t('about.categories.data')}</option>
           </select>
         </div>
 
         <div>
           <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
-            Description * (max 200 characters)
+            {t('submit.form.description')} * (max 200 characters)
           </label>
           <textarea
             id="description"
@@ -125,7 +129,7 @@ import Header from '../../components/Header.astro';
             maxlength="200"
             rows="3"
             class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-            placeholder="Brief description of your AI tool..."
+            placeholder={t('submit.form.description.placeholder')}
           ></textarea>
           <p class="mt-1 text-sm text-gray-500">
             <span id="char-count">0</span>/200 characters
@@ -134,7 +138,7 @@ import Header from '../../components/Header.astro';
 
         <div>
           <label for="pricing" class="block text-sm font-medium text-gray-700 mb-2">
-            Pricing Model *
+            {t('submit.form.pricing')} *
           </label>
           <select
             id="pricing"
@@ -142,10 +146,10 @@ import Header from '../../components/Header.astro';
             required
             class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
-            <option value="">Select pricing...</option>
-            <option value="free">Free</option>
-            <option value="freemium">Freemium</option>
-            <option value="paid">Paid</option>
+            <option value="">{t('submit.form.pricing.select')}</option>
+            <option value="free">{t('common.free')}</option>
+            <option value="freemium">{t('common.freemium')}</option>
+            <option value="paid">{t('common.paid')}</option>
             <option value="open-source">Open Source</option>
           </select>
         </div>
@@ -169,7 +173,7 @@ import Header from '../../components/Header.astro';
             id="submit-btn"
             class="w-full rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Submit Tool
+            {t('submit.form.submit')}
           </button>
         </div>
 
@@ -234,7 +238,7 @@ import Header from '../../components/Header.astro';
 
         // Disable submit button
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
+        submitBtn.textContent = '登録中...';
 
         // Hide messages
         messageContainer.classList.add('hidden');
@@ -299,11 +303,11 @@ import Header from '../../components/Header.astro';
           console.error('Submission error:', error);
           messageContainer.classList.remove('hidden');
           errorMessage.classList.remove('hidden');
-          errorText.textContent = error.message || 'An error occurred. Please try again.';
+          errorText.textContent = error.message || 'エラーが発生しました。もう一度お試しください。';
         } finally {
           // Re-enable button
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit Tool';
+          submitBtn.textContent = 'ツールを登録';
         }
       });
     })();

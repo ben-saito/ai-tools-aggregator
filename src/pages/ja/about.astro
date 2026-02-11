@@ -1,40 +1,42 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import { getLangFromUrl, useTranslations } from '../../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout 
-  title="About Us" 
-  description="Learn about AI Tools Aggregator - a curated directory of the best AI tools for 2026"
+  title={t('about.title')}
+  description={t('about.description')}
 >
   <Header />
   <main class="mx-auto max-w-4xl px-4 py-12">
     <article class="prose prose-lg max-w-none">
-      <h1 class="text-4xl font-bold mb-6">About AI Tools Aggregator</h1>
+      <h1 class="text-4xl font-bold mb-6">{t('about.pageTitle')}</h1>
       
       <p class="text-xl text-gray-600 mb-8">
-        Your trusted source for discovering and comparing AI tools across 10 major categories.
+        {t('about.subtitle')}
       </p>
 
       <section class="mb-12">
-        <h2 class="text-2xl font-semibold mb-4">Our Mission</h2>
+        <h2 class="text-2xl font-semibold mb-4">{t('about.mission.title')}</h2>
         <p class="text-gray-700">
-          We curate and organize the best AI tools to help individuals and businesses discover solutions 
-          that enhance productivity, creativity, and innovation. With AI technology evolving rapidly, 
-          we aim to be your go-to resource for finding the right tools for your needs.
+          {t('about.mission.text')}
         </p>
       </section>
 
       <section class="mb-12">
-        <h2 class="text-2xl font-semibold mb-4">What We Offer</h2>
+        <h2 class="text-2xl font-semibold mb-4">{t('about.offer.title')}</h2>
         <ul class="space-y-4">
           <li class="flex items-start gap-3">
             <svg class="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>
             <div>
-              <strong class="text-gray-900">Curated Selection</strong>
-              <p class="text-gray-600 mt-1">Every tool is hand-picked and verified for quality and usefulness.</p>
+              <strong class="text-gray-900">{t('about.offer.curated.title')}</strong>
+              <p class="text-gray-600 mt-1">{t('about.offer.curated.desc')}</p>
             </div>
           </li>
           <li class="flex items-start gap-3">
@@ -42,8 +44,8 @@ import Header from '../../components/Header.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>
             <div>
-              <strong class="text-gray-900">Organized Categories</strong>
-              <p class="text-gray-600 mt-1">10 major categories covering text, image, video, audio, code, and more.</p>
+              <strong class="text-gray-900">{t('about.offer.categories.title')}</strong>
+              <p class="text-gray-600 mt-1">{t('about.offer.categories.desc')}</p>
             </div>
           </li>
           <li class="flex items-start gap-3">
@@ -51,8 +53,8 @@ import Header from '../../components/Header.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>
             <div>
-              <strong class="text-gray-900">Regular Updates</strong>
-              <p class="text-gray-600 mt-1">We continuously add new tools and update existing listings.</p>
+              <strong class="text-gray-900">{t('about.offer.updates.title')}</strong>
+              <p class="text-gray-600 mt-1">{t('about.offer.updates.desc')}</p>
             </div>
           </li>
           <li class="flex items-start gap-3">
@@ -60,77 +62,77 @@ import Header from '../../components/Header.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>
             <div>
-              <strong class="text-gray-900">Free to Use</strong>
-              <p class="text-gray-600 mt-1">Access our entire directory without any subscription fees.</p>
+              <strong class="text-gray-900">{t('about.offer.free.title')}</strong>
+              <p class="text-gray-600 mt-1">{t('about.offer.free.desc')}</p>
             </div>
           </li>
         </ul>
       </section>
 
       <section class="mb-12">
-        <h2 class="text-2xl font-semibold mb-4">Categories We Cover</h2>
+        <h2 class="text-2xl font-semibold mb-4">{t('about.categories.title')}</h2>
         <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">💬</div>
-            <div class="font-semibold text-sm">Text Generation</div>
+            <div class="font-semibold text-sm">{t('about.categories.text')}</div>
           </div>
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">🎨</div>
-            <div class="font-semibold text-sm">Image Generation</div>
+            <div class="font-semibold text-sm">{t('about.categories.image')}</div>
           </div>
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">🎥</div>
-            <div class="font-semibold text-sm">Video Generation</div>
+            <div class="font-semibold text-sm">{t('about.categories.video')}</div>
           </div>
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">🎵</div>
-            <div class="font-semibold text-sm">Audio & Music</div>
+            <div class="font-semibold text-sm">{t('about.categories.audio')}</div>
           </div>
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">💻</div>
-            <div class="font-semibold text-sm">Code Development</div>
+            <div class="font-semibold text-sm">{t('about.categories.code')}</div>
           </div>
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">📈</div>
-            <div class="font-semibold text-sm">Marketing & Sales</div>
+            <div class="font-semibold text-sm">{t('about.categories.marketing')}</div>
           </div>
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">⚡</div>
-            <div class="font-semibold text-sm">Productivity</div>
+            <div class="font-semibold text-sm">{t('about.categories.productivity')}</div>
           </div>
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">📚</div>
-            <div class="font-semibold text-sm">Research & Education</div>
+            <div class="font-semibold text-sm">{t('about.categories.research')}</div>
           </div>
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">🖌️</div>
-            <div class="font-semibold text-sm">Design & Creative</div>
+            <div class="font-semibold text-sm">{t('about.categories.design')}</div>
           </div>
           <div class="rounded-lg border border-gray-200 p-4">
             <div class="text-2xl mb-2">📊</div>
-            <div class="font-semibold text-sm">Data & Analytics</div>
+            <div class="font-semibold text-sm">{t('about.categories.data')}</div>
           </div>
         </div>
       </section>
 
       <section class="mb-12">
-        <h2 class="text-2xl font-semibold mb-4">For Tool Developers</h2>
+        <h2 class="text-2xl font-semibold mb-4">{t('about.developers.title')}</h2>
         <p class="text-gray-700 mb-4">
-          Are you building an AI tool? We'd love to feature it! Check out our 
-          <a href="/submit" class="text-primary-600 hover:underline">submission page</a> to get your tool listed.
+          {t('about.developers.text1')} 
+          <a href="/ja/submit" class="text-primary-600 hover:underline">{t('about.developers.link')}</a> {t('about.developers.text2')}
         </p>
         <p class="text-gray-600 text-sm">
-          We offer both free listings and premium featured placements for increased visibility.
+          {t('about.developers.premium')}
         </p>
       </section>
 
       <section class="rounded-lg bg-gray-50 p-8">
-        <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
+        <h2 class="text-2xl font-semibold mb-4">{t('about.contact.title')}</h2>
         <p class="text-gray-700 mb-4">
-          Have questions, suggestions, or want to partner with us?
+          {t('about.contact.text')}
         </p>
         <p class="text-gray-600">
-          Email us at: <a href="mailto:hello@aitools.directory" class="text-primary-600 hover:underline">hello@aitools.directory</a>
+          {t('about.contact.email')} <a href="mailto:hello@aitools.directory" class="text-primary-600 hover:underline">hello@aitools.directory</a>
         </p>
       </section>
     </article>
