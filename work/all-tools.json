@@ -1,0 +1,296 @@
+[
+  {
+    "id": "adobe-firefly",
+    "name": "Adobe Firefly",
+    "url": "https://firefly.adobe.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "beautiful-ai",
+    "name": "Beautiful.ai",
+    "url": "https://beautiful.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "canva-ai",
+    "name": "Canva AI",
+    "url": "https://canva.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "url": "https://chat.openai.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "chatpdf",
+    "name": "ChatPDF",
+    "url": "https://chatpdf.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "url": "https://claude.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "claude-code",
+    "name": "Claude Code",
+    "url": "https://claude.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "codeium",
+    "name": "Codeium",
+    "url": "https://codeium.com",
+    "pricing": "free"
+  },
+  {
+    "id": "consensus",
+    "name": "Consensus",
+    "url": "https://consensus.app",
+    "pricing": "freemium"
+  },
+  {
+    "id": "copyai",
+    "name": "Copy.ai",
+    "url": "https://copy.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "url": "https://cursor.sh",
+    "pricing": "freemium"
+  },
+  {
+    "id": "dall-e",
+    "name": "DALL-E 3",
+    "url": "https://openai.com/dall-e-3",
+    "pricing": "paid"
+  },
+  {
+    "id": "descript",
+    "name": "Descript",
+    "url": "https://descript.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "elevenlabs",
+    "name": "ElevenLabs",
+    "url": "https://elevenlabs.io",
+    "pricing": "freemium"
+  },
+  {
+    "id": "elicit",
+    "name": "Elicit",
+    "url": "https://elicit.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "fireflies",
+    "name": "Fireflies.ai",
+    "url": "https://fireflies.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "framer-ai",
+    "name": "Framer",
+    "url": "https://framer.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "gamma",
+    "name": "Gamma",
+    "url": "https://gamma.app",
+    "pricing": "freemium"
+  },
+  {
+    "id": "gemini",
+    "name": "Gemini",
+    "url": "https://gemini.google.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Copilot",
+    "url": "https://github.com/features/copilot",
+    "pricing": "paid"
+  },
+  {
+    "id": "grammarly",
+    "name": "Grammarly",
+    "url": "https://grammarly.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "heygen",
+    "name": "HeyGen",
+    "url": "https://heygen.com",
+    "pricing": "paid"
+  },
+  {
+    "id": "ideogram",
+    "name": "Ideogram",
+    "url": "https://ideogram.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "jasper",
+    "name": "Jasper",
+    "url": "https://jasper.ai",
+    "pricing": "paid"
+  },
+  {
+    "id": "julius-ai",
+    "name": "Julius AI",
+    "url": "https://julius.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "leonardo-ai",
+    "name": "Leonardo.ai",
+    "url": "https://leonardo.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "looka",
+    "name": "Looka",
+    "url": "https://looka.com",
+    "pricing": "paid"
+  },
+  {
+    "id": "lumen5",
+    "name": "Lumen5",
+    "url": "https://lumen5.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "url": "https://midjourney.com",
+    "pricing": "paid"
+  },
+  {
+    "id": "motion",
+    "name": "Motion",
+    "url": "https://usemotion.com",
+    "pricing": "paid"
+  },
+  {
+    "id": "notion-ai",
+    "name": "Notion AI",
+    "url": "https://notion.so/product/ai",
+    "pricing": "paid"
+  },
+  {
+    "id": "otter",
+    "name": "Otter.ai",
+    "url": "https://otter.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity AI",
+    "url": "https://perplexity.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "pictory",
+    "name": "Pictory",
+    "url": "https://pictory.ai",
+    "pricing": "paid"
+  },
+  {
+    "id": "playground-ai",
+    "name": "Playground AI",
+    "url": "https://playgroundai.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "reclaim-ai",
+    "name": "Reclaim.ai",
+    "url": "https://reclaim.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "replit",
+    "name": "Replit",
+    "url": "https://replit.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "runway",
+    "name": "Runway",
+    "url": "https://runwayml.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "stable-diffusion",
+    "name": "Stable Diffusion",
+    "url": "https://stability.ai",
+    "pricing": "open-source"
+  },
+  {
+    "id": "suno",
+    "name": "Suno",
+    "url": "https://suno.ai",
+    "pricing": "freemium"
+  },
+  {
+    "id": "surfer-seo",
+    "name": "Surfer SEO",
+    "url": "https://surferseo.com",
+    "pricing": "paid"
+  },
+  {
+    "id": "synthesia",
+    "name": "Synthesia",
+    "url": "https://synthesia.io",
+    "pricing": "paid"
+  },
+  {
+    "id": "tableau-pulse",
+    "name": "Tableau Pulse",
+    "url": "https://tableau.com",
+    "pricing": "paid"
+  },
+  {
+    "id": "tabnine",
+    "name": "Tabnine",
+    "url": "https://tabnine.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "tome",
+    "name": "Tome",
+    "url": "https://tome.app",
+    "pricing": "freemium"
+  },
+  {
+    "id": "udio",
+    "name": "Udio",
+    "url": "https://udio.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "v0-dev",
+    "name": "v0.dev",
+    "url": "https://v0.dev",
+    "pricing": "freemium"
+  },
+  {
+    "id": "writesonic",
+    "name": "Writesonic",
+    "url": "https://writesonic.com",
+    "pricing": "freemium"
+  },
+  {
+    "id": "zapier-central",
+    "name": "Zapier Central",
+    "url": "https://zapier.com/central",
+    "pricing": "paid"
+  }
+]
