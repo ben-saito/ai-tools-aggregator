@@ -6,6 +6,7 @@ author: "AI Tools Hub Team"
 category: "Comparisons"
 tags: ["ChatGPT", "Claude", "AI Comparison", "AI Assistants", "Anthropic"]
 featured: true
+lang: "en"
 seo:
   keywords: "ChatGPT vs Claude, ChatGPT Claude comparison, best AI assistant 2026, ChatGPT or Claude, Claude vs ChatGPT coding, AI assistant comparison"
   ogImage: "/images/blog/chatgpt-vs-claude-comparison.png"

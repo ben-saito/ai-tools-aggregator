@@ -6,6 +6,7 @@ author: "AI Tools Hub Team"
 category: "Guides"
 tags: ["AI Writing", "Blog Writing", "Content Creation", "ChatGPT", "Productivity"]
 featured: true
+lang: "en"
 seo:
   keywords: "AI blog writing, ChatGPT blog posts, AI content creation, write blogs faster, AI writing tools, content marketing AI"
   ogImage: "/images/blog/create-blog-posts-faster-with-ai.png"

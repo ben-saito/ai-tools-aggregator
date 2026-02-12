@@ -15,7 +15,9 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: Language };
 const t = useTranslations(lang);
 
-const blogPosts = await getCollection('blog');
+const allBlogPosts = await getCollection('blog');
+// Filter posts by language, fallback to 'en' if no lang-specific post exists
+const blogPosts = allBlogPosts.filter(post => post.data.lang === lang);
 const sortedPosts = blogPosts.sort((a, b) => 
   new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime()
 );

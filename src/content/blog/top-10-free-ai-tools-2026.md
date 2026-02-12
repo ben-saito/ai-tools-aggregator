@@ -6,6 +6,7 @@ author: "AI Tools Hub Team"
 category: "Guides"
 tags: ["Free AI Tools", "ChatGPT", "Productivity", "AI Assistants", "2026"]
 featured: true
+lang: "en"
 seo:
   keywords: "free AI tools 2026, best free AI tools, ChatGPT free, Claude AI, Gemini AI, Stable Diffusion, free AI assistants, productivity tools"
   ogImage: "/images/blog/top-10-free-ai-tools-2026.png"
