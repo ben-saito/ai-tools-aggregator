@@ -65,6 +65,17 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
       })();
     </script>
     
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ3BQ6FSE" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WLQ3BQ6FSE', {
+        page_path: window.location.pathname,
+      });
+    </script>
+    
     <title>{pageTitle}</title>
   </head>
   <body class="min-h-screen bg-white text-gray-900">
