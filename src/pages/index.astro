@@ -260,11 +260,16 @@ const schemaData = {
 </Layout>
 
 <script>
-  import { supabase } from '../lib/supabase';
-
   async function loadPopularTags() {
     const container = document.getElementById('popular-tags-container');
     if (!container) return;
+
+    // Wait for supabase client to be ready
+    while (!window.supabaseClient) {
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+
+    const supabase = window.supabaseClient;
 
     try {
       const { data: tags, error } = await supabase

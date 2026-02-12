@@ -28,6 +28,7 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="/favicon.svg" />
     <link rel="canonical" href={fullCanonical} />
     
     <!-- Preconnect to external domains -->
@@ -58,6 +59,11 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
         var script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
         script.onload = function() {
+          // Create a single global Supabase client instance
+          const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+          const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+          
+          window.supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
           window.__supabaseReady = true;
           window.dispatchEvent(new Event('supabase-ready'));
         };
@@ -101,13 +107,11 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
     <!-- Global Analytics -->
     <script is:inline>
       (async function() {
-        while (!window.__supabaseReady && typeof window.supabase === 'undefined') {
+        while (!window.__supabaseReady) {
           await new Promise(resolve => setTimeout(resolve, 50));
         }
 
-        const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
-        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+        const supabase = window.supabaseClient;
 
         function getSessionId() {
           let sessionId = sessionStorage.getItem('analytics_session_id');

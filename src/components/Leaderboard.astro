@@ -48,9 +48,13 @@ const { title = "Today's Top Launches" } = Astro.props;
 </div>
 
 <script>
-  import { supabase } from '../lib/supabase';
-
   async function loadLeaderboard() {
+    // Wait for supabase client to be ready
+    while (!window.supabaseClient) {
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+
+    const supabase = window.supabaseClient;
     const list = document.getElementById('leaderboard-list');
     if (!list) return;
 
