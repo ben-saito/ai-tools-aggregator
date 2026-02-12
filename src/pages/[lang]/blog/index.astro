@@ -4,6 +4,8 @@ import SEO from '../../../components/SEO.astro';
 import { getCollection } from 'astro:content';
 import { languages, type Language, useTranslations } from '../../../lib/i18n';
 
+export const prerender = true;
+
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({
     params: { lang },
