@@ -87,35 +87,39 @@ const sizeClass = size === 'large' ? 'h-6 w-6' : 'h-5 w-5';
 
     // Check if user has favorited
     if (session) {
-      const { data: favorite } = await supabase
-        .from('favorites')
-        .select('id')
-        .eq('user_id', session.user.id)
-        .eq('tool_id', toolId)
-        .single();
+      try {
+        const { data: isFavorited } = await supabase
+          .rpc('check_user_favorite', { tool_id_param: toolId });
 
-      if (favorite) {
-        icon.classList.add('favorited');
-        icon.setAttribute('fill', 'currentColor');
-        btn.classList.add('text-red-500');
-        btn.classList.remove('text-gray-600');
-      } else {
-        icon.classList.remove('favorited');
-        icon.setAttribute('fill', 'none');
-        btn.classList.remove('text-red-500');
-        btn.classList.add('text-gray-600');
+        if (isFavorited) {
+          icon.classList.add('favorited');
+          icon.setAttribute('fill', 'currentColor');
+          btn.classList.add('text-red-500');
+          btn.classList.remove('text-gray-600');
+        } else {
+          icon.classList.remove('favorited');
+          icon.setAttribute('fill', 'none');
+          btn.classList.remove('text-red-500');
+          btn.classList.add('text-gray-600');
+        }
+      } catch (error) {
+        console.debug('Error checking favorite:', error);
       }
     }
 
-    // Get favorite count
-    const { data: counts } = await supabase
-      .from('tool_favorite_counts')
-      .select('favorite_count')
-      .eq('tool_id', toolId)
-      .single();
+    // Get favorite count using function
+    try {
+      const { data: count } = await supabase
+        .rpc('get_favorite_count', { tool_id_param: toolId });
 
-    if (counts && countSpan) {
-      countSpan.textContent = counts.favorite_count.toString();
+      if (count !== null && countSpan) {
+        countSpan.textContent = count.toString();
+      }
+    } catch (error) {
+      console.debug('Error getting favorite count:', error);
+      if (countSpan) {
+        countSpan.textContent = '0';
+      }
     }
   }
 </script>
