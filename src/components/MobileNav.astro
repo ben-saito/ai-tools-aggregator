@@ -66,14 +66,14 @@ const currentPath = Astro.url.pathname;
           <p class="mb-2 text-sm font-semibold text-gray-500">Language</p>
           <div class="flex items-center gap-2">
             <a 
-              href={lang === 'ja' ? currentPath.replace('/ja', '') : currentPath}
+              href={lang === 'ja' ? currentPath.replace(/^\/ja/, '') || '/' : currentPath}
               class={`flex-1 px-4 py-2 text-center text-sm font-medium rounded-lg transition ${lang === 'en' ? 'bg-primary-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
               data-lang="en"
             >
               English
             </a>
             <a 
-              href={lang === 'ja' ? currentPath : `/ja${currentPath}`}
+              href={lang === 'en' ? `/ja${currentPath}` : currentPath}
               class={`flex-1 px-4 py-2 text-center text-sm font-medium rounded-lg transition ${lang === 'ja' ? 'bg-primary-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
               data-lang="ja"
             >
