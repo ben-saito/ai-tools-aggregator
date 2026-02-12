@@ -210,7 +210,7 @@ const schemaData = {
         <h2 class="mb-6 text-2xl font-bold">{t('common.browse')}</h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => {
-            const categoryTools = tools.filter((tool) => tool.category === category.name);
+            const categoryTools = tools.filter((tool) => tool.category === category.slug);
             return (
               <a
                 href={`/categories/${category.slug}`}
