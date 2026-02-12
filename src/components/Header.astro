@@ -18,6 +18,7 @@ const currentPath = Astro.url.pathname;
     <!-- Desktop Navigation -->
     <div class="hidden items-center gap-4 lg:flex lg:gap-6">
       <a href={lang === 'ja' ? '/ja' : '/'} class="text-gray-600 hover:text-primary-600">Home</a>
+      <a href={lang === 'ja' ? '/ja/blog' : '/blog'} class="text-gray-600 hover:text-primary-600">Blog</a>
       <a href={lang === 'ja' ? '/ja/search' : '/search'} class="text-gray-600 hover:text-primary-600">Search</a>
       <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="text-gray-600 hover:text-primary-600">Rankings</a>
       <div class="group relative">
