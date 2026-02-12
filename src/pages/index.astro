@@ -264,12 +264,11 @@ const schemaData = {
     const container = document.getElementById('popular-tags-container');
     if (!container) return;
 
-    // Wait for supabase client to be ready
-    while (!window.supabaseClient) {
-      await new Promise(resolve => setTimeout(resolve, 50));
-    }
-
     const supabase = window.supabaseClient;
+    if (!supabase) {
+      console.error('Supabase client not initialized');
+      return;
+    }
 
     try {
       const { data: tags, error } = await supabase
@@ -313,6 +312,7 @@ const schemaData = {
     return div.innerHTML;
   }
 
+  // Wait for Supabase to be ready
   if (window.__supabaseReady) {
     loadPopularTags();
   } else {
