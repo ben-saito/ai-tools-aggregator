@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import ToolCard from '../components/ToolCard.astro';
-import SearchBar from '../components/SearchBar.astro';
-import TrendingTools from '../components/TrendingTools.astro';
-import Leaderboard from '../components/Leaderboard.astro';
-import { getAllTools, getFeaturedTools, categories } from '../lib/tools';
-import { getLangFromUrl, useTranslations } from '../lib/i18n';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import SearchBar from '../../components/SearchBar.astro';
+import TrendingTools from '../../components/TrendingTools.astro';
+import Leaderboard from '../../components/Leaderboard.astro';
+import { getAllTools, getFeaturedTools, categories } from '../../lib/tools';
+import { getLangFromUrl, useTranslations } from '../../lib/i18n';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
