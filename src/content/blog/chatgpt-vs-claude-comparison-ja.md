@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT（OpenAI）とClaude（Anthropic）の機能比較。コーディング、長文解析、コスト面での違いを検証"
 description: "会話型AI市場のトップ2、ChatGPTとClaudeを技術的観点から比較。コンテキストウィンドウ、モデル性能、API価格、企業向け機能の違いを詳解。"
-publishedAt: "2026-02-13"
+publishedAt: "2026-02-13T11:40:00+09:00"
 author: "AI Tools Hub 編集部"
 category: "比較分析"
 tags: ["ChatGPT", "Claude", "AI", "比較", "OpenAI", "Anthropic"]

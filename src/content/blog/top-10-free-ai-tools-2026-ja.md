@@ -1,7 +1,7 @@
 ---
 title: "2026年、無料で利用可能なAIツール10選。ChatGPT、Claude、Geminiなど主要サービスが無料プラン拡充"
 description: "OpenAI、Anthropic、Googleなど主要AI開発企業が相次いで無料プランを拡充。2026年現在、プロダクション品質のAIツールが無料で利用可能に。"
-publishedAt: "2026-02-13"
+publishedAt: "2026-02-13T09:12:00+09:00"
 author: "AI Tools Hub 編集部"
 category: "ニュース"
 tags: ["AI", "ChatGPT", "Claude", "Gemini", "無料プラン"]

@@ -1,7 +1,7 @@
 ---
 title: "Google、Gemini 3 Deep Thinkを発表。科学・研究向け推論モードを大幅強化"
 description: "Googleが2026年2月にGemini 3 Deep Thinkを発表。科学計算、数学的推論、複雑な問題解決に特化した深い推論モードで、研究者・エンジニア向けに最適化。"
-publishedAt: "2026-02-13"
+publishedAt: "2026-02-13T11:43:00+09:00"
 author: "AI Tools Hub 編集部"
 category: "ニュース"
 tags: ["Google", "Gemini", "Deep Think", "AI", "科学計算", "研究"]

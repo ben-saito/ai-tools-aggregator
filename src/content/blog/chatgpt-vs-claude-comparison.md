@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT (OpenAI) vs Claude (Anthropic): Technical comparison of capabilities, pricing, and enterprise features"
 description: "Comprehensive analysis comparing ChatGPT and Claude across coding performance, context window, API pricing, and enterprise functionality. Benchmarks, cost analysis, and use-case recommendations included."
-publishedAt: "2026-02-13"
+publishedAt: "2026-02-13T09:11:00+09:00"
 author: "AI Tools Hub Editorial Team"
 category: "Comparative Analysis"
 tags: ["ChatGPT", "Claude", "AI", "Comparison", "OpenAI", "Anthropic", "Enterprise AI"]

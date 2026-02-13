@@ -1,7 +1,7 @@
 ---
 title: "How to Create Blog Posts 10x Faster with AI in 2026"
 description: "Complete guide to AI-powered blogging. Learn how to research, outline, write, edit, and optimize blog posts in minutes using ChatGPT, Claude, and other AI writing tools."
-publishedAt: "2026-02-12"
+publishedAt: "2026-02-12T20:24:00+09:00"
 author: "AI Tools Hub Team"
 category: "Guides"
 tags: ["AI Writing", "Blog Writing", "Content Creation", "ChatGPT", "Productivity"]

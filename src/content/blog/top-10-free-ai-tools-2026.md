@@ -1,7 +1,7 @@
 ---
 title: "Free AI tools in 2026: OpenAI, Anthropic, and Google expand free tiers as competition intensifies"
 description: "Major AI companies including OpenAI, Anthropic, and Google are expanding free tier offerings in 2026. A comprehensive analysis of 10 production-ready AI tools available at no cost."
-publishedAt: "2026-02-13"
+publishedAt: "2026-02-13T09:13:00+09:00"
 author: "AI Tools Hub Editorial Team"
 category: "Analysis"
 tags: ["AI", "ChatGPT", "Claude", "Gemini", "Free Tools", "OpenAI", "Anthropic", "Google"]

@@ -1,7 +1,7 @@
 ---
 title: "OpenAI、GPT-5.3-Codex-Sparkを発表。1000トークン/秒の超高速リアルタイムコーディングを実現"
 description: "OpenAIが2026年2月にGPT-5.3-Codex-Sparkを発表。1000トークン/秒の生成速度でリアルタイムコーディング支援を実現し、開発ワークフローを大幅に加速。"
-publishedAt: "2026-02-13"
+publishedAt: "2026-02-13T11:41:00+09:00"
 author: "AI Tools Hub 編集部"
 category: "ニュース"
 tags: ["OpenAI", "GPT-5.3", "Codex", "コーディング", "AI"]

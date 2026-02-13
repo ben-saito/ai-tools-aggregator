@@ -1,7 +1,7 @@
 ---
 title: "GitHub、Agent HQを発表。Claude・Codex等の主要AIをGitHub/VS Code内で直接利用可能に"
 description: "GitHubが2026年2月にAgent HQを発表。複数のAIモデル（Claude、OpenAI Codex、Gemini）をGitHub・VS Code内で統一インターフェースで利用可能にする統合プラットフォーム。"
-publishedAt: "2026-02-13"
+publishedAt: "2026-02-13T11:42:00+09:00"
 author: "AI Tools Hub 編集部"
 category: "ニュース"
 tags: ["GitHub", "Agent HQ", "Claude", "OpenAI", "VS Code", "AI"]
