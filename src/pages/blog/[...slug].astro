@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
 import SEO from '../../components/SEO.astro';
 import { getCollection } from 'astro:content';
 
@@ -36,6 +37,7 @@ const { title, description, publishedAt, author, category, tags, seo } = post.da
   title={`${title} - AI Tools Hub`}
   description={description}
 >
+  <Header />
   <article class="min-h-screen bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <!-- Breadcrumbs -->
