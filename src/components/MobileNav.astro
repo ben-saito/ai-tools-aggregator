@@ -24,7 +24,7 @@ const currentPath = Astro.url.pathname;
 >
   <div class="fixed inset-y-0 right-0 w-64 bg-white shadow-xl">
     <div class="flex items-center justify-between border-b border-gray-200 p-4">
-      <span class="text-lg font-bold text-primary-600">Menu</span>
+      <span class="text-lg font-bold text-primary-600">{lang === 'ja' ? 'メニュー' : 'Menu'}</span>
       <button
         id="mobile-menu-close"
         class="rounded-md p-2 text-gray-600 hover:bg-gray-100"
@@ -58,13 +58,13 @@ const currentPath = Astro.url.pathname;
     </div>
     
     <nav class="overflow-y-auto p-4">
-      <a href={lang === 'ja' ? '/ja' : '/'} class="block py-3 text-gray-700 hover:text-primary-600">Home</a>
-      <a href={lang === 'ja' ? '/ja/blog' : '/blog'} class="block py-3 text-gray-700 hover:text-primary-600">Blog</a>
-      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="block py-3 text-gray-700 hover:text-primary-600">Search</a>
-      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="block py-3 text-gray-700 hover:text-primary-600">Rankings</a>
+      <a href={lang === 'ja' ? '/ja' : '/'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'ホーム' : 'Home'}</a>
+      <a href={lang === 'ja' ? '/ja/blog' : '/blog'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'ブログ' : 'Blog'}</a>
+      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? '検索' : 'Search'}</a>
+      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'ランキング' : 'Rankings'}</a>
       
       <div class="mt-2 border-t border-gray-200 pt-2">
-        <p class="mb-2 text-sm font-semibold text-gray-500">Categories</p>
+        <p class="mb-2 text-sm font-semibold text-gray-500">{lang === 'ja' ? 'カテゴリー' : 'Categories'}</p>
         {categories.map((category) => (
           <a
             href={lang === 'ja' ? `/ja/categories/${category.slug}` : `/categories/${category.slug}`}
@@ -78,11 +78,11 @@ const currentPath = Astro.url.pathname;
       
       <div class="mt-4 border-t border-gray-200 pt-4">
         <a href={lang === 'ja' ? '/ja/submit' : '/submit'} class="block rounded-lg bg-primary-600 px-4 py-3 text-center font-semibold text-white hover:bg-primary-700">
-          Submit Tool
+          {lang === 'ja' ? 'ツール登録' : 'Submit Tool'}
         </a>
-        <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="block py-3 text-gray-700 hover:text-primary-600">Favorites</a>
-        <a href={lang === 'ja' ? '/ja/about' : '/about'} class="mt-2 block py-3 text-gray-700 hover:text-primary-600">About</a>
-        <a href={lang === 'ja' ? '/ja/login' : '/login'} class="mt-2 block py-3 text-gray-700 hover:text-primary-600">Login</a>
+        <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'お気に入り' : 'Favorites'}</a>
+        <a href={lang === 'ja' ? '/ja/about' : '/about'} class="mt-2 block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? '概要' : 'About'}</a>
+        <a href={lang === 'ja' ? '/ja/login' : '/login'} class="mt-2 block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'ログイン' : 'Login'}</a>
       </div>
     </nav>
   </div>
