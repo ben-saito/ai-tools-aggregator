@@ -443,3 +443,25 @@ CREATE POLICY "Anyone can subscribe"
 -- If we want to allow users to unsubscribe, we'd need a token based unsubscribe link logic, 
 -- or they typically don't log in to unsubscribe. 
 -- For MVP, we will manage unsubscription via admin or manual DB update.
+-- Create quiz_results table
+CREATE TABLE IF NOT EXISTS public.quiz_results (
+  id TEXT PRIMARY KEY, -- NanoID or similar short ID
+  answers JSONB NOT NULL,
+  recommendations JSONB NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  user_agent TEXT
+);
+
+-- Enable RLS
+ALTER TABLE public.quiz_results ENABLE ROW LEVEL SECURITY;
+
+-- Policies
+-- Anyone can insert (submit quiz)
+CREATE POLICY "Anyone can submit quiz results"
+  ON public.quiz_results FOR INSERT
+  WITH CHECK (true);
+
+-- Anyone can view results (for sharing)
+CREATE POLICY "Anyone can view quiz results"
+  ON public.quiz_results FOR SELECT
+  USING (true);
