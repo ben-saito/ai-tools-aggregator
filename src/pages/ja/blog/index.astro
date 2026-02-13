@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import SEO from '../../components/SEO.astro';
+import Layout from '../../../layouts/Layout.astro';
+import SEO from '../../../components/SEO.astro';
 import { getCollection } from 'astro:content';
 
 const blogPosts = await getCollection('blog', ({ data }) => {
-  return data.lang === 'en' || data.lang === undefined;
+  return data.lang === 'ja';
 });
 const sortedPosts = blogPosts.sort((a, b) => 
   new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime()
@@ -12,22 +12,22 @@ const sortedPosts = blogPosts.sort((a, b) =>
 ---
 
 <SEO
-  title="Blog - AI Tools Hub | Guides, Tutorials & AI Tool Reviews"
-  description="Comprehensive guides and tutorials about AI tools. Learn how to use ChatGPT, Claude, Midjourney, and other AI tools to boost productivity and creativity."
-  keywords="AI tools blog, ChatGPT tutorials, AI tool guides, AI productivity tips, AI writing tools, AI coding tools, AI comparison"
+  title="ブログ - AI Tools Hub | ガイド、チュートリアル、AIツールレビュー"
+  description="AIツールに関する包括的なガイドとチュートリアル。ChatGPT、Claude、MidjourneyなどのAIツールを使って生産性と創造性を高める方法を学びましょう。"
+  keywords="AIツール ブログ, ChatGPT チュートリアル, AIツール ガイド, AI 生産性 ヒント, AI ライティングツール, AI コーディングツール, AI 比較"
   ogImage="/og-image-blog.png"
 />
 
-<Layout title="Blog - AI Tools Hub">
+<Layout title="ブログ - AI Tools Hub">
   <div class="min-h-screen bg-gray-50 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-12">
         <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          Blog
+          ブログ
         </h1>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Guides, tutorials, and insights about AI tools and how to use them effectively.
+          AIツールの使い方に関するガイド、チュートリアル、洞察
         </p>
       </div>
 
@@ -38,7 +38,7 @@ const sortedPosts = blogPosts.sort((a, b) =>
             <!-- Featured Badge -->
             {post.data.featured && (
               <div class="bg-blue-600 text-white text-xs font-bold px-3 py-1 inline-block">
-                FEATURED
+                注目
               </div>
             )}
 
@@ -50,7 +50,7 @@ const sortedPosts = blogPosts.sort((a, b) =>
 
               <!-- Title -->
               <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
-                <a href={`/blog/${post.slug}`}>
+                <a href={`/ja/blog/${post.slug}`}>
                   {post.data.title}
                 </a>
               </h2>
@@ -64,7 +64,7 @@ const sortedPosts = blogPosts.sort((a, b) =>
               <div class="flex items-center justify-between text-sm text-gray-500">
                 <span>{post.data.author}</span>
                 <time datetime={post.data.publishedAt}>
-                  {new Date(post.data.publishedAt).toLocaleDateString('en-US', {
+                  {new Date(post.data.publishedAt).toLocaleDateString('ja-JP', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
@@ -83,10 +83,10 @@ const sortedPosts = blogPosts.sort((a, b) =>
 
               <!-- Read More -->
               <a 
-                href={`/blog/${post.slug}`}
+                href={`/ja/blog/${post.slug}`}
                 class="inline-block mt-4 text-blue-600 font-semibold hover:text-blue-800 transition-colors"
               >
-                Read More →
+                続きを読む →
               </a>
             </div>
           </article>
@@ -96,7 +96,7 @@ const sortedPosts = blogPosts.sort((a, b) =>
       <!-- Empty State -->
       {sortedPosts.length === 0 && (
         <div class="text-center py-12">
-          <p class="text-gray-500 text-lg">No blog posts yet. Check back soon!</p>
+          <p class="text-gray-500 text-lg">ブログ記事はまだありません。近日公開予定です！</p>
         </div>
       )}
     </div>
