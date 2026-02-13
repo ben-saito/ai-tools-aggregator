@@ -143,7 +143,7 @@ feat: add filter by pricing model
 
 - **Discord**: [Join our community](#) (coming soon)
 - **Twitter**: [@aitools_agg](#) (coming soon)
-- **Email**: hello@aitools.directory
+- **Email**: aitoolsaggregator@gmail.com
 
 ---
 
