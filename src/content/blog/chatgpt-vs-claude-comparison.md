@@ -32,8 +32,8 @@ This analysis compares both services across coding assistance, long-document ana
 ### Claude (Anthropic)
 
 - **Launch date**: March 2023
-- **Latest model**: Claude 3.5 Sonnet (December 2024)
-- **Context window**: 200,000 tokens (~150,000 words)
+- **Latest model**: Claude Opus 4.6 (February 5, 2026)
+- **Context window**: 1,000,000 tokens (~750,000 words, beta)
 - **Free tier**: Daily message limits (~30-50 messages)
 - **Paid tier**: Claude Pro $20/month
 - **Estimated user base**: Undisclosed (industry estimates: 10-20 million)
@@ -44,17 +44,19 @@ This analysis compares both services across coding assistance, long-document ana
 
 ### Context window analysis
 
-**Claude**: 200,000 tokens (~150,000 words)  
-**ChatGPT**: 128,000 tokens (~96,000 words)
+**Claude Opus 4.6**: 1,000,000 tokens (~750,000 words, beta)  
+**ChatGPT (GPT-4 Turbo)**: 128,000 tokens (~96,000 words)
 
-The context window defines the maximum text length an AI can process simultaneously. Claude's approximately 56% larger context window provides advantages for:
+The context window defines the maximum text length an AI can process simultaneously. Claude Opus 4.6's approximately 7.8× larger context window provides overwhelming advantages for:
 
-- Long-document analysis (technical books ~100,000 words)
+- Long-document analysis (entire technical books ~750,000 words)
 - Entire codebase comprehension
 - Multi-file code reviews
 - Comprehensive documentation processing
 
-Practical example: A 100,000-word technical manual can be processed in a single Claude query, while ChatGPT would require segmentation.
+According to Anthropic's February 5, 2026 announcement, Claude Opus 4.6 provides a 1,000,000 token context window (beta), equivalent to approximately 750,000 words or 1,500 pages of documentation, enabling full technical book analysis, large codebase reviews, and cross-document analysis in a single query.
+
+Note: Prompts exceeding 200,000 tokens incur premium pricing ($10 input / $37.50 output per million tokens).
 
 ### Benchmark performance comparison
 
