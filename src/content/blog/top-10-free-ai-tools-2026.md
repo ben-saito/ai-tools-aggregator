@@ -72,20 +72,22 @@ The free tier operates on GPT-3.5-turbo, a 175-billion parameter large language 
 
 ---
 
-## 2. Claude (Anthropic) - Long-context AI assistant
+## 2. Claude (Anthropic) - Industry-leading agentic AI and long-context analysis
 
 **Provider:** Anthropic  
-**Primary use cases:** Code analysis, long-document processing, complex reasoning  
+**Primary use cases:** Agentic coding, long-document processing, complex reasoning  
 **Pricing:** Free tier available | Claude Pro: $20/month  
 **URL:** [claude.ai](https://claude.ai)
 
 ### Overview
 
-Developed by Anthropic, founded by former OpenAI researchers, Claude offers Claude 3.5 Sonnet in its free tier as of December 2024. The platform's distinguishing feature is a 200,000-token context window, enabling analysis of extensive documents and large codebases.
+Developed by Anthropic, founded by former OpenAI researchers, Claude announced its latest model, Claude Opus 4.6, on February 5, 2026. The free tier provides access to Claude Sonnet 4.5 (released September 2025), which excels at long-document analysis and large codebase comprehension.
+
+Claude Opus 4.6 (paid tier) delivers a 1,000,000-token context window (~750,000 words) and achieves industry-leading scores on Terminal-Bench 2.0 (agentic coding), Humanity's Last Exam (complex reasoning), and GDPval-AA (knowledge work tasks).
 
 ### Free tier capabilities
 
-- Long-document analysis (up to 200,000 tokens / approximately 150,000 words)
+- Long-document analysis (Claude Sonnet 4.5: up to 200,000 tokens)
 - Full codebase analysis
 - Data analysis (CSV, spreadsheet, log files)
 - Technical documentation summarization
@@ -95,18 +97,21 @@ Developed by Anthropic, founded by former OpenAI researchers, Claude offers Clau
 
 Claude implements "Constitutional AI," a proprietary training methodology designed to reduce harmful outputs. Third-party evaluation by Stanford HELM in December 2025 reported that Claude exhibits approximately 30% lower hallucination rates compared to GPT-4.
 
+Claude Opus 4.6 outperforms OpenAI's GPT-5.2 by approximately 144 Elo points on GDPval-AA, an evaluation of economically valuable knowledge work tasks in finance, legal, and other domains (February 2026, Artificial Analysis).
+
 ### Free tier limitations
 
+- Access to Claude Sonnet 4.5 only (Opus 4.6 requires paid tier)
 - Daily message limits (approximately 30-50 messages, subject to variation)
 - Response latency degradation during peak usage
 - No API access
 
 ### Context window advantage
 
-At 200,000 tokens, Claude's context window is approximately 56% larger than ChatGPT's 128,000-token limit (GPT-4 Turbo). This enables processing of:
+Claude Opus 4.6 (paid tier) provides a 1,000,000-token context window, approximately 7.8× larger than ChatGPT's 128,000-token limit (GPT-4 Turbo). This enables processing of:
 
-- Technical books (~100,000 words)
-- Entire software repositories
+- Entire technical books (~750,000 words)
+- Complete software repositories
 - Multi-file code reviews
 - Comprehensive documentation sets
 
