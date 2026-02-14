@@ -1,3 +1,16 @@
+---
+title: "Gemini Skill - ClawdbotでGoogle Gemini APIを活用"
+description: "Clawdbot向けGemini Skillを利用して、Google Gemini APIをワンショットQ&A、要約、生成タスクに活用する方法を解説します。"
+publishedAt: "2026-02-14"
+author: "AI Tools Hub"
+category: "Clawdbot Skills"
+tags: ["Clawdbot", "Gemini", "Google AI", "API統合", "生成AI"]
+featured: false
+lang: "ja"
+seo:
+  keywords: "Clawdbot, Gemini, Google AI, API統合, 生成AI"
+---
+
 # Gemini Skill - Google Gemini CLIでQ&A・要約・生成を実現
 
 Gemini Skillは、Google社が提供するGemini AI APIをClawdbot Agentから利用可能にする統合機能である。本SkillによりGemini CLIツールを経由して、質問応答、文書要約、コンテンツ生成等のタスクをプログラマティックに実行できる。

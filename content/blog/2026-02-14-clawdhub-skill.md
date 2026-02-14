@@ -1,3 +1,16 @@
+---
+title: "ClawdHub Skill - Clawdbotスキル管理を効率化"
+description: "ClawdHub CLIを利用して、Clawdbotスキルの検索、インストール、更新、公開を効率化する方法を解説します。"
+publishedAt: "2026-02-14"
+author: "AI Tools Hub"
+category: "Clawdbot Skills"
+tags: ["Clawdbot", "ClawdHub", "パッケージ管理", "スキル", "CLI"]
+featured: false
+lang: "ja"
+seo:
+  keywords: "Clawdbot, ClawdHub, パッケージ管理, スキル, CLI"
+---
+
 # ClawdHub Skill - Agent Skillの検索・インストール・公開を一元管理
 
 ClawdHub Skillは、Clawdbotエコシステムにおけるパッケージマネージャーとして機能するCLIツールである。開発者はClawdHub Skillを通じて、公開されているAgent Skillの検索、インストール、更新、および自作Skillの公開を実行できる。

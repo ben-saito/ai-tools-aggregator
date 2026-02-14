@@ -1,3 +1,16 @@
+---
+title: "Skill Creator Skill - Clawdbotスキル開発を効率化"
+description: "Skill Creator Skillを利用して、Clawdbotスキルの設計、構造化、パッケージングを効率化する方法を解説します。"
+publishedAt: "2026-02-14"
+author: "AI Tools Hub"
+category: "Clawdbot Skills"
+tags: ["Clawdbot", "Skill Creator", "スキル開発", "パッケージング", "開発ツール"]
+featured: false
+lang: "ja"
+seo:
+  keywords: "Clawdbot, Skill Creator, スキル開発, パッケージング, 開発ツール"
+---
+
 # Skill Creator Skill - AgentSkillの作成・更新を自動化
 
 Skill Creator Skillは、Clawdbot Agent向けの新規Skill（プラグイン）の作成、更新、テスト、公開を自動化するための開発支援ツールである。本Skillにより、Skillのボイラープレートコード生成、SKILL.mdドキュメント作成、バリデーション、ClawdHubへの公開までを一貫して実行できる。

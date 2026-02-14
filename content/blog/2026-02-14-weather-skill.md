@@ -1,3 +1,16 @@
+---
+title: "Weather Skill - APIキー不要で天気情報を取得"
+description: "Clawdbot向けWeather Skillを利用して、APIキー不要で現在の天気、週間予報、過去の気象データを取得する方法を解説します。"
+publishedAt: "2026-02-14"
+author: "AI Tools Hub"
+category: "Clawdbot Skills"
+tags: ["Clawdbot", "Weather", "Open-Meteo", "天気予報", "APIキー不要"]
+featured: false
+lang: "ja"
+seo:
+  keywords: "Clawdbot, Weather, Open-Meteo, 天気予報, APIキー不要"
+---
+
 # Weather Skill - APIキー不要で天気・予報情報を取得
 
 Weather Skillは、気象情報APIを利用せずに天気・予報データを取得できるClawdbot Agent向けの機能である。本SkillはOpen-Meteo等の無料気象データソースを活用し、APIキー登録不要で現在の天気、週間予報、気温・湿度等の情報を取得できる。

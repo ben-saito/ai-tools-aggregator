@@ -1,3 +1,16 @@
+---
+title: "BlueBubbles Skill - ClawdbotでiMessageを統合"
+description: "Clawdbot向けBlueBubbles Skillを利用して、Apple iMessageおよびSMS経由でのメッセージ送受信を実現する方法を解説します。"
+publishedAt: "2026-02-14"
+author: "AI Tools Hub"
+category: "Clawdbot Skills"
+tags: ["Clawdbot", "BlueBubbles", "iMessage", "SMS", "メッセージング"]
+featured: false
+lang: "ja"
+seo:
+  keywords: "Clawdbot, BlueBubbles, iMessage, SMS, メッセージング"
+---
+
 # BlueBubbles Skill - Clawdbot向け外部チャネルプラグイン構築を実現
 
 Clawdbotエコシステムにおいて、BlueBubbles Skillは外部メッセージングプラットフォームとの連携を可能にする開発者向けツールとして提供されている。本Skillを利用することで、Clawdbot AgentがApple iMessageおよびSMS経由でのメッセージ送受信に対応する。

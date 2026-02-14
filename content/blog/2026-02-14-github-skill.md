@@ -1,3 +1,16 @@
+---
+title: "GitHub Skill - ClawdbotでGitHubを自動化"
+description: "Clawdbot向けGitHub Skillを利用して、gh CLIでIssue、PR、CI/CD、リポジトリ管理を自動化する方法を解説します。"
+publishedAt: "2026-02-14"
+author: "AI Tools Hub"
+category: "Clawdbot Skills"
+tags: ["Clawdbot", "GitHub", "gh CLI", "CI/CD", "自動化"]
+featured: false
+lang: "ja"
+seo:
+  keywords: "Clawdbot, GitHub, gh CLI, CI/CD, 自動化"
+---
+
 # GitHub Skill - gh CLIでイシュー・PR・CI操作を自動化
 
 GitHub Skillは、GitHub公式CLIツール（gh）をClawdbot Agentから統合利用するための機能を提供する。本Skillにより、イシューの作成・管理、プルリクエスト（PR）操作、GitHub Actions CI/CDパイプラインの制御をプログラマティックに実行できる。

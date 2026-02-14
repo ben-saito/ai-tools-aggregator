@@ -1,3 +1,16 @@
+---
+title: "Nano Banana Pro Skill - Clawdbotで画像生成・編集"
+description: "Gemini 3 Pro Image（Nano Banana Pro）を利用して、Clawdbotから高度な画像生成・編集を実現する方法を解説します。"
+publishedAt: "2026-02-14"
+author: "AI Tools Hub"
+category: "Clawdbot Skills"
+tags: ["Clawdbot", "Nano Banana Pro", "Gemini", "画像生成", "AI画像編集"]
+featured: false
+lang: "ja"
+seo:
+  keywords: "Clawdbot, Nano Banana Pro, Gemini, 画像生成, AI画像編集"
+---
+
 # Nano Banana Pro Skill - Gemini 3 Pro Imageで画像生成・編集を実現
 
 Nano Banana Pro Skillは、Google DeepMindが提供する画像生成モデルGemini 3 Pro Image（Imagen 3）をClawdbot Agentから利用可能にする統合機能である。本Skillにより、テキストプロンプトからの画像生成、既存画像の編集、スタイル変換等をプログラマティックに実行できる。

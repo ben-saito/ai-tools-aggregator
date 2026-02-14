@@ -1,3 +1,16 @@
+---
+title: "Slack Skill - ClawdbotでSlackを自動化"
+description: "Clawdbot向けSlack Skillを利用して、メッセージ送信、リアクション、ピン操作、チャンネル管理を自動化する方法を解説します。"
+publishedAt: "2026-02-14"
+author: "AI Tools Hub"
+category: "Clawdbot Skills"
+tags: ["Clawdbot", "Slack", "API統合", "メッセージ自動化", "ワークフロー"]
+featured: false
+lang: "ja"
+seo:
+  keywords: "Clawdbot, Slack, API統合, メッセージ自動化, ワークフロー"
+---
+
 # Slack Skill - ClawdbotからSlackメッセージ送信・リアクション・ピン操作を自動化
 
 Slack Skillは、Slack Web APIおよびSocket Mode APIをClawdbot Agentから利用可能にする統合機能である。本Skillにより、メッセージ送信、リアクション追加、ピン操作、チャンネル管理等をプログラマティックに実行し、Slackワークスペースの自動化を実現できる。
