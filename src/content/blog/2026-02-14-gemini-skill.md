@@ -1,7 +1,7 @@
 ---
 title: "Gemini Skill - ClawdbotでGoogle Gemini APIを活用"
 description: "Clawdbot向けGemini Skillを利用して、Google Gemini APIをワンショットQ&A、要約、生成タスクに活用する方法を解説します。"
-publishedAt: "2026-02-14T00:00:00+09:00"
+publishedAt: "2026-02-14T23:00:00+09:00"
 author: "AI Tools Hub"
 category: "Clawdbot Skills"
 tags: ["Clawdbot", "Gemini", "Google AI", "API統合", "生成AI"]

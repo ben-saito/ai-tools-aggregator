@@ -1,7 +1,7 @@
 ---
 title: "GitHub Skill - ClawdbotでGitHubを自動化"
 description: "Clawdbot向けGitHub Skillを利用して、gh CLIでIssue、PR、CI/CD、リポジトリ管理を自動化する方法を解説します。"
-publishedAt: "2026-02-14T00:00:00+09:00"
+publishedAt: "2026-02-14T23:00:00+09:00"
 author: "AI Tools Hub"
 category: "Clawdbot Skills"
 tags: ["Clawdbot", "GitHub", "gh CLI", "CI/CD", "自動化"]

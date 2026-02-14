@@ -1,7 +1,7 @@
 ---
 title: "Coding Agent Skill - Clawdbotでコーディングエージェントを統合"
 description: "Codex CLI、Claude Code、OpenCode、Pi Coding Agentなど、主要なコーディングエージェントをClawdbotから統合利用する方法を解説します。"
-publishedAt: "2026-02-14T00:00:00+09:00"
+publishedAt: "2026-02-14T23:00:00+09:00"
 author: "AI Tools Hub"
 category: "Clawdbot Skills"
 tags: ["Clawdbot", "Coding Agent", "Claude Code", "AI開発", "自動化"]
