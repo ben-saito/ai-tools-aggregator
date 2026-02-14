@@ -1,10 +1,15 @@
 ---
 title: "2026年、AIコーディングツール比較。GitHub Copilot、Cursor、Codiumなど主要サービスの機能と料金"
 description: "2026年2月時点でソフトウェア開発を支援する主要AIコーディングツールを比較。GitHub Copilot、Cursor、Codium、Tabnineの機能、料金、選定基準を解説。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["コーディング", "GitHub Copilot", "Cursor", "Codium", "開発者"]
-image: "/images/blog/best-ai-code-development-tools-2026.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "コーディング, GitHub Copilot, Cursor, Codium, 開発者"
+  ogImage: "/images/blog/best-ai-code-development-tools-2026.jpg"
 ---
 
 # 2026年、AIコーディングツール比較。GitHub Copilot、Cursor、Codiumなど主要サービスの機能と料金

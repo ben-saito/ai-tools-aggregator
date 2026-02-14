@@ -1,10 +1,15 @@
 ---
 title: "2026年、最高のAI画像生成ツール比較。Midjourney、DALL-E、Stable Diffusion、Adobe Fireflyを評価"
 description: "2026年2月時点でAI画像生成ツールを包括的に比較。Midjourney、DALL-E 3、Stable Diffusion、Adobe Fireflyの品質、料金、用途別推奨を解説。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["画像生成", "AIアート", "Midjourney", "DALL-E", "Stable Diffusion"]
-image: "/images/blog/best-ai-image-generation-tools-2026.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "画像生成, AIアート, Midjourney, DALL-E, Stable Diffusion"
+  ogImage: "/images/blog/best-ai-image-generation-tools-2026.jpg"
 ---
 
 # 2026年、最高のAI画像生成ツール比較。Midjourney、DALL-E、Stable Diffusion、Adobe Fireflyを評価

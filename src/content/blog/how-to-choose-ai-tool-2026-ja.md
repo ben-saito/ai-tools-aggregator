@@ -1,10 +1,15 @@
 ---
 title: "2026年、AIツールの選び方。用途、予算、スキルレベル別の選定フレームワーク"
 description: "2026年2月時点でAIツールを選定する際の体系的なフレームワークを解説。用途、予算、スキルレベル、統合要件に基づく選定基準と推奨ツールを紹介。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "比較分析"
 tags: ["選び方", "比較", "意思決定", "ガイド"]
-image: "/images/blog/how-to-choose-ai-tool.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "選び方, 比較, 意思決定, ガイド"
+  ogImage: "/images/blog/how-to-choose-ai-tool.jpg"
 ---
 
 # 2026年、AIツールの選び方。用途、予算、スキルレベル別の選定フレームワーク

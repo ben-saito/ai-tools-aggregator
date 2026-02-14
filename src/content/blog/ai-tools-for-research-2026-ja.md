@@ -1,10 +1,15 @@
 ---
 title: "2026年、AIツールでリサーチを効率化する方法。学術論文検索から市場調査まで活用事例を解説"
 description: "2026年2月時点でリサーチ業務を効率化するAIツールの活用方法を解説。Perplexity、ChatGPT、Claude等を活用した情報収集・分析手法。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["リサーチ", "情報収集", "学術", "市場調査"]
-image: "/images/blog/ai-research-tools.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "リサーチ, 情報収集, 学術, 市場調査"
+  ogImage: "/images/blog/ai-research-tools.jpg"
 ---
 
 # 2026年、AIツールでリサーチを効率化する方法。学術論文検索から市場調査まで活用事例を解説

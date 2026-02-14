@@ -1,10 +1,15 @@
 ---
 title: "2026年、ビジネス向けAIツール比較。業務効率化に活用される主要サービスの機能と料金"
 description: "2026年2月時点で企業の業務効率化に活用されているAIツールを比較。ChatGPT、Claude、Geminiなどの主要サービスの機能、料金、セキュリティ対応を解説。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "比較分析"
 tags: ["ビジネス", "生産性", "企業向け", "比較"]
-image: "/images/blog/business-ai-tools.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "ビジネス, 生産性, 企業向け, 比較"
+  ogImage: "/images/blog/business-ai-tools.jpg"
 ---
 
 # 2026年、ビジネス向けAIツール比較。業務効率化に活用される主要サービスの機能と料金

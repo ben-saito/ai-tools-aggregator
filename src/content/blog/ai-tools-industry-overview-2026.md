@@ -1,10 +1,15 @@
 ---
 title: "AI Tools Industry Overview 2026: Market Trends, Key Players, and Enterprise Adoption"
 description: "A comprehensive overview of the AI tools industry as of February 2026. Market size, key players (OpenAI, Anthropic, Google), enterprise adoption trends, and future outlook."
-pubDate: 2026-02-14
-author: "AI Tools Aggregator Editorial Team"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub Editorial Team"
+category: "Industry Trends"
 tags: ["industry overview", "market trends", "enterprise", "2026"]
-image: "/images/blog/ai-industry-overview-2026.jpg"
+featured: false
+lang: "en"
+seo:
+  keywords: "industry overview, market trends, enterprise, 2026"
+  ogImage: "/images/blog/ai-industry-overview-2026.jpg"
 ---
 
 # AI Tools Industry Overview 2026: Market Trends, Key Players, and Enterprise Adoption

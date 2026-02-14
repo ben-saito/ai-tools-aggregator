@@ -1,10 +1,15 @@
 ---
 title: "2026年、マーケター向けAIツール比較。コンテンツ作成、広告最適化、分析を支援する主要サービス"
 description: "2026年2月時点でマーケティング業務を支援するAIツールを比較。コンテンツ生成、SEO、広告最適化、データ分析など用途別に解説。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["マーケティング", "広告", "SEO", "コンテンツ作成"]
-image: "/images/blog/marketer-ai-tools.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "マーケティング, 広告, SEO, コンテンツ作成"
+  ogImage: "/images/blog/marketer-ai-tools.jpg"
 ---
 
 # 2026年、マーケター向けAIツール比較。コンテンツ作成、広告最適化、分析を支援する主要サービス

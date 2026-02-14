@@ -1,10 +1,15 @@
 ---
 title: "2026年、AIツールでデータ分析を行う方法。非技術者でもできる統計分析・可視化の実践ガイド"
 description: "2026年2月時点でデータ分析を効率化するAIツールの活用方法を解説。ChatGPT、Claude、Tableauなどを活用した統計分析、グラフ作成手法。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["データ分析", "統計", "可視化", "ビジネスインテリジェンス"]
-image: "/images/blog/ai-data-analysis.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "データ分析, 統計, 可視化, ビジネスインテリジェンス"
+  ogImage: "/images/blog/ai-data-analysis.jpg"
 ---
 
 # 2026年、AIツールでデータ分析を行う方法。非技術者でもできる統計分析・可視化の実践ガイド

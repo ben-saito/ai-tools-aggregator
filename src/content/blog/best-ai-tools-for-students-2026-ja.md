@@ -1,10 +1,15 @@
 ---
 title: "2026年、学生・教育向けAIツール比較。学習支援に活用される主要サービスの無料プランと機能"
 description: "2026年2月時点で学生・教育機関向けに提供されているAIツールを比較。無料プラン、学割、大学向けライセンスなど教育分野での活用事例を解説。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["教育", "学生", "学習支援", "無料"]
-image: "/images/blog/student-ai-tools.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "教育, 学生, 学習支援, 無料"
+  ogImage: "/images/blog/student-ai-tools.jpg"
 ---
 
 # 2026年、学生・教育向けAIツール比較。学習支援に活用される主要サービスの無料プランと機能

@@ -1,10 +1,15 @@
 ---
 title: "2026年のAI業界トレンド。エンタープライズ導入、規制強化、マルチモーダルAIの進化"
 description: "2026年2月時点のAI業界の主要トレンドを解説。企業導入の加速、AI規制の動向、Claude Opus 4.6などの最新モデル、マルチモーダルAIの進化。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "業界動向"
 tags: ["業界動向", "トレンド", "企業導入", "規制"]
-image: "/images/blog/ai-trends-2026.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "業界動向, トレンド, 企業導入, 規制"
+  ogImage: "/images/blog/ai-trends-2026.jpg"
 ---
 
 # 2026年のAI業界トレンド。エンタープライズ導入、規制強化、マルチモーダルAIの進化

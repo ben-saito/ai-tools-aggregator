@@ -1,10 +1,15 @@
 ---
 title: "2026年、RAG（Retrieval-Augmented Generation）とは何か。仕組み、メリット、実装方法を解説"
 description: "2026年2月時点のRAG（Retrieval-Augmented Generation）の仕組み、メリット、主要ツール、実装方法を解説。LLMのハルシネーション対策、社内データ活用の技術。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "技術解説"
 tags: ["RAG", "技術解説", "LLM", "エンタープライズ"]
-image: "/images/blog/what-is-rag.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "RAG, 技術解説, LLM, エンタープライズ"
+  ogImage: "/images/blog/what-is-rag.jpg"
 ---
 
 # 2026年、RAG（Retrieval-Augmented Generation）とは何か。仕組み、メリット、実装方法を解説

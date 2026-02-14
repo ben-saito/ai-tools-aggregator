@@ -1,10 +1,15 @@
 ---
 title: "2026年、AIツール業界概観。市場規模5,000億ドル、主要プレイヤーと企業導入の最新動向"
 description: "2026年2月時点のAIツール業界の包括的概観。市場規模、主要プレイヤー（OpenAI、Anthropic、Google）、企業導入トレンド、規制動向、今後の展望を解説。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "業界動向"
 tags: ["業界概観", "市場動向", "企業導入", "2026"]
-image: "/images/blog/ai-industry-overview-2026.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "業界概観, 市場動向, 企業導入, 2026"
+  ogImage: "/images/blog/ai-industry-overview-2026.jpg"
 ---
 
 # 2026年、AIツール業界概観。市場規模5,000億ドル、主要プレイヤーと企業導入の最新動向

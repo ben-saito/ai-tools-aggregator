@@ -1,10 +1,15 @@
 ---
 title: "2026年、デザイナー向けAIツール比較。画像生成、UI/UXデザイン、動画編集を支援する主要サービス"
 description: "2026年2月時点でデザイン業務を支援するAIツールを比較。Midjourney、DALL-E、Figma AI、Adobe Firefly等の機能、料金、商用利用規定を解説。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["デザイン", "画像生成", "UI/UX", "クリエイティブ"]
-image: "/images/blog/designer-ai-tools.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "デザイン, 画像生成, UI/UX, クリエイティブ"
+  ogImage: "/images/blog/designer-ai-tools.jpg"
 ---
 
 # 2026年、デザイナー向けAIツール比較。画像生成、UI/UXデザイン、動画編集を支援する主要サービス

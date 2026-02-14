@@ -1,10 +1,15 @@
 ---
 title: "2026年、エンジニア向けAIツール（コーディング以外）。ドキュメント作成、デバッグ、インフラ管理を支援"
 description: "2026年2月時点でエンジニアの業務を効率化するAIツールを紹介。コーディング以外の用途—ドキュメント作成、デバッグ、インフラ管理、コードレビュー等を解説。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["エンジニア", "開発者", "DevOps", "ドキュメント"]
-image: "/images/blog/ai-tools-for-engineers.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "エンジニア, 開発者, DevOps, ドキュメント"
+  ogImage: "/images/blog/ai-tools-for-engineers.jpg"
 ---
 
 # 2026年、エンジニア向けAIツール（コーディング以外）。ドキュメント作成、デバッグ、インフラ管理を支援

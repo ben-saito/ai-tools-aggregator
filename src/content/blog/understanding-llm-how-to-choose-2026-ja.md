@@ -1,10 +1,15 @@
 ---
 title: "2026年、LLM（大規模言語モデル）の仕組みと選び方。GPT、Claude、Gemini、Llamaを比較"
 description: "2026年2月時点のLLM（大規模言語モデル）の基本的な仕組み、主要モデルの比較、用途別の選び方を解説。技術的詳細から実用的選定基準まで。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "技術解説"
 tags: ["LLM", "技術解説", "GPT", "Claude", "Gemini"]
-image: "/images/blog/understanding-llm.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "LLM, 技術解説, GPT, Claude, Gemini"
+  ogImage: "/images/blog/understanding-llm.jpg"
 ---
 
 # 2026年、LLM（大規模言語モデル）の仕組みと選び方。GPT、Claude、Gemini、Llamaを比較

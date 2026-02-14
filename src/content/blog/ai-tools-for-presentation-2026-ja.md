@@ -1,10 +1,15 @@
 ---
 title: "2026年、AIツールでプレゼン資料を作成する方法。スライド生成から画像作成まで実践ガイド"
 description: "2026年2月時点でプレゼンテーション作成を支援するAIツールの活用方法を解説。Gamma、Beautiful.ai、ChatGPT等を活用した効率的なスライド作成手法。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["プレゼンテーション", "スライド作成", "デザイン", "業務効率化"]
-image: "/images/blog/ai-presentation-tools.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "プレゼンテーション, スライド作成, デザイン, 業務効率化"
+  ogImage: "/images/blog/ai-presentation-tools.jpg"
 ---
 
 # 2026年、AIツールでプレゼン資料を作成する方法。スライド生成から画像作成まで実践ガイド

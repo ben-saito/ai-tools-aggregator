@@ -1,10 +1,15 @@
 ---
 title: "2026年、AIツールでメール返信を自動化する方法。ビジネスメール効率化の実践ガイド"
 description: "2026年2月時点でメール業務を効率化するAIツールの活用方法を解説。ChatGPT、Gemini、専用ツールを活用した返信自動化、要約、分類手法。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["メール", "業務効率化", "自動化", "コミュニケーション"]
-image: "/images/blog/ai-email-automation.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "メール, 業務効率化, 自動化, コミュニケーション"
+  ogImage: "/images/blog/ai-email-automation.jpg"
 ---
 
 # 2026年、AIツールでメール返信を自動化する方法。ビジネスメール効率化の実践ガイド

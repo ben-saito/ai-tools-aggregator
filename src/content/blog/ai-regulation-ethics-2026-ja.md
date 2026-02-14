@@ -1,10 +1,15 @@
 ---
 title: "2026年、AI規制・倫理の最新状況。EU AI Act施行、米国ガイドライン強化、企業の対応策"
 description: "2026年2月時点のAI規制・倫理動向を解説。EU AI Act、米国連邦ガイドライン、中国規制、企業のガバナンス体制構築ベストプラクティス。"
-pubDate: 2026-02-14
-author: "AI Tools Aggregator編集部"
+publishedAt: "2026-02-14T16:00:00+09:00"
+author: "AI Tools Hub 編集部"
+category: "ガイド"
 tags: ["規制", "倫理", "ガバナンス", "コンプライアンス"]
-image: "/images/blog/ai-regulation-ethics.jpg"
+featured: false
+lang: "ja"
+seo:
+  keywords: "AI規制, EU AI Act, AI倫理, ガバナンス, コンプライアンス"
+  ogImage: "/images/blog/ai-regulation-ethics-2026-ja.png"
 ---
 
 # 2026年、AI規制・倫理の最新状況。EU AI Act施行、米国ガイドライン強化、企業の対応策
