@@ -7,12 +7,22 @@ import TrendingTools from '../../components/TrendingTools.astro';
 import Leaderboard from '../../components/Leaderboard.astro';
 import { getAllTools, getFeaturedTools, categories } from '../../lib/tools';
 import { getLangFromUrl, useTranslations } from '../../lib/i18n';
+import { getSkillsRanking } from '../../lib/skills-ranking';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const tools = getAllTools();
 const featuredTools = getFeaturedTools();
+
+// Get top 6 skills
+let topSkills = [];
+try {
+  const allSkills = await getSkillsRanking();
+  topSkills = allSkills.slice(0, 6);
+} catch (e) {
+  console.error('Error loading skills:', e);
+}
 
 // Schema.org structured data
 const schemaData = {
@@ -195,6 +205,53 @@ const schemaData = {
           ))}
         </div>
       </div>
+
+      <!-- Skills Ranking Section -->
+      {topSkills.length > 0 && (
+        <div class="mb-12">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h2 class="text-2xl font-bold">{t('skills.title')}</h2>
+              <p class="text-gray-600 mt-1">{t('skills.subtitle')}</p>
+            </div>
+            <a 
+              href={lang === 'ja' ? '/ja/skills' : '/skills'} 
+              class="text-primary-600 hover:text-primary-700 font-semibold text-sm"
+            >
+              {t('skills.viewAll')} →
+            </a>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {topSkills.map((skill) => (
+              <a 
+                href={skill.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="block rounded-lg border border-gray-200 p-6 hover:border-primary-500 hover:shadow-md transition"
+              >
+                <div class="flex items-start justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg font-bold text-gray-400">#{skill.rank}</span>
+                    <h3 class="text-lg font-semibold text-gray-900">{skill.name}</h3>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-sm font-bold text-primary-600">{skill.score}</div>
+                    <div class="text-xs text-gray-500">スコア</div>
+                  </div>
+                </div>
+                {skill.description && (
+                  <p class="text-sm text-gray-600 mb-3 line-clamp-2">{skill.description}</p>
+                )}
+                <div class="flex flex-wrap gap-3 text-xs text-gray-500">
+                  <span class="flex items-center gap-1">⭐ {skill.stars.toLocaleString()}</span>
+                  <span class="flex items-center gap-1">🍴 {skill.forks.toLocaleString()}</span>
+                  {skill.language && <span class="flex items-center gap-1">💻 {skill.language}</span>}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       <!-- Popular Tags Section -->
       <div class="mb-12">

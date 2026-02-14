@@ -82,6 +82,38 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
       });
     </script>
     
+    <!-- Language Consistency -->
+    <script is:inline>
+      (function() {
+        const currentPath = window.location.pathname;
+        const preferredLang = localStorage.getItem('preferred-lang');
+        const redirected = sessionStorage.getItem('lang-redirected');
+        
+        // Don't redirect if already redirected in this session or on language change
+        if (redirected === 'true') return;
+        
+        // Detect current language from URL
+        const isJaPage = currentPath.startsWith('/ja');
+        const currentLang = isJaPage ? 'ja' : 'en';
+        
+        // Auto-redirect only if preferred language doesn't match and user hasn't manually changed it
+        if (preferredLang && preferredLang !== currentLang && !redirected) {
+          sessionStorage.setItem('lang-redirected', 'true');
+          
+          let newPath;
+          if (preferredLang === 'ja' && !isJaPage) {
+            newPath = '/ja' + currentPath;
+          } else if (preferredLang === 'en' && isJaPage) {
+            newPath = currentPath.replace(/^\/ja/, '') || '/';
+          }
+          
+          if (newPath && newPath !== currentPath) {
+            window.location.href = newPath;
+          }
+        }
+      })();
+    </script>
+    
     <title>{pageTitle}</title>
   </head>
   <body class="min-h-screen bg-white text-gray-900">
