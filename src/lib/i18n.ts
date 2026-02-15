@@ -10,7 +10,7 @@ export const ui = {
     // Hero Section
     'hero.title': 'Save 50% of Your Search Time.',
     'hero.subtitle': 'Only the AI Tools That Actually Work.',
-    'hero.description': 'Out of 100+ AI tools released daily, we curated 50+ that actually deliver. Reviews, comparisons, and favorites—all in one place.',
+    'hero.description': 'Out of 100+ AI tools released daily, we curated 60+ that actually deliver. Reviews, comparisons, and favorites—all in one place.',
     'hero.feature1': 'Curated Tools Only',
     'hero.feature1.desc': 'No spam, no junk',
     'hero.feature2': 'Fast Search & AI Recommendations',
@@ -229,7 +229,7 @@ export const ui = {
     // Hero Section
     'hero.title': '探す時間を50%削減。',
     'hero.subtitle': '本当に使えるAIツールだけを、ここに。',
-    'hero.description': '毎日100以上リリースされるAIツールの中から、実際に使える50+ツールを厳選。レビュー、比較、一括管理を一箇所で。',
+    'hero.description': '毎日100以上リリースされるAIツールの中から、実際に使える60+ツールを厳選。レビュー、比較、一括管理を一箇所で。',
     'hero.feature1': '厳選されたツールのみ',
     'hero.feature1.desc': 'スパムなし、質の高いツールだけ',
     'hero.feature2': '高速検索 & AI推薦',
