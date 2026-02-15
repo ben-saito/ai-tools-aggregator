@@ -14,7 +14,9 @@ const {
 } = Astro.props;
 
 const siteUrl = Astro.site || 'https://ai-tools-aggregator.vercel.app';
-const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
+// Remove trailing slash from pathname to avoid double slashes
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${pathname}`;
 const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 const pageTitle = `${title} | AI Tools Hub`;
 import ComparisonBar from '../components/ComparisonBar.astro';
