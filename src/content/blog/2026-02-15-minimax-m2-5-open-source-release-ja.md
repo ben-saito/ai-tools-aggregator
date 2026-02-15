@@ -1,7 +1,7 @@
 ---
 title: "MiniMax-M2.5リリース、Opus 4.6と同等の性能を10分の1のコストで実現するオープンソースモデル"
 description: "MiniMaxがM2.5をリリース。2290億パラメータのオープンソースモデルで、SWE-Bench Verifiedで80.2%を達成し、Opus 4.6・Gemini 3 Pro・GPT-5と比較して10〜20分の1のコストを実現。"
-publishedAt: "2026-02-15T09:30:00+09:00"
+publishedAt: "2026-02-15T23:30:00+09:00"
 author: "AI Tools Hub"
 category: "AI Models"
 tags: ["MiniMax", "オープンソース", "コーディングAI", "コスト効率", "エージェントモデル"]

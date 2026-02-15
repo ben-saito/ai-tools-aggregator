@@ -1,7 +1,7 @@
 ---
 title: "MiniMax-M2.5 Released: Open-Source Model Matching Opus 4.6 at 10% of the Cost"
 description: "MiniMax releases M2.5, an open-source 229B parameter model achieving 80.2% on SWE-Bench Verified with 10-20x cost reduction compared to Opus 4.6, Gemini 3 Pro, and GPT-5."
-publishedAt: "2026-02-15T09:30:00+09:00"
+publishedAt: "2026-02-15T23:30:00+09:00"
 author: "AI Tools Hub"
 category: "AI Models"
 tags: ["MiniMax", "Open Source", "Coding AI", "Cost Efficiency", "Agent Models"]
