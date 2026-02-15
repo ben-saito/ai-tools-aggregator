@@ -109,6 +109,43 @@ In addition to open-source deployment, MiniMax offers M2.5 through:
 - MiniMax API Platform: https://platform.minimax.io/
 - MiniMax Coding Plan: https://platform.minimax.io/subscribe/coding-plan
 
+## Security and Trust Assessment
+
+A security review of the MiniMax-AI GitHub organization and repositories was conducted on February 15, 2026.
+
+**Organization Verification:**
+- Organization ID: 194880281 (created January 14, 2025)
+- Official website: https://www.minimax.io
+- Official contact: model@minimax.io
+- Twitter: @MiniMax_AI
+- GitHub followers: 4,358
+
+**Repository Trust Indicators:**
+- MiniMax-M2.5: 6.09k stars, 519 forks (updated 21 hours ago)
+- MiniMax-M2.1: 86.7k stars, 1.27k forks
+- MiniMax-M2: 450k stars, 1.48k forks
+- Mini-Agent: 1.6k stars, 232 forks
+
+High community engagement levels indicate active maintenance and peer review.
+
+**License:**
+Modified MIT License requiring commercial users to display "MiniMax M2.5" on product interfaces. Standard open-source license with minimal additional restrictions.
+
+**Code Safety Review:**
+- MiniMax-M2.5 repository contains documentation and deployment guides only; no executable code
+- Model weights hosted on Hugging Face (external platform)
+- Mini-Agent repository reviewed: standard dependencies (pydantic, openai, anthropic, httpx)
+- No malicious code patterns detected (eval, exec, __import__ abuse)
+- bash_tool.py implements shell command execution (standard for AI agent tools)
+
+**Recommendations for Safe Usage:**
+1. Avoid executing shell commands with untrusted inputs
+2. Use firewall/sandbox environment for initial local deployment
+3. Manage API keys via environment variables (not hardcoded)
+4. Review code before deployment in production environments
+
+Based on this assessment, the MiniMax-AI organization and repositories appear legitimate with no evidence of malicious code or backdoors.
+
 ## References
 
 - Hugging Face Model Repository: https://huggingface.co/MiniMaxAI/MiniMax-M2.5

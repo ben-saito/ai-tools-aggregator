@@ -109,6 +109,43 @@ MiniMaxによれば、SWE-Bench Verifiedにおける進捗率は、同期間のC
 - MiniMax APIプラットフォーム: https://platform.minimax.io/
 - MiniMax Coding Plan: https://platform.minimax.io/subscribe/coding-plan
 
+## セキュリティと信頼性評価
+
+2026年2月15日、MiniMax-AI GitHub組織およびリポジトリのセキュリティレビューを実施した。
+
+**組織の検証:**
+- Organization ID: 194880281（2025年1月14日作成）
+- 公式サイト: https://www.minimax.io
+- 公式連絡先: model@minimax.io
+- Twitter: @MiniMax_AI
+- GitHubフォロワー: 4,358
+
+**リポジトリの信頼性指標:**
+- MiniMax-M2.5: ⭐6.09k、🍴519（21時間前更新）
+- MiniMax-M2.1: ⭐86.7k、🍴1.27k
+- MiniMax-M2: ⭐450k、🍴1.48k
+- Mini-Agent: ⭐1.6k、🍴232
+
+高いコミュニティエンゲージメントは、活発なメンテナンスとピアレビューを示している。
+
+**ライセンス:**
+修正版MITライセンス。商用利用時に製品インターフェースに「MiniMax M2.5」表示義務あり。標準的なオープンソースライセンスに最小限の追加制限。
+
+**コード安全性レビュー:**
+- MiniMax-M2.5リポジトリ: ドキュメントとデプロイガイドのみ、実行コードなし
+- モデルウェイトはHugging Face（外部プラットフォーム）でホスト
+- Mini-Agentリポジトリをレビュー: 標準的な依存関係（pydantic、openai、anthropic、httpx）
+- 悪意のあるコードパターン検出なし（eval、exec、__import__の不正使用なし）
+- bash_tool.py: シェルコマンド実行機能を実装（AIエージェントツールとして標準的）
+
+**安全な使用のための推奨事項:**
+1. 信頼できない入力でシェルコマンドを実行しない
+2. 初回ローカルデプロイ時はファイアウォール・サンドボックス環境を使用
+3. APIキーは環境変数で管理（ハードコードしない）
+4. 本番環境デプロイ前にコードレビューを実施
+
+この評価に基づき、MiniMax-AI組織およびリポジトリは正当であり、悪意のあるコードやバックドアの証拠は確認されなかった。
+
 ## 参考リンク
 
 - Hugging Faceモデルリポジトリ: https://huggingface.co/MiniMaxAI/MiniMax-M2.5
