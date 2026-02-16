@@ -91,6 +91,104 @@ Copilotのワークフローに統合されたコードレビューステップ�
 
 監査ログとエンタープライズグレードのアクセス管理により、エージェントがセキュリティポリシーに準拠することを保証。組織は全コントロールを維持しつつ、エージェントベースのワークフローを採用できる。
 
+## 料金プランと利用可能機能
+
+Agent HQで複数のAIエージェント（Claude、Codex）を利用するには、GitHub Copilot Pro+またはCopilot Enterpriseサブスクリプションが必要である。2026年2月時点のプラン体系は以下の通り。
+
+### 個人開発者向けプラン
+
+**GitHub Copilot Free（無料）**
+- 月額: $0
+- コード補完: 月2,000回
+- プレミアムリクエスト: 月50回
+- Agent mode（GPT-5 mini使用）: 月50回
+- Claude・Codex統合: 利用不可
+
+**GitHub Copilot Pro**
+- 月額: $10（年払いの場合$100）
+- コード補完: 無制限
+- プレミアムリクエスト: 月300回
+- Agent mode: 無制限
+- Claude・Codex統合: 利用不可
+- 学生、教職員、人気オープンソースプロジェクトメンテナーは無料
+
+**GitHub Copilot Pro+**
+- 月額: $39（年払いの場合$390）
+- コード補完: 無制限
+- プレミアムリクエスト: 月1,500回
+- Agent mode: 無制限
+- **Claude・Codex統合: 利用可能（パブリックプレビュー）**
+- 追加プレミアムリクエスト: $0.04/リクエスト
+
+### 組織・エンタープライズ向けプラン
+
+**GitHub Copilot Business**
+- 組織向け（GitHub FreeまたはGitHub Teamプラン、GitHub Enterprise Cloud）
+- Copilot coding agent搭載
+- 一元管理とポリシー制御
+- 料金: 要問合せ
+
+**GitHub Copilot Enterprise**
+- GitHub Enterprise Cloud利用企業向け
+- Copilot Businessの全機能に加え、エンタープライズグレード機能
+- **Claude・Codex統合: 利用可能（パブリックプレビュー）**
+- 組織のコードベース索引化、カスタムプライベートモデル対応
+- 料金: 要問合せ
+
+### プレミアムリクエストとは
+
+Agent mode、コードレビュー、coding agent、Copilot CLI、Copilot Chatはプレミアムリクエストを消費する。利用リクエスト数は機能やモデルにより変動する。Pro+プランでは月1,500リクエストまで含まれ、超過分は1リクエストあたり$0.04で購入可能。
+
+## 導入方法
+
+### 前提条件
+
+Agent HQでClaude・Codexを利用するには、以下が必要。
+
+1. GitHub Copilot Pro+またはCopilot Enterpriseサブスクリプション
+2. 対応環境（GitHub、Visual Studio Code、GitHub Mobile）のいずれか
+3. GitHubアカウント
+
+### Pro+サブスクリプションの開始手順
+
+1. GitHubにサインイン
+2. GitHub Copilot Pro+サブスクリプションページ（https://github.com/github-copilot/signup）にアクセス
+3. プラン選択画面で「Pro+」を選択
+4. 支払い情報を入力し、サブスクリプションを開始（30日間無料トライアル対象外）
+
+### Agent HQでのエージェント利用方法
+
+**GitHub.com（Webインターフェース）の場合:**
+
+1. リポジトリのIssueまたはプルリクエストを開く
+2. エージェント選択画面（Agent HQ）を表示
+3. 利用可能なエージェント（GitHub Copilot、Claude、Codex）から選択
+4. タスクを割り当て、エージェントの提案を確認
+
+**Visual Studio Codeの場合:**
+
+1. GitHub Copilot拡張機能がインストールされていることを確認
+2. コマンドパレット（Cmd+Shift+P / Ctrl+Shift+P）から「Copilot: Open Agent HQ」を選択
+3. エージェント選択メニューからClaude、Codex、Copilotのいずれかを選択
+4. チャット、コードレビュー、Agent mode等で利用開始
+
+**GitHub Mobileの場合:**
+
+1. GitHub Mobileアプリを最新版に更新
+2. プルリクエストまたはIssueを開く
+3. 「Request Reviews」からCopilotまたはサードパーティエージェント（Claude、Codex）を選択
+4. エージェントがレビューを実行
+
+### エンタープライズでのポリシー管理
+
+組織管理者は、以下の手順でエージェントアクセスを制御できる。
+
+1. GitHubエンタープライズ設定にアクセス
+2. 「Copilot」→「Policies」セクションを開く
+3. 「Models policy」で、ClaudeやCodexの利用可否を設定
+4. 組織メンバーまたはチーム単位でアクセス権限を割り当て
+5. 監査ログで利用状況を追跡
+
 ## 今後の展開
 
 ClaudeとCodexへのアクセスは、今後さらに多くのCopilotサブスクリプションタイプに拡大される予定。GitHubは現在、Google、Cognition、xAIなどのパートナーと協力し、GitHub、VS Code、Copilot CLIワークフローにさらに専門的なエージェントを導入する作業を進めている。
