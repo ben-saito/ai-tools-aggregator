@@ -22,7 +22,10 @@ const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 let pageTitle: string;
 const titleLength = title.length;
 
-if (titleLength <= 45) {
+// Special case: Homepage already includes site name - don't add suffix
+if (title.includes('AI Tools Hub') || title.includes('AIツールハブ')) {
+  pageTitle = title;
+} else if (titleLength <= 45) {
   // Short title: add full suffix (15 chars)
   pageTitle = `${title} | AI Tools Hub`;
 } else if (titleLength <= 52) {

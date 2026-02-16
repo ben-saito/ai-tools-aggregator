@@ -24,8 +24,8 @@ try {
   console.error('Error loading skills:', e);
 }
 
-// Schema.org structured data
-const schemaData = {
+// Schema.org structured data - Multiple schemas for rich results
+const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "AI Tools Hub",
@@ -42,10 +42,93 @@ const schemaData = {
     "url": "https://ai-tools-aggregator-seven.vercel.app"
   }
 };
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AI Tools Hub",
+  "url": "https://ai-tools-aggregator-seven.vercel.app",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://ai-tools-aggregator-seven.vercel.app/logo.webp",
+    "width": 1024,
+    "height": 1024
+  },
+  "description": t('hero.description'),
+  "sameAs": [
+    "https://twitter.com/AIToolsHubHQ"
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Tools Hub - Discover the Best AI Tools for 2026",
+  "description": t('hero.description'),
+  "url": "https://ai-tools-aggregator-seven.vercel.app",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://ai-tools-aggregator-seven.vercel.app#website"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "AI Tools Directory"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "AI Tools Collection",
+    "description": "Curated directory of 60+ AI tools",
+    "numberOfItems": tools.length
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": t('problem.1'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t('solution.1.desc')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": t('problem.2'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t('solution.2.desc')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": t('problem.3'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t('solution.3.desc')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": t('problem.4'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t('solution.4.desc')
+      }
+    }
+  ]
+};
 ---
 
-<Layout title={`${t('hero.title')} ${t('hero.subtitle')}`}>
-  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+<Layout title="AI Tools Hub - 60+ Curated AI Tools for 2026">
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  
   <Header />
   
   <main>
