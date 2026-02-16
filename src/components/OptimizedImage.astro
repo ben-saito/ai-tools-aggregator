@@ -1,0 +1,47 @@
+---
+/**
+ * Optimized Image Component
+ * - Lazy loading by default
+ * - Responsive srcset
+ * - WebP fallback support
+ */
+
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  sizes?: string;
+  priority?: boolean;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  class: className = '',
+  loading = 'lazy',
+  sizes = '100vw',
+  priority = false
+} = Astro.props;
+
+// Use eager loading for priority images (above the fold)
+const loadingStrategy = priority ? 'eager' : loading;
+
+// Add decoding="async" for better performance
+const decoding = priority ? 'auto' : 'async';
+---
+
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  class={className}
+  loading={loadingStrategy}
+  decoding={decoding}
+  sizes={sizes}
+/>

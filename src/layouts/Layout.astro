@@ -32,9 +32,14 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
     <link rel="alternate icon" type="image/png" href="/favicon.svg" />
     <link rel="canonical" href={fullCanonical} />
     
+    <!-- Preload critical assets for LCP optimization -->
+    <link rel="preload" href="/logo.webp" as="image" type="image/webp" />
+    
     <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://mqksqezqbauqymftrydy.supabase.co" />
+    <link rel="preconnect" href="https://mqksqezqbauqymftrydy.supabase.co" crossorigin />
     <link rel="dns-prefetch" href="https://mqksqezqbauqymftrydy.supabase.co" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
