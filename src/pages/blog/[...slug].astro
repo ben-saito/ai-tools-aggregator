@@ -19,6 +19,26 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 const { title, description, publishedAt, author, category, tags, seo } = post.data;
+
+// Get related posts (same category or shared tags)
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.lang === 'en' || data.lang === undefined;
+});
+
+const relatedPosts = allPosts
+  .filter(p => p.slug !== post.slug) // Exclude current post
+  .map(p => {
+    // Calculate relevance score
+    let score = 0;
+    if (p.data.category === category) score += 3; // Same category
+    const sharedTags = p.data.tags.filter(tag => tags.includes(tag));
+    score += sharedTags.length; // Shared tags
+    return { post: p, score };
+  })
+  .filter(({ score }) => score > 0) // Only posts with some relevance
+  .sort((a, b) => b.score - a.score) // Sort by relevance
+  .slice(0, 3) // Top 3
+  .map(({ post }) => post);
 ---
 
 <SEO
@@ -103,6 +123,34 @@ const { title, description, publishedAt, author, category, tags, seo } = post.da
         <Content />
       </div>
 
+      <!-- Related Articles -->
+      {relatedPosts.length > 0 && (
+        <section class="mt-16 pt-8 border-t border-gray-200">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Articles</h2>
+          <div class="grid gap-6 md:grid-cols-3">
+            {relatedPosts.map((relatedPost) => (
+              <a 
+                href={`/blog/${relatedPost.slug}`}
+                class="group block bg-gray-50 rounded-lg p-6 hover:bg-blue-50 hover:shadow-md transition-all"
+              >
+                <div class="text-sm text-blue-600 font-semibold mb-2">
+                  {relatedPost.data.category}
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors line-clamp-2">
+                  {relatedPost.data.title}
+                </h3>
+                <p class="text-sm text-gray-600 line-clamp-2">
+                  {relatedPost.data.description}
+                </p>
+                <div class="mt-4 text-sm text-blue-600 font-medium group-hover:underline">
+                  Read more →
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
       <!-- Footer -->
       <footer class="mt-16 pt-8 border-t border-gray-200">
         <!-- Share -->
@@ -126,6 +174,18 @@ const { title, description, publishedAt, author, category, tags, seo } = post.da
               LinkedIn
             </a>
           </div>
+        </div>
+
+        <!-- CTA - Browse More Tools -->
+        <div class="mb-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Discover More AI Tools</h3>
+          <p class="text-gray-600 mb-4">Explore our curated directory of 60+ AI tools for productivity, creativity, and innovation.</p>
+          <a 
+            href="/"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Browse AI Tools →
+          </a>
         </div>
 
         <!-- Back to Blog -->

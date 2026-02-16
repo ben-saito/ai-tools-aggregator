@@ -22,6 +22,26 @@ const formattedDate = new Date(post.data.publishedAt).toLocaleDateString('ja-JP'
   month: 'long',
   day: 'numeric'
 });
+
+// 関連記事を取得（同じカテゴリまたは共通タグ）
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.lang === 'ja';
+});
+
+const relatedPosts = allPosts
+  .filter(p => p.slug !== post.slug) // 現在の記事を除外
+  .map(p => {
+    // 関連性スコアを計算
+    let score = 0;
+    if (p.data.category === post.data.category) score += 3; // 同じカテゴリ
+    const sharedTags = p.data.tags.filter(tag => post.data.tags.includes(tag));
+    score += sharedTags.length; // 共通タグ
+    return { post: p, score };
+  })
+  .filter(({ score }) => score > 0) // 関連性のある記事のみ
+  .sort((a, b) => b.score - a.score) // スコア順にソート
+  .slice(0, 3) // TOP 3
+  .map(({ post }) => post);
 ---
 
 <SEO
@@ -147,10 +167,52 @@ const formattedDate = new Date(post.data.publishedAt).toLocaleDateString('ja-JP'
         </div>
       </div>
 
-      <!-- Related Articles (placeholder) -->
-      <div class="bg-white rounded-lg shadow-md p-8">
-        <h3 class="text-xl font-bold mb-4">関連記事</h3>
-        <p class="text-gray-500">近日公開予定</p>
+      <!-- Related Articles -->
+      {relatedPosts.length > 0 && (
+        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">関連記事</h3>
+          <div class="grid gap-6 md:grid-cols-3">
+            {relatedPosts.map((relatedPost) => (
+              <a 
+                href={`/ja/blog/${relatedPost.slug}`}
+                class="group block bg-gray-50 rounded-lg p-6 hover:bg-blue-50 hover:shadow-md transition-all"
+              >
+                <div class="text-sm text-blue-600 font-semibold mb-2">
+                  {relatedPost.data.category}
+                </div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors line-clamp-2">
+                  {relatedPost.data.title}
+                </h4>
+                <p class="text-sm text-gray-600 line-clamp-2">
+                  {relatedPost.data.description}
+                </p>
+                <div class="mt-4 text-sm text-blue-600 font-medium group-hover:underline">
+                  続きを読む →
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- CTA - Browse More Tools -->
+      <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg shadow-md p-8 mb-8">
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">他のAIツールも探す</h3>
+        <p class="text-gray-600 mb-4">生産性、創造性、イノベーションのための60以上のAIツールの厳選ディレクトリをご覧ください。</p>
+        <div class="flex gap-4">
+          <a 
+            href="/ja/"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            AIツールを探す →
+          </a>
+          <a 
+            href="/ja/blog"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors border-2 border-blue-600"
+          >
+            他の記事を読む
+          </a>
+        </div>
       </div>
     </article>
   </div>
