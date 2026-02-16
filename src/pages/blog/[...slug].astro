@@ -71,6 +71,68 @@ const latestPosts = otherPosts
   title={`${title} - AI Tools Hub`}
   description={description}
 >
+  <!-- Article Schema.org Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "image": seo?.ogImage || `${Astro.site}og-image-blog.png`,
+    "author": {
+      "@type": "Organization",
+      "name": author,
+      "url": Astro.site
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Tools Hub",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${Astro.site}logo.png`
+      }
+    },
+    "datePublished": publishedAt,
+    "dateModified": publishedAt,
+    "articleSection": category,
+    "keywords": tags.join(', '),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${Astro.site}blog/${post.slug}`
+    }
+  })} />
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": Astro.site
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${Astro.site}blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": category,
+        "item": `${Astro.site}blog?category=${encodeURIComponent(category)}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": title,
+        "item": `${Astro.site}blog/${post.slug}`
+      }
+    ]
+  })} />
+
   <Header />
   <article class="min-h-screen bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

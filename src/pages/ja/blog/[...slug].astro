@@ -71,6 +71,69 @@ const latestPosts = otherPosts
 />
 
 <Layout title={post.data.title}>
+  <!-- Article Schema.org Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "image": post.data.seo?.ogImage || `${Astro.site}og-image-blog.png`,
+    "author": {
+      "@type": "Organization",
+      "name": post.data.author,
+      "url": Astro.site
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Tools Hub",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${Astro.site}logo.png`
+      }
+    },
+    "datePublished": post.data.publishedAt,
+    "dateModified": post.data.publishedAt,
+    "articleSection": post.data.category,
+    "keywords": post.data.tags.join(', '),
+    "inLanguage": "ja-JP",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${Astro.site}ja/blog/${post.slug}`
+    }
+  })} />
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": `${Astro.site}ja`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "ブログ",
+        "item": `${Astro.site}ja/blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.data.category,
+        "item": `${Astro.site}ja/blog?category=${encodeURIComponent(post.data.category)}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": post.data.title,
+        "item": `${Astro.site}ja/blog/${post.slug}`
+      }
+    ]
+  })} />
+
   <Header />
   <div class="min-h-screen bg-gray-50 py-12">
     <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
