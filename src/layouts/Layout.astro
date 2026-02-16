@@ -17,7 +17,21 @@ const {
 const siteUrl = (Astro.site?.toString() || 'https://ai-tools-aggregator.vercel.app').replace(/\/$/, '');
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
 const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
-const pageTitle = `${title} | AI Tools Hub`;
+
+// Optimize title tag for SEO (max 60 chars for Google search results)
+let pageTitle: string;
+const titleLength = title.length;
+
+if (titleLength <= 45) {
+  // Short title: add full suffix (15 chars)
+  pageTitle = `${title} | AI Tools Hub`;
+} else if (titleLength <= 52) {
+  // Medium title: add short suffix (8 chars)
+  pageTitle = `${title} - AI Hub`;
+} else {
+  // Long title: no suffix (keep title under 60 chars)
+  pageTitle = title.length <= 60 ? title : title.substring(0, 57) + '...';
+}
 import ComparisonBar from '../components/ComparisonBar.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 ---
@@ -126,18 +140,44 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
     <slot />
     
     <footer class="mt-20 border-t border-gray-100 bg-gray-50 py-12">
-      <div class="mx-auto max-w-4xl px-4">
-        <div class="grid gap-8 md:grid-cols-2">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="grid gap-8 md:grid-cols-4">
+          <!-- About Section -->
           <div>
-            <h3 class="text-lg font-bold text-gray-900">AI Tools Aggregator</h3>
+            <h3 class="text-lg font-bold text-gray-900">AI Tools Hub</h3>
             <p class="mt-2 text-sm text-gray-600">Discover the best AI tools for 2026. Curated directory of 60+ AI tools across 10 categories.</p>
           </div>
+          
+          <!-- Popular Categories -->
           <div>
-             <NewsletterSignup />
+            <h4 class="text-sm font-bold text-gray-900 mb-3">Categories</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/categories/text-generation" class="text-gray-600 hover:text-blue-600 transition-colors">Text Generation</a></li>
+              <li><a href="/categories/image-generation" class="text-gray-600 hover:text-blue-600 transition-colors">Image Generation</a></li>
+              <li><a href="/categories/coding-assistant" class="text-gray-600 hover:text-blue-600 transition-colors">Coding Assistant</a></li>
+              <li><a href="/categories/video-editing" class="text-gray-600 hover:text-blue-600 transition-colors">Video Editing</a></li>
+            </ul>
+          </div>
+          
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-sm font-bold text-gray-900 mb-3">Quick Links</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/blog" class="text-gray-600 hover:text-blue-600 transition-colors">Blog</a></li>
+              <li><a href="/skills" class="text-gray-600 hover:text-blue-600 transition-colors">AI Agent Skills</a></li>
+              <li><a href="/submit" class="text-gray-600 hover:text-blue-600 transition-colors">Submit Tool</a></li>
+              <li><a href="/api/v1/tools" class="text-gray-600 hover:text-blue-600 transition-colors">API</a></li>
+            </ul>
+          </div>
+          
+          <!-- Newsletter -->
+          <div>
+            <NewsletterSignup />
           </div>
         </div>
-        <div class="mt-8 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} AI Tools Aggregator. All rights reserved.
+        
+        <div class="mt-8 pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} AI Tools Hub. All rights reserved.
         </div>
       </div>
     </footer>
