@@ -1,0 +1,316 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { getSkillsRanking, sortSkills, CATEGORY_LABELS, type SkillCategory } from '../../lib/skills-ranking';
+
+let skills = [];
+let error = null;
+
+try {
+  skills = await getSkillsRanking();
+} catch (e) {
+  console.error('Error loading skills ranking:', e);
+  error = e.message;
+}
+
+// カテゴリごとのスキル数をカウント
+const categoryCounts: Record<string, number> = {};
+skills.forEach(skill => {
+  const cat = skill.category || 'other';
+  categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+});
+---
+
+<Layout
+  title="Skillsランキング - 人気のClawdbotスキル"
+  description="GitHubで人気のClawdbotスキルを発見。スター数、フォーク数、コミュニティエンゲージメントでランキング。"
+>
+  <Header />
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold text-gray-900 mb-2">📊 Skillsランキング</h1>
+      <p class="text-lg text-gray-600">GitHubで人気・トレンドのClawdbotスキル</p>
+    </div>
+
+    {error && (
+      <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
+        <p class="text-red-800">❌ スキル読み込みエラー: {error}</p>
+      </div>
+    )}
+
+    <!-- カテゴリフィルター -->
+    <div class="mb-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-3">📁 カテゴリで絞り込み</h2>
+      <div class="flex flex-wrap gap-2">
+        <button class="category-filter active px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium" data-category="">
+          すべて ({skills.length})
+        </button>
+        {Object.entries(CATEGORY_LABELS).map(([key, labels]) => (
+          categoryCounts[key] > 0 && (
+            <button class="category-filter px-4 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm font-medium" data-category={key}>
+              {labels.ja} ({categoryCounts[key]})
+            </button>
+          )
+        ))}
+      </div>
+    </div>
+
+    <!-- ソートタブ -->
+    <div class="mb-8 border-b border-gray-200">
+      <nav class="-mb-px flex gap-6 flex-wrap">
+        <button class="sort-tab active border-b-2 border-blue-600 px-1 pb-4 text-sm font-medium text-blue-600" data-sort="score">
+          🏆 総合スコア
+        </button>
+        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-sort="stars">
+          ⭐ スター数
+        </button>
+        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-sort="forks">
+          🍴 フォーク数
+        </button>
+        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-sort="updated">
+          🔄 最終更新日
+        </button>
+      </nav>
+    </div>
+
+    <!-- Skillsリスト -->
+    <div id="skills-list" class="space-y-4">
+      {skills.length === 0 && !error && (
+        <div class="text-center py-12">
+          <p class="text-gray-500">スキルが見つかりませんでした。</p>
+        </div>
+      )}
+
+      {skills.map((skill) => (
+        <div class="skill-card bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200" data-skill={JSON.stringify(skill)}>
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl font-bold text-gray-400">#{skill.rank}</span>
+                <h3 class="text-xl font-semibold text-gray-900">
+                  <a href={skill.url} target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">
+                    {skill.name}
+                  </a>
+                </h3>
+              </div>
+              
+              {(skill.descriptionJa || skill.description) && (
+                <p class="text-gray-600 mb-3">{skill.descriptionJa || skill.description}</p>
+              )}
+              
+              {skill.category && (
+                <div class="mb-2">
+                  <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full font-medium">
+                    {CATEGORY_LABELS[skill.category].ja}
+                  </span>
+                </div>
+              )}
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                {skill.topics.map((topic) => (
+                  <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">{topic}</span>
+                ))}
+              </div>
+
+              <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                <span class="flex items-center gap-1">
+                  ⭐ <strong>{skill.stars.toLocaleString()}</strong> スター
+                </span>
+                <span class="flex items-center gap-1">
+                  🍴 <strong>{skill.forks.toLocaleString()}</strong> フォーク
+                </span>
+                <span class="flex items-center gap-1">
+                  👀 <strong>{skill.watchers.toLocaleString()}</strong> ウォッチ
+                </span>
+                {skill.language && (
+                  <span class="flex items-center gap-1">
+                    💻 <strong>{skill.language}</strong>
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div class="ml-4 text-right">
+              <div class="text-2xl font-bold text-blue-600">{skill.score}</div>
+              <div class="text-xs text-gray-500">スコア</div>
+              <div class="mt-2 text-xs text-gray-400">
+                更新: {new Date(skill.pushedAt).toLocaleDateString('ja-JP')}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- 統計サマリー -->
+    {skills.length > 0 && (
+      <div class="mt-12 bg-gray-50 rounded-lg p-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">📈 統計情報</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div>
+            <div class="text-3xl font-bold text-blue-600">{skills.length}</div>
+            <div class="text-sm text-gray-600">総スキル数</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-blue-600">
+              {skills.reduce((sum, s) => sum + s.stars, 0).toLocaleString()}
+            </div>
+            <div class="text-sm text-gray-600">総スター数</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-blue-600">
+              {skills.reduce((sum, s) => sum + s.forks, 0).toLocaleString()}
+            </div>
+            <div class="text-sm text-gray-600">総フォーク数</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-blue-600">
+              {Math.round(skills.reduce((sum, s) => sum + s.stars, 0) / skills.length)}
+            </div>
+            <div class="text-sm text-gray-600">平均スター数</div>
+          </div>
+        </div>
+      </div>
+    )}
+  </main>
+</Layout>
+
+<script define:vars={{ skills }}>
+  // クライアントサイドソート & フィルタリング
+  const sortTabs = document.querySelectorAll('.sort-tab');
+  const categoryFilters = document.querySelectorAll('.category-filter');
+  const skillsList = document.getElementById('skills-list');
+  
+  let currentSkills = skills;
+  let currentCategory = null;
+  let currentSort = 'score';
+  
+  const categoryLabels = {
+    communication: 'コミュニケーション',
+    development: '開発',
+    productivity: '生産性',
+    ai: 'AI/機械学習',
+    automation: '自動化',
+    data: 'データ分析',
+    media: 'メディア',
+    other: 'その他'
+  };
+  
+  function getFilteredAndSortedSkills() {
+    // フィルタリング
+    let filtered = currentCategory 
+      ? currentSkills.filter(skill => skill.category === currentCategory)
+      : currentSkills;
+    
+    // ソート
+    let sorted = [...filtered];
+    switch (currentSort) {
+      case 'score':
+        sorted.sort((a, b) => b.score - a.score);
+        break;
+      case 'stars':
+        sorted.sort((a, b) => b.stars - a.stars);
+        break;
+      case 'forks':
+        sorted.sort((a, b) => b.forks - a.forks);
+        break;
+      case 'updated':
+        sorted.sort((a, b) => new Date(b.pushedAt) - new Date(a.pushedAt));
+        break;
+    }
+    
+    return sorted;
+  }
+  
+  function renderSkills() {
+    const displaySkills = getFilteredAndSortedSkills();
+    
+    skillsList.innerHTML = displaySkills.map((skill, index) => `
+      <div class="skill-card bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200">
+        <div class="flex items-start justify-between">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-2xl font-bold text-gray-400">#${index + 1}</span>
+              <h3 class="text-xl font-semibold text-gray-900">
+                <a href="${skill.url}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">
+                  ${skill.name}
+                </a>
+              </h3>
+            </div>
+            
+            ${skill.descriptionJa || skill.description ? `<p class="text-gray-600 mb-3">${skill.descriptionJa || skill.description}</p>` : ''}
+
+            ${skill.category ? `
+              <div class="mb-2">
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full font-medium">
+                  ${categoryLabels[skill.category] || skill.category}
+                </span>
+              </div>
+            ` : ''}
+
+            <div class="flex flex-wrap gap-2 mb-3">
+              ${skill.topics.map(topic => `<span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">${topic}</span>`).join('')}
+            </div>
+
+            <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+              <span class="flex items-center gap-1">
+                ⭐ <strong>${skill.stars.toLocaleString()}</strong> スター
+              </span>
+              <span class="flex items-center gap-1">
+                🍴 <strong>${skill.forks.toLocaleString()}</strong> フォーク
+              </span>
+              <span class="flex items-center gap-1">
+                👀 <strong>${skill.watchers.toLocaleString()}</strong> ウォッチ
+              </span>
+              ${skill.language ? `<span class="flex items-center gap-1">💻 <strong>${skill.language}</strong></span>` : ''}
+            </div>
+          </div>
+
+          <div class="ml-4 text-right">
+            <div class="text-2xl font-bold text-blue-600">${skill.score}</div>
+            <div class="text-xs text-gray-500">スコア</div>
+            <div class="mt-2 text-xs text-gray-400">
+              更新: ${new Date(skill.pushedAt).toLocaleDateString('ja-JP')}
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+  
+  // カテゴリフィルター
+  categoryFilters.forEach(filter => {
+    filter.addEventListener('click', () => {
+      const category = filter.dataset.category;
+      currentCategory = category || null;
+      
+      // アクティブボタン更新
+      categoryFilters.forEach(f => {
+        f.classList.remove('active', 'bg-blue-600', 'text-white');
+        f.classList.add('bg-gray-100', 'text-gray-700');
+      });
+      filter.classList.add('active', 'bg-blue-600', 'text-white');
+      filter.classList.remove('bg-gray-100', 'text-gray-700');
+      
+      renderSkills();
+    });
+  });
+  
+  
+  // ソートタブ
+  sortTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      currentSort = tab.dataset.sort;
+      
+      // アクティブタブ更新
+      sortTabs.forEach(t => {
+        t.classList.remove('active', 'border-blue-600', 'text-blue-600');
+        t.classList.add('border-transparent', 'text-gray-500');
+      });
+      tab.classList.add('active', 'border-blue-600', 'text-blue-600');
+      tab.classList.remove('border-transparent', 'text-gray-500');
+      
+      renderSkills();
+    });
+  });
+</script>

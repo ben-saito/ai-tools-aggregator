@@ -48,11 +48,16 @@ const { title = "Today's Top Launches" } = Astro.props;
 </div>
 
 <script>
-  import { supabase } from '../lib/supabase';
-
   async function loadLeaderboard() {
     const list = document.getElementById('leaderboard-list');
     if (!list) return;
+
+    const supabase = window.supabaseClient;
+    if (!supabase) {
+      console.error('Supabase client not initialized');
+      list.innerHTML = `<div class="p-6 text-center text-red-500">Failed to initialize.</div>`;
+      return;
+    }
 
     try {
       // Fetch tools joined with stats
@@ -178,5 +183,10 @@ const { title = "Today's Top Launches" } = Astro.props;
     }
   }
 
-  loadLeaderboard();
+  // Wait for Supabase to be ready
+  if (window.__supabaseReady) {
+    loadLeaderboard();
+  } else {
+    window.addEventListener('supabase-ready', loadLeaderboard);
+  }
 </script>

@@ -10,19 +10,21 @@ const currentPath = Astro.url.pathname;
 
 <header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
-    <a href="/" class="flex items-center gap-2">
+    <a href={lang === 'ja' ? '/ja' : '/'} class="flex items-center gap-2">
       <img src="/logo.png" alt="AI Tools Hub" class="h-8 w-8" />
       <span class="text-lg font-bold text-primary-600 sm:text-xl">AI Tools Hub</span>
     </a>
     
     <!-- Desktop Navigation -->
     <div class="hidden items-center gap-4 lg:flex lg:gap-6">
-      <a href={lang === 'ja' ? '/ja' : '/'} class="text-gray-600 hover:text-primary-600">Home</a>
-      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="text-gray-600 hover:text-primary-600">Search</a>
-      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="text-gray-600 hover:text-primary-600">Rankings</a>
+      <a href={lang === 'ja' ? '/ja' : '/'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'ホーム' : 'Home'}</a>
+      <a href={lang === 'ja' ? '/ja/blog' : '/blog'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'ブログ' : 'Blog'}</a>
+      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? '検索' : 'Search'}</a>
+      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'ランキング' : 'Rankings'}</a>
+      <a href={lang === 'ja' ? '/ja/skills' : '/skills'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'スキル' : 'Skills'}</a>
       <div class="group relative">
         <button class="flex items-center gap-1 text-gray-600 hover:text-primary-600">
-          Categories
+          {lang === 'ja' ? 'カテゴリー' : 'Categories'}
           <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
@@ -42,22 +44,22 @@ const currentPath = Astro.url.pathname;
         </div>
       </div>
       <a href={lang === 'ja' ? '/ja/submit' : '/submit'} class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">
-        Submit Tool
+        {lang === 'ja' ? 'ツール登録' : 'Submit Tool'}
       </a>
-      <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="text-gray-600 hover:text-primary-600">Favorites</a>
-      <a href={lang === 'ja' ? '/ja/about' : '/about'} class="text-gray-600 hover:text-primary-600">About</a>
+      <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'お気に入り' : 'Favorites'}</a>
+      <a href={lang === 'ja' ? '/ja/about' : '/about'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? '概要' : 'About'}</a>
       
       <!-- Language Switcher -->
       <div class="flex items-center gap-1 rounded-lg border border-gray-300 bg-white">
         <a 
-          href={lang === 'ja' ? currentPath.replace('/ja', '') : currentPath}
+          href={lang === 'ja' ? currentPath.replace(/^\/ja/, '') || '/' : currentPath}
           class={`px-3 py-1 text-sm font-medium transition ${lang === 'en' ? 'bg-primary-600 text-white rounded-lg' : 'text-gray-600 hover:text-primary-600'}`}
           data-lang="en"
         >
           EN
         </a>
         <a 
-          href={lang === 'ja' ? currentPath : `/ja${currentPath}`}
+          href={lang === 'en' ? `/ja${currentPath}` : currentPath}
           class={`px-3 py-1 text-sm font-medium transition ${lang === 'ja' ? 'bg-primary-600 text-white rounded-lg' : 'text-gray-600 hover:text-primary-600'}`}
           data-lang="ja"
         >

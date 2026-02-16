@@ -1,0 +1,191 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { supabase } from '../../../lib/supabase';
+import { getLangFromUrl } from '../../../lib/i18n';
+import ShareButtons from '../../../components/quiz/ShareButtons';
+
+export const prerender = false;
+
+const { id } = Astro.params;
+const lang = getLangFromUrl(Astro.url) as 'en' | 'ja';
+
+if (!id) {
+  return Astro.redirect(lang === 'ja' ? '/quiz?lang=ja' : '/quiz');
+}
+
+const { data: result, error } = await supabase
+  .from('quiz_results')
+  .select('*')
+  .eq('id', id)
+  .single();
+
+if (error || !result) {
+  return new Response('Result not found', { status: 404 });
+}
+
+const recommendations = result.recommendations;
+const answers = result.answers;
+
+// Answer value -> display label mapping
+const answerLabels: Record<string, Record<string, Record<string, string>>> = {
+  en: {
+    purpose: { efficiency: 'Work Efficiency', creation: 'Creative Work', learning: 'Learning', business: 'Business Growth' },
+    usage: { text: 'Text Writing', image_video: 'Image & Video', code: 'Code Development', data: 'Data Analysis', other: 'Other' },
+    budget: { free: 'Free only', low: 'Up to $10/mo', mid: 'Up to $50/mo', unlimited: 'Unlimited' },
+    skill: { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced', pro: 'Professional' },
+    team: { individual: 'Individual', small_team: 'Small Team', mid_team: 'Mid-size Team', enterprise: 'Enterprise' },
+  },
+  ja: {
+    purpose: { efficiency: '仕事の効率化', creation: '創作活動', learning: '学習・スキルアップ', business: 'ビジネス成長' },
+    usage: { text: 'テキスト作成', image_video: '画像・動画生成', code: 'コード開発', data: 'データ分析', other: 'その他' },
+    budget: { free: '無料のみ', low: '月1,000円まで', mid: '月5,000円まで', unlimited: '予算は気にしない' },
+    skill: { beginner: '初心者', intermediate: '中級者', advanced: '上級者', pro: 'プロフェッショナル' },
+    team: { individual: '個人利用', small_team: '小規模チーム', mid_team: '中規模チーム', enterprise: '企業利用' },
+  },
+};
+
+const getLabel = (key: string, value: string) => answerLabels[lang]?.[key]?.[value] || value;
+
+const texts = {
+  en: {
+    title: 'My Best AI Tools | AI Tool Finder Quiz',
+    description: 'I found my top AI tools! Check out my personalized results.',
+    badge: 'Diagnosis Complete',
+    heading: 'Your Personalized AI Tool Stack',
+    basedOn: 'Based on your needs for',
+    and: 'and',
+    viewDetails: 'View Details',
+    restartQuiz: 'Restart Quiz',
+    profileTitle: 'Your Profile',
+    profilePurpose: 'Purpose',
+    profileUsage: 'Usage',
+    profileBudget: 'Budget',
+    profileSkill: 'Skill Level',
+    profileTeam: 'Usage Type',
+  },
+  ja: {
+    title: '私のおすすめAIツール | AIツール診断',
+    description: '私にぴったりのAIツールを診断してもらいました！',
+    badge: '診断完了',
+    heading: 'あなたにおすすめのAIツール',
+    basedOn: 'あなたのニーズ:',
+    and: 'と',
+    viewDetails: '詳細を見る',
+    restartQuiz: 'もう一度診断する',
+    profileTitle: 'あなたのプロフィール',
+    profilePurpose: '目的',
+    profileUsage: '用途',
+    profileBudget: '予算',
+    profileSkill: 'スキル',
+    profileTeam: '利用形態',
+  },
+};
+
+const t = texts[lang];
+const ogImage = `/api/og/quiz/${id}.png`;
+const resultUrl = `${Astro.url.origin}/quiz/result/${id}`;
+const quizUrl = lang === 'ja' ? '/quiz?lang=ja' : '/quiz';
+
+// Prepare share data for ShareButtons
+const shareRecommendations = recommendations.map((r: any) => ({ name: r.name, score: r.score }));
+---
+
+<Layout title={t.title} description={t.description} image={ogImage}>
+  <div class="min-h-screen bg-gray-50 py-12 md:py-20">
+    <div class="container mx-auto px-4">
+
+      {/* Header */}
+      <div class="mb-12 text-center">
+        <span class="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-blue-600">
+          {t.badge}
+        </span>
+        <h1 class="text-3xl font-bold text-gray-900 md:text-5xl">
+          {t.heading}
+        </h1>
+        <p class="mt-4 text-gray-600">
+          {t.basedOn} <strong class="text-gray-900">{getLabel('purpose', answers.purpose)}</strong> {t.and} <strong class="text-gray-900">{getLabel('usage', answers.usage)}</strong>
+        </p>
+      </div>
+
+      {/* Diagnostic Summary */}
+      <div class="mx-auto mb-12 max-w-2xl rounded-2xl bg-white p-6 shadow-lg">
+        <h3 class="mb-4 text-lg font-bold text-gray-900">{t.profileTitle}</h3>
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-5">
+          <div class="text-center">
+            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profilePurpose}</p>
+            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('purpose', answers.purpose)}</p>
+          </div>
+          <div class="text-center">
+            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profileUsage}</p>
+            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('usage', answers.usage)}</p>
+          </div>
+          <div class="text-center">
+            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profileBudget}</p>
+            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('budget', answers.budget)}</p>
+          </div>
+          <div class="text-center">
+            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profileSkill}</p>
+            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('skill', answers.skill)}</p>
+          </div>
+          <div class="text-center">
+            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profileTeam}</p>
+            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('team', answers.team)}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Tool Cards Grid */}
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {recommendations.map((item: any, index: number) => (
+          <div class="relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-2xl">
+            {/* Rank Badge */}
+            <div class="absolute left-0 top-0 rounded-br-2xl bg-blue-600 px-4 py-2 font-bold text-white">
+              #{index + 1}
+            </div>
+
+            {/* Match Score */}
+            <div class="absolute right-4 top-4 rounded-full bg-green-100 px-3 py-1 text-sm font-bold text-green-700">
+              {item.score}% Match
+            </div>
+
+            <div class="p-8 pt-16">
+              <h3 class="mb-2 text-2xl font-bold text-gray-900">{item.name}</h3>
+              <p class="mb-4 line-clamp-3 text-gray-600">{item.description}</p>
+
+              <div class="mb-6 flex flex-wrap gap-2">
+                {item.reasons.map((reason: string) => (
+                  <span class="rounded-lg bg-gray-100 px-2 py-1 text-xs text-gray-600">{reason}</span>
+                ))}
+              </div>
+
+              <a
+                href={`/tools/${item.tool_id}`}
+                class="block w-full rounded-xl bg-gray-900 py-3 text-center font-semibold text-white transition-colors hover:bg-gray-800"
+              >
+                {t.viewDetails}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Share + Actions */}
+      <div class="mt-16 flex flex-col items-center justify-center gap-6 text-center">
+        <ShareButtons
+          resultUrl={resultUrl}
+          recommendations={shareRecommendations}
+          lang={lang}
+          client:load
+        />
+
+        <a
+          href={quizUrl}
+          class="mt-4 rounded-full border-2 border-gray-200 bg-white px-8 py-4 font-bold text-gray-700 transition-colors hover:bg-gray-50"
+        >
+          {t.restartQuiz}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,32 @@
+# AIツールデータ更新ログ - 2026-02-16
+
+## 実行時刻
+2026-02-16 06:02:00 JST
+
+## 実行内容
+1. ランキング生成スクリプト実行: `scripts/generate-ranking.js`
+2. 出力ファイル: `data/ranking-2026-02-16.json` (97,012 bytes)
+3. アーカイブ: `data/history/2026-02/ranking-2026-02-16.json`
+
+## 結果
+✅ 成功 - ランキングファイル生成完了
+
+## スコア計算
+- 人気度スコア (30%)
+- 機能性スコア (25%)
+- コスパスコア (20%)
+- 開発活発度スコア (15%)
+- ユーザー評価スコア (10%)
+
+## 順位変動
+変動なし（significantChanges: 0件）
+
+## 備考
+- 外部API取得（GitHub/Product Hunt/X）は未実装
+- 現状は既存の`tools.json`からスコア計算のみ
+- GitHub Token設定後、`fetch-external-data.ts`で外部データ取得可能
+
+## 次回改善項目
+1. GitHub APIトークン設定（レート制限対策）
+2. Product Hunt API連携
+3. X/Twitter メンション数取得

@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { getSkillsRanking, sortSkills } from '../../lib/skills-ranking';
+
+let skills = [];
+let error = null;
+
+try {
+  skills = await getSkillsRanking();
+} catch (e) {
+  console.error('Error loading skills ranking:', e);
+  error = e.message;
+}
+---
+
+<Layout
+  title="Skillsランキング - 人気のClawdbotスキル"
+  description="GitHubで人気のClawdbotスキルを発見。スター数、フォーク数、コミュニティエンゲージメントでランキング。"
+>
+  <Header />
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold text-gray-900 mb-2">📊 Skillsランキング</h1>
+      <p class="text-lg text-gray-600">GitHubで人気・トレンドのClawdbotスキル</p>
+    </div>
+
+    {error && (
+      <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
+        <p class="text-red-800">❌ スキル読み込みエラー: {error}</p>
+      </div>
+    )}
+
+    <!-- ソートタブ -->
+    <div class="mb-8 border-b border-gray-200">
+      <nav class="-mb-px flex gap-6 flex-wrap">
+        <button class="sort-tab active border-b-2 border-blue-600 px-1 pb-4 text-sm font-medium text-blue-600" data-sort="score">
+          🏆 総合スコア
+        </button>
+        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-sort="stars">
+          ⭐ スター数
+        </button>
+        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-sort="forks">
+          🍴 フォーク数
+        </button>
+        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-sort="updated">
+          🔄 最終更新日
+        </button>
+      </nav>
+    </div>
+
+    <!-- Skillsリスト -->
+    <div id="skills-list" class="space-y-4">
+      {skills.length === 0 && !error && (
+        <div class="text-center py-12">
+          <p class="text-gray-500">スキルが見つかりませんでした。</p>
+        </div>
+      )}
+
+      {skills.map((skill) => (
+        <div class="skill-card bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200" data-skill={JSON.stringify(skill)}>
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl font-bold text-gray-400">#{skill.rank}</span>
+                <h3 class="text-xl font-semibold text-gray-900">
+                  <a href={skill.url} target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">
+                    {skill.name}
+                  </a>
+                </h3>
+              </div>
+              
+              {skill.description && (
+                <p class="text-gray-600 mb-3">{skill.description}</p>
+              )}
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                {skill.topics.map((topic) => (
+                  <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">{topic}</span>
+                ))}
+              </div>
+
+              <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                <span class="flex items-center gap-1">
+                  ⭐ <strong>{skill.stars.toLocaleString()}</strong> スター
+                </span>
+                <span class="flex items-center gap-1">
+                  🍴 <strong>{skill.forks.toLocaleString()}</strong> フォーク
+                </span>
+                <span class="flex items-center gap-1">
+                  👀 <strong>{skill.watchers.toLocaleString()}</strong> ウォッチ
+                </span>
+                {skill.language && (
+                  <span class="flex items-center gap-1">
+                    💻 <strong>{skill.language}</strong>
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div class="ml-4 text-right">
+              <div class="text-2xl font-bold text-blue-600">{skill.score}</div>
+              <div class="text-xs text-gray-500">スコア</div>
+              <div class="mt-2 text-xs text-gray-400">
+                更新: {new Date(skill.pushedAt).toLocaleDateString('ja-JP')}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- 統計サマリー -->
+    {skills.length > 0 && (
+      <div class="mt-12 bg-gray-50 rounded-lg p-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">📈 統計情報</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div>
+            <div class="text-3xl font-bold text-blue-600">{skills.length}</div>
+            <div class="text-sm text-gray-600">総スキル数</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-blue-600">
+              {skills.reduce((sum, s) => sum + s.stars, 0).toLocaleString()}
+            </div>
+            <div class="text-sm text-gray-600">総スター数</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-blue-600">
+              {skills.reduce((sum, s) => sum + s.forks, 0).toLocaleString()}
+            </div>
+            <div class="text-sm text-gray-600">総フォーク数</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-blue-600">
+              {Math.round(skills.reduce((sum, s) => sum + s.stars, 0) / skills.length)}
+            </div>
+            <div class="text-sm text-gray-600">平均スター数</div>
+          </div>
+        </div>
+      </div>
+    )}
+  </main>
+</Layout>
+
+<script define:vars={{ skills }}>
+  // クライアントサイドソート
+  const sortTabs = document.querySelectorAll('.sort-tab');
+  const skillsList = document.getElementById('skills-list');
+  
+  let currentSkills = skills;
+  
+  function renderSkills(sortedSkills) {
+    skillsList.innerHTML = sortedSkills.map((skill, index) => `
+      <div class="skill-card bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200">
+        <div class="flex items-start justify-between">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-2xl font-bold text-gray-400">#${index + 1}</span>
+              <h3 class="text-xl font-semibold text-gray-900">
+                <a href="${skill.url}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">
+                  ${skill.name}
+                </a>
+              </h3>
+            </div>
+            
+            ${skill.description ? `<p class="text-gray-600 mb-3">${skill.description}</p>` : ''}
+
+            <div class="flex flex-wrap gap-2 mb-3">
+              ${skill.topics.map(topic => `<span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">${topic}</span>`).join('')}
+            </div>
+
+            <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+              <span class="flex items-center gap-1">
+                ⭐ <strong>${skill.stars.toLocaleString()}</strong> スター
+              </span>
+              <span class="flex items-center gap-1">
+                🍴 <strong>${skill.forks.toLocaleString()}</strong> フォーク
+              </span>
+              <span class="flex items-center gap-1">
+                👀 <strong>${skill.watchers.toLocaleString()}</strong> ウォッチ
+              </span>
+              ${skill.language ? `<span class="flex items-center gap-1">💻 <strong>${skill.language}</strong></span>` : ''}
+            </div>
+          </div>
+
+          <div class="ml-4 text-right">
+            <div class="text-2xl font-bold text-blue-600">${skill.score}</div>
+            <div class="text-xs text-gray-500">スコア</div>
+            <div class="mt-2 text-xs text-gray-400">
+              更新: ${new Date(skill.pushedAt).toLocaleDateString('ja-JP')}
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+  
+  sortTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const sortBy = tab.dataset.sort;
+      
+      // アクティブタブ更新
+      sortTabs.forEach(t => {
+        t.classList.remove('active', 'border-blue-600', 'text-blue-600');
+        t.classList.add('border-transparent', 'text-gray-500');
+      });
+      tab.classList.add('active', 'border-blue-600', 'text-blue-600');
+      tab.classList.remove('border-transparent', 'text-gray-500');
+      
+      // ソート実行
+      let sorted = [...currentSkills];
+      switch (sortBy) {
+        case 'score':
+          sorted.sort((a, b) => b.score - a.score);
+          break;
+        case 'stars':
+          sorted.sort((a, b) => b.stars - a.stars);
+          break;
+        case 'forks':
+          sorted.sort((a, b) => b.forks - a.forks);
+          break;
+        case 'updated':
+          sorted.sort((a, b) => new Date(b.pushedAt) - new Date(a.pushedAt));
+          break;
+      }
+      
+      renderSkills(sorted);
+    });
+  });
+</script>
