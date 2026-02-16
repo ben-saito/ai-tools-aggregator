@@ -8,12 +8,13 @@ interface Props {
 
 const { 
   title, 
-  description = 'Discover the best AI tools for 2026. Curated directory of 50+ AI tools across 10 categories including text generation, image creation, coding assistants, and more.',
+  description = 'Discover the best AI tools for 2026. Curated directory of 60+ AI tools across 10 categories including text generation, image creation, coding assistants, and more.',
   image = '/og-image.png',
   canonical
 } = Astro.props;
 
-const siteUrl = Astro.site || 'https://ai-tools-aggregator.vercel.app';
+// Remove trailing slash from siteUrl to avoid double slashes (siteUrl ends with /, pathname starts with /)
+const siteUrl = (Astro.site?.toString() || 'https://ai-tools-aggregator.vercel.app').replace(/\/$/, '');
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
 const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 const pageTitle = `${title} | AI Tools Hub`;
@@ -124,7 +125,7 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
         <div class="grid gap-8 md:grid-cols-2">
           <div>
             <h3 class="text-lg font-bold text-gray-900">AI Tools Aggregator</h3>
-            <p class="mt-2 text-sm text-gray-600">Discover the best AI tools for 2026. Curated directory of 50+ AI tools across 10 categories.</p>
+            <p class="mt-2 text-sm text-gray-600">Discover the best AI tools for 2026. Curated directory of 60+ AI tools across 10 categories.</p>
           </div>
           <div>
              <NewsletterSignup />
