@@ -33,7 +33,6 @@ jobs:
         with:
           urls: |
             http://localhost:4321
-            http://localhost:4321/categories/text-generation
             http://localhost:4321/tools/chatgpt
           uploadArtifacts: true
           temporaryPublicStorage: true
