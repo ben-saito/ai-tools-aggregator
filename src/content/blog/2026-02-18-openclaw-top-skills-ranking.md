@@ -1,7 +1,7 @@
 ---
 title: "OpenClaw Skills Ranking February 2026: Planning Skills and Security Suite Dominate Top 10"
 description: "GitHub OpenClaw skills ranking shows awesome-openclaw-skills (16,139 stars), Manus-style planning implementation planning-with-files (14,000 stars), and Obsidian integration (9,998 stars) claiming top 3 positions."
-publishedAt: "2026-02-18"
+publishedAt: "2026-02-18T00:00:00+09:00"
 author: "AI Tools Aggregator"
 category: "AI Development"
 tags: ["OpenClaw", "Clawdbot", "Skills", "Ranking", "GitHub", "Manus AI"]
