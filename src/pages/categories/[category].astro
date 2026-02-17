@@ -1,9 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
 import ToolCard from '../../components/ToolCard.astro';
-import { supabase } from '../../lib/supabase';
 import { useTranslations, getLangFromUrl } from '../../lib/i18n';
-import { categories } from '../../lib/tools';
+import { categories, getToolsByCategory } from '../../lib/tools';
 
 const { category } = Astro.params;
 const lang = getLangFromUrl(Astro.url);
@@ -16,43 +16,78 @@ if (!categoryData) {
   return Astro.redirect('/404');
 }
 
-// Get tools in this category
-const { data: tools, error } = await supabase
-  .from('tools')
-  .select('*')
-  .eq('category', categoryData.slug)
-  .order('name');
-
-if (error) {
-  console.error('Error loading tools:', error);
-}
+// Get tools in this category from static data
+const tools = getToolsByCategory(categoryData.slug);
 ---
 
-<Layout title={`${categoryData.name} | ${t.siteTitle}`}>
-  <main class="container mx-auto px-4 py-8">
-    <!-- Header -->
-    <div class="mb-8">
-      <h1 class="text-4xl font-bold mb-4">{categoryData.icon} {categoryData.name}</h1>
-      {categoryData.description && (
-        <p class="text-[var(--color-text-secondary)] text-lg">
-          {categoryData.description}
-        </p>
-      )}
-    </div>
+<Layout title={`${categoryData.name} - AI Tools Hub`}>
+  <Header />
+  <main class="min-h-screen bg-[var(--color-bg-secondary)]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Breadcrumbs -->
+      <nav class="mb-8 text-sm">
+        <a href="/" class="text-primary-600 hover:text-primary-800 transition-colors">Home</a>
+        <span class="mx-2 text-[var(--color-text-tertiary)]">&rsaquo;</span>
+        <span class="text-[var(--color-text-secondary)]">{categoryData.name}</span>
+      </nav>
 
-    <!-- Tools Grid -->
-    {tools && tools.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {tools.map((tool: any) => (
-          <ToolCard tool={tool} />
-        ))}
+      <!-- Header -->
+      <div class="mb-10">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="text-5xl">{categoryData.icon}</span>
+          <div>
+            <h1 class="text-4xl font-bold text-[var(--color-text-primary)]">{categoryData.name}</h1>
+            <p class="mt-1 text-[var(--color-text-secondary)]">{tools.length} tools available</p>
+          </div>
+        </div>
+        {categoryData.description && (
+          <p class="text-lg text-[var(--color-text-secondary)] max-w-3xl">
+            {categoryData.description}
+          </p>
+        )}
       </div>
-    ) : (
-      <div class="text-center py-12">
-        <p class="text-[var(--color-text-secondary)] text-lg">
-          {t.noToolsFound || 'No tools found in this category.'}
-        </p>
+
+      <!-- Tools Grid -->
+      {tools.length > 0 ? (
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {tools.map((tool) => (
+            <ToolCard {...tool} />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16 bg-[var(--color-bg-elevated)] rounded-xl">
+          <p class="text-[var(--color-text-secondary)] text-lg">
+            No tools found in this category yet.
+          </p>
+          <a href="/" class="mt-4 inline-block text-primary-600 font-semibold hover:text-primary-800">
+            &larr; Browse all tools
+          </a>
+        </div>
+      )}
+
+      <!-- Other Categories -->
+      <div class="mt-16">
+        <h2 class="mb-6 text-2xl font-bold text-[var(--color-text-primary)]">Other Categories</h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {categories.filter(c => c.slug !== category).map((cat) => {
+            const catTools = getToolsByCategory(cat.slug);
+            return (
+              <a
+                href={`/categories/${cat.slug}`}
+                class="group rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-500 hover:shadow-md"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="text-3xl">{cat.icon}</span>
+                  <div>
+                    <h3 class="font-semibold text-[var(--color-text-primary)] group-hover:text-primary-600 transition-colors">{cat.name}</h3>
+                    <p class="text-sm text-[var(--color-text-tertiary)]">{catTools.length} tools</p>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div>
-    )}
+    </div>
   </main>
 </Layout>
