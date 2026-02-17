@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テスト - ヘッダー表示確認</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-white">
+  <header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="/ja" class="flex items-center gap-2">
+        <span class="text-lg font-bold text-blue-600">AI Tools Hub</span>
+      </a>
+      <div class="flex items-center gap-4">
+        <a href="/ja" class="text-gray-600 hover:text-blue-600">ホーム</a>
+        <a href="/ja/blog" class="text-gray-600 hover:text-blue-600">ブログ</a>
+        <a href="/ja/search" class="text-gray-600 hover:text-blue-600">検索</a>
+      </div>
+    </nav>
+  </header>
+  <main class="p-8">
+    <h1 class="text-4xl font-bold">ヘッダーテスト</h1>
+    <p>このページでヘッダーが表示されれば、問題はLayout.astroにあります。</p>
+  </main>
+</body>
+</html>

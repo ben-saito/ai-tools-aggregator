@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/Header.astro';
+// import Header from '../../../components/Header.astro';
 // import SEO from '../../../components/SEO.astro';
 
 export async function getStaticPaths() {
@@ -15,6 +15,12 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+
+// Guard against undefined post
+if (!post) {
+  return Astro.redirect('/ja/blog');
+}
+
 const { Content } = await post.render();
 
 const formattedDate = new Date(post.data.publishedAt).toLocaleDateString('ja-JP', {
@@ -134,7 +140,30 @@ const latestPosts = otherPosts
     ]
   })} />
 
-  <Header />
+  <!-- Inline Header for Blog Article Page -->
+  <header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
+      <a href="/ja" class="flex items-center gap-2">
+        <img src="/logo.png" alt="AI Tools Hub" class="h-8 w-8" width="32" height="32" />
+        <span class="text-lg font-bold text-primary-600 sm:text-xl">AI Tools Hub</span>
+      </a>
+      
+      <div class="flex items-center gap-4 lg:gap-6">
+        <a href="/ja" class="text-gray-600 hover:text-primary-600">ホーム</a>
+        <a href="/ja/blog" class="text-gray-600 hover:text-primary-600">ブログ</a>
+        <a href="/ja/search" class="text-gray-600 hover:text-primary-600">検索</a>
+        <a href="/ja/rankings" class="text-gray-600 hover:text-primary-600">ランキング</a>
+        <a href="/ja/skills" class="text-gray-600 hover:text-primary-600">スキル</a>
+        <a href="/ja/submit" class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">ツール登録</a>
+        <a href="/ja/favorites" class="text-gray-600 hover:text-primary-600">お気に入り</a>
+        <div class="flex items-center gap-1 rounded-lg border border-gray-300 bg-white">
+          <a href="/blog" class="px-3 py-1 text-sm font-medium text-gray-600 hover:text-primary-600">EN</a>
+          <a href="/ja/blog" class="px-3 py-1 text-sm font-medium bg-primary-600 text-white rounded-lg">JA</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
   <div class="min-h-screen bg-gray-50 py-12">
     <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Back to Blog -->
