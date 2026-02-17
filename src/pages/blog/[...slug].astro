@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import SEO from '../../components/SEO.astro';
+// import SEO from '../../components/SEO.astro';
 import { getCollection } from 'astro:content';
 
 export const prerender = true;
@@ -55,7 +55,7 @@ const latestPosts = otherPosts
   .slice(0, 3);
 ---
 
-<SEO
+<!-- <SEO
   title={`${title} - AI Tools Hub`}
   description={description}
   keywords={seo?.keywords || tags.join(', ')}
@@ -65,7 +65,7 @@ const latestPosts = otherPosts
   articleAuthor={author}
   articleSection={category}
   articleTags={tags}
-/>
+/> -->
 
 <Layout 
   title={`${title} - AI Tools Hub`}

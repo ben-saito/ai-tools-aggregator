@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
-import SEO from '../../../components/SEO.astro';
+// import SEO from '../../../components/SEO.astro';
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog', ({ data }) => {
@@ -58,7 +58,7 @@ const latestPosts = otherPosts
   .slice(0, 3);
 ---
 
-<SEO
+<!-- <SEO
   title={`${post.data.title} - AI Tools Hub`}
   description={post.data.description}
   keywords={post.data.seo?.keywords || post.data.tags?.join(', ')}
@@ -68,7 +68,7 @@ const latestPosts = otherPosts
     author: post.data.author,
     tags: post.data.tags,
   }}
-/>
+/> -->
 
 <Layout title={post.data.title}>
   <!-- Article Schema.org Structured Data -->
