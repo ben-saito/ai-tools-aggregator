@@ -6,7 +6,10 @@ category: "AI開発"
 tags: ["AGENTS.md", "コーディングエージェント", "SWE-bench", "arXiv", "研究", "パフォーマンス最適化"]
 featured: true
 author: "AI Tools Aggregator"
+lang: "ja"
 image: ""
+seo:
+  keywords: "AGENTS.md, コーディングエージェント, SWE-bench, arXiv, リポジトリコンテキスト, AIパフォーマンス"
 ---
 
 コーディングエージェントの開発現場で広く推奨されているAGENTS.mdなどのリポジトリコンテキストファイルが、実際にはエージェントのパフォーマンスを低下させている可能性があることが、2026年2月12日に公開されたarXiv論文「Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?」で明らかになった。

@@ -6,7 +6,7 @@ author: "AI Tools Hub"
 category: "AI Development"
 tags: ["Career", "AI Development", "Claude Code", "Software Engineering", "Reddit"]
 featured: true
-lang: "en"
+lang: "ja"
 seo:
   keywords: "AI career, software engineering, Claude Code, agentic engineering, Reddit r/ClaudeAI, AI development tools"
 ---

@@ -6,7 +6,10 @@ category: "AI Development"
 tags: ["AGENTS.md", "coding agents", "SWE-bench", "arXiv", "research", "performance optimization"]
 featured: true
 author: "AI Tools Aggregator"
+lang: "en"
 image: ""
+seo:
+  keywords: "AGENTS.md, coding agents, SWE-bench, arXiv, repository context, AI performance"
 ---
 
 A groundbreaking arXiv paper published on February 12, 2026, titled "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?" reveals that AGENTS.md and similar repository context files—widely recommended by coding agent developers—may actually harm agent performance.
