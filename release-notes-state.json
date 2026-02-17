@@ -1,11 +1,11 @@
 {
   "cursor": {
-    "lastVersion": "Long-running Agents (2026-02-12)",
-    "lastChecked": "2026-02-17T15:15:08Z"
+    "lastVersion": "2.5 (Plugins, Sandbox Access Controls, Async Subagents)",
+    "lastChecked": "2026-02-17T21:15:10Z"
   },
   "claudeCode": {
-    "lastVersion": "2.1.44",
-    "lastChecked": "2026-02-17T15:30:10Z",
-    "note": "No new release detected"
+    "lastVersion": "2.1.45",
+    "lastChecked": "2026-02-17T21:31:00Z",
+    "note": "v2.1.45 confirmed - changelog now available but no new version"
   }
 }
