@@ -1,11 +1,11 @@
 {
   "cursor": {
     "lastVersion": "Long-running Agents (2026-02-12)",
-    "lastChecked": "2026-02-17T02:15:05Z"
+    "lastChecked": "2026-02-17T08:15:10Z"
   },
   "claudeCode": {
     "lastVersion": "2.1.44",
-    "lastChecked": "2026-02-17T02:30:00Z",
-    "note": "Skipped article: minor bug fix only (auth refresh errors)"
+    "lastChecked": "2026-02-17T08:30:15Z",
+    "note": "No new release detected"
   }
 }
