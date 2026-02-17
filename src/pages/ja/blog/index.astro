@@ -1,7 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
-import SEO from '../../../components/SEO.astro';
+// import SEO from '../../../components/SEO.astro';
 import { getCollection } from 'astro:content';
 
 const blogPosts = await getCollection('blog', ({ data }) => {
@@ -21,14 +21,13 @@ const featuredPosts = blogPosts
 const categories = [...new Set(blogPosts.map(post => post.data.category))].slice(0, 6);
 ---
 
-<SEO
-  title="ブログ - AI Tools Hub | ガイド、チュートリアル、AIツールレビュー"
-  description="AIツールに関する包括的なガイドとチュートリアル。ChatGPT、Claude、MidjourneyなどのAIツールを使って生産性と創造性を高める方法を学びましょう。"
-  keywords="AIツール ブログ, ChatGPT チュートリアル, AIツール ガイド, AI 生産性 ヒント, AI ライティングツール, AI コーディングツール, AI 比較"
-  ogImage="/og-image-blog.png"
-/>
-
 <Layout title="ブログ - AI Tools Hub">
+  <!-- <SEO
+    title="ブログ - AI Tools Hub | ガイド、チュートリアル、AIツールレビュー"
+    description="AIツールに関する包括的なガイドとチュートリアル。ChatGPT、Claude、MidjourneyなどのAIツールを使って生産性と創造性を高める方法を学びましょう。"
+    keywords="AIツール ブログ, ChatGPT チュートリアル, AIツール ガイド, AI 生産性 ヒント, AI ライティングツール, AI コーディングツール, AI 比較"
+    ogImage="/og-image-blog.png"
+  /> -->
   <Header />
   <div class="min-h-screen bg-gray-50 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
