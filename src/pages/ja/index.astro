@@ -348,23 +348,23 @@ const faqSchema = {
 
       <TrendingTools />
 
-      <div class="mb-12">
-        <h2 class="mb-6 text-2xl font-bold">{t('common.browse')}</h2>
+      <div class="mb-12 reveal">
+        <h2 class="mb-6 text-2xl font-bold text-[var(--color-text-primary)]">{t('common.browse')}</h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => {
             const categoryTools = tools.filter((tool) => tool.category === category.slug);
             return (
               <a
-                href={`/categories/${category.slug}`}
-                class="group rounded-lg border border-[var(--color-border-primary)] p-6 transition hover:border-primary-500 hover:shadow-md"
+                href={`/ja/categories/${category.slug}`}
+                class="group rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-[var(--shadow-card)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-500 hover:shadow-[var(--shadow-card-hover)]"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-4xl">{category.icon}</span>
                   <div class="flex-1">
-                    <h3 class="font-semibold text-[var(--color-text-primary)] group-hover:text-primary-600">
+                    <h3 class="font-semibold text-[var(--color-text-primary)] transition-colors group-hover:text-primary-600">
                       {category.name}
                     </h3>
-                    <p class="mt-1 text-sm text-[var(--color-text-tertiary)]">{categoryTools.length} tools</p>
+                    <p class="mt-1 text-sm text-[var(--color-text-tertiary)]">{categoryTools.length} ツール</p>
                   </div>
                 </div>
               </a>
