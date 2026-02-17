@@ -6,7 +6,10 @@ author: 'AI Tools Aggregator'
 category: 'AI Coding Tools'
 tags: ['OpenClaw', 'GitHub', 'Open Source', 'AI Agents', 'curl', 'matplotlib']
 featured: true
+lang: "ja"
 image: '/images/blog/ai-open-source-crisis.jpg'
+seo:
+  keywords: "AIエージェント, オープンソース, curl, matplotlib, GitHub, バグバウンティ, コード貢献"
 ---
 
 オープンソースメンテナーによるAIエージェントへの反発が拡大している。curl開発者のバグバウンティ停止、GitHubによるPR無効化機能の追加、Ars Technicaの記事撤回など、AIエージェントによる自動化された低品質な貢献が引き起こす問題が表面化している。

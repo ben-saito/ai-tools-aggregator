@@ -6,7 +6,10 @@ author: 'AI Tools Aggregator'
 category: 'AI Coding Tools'
 tags: ['OpenClaw', 'GitHub', 'Open Source', 'AI Agents', 'curl', 'matplotlib']
 featured: true
+lang: "en"
 image: '/images/blog/ai-open-source-crisis.jpg'
+seo:
+  keywords: "AI agents, open source, curl, matplotlib, GitHub, bug bounty, code contributions"
 ---
 
 Open source maintainers are pushing back against AI agents in unprecedented ways. From curl's suspended bug bounty program to GitHub's new PR disable feature and Ars Technica's article retraction, the problems caused by automated low-quality contributions are coming to a head.
