@@ -9,7 +9,7 @@ const currentPath = Astro.url.pathname;
 <!-- Mobile menu button -->
 <button
   id="mobile-menu-button"
-  class="lg:hidden rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600"
+  class="lg:hidden rounded-md p-2 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-secondary)] hover:text-primary-600"
   aria-label="Toggle mobile menu"
 >
   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -20,14 +20,17 @@ const currentPath = Astro.url.pathname;
 <!-- Mobile menu overlay -->
 <div
   id="mobile-menu"
-  class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-50"
+  class="fixed inset-0 z-50 hidden"
 >
-  <div class="fixed inset-y-0 right-0 w-64 bg-white shadow-xl">
-    <div class="flex items-center justify-between border-b border-gray-200 p-4">
+  <!-- Backdrop -->
+  <div class="mobile-backdrop fixed inset-0 bg-gray-900/50"></div>
+  <!-- Drawer -->
+  <div class="mobile-drawer fixed inset-y-0 right-0 w-64 bg-[var(--color-bg-elevated)] shadow-xl animate-slide-in-right">
+    <div class="flex items-center justify-between border-b border-[var(--color-border-primary)] p-4">
       <span class="text-lg font-bold text-primary-600">{lang === 'ja' ? 'メニュー' : 'Menu'}</span>
       <button
         id="mobile-menu-close"
-        class="rounded-md p-2 text-gray-600 hover:bg-gray-100"
+        class="rounded-md p-2 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-secondary)]"
         aria-label="Close mobile menu"
       >
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -35,55 +38,74 @@ const currentPath = Astro.url.pathname;
         </svg>
       </button>
     </div>
-    
-    <!-- Language Switcher at Top -->
-    <div class="border-b border-gray-200 p-4">
-      <p class="mb-2 text-xs font-semibold text-gray-500 uppercase">Language / 言語</p>
+
+    <!-- Dark Mode Toggle -->
+    <div class="border-b border-[var(--color-border-primary)] p-4">
+      <button
+        id="mobile-theme-toggle"
+        class="flex w-full items-center justify-between rounded-lg bg-[var(--color-bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--color-text-primary)]"
+      >
+        <span class="dark:hidden">Dark Mode</span>
+        <span class="hidden dark:inline">Light Mode</span>
+        <!-- Sun icon -->
+        <svg class="hidden h-5 w-5 dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <!-- Moon icon -->
+        <svg class="block h-5 w-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="border-b border-[var(--color-border-primary)] p-4">
+      <p class="mb-2 text-xs font-semibold text-[var(--color-text-tertiary)] uppercase">Language / 言語</p>
       <div class="flex items-center gap-2">
-        <a 
+        <a
           href={lang === 'ja' ? currentPath.replace(/^\/ja/, '') || '/' : currentPath}
-          class={`flex-1 px-4 py-2 text-center text-sm font-medium rounded-lg transition ${lang === 'en' ? 'bg-primary-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+          class={`flex-1 px-4 py-2 text-center text-sm font-medium rounded-lg transition ${lang === 'en' ? 'bg-primary-600 text-white' : 'bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-tertiary)]'}`}
           data-lang="en"
         >
           English
         </a>
-        <a 
+        <a
           href={lang === 'en' ? `/ja${currentPath}` : currentPath}
-          class={`flex-1 px-4 py-2 text-center text-sm font-medium rounded-lg transition ${lang === 'ja' ? 'bg-primary-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+          class={`flex-1 px-4 py-2 text-center text-sm font-medium rounded-lg transition ${lang === 'ja' ? 'bg-primary-600 text-white' : 'bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-tertiary)]'}`}
           data-lang="ja"
         >
           日本語
         </a>
       </div>
     </div>
-    
+
     <nav class="overflow-y-auto p-4">
-      <a href={lang === 'ja' ? '/ja' : '/'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'ホーム' : 'Home'}</a>
-      <a href={lang === 'ja' ? '/ja/blog' : '/blog'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'ブログ' : 'Blog'}</a>
-      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? '検索' : 'Search'}</a>
-      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'ランキング' : 'Rankings'}</a>
-      <a href={lang === 'ja' ? '/ja/skills' : '/skills'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'スキル' : 'Skills'}</a>
-      
-      <div class="mt-2 border-t border-gray-200 pt-2">
-        <p class="mb-2 text-sm font-semibold text-gray-500">{lang === 'ja' ? 'カテゴリー' : 'Categories'}</p>
+      <a href={lang === 'ja' ? '/ja' : '/'} class="block py-3 text-[var(--color-text-primary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'ホーム' : 'Home'}</a>
+      <a href={lang === 'ja' ? '/ja/blog' : '/blog'} class="block py-3 text-[var(--color-text-primary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'ブログ' : 'Blog'}</a>
+      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="block py-3 text-[var(--color-text-primary)] transition-colors hover:text-primary-600">{lang === 'ja' ? '検索' : 'Search'}</a>
+      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="block py-3 text-[var(--color-text-primary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'ランキング' : 'Rankings'}</a>
+      <a href={lang === 'ja' ? '/ja/skills' : '/skills'} class="block py-3 text-[var(--color-text-primary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'スキル' : 'Skills'}</a>
+
+      <div class="mt-2 border-t border-[var(--color-border-primary)] pt-2">
+        <p class="mb-2 text-sm font-semibold text-[var(--color-text-tertiary)]">{lang === 'ja' ? 'カテゴリー' : 'Categories'}</p>
         {categories.map((category) => (
           <a
             href={lang === 'ja' ? `/ja/categories/${category.slug}` : `/categories/${category.slug}`}
-            class="block py-2 pl-3 text-sm text-gray-700 hover:text-primary-600"
+            class="block py-2 pl-3 text-sm text-[var(--color-text-secondary)] transition-colors hover:text-primary-600"
           >
             <span class="mr-2">{category.icon}</span>
             {category.name}
           </a>
         ))}
       </div>
-      
-      <div class="mt-4 border-t border-gray-200 pt-4">
-        <a href={lang === 'ja' ? '/ja/submit' : '/submit'} class="block rounded-lg bg-primary-600 px-4 py-3 text-center font-semibold text-white hover:bg-primary-700">
+
+      <div class="mt-4 border-t border-[var(--color-border-primary)] pt-4">
+        <a href={lang === 'ja' ? '/ja/submit' : '/submit'} class="block rounded-lg bg-primary-600 px-4 py-3 text-center font-semibold text-white transition-colors hover:bg-primary-700">
           {lang === 'ja' ? 'ツール登録' : 'Submit Tool'}
         </a>
-        <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'お気に入り' : 'Favorites'}</a>
-        <a href={lang === 'ja' ? '/ja/about' : '/about'} class="mt-2 block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? '概要' : 'About'}</a>
-        <a href={lang === 'ja' ? '/ja/login' : '/login'} class="mt-2 block py-3 text-gray-700 hover:text-primary-600">{lang === 'ja' ? 'ログイン' : 'Login'}</a>
+        <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="block py-3 text-[var(--color-text-primary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'お気に入り' : 'Favorites'}</a>
+        <a href={lang === 'ja' ? '/ja/about' : '/about'} class="mt-2 block py-3 text-[var(--color-text-primary)] transition-colors hover:text-primary-600">{lang === 'ja' ? '概要' : 'About'}</a>
+        <a href={lang === 'ja' ? '/ja/login' : '/login'} class="mt-2 block py-3 text-[var(--color-text-primary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'ログイン' : 'Login'}</a>
       </div>
     </nav>
   </div>
@@ -93,22 +115,43 @@ const currentPath = Astro.url.pathname;
   const menuButton = document.getElementById('mobile-menu-button');
   const menuClose = document.getElementById('mobile-menu-close');
   const menu = document.getElementById('mobile-menu');
-  
-  menuButton?.addEventListener('click', () => {
+  const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+
+  function openMenu() {
     menu?.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-  });
-  
-  menuClose?.addEventListener('click', () => {
-    menu?.classList.add('hidden');
-    document.body.style.overflow = '';
-  });
-  
-  menu?.addEventListener('click', (e) => {
-    if (e.target === menu) {
-      menu.classList.add('hidden');
+  }
+
+  function closeMenu() {
+    const drawer = menu?.querySelector('.mobile-drawer');
+    if (drawer) {
+      drawer.classList.remove('animate-slide-in-right');
+      drawer.classList.add('animate-slide-out-right');
+      setTimeout(() => {
+        menu?.classList.add('hidden');
+        drawer.classList.remove('animate-slide-out-right');
+        drawer.classList.add('animate-slide-in-right');
+        document.body.style.overflow = '';
+      }, 280);
+    } else {
+      menu?.classList.add('hidden');
       document.body.style.overflow = '';
     }
+  }
+
+  menuButton?.addEventListener('click', openMenu);
+  menuClose?.addEventListener('click', closeMenu);
+
+  menu?.addEventListener('click', (e) => {
+    if (e.target === menu || (e.target as Element)?.classList.contains('mobile-backdrop')) {
+      closeMenu();
+    }
+  });
+
+  // Mobile dark mode toggle
+  mobileThemeToggle?.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 
   // Store language preference when clicking language links in mobile menu
@@ -119,9 +162,7 @@ const currentPath = Astro.url.pathname;
         localStorage.setItem('preferred-lang', lang);
         sessionStorage.removeItem('lang-redirected');
       }
-      // Close menu on language change
-      menu.classList.add('hidden');
-      document.body.style.overflow = '';
+      closeMenu();
     });
   });
 </script>

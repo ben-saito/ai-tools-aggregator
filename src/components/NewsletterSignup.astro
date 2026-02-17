@@ -1,10 +1,10 @@
 ---
 ---
 
-<div class="rounded-xl border border-gray-100 bg-gray-50 p-6 shadow-sm">
+<div class="rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-secondary)] p-6 shadow-[var(--shadow-card)]">
   <div class="text-center">
-    <h3 class="text-lg font-bold text-gray-900">Subscribe on the Weekly Digest</h3>
-    <p class="mt-2 text-sm text-gray-600">Get the top 5 trending AI tools delivered to your inbox every week.</p>
+    <h3 class="text-lg font-bold text-[var(--color-text-primary)]">Subscribe on the Weekly Digest</h3>
+    <p class="mt-2 text-sm text-[var(--color-text-secondary)]">Get the top 5 trending AI tools delivered to your inbox every week.</p>
   </div>
 
   <form id="newsletter-form" class="mt-4 flex gap-2">
@@ -13,11 +13,11 @@
       name="email"
       required
       placeholder="Enter your email"
-      class="w-full rounded-lg border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+      class="w-full rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] px-4 py-2 text-[var(--color-text-primary)] shadow-sm transition-all focus:border-primary-500 focus:ring-primary-500"
     />
     <button
       type="submit"
-      class="whitespace-nowrap rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      class="whitespace-nowrap rounded-lg bg-primary-600 px-4 py-2 font-semibold text-white shadow-sm transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
     >
       Subscribe
     </button>

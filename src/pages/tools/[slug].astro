@@ -62,7 +62,7 @@ const schemaData = {
           <div class="flex-1">
             <h1 class="text-4xl font-bold">{tool.name}</h1>
             <div class="mt-2 flex gap-2">
-              <span class="rounded bg-gray-100 px-3 py-1 text-sm text-gray-700">{tool.category}</span>
+              <span class="rounded bg-[var(--color-bg-secondary)] px-3 py-1 text-sm text-[var(--color-text-secondary)]">{tool.category}</span>
               <span class="rounded bg-primary-50 px-3 py-1 text-sm text-primary-700">{tool.pricing}</span>
             </div>
           </div>
@@ -71,14 +71,14 @@ const schemaData = {
 
       <div class="prose max-w-none">
         <h2>Description</h2>
-        <p class="text-lg text-gray-700">{tool.description}</p>
+        <p class="text-lg text-[var(--color-text-secondary)]">{tool.description}</p>
 
         {priceDisplay && (
-          <div class="my-6 rounded-lg border border-gray-200 bg-gray-50 p-6">
+          <div class="my-6 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-bg-secondary)] p-6">
             <h2 class="!mt-0 mb-4">Pricing</h2>
             <p class="text-2xl font-bold text-primary-600 !mt-0">{priceDisplay}</p>
             {toolPricing && toolPricing.note && (
-              <p class="text-sm text-gray-600 mt-2">{toolPricing.note}</p>
+              <p class="text-sm text-[var(--color-text-secondary)] mt-2">{toolPricing.note}</p>
             )}
             <a
               href={tool.url}
@@ -135,16 +135,16 @@ const schemaData = {
         <h2 class="text-2xl font-bold">Details</h2>
         <dl class="mt-4 grid gap-4 sm:grid-cols-2">
           <div>
-            <dt class="font-semibold text-gray-700">Category</dt>
-            <dd class="mt-1 text-gray-600">{tool.category}</dd>
+            <dt class="font-semibold text-[var(--color-text-secondary)]">Category</dt>
+            <dd class="mt-1 text-[var(--color-text-secondary)]">{tool.category}</dd>
           </div>
           <div>
-            <dt class="font-semibold text-gray-700">Pricing</dt>
-            <dd class="mt-1 text-gray-600">{tool.pricing}</dd>
+            <dt class="font-semibold text-[var(--color-text-secondary)]">Pricing</dt>
+            <dd class="mt-1 text-[var(--color-text-secondary)]">{tool.pricing}</dd>
           </div>
           {tool.websiteUrl && (
             <div>
-              <dt class="font-semibold text-gray-700">Website</dt>
+              <dt class="font-semibold text-[var(--color-text-secondary)]">Website</dt>
               <dd class="mt-1">
                 <a href={tool.websiteUrl} class="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">
                   {tool.websiteUrl}
@@ -159,10 +159,10 @@ const schemaData = {
       </div>
 
       <ReviewSection toolId={tool.id} />
-      <div class="mt-8 border-t border-gray-100 py-6 text-center text-sm text-gray-500">
+      <div class="mt-8 border-t border-[var(--color-border-secondary)] py-6 text-center text-sm text-[var(--color-text-tertiary)]">
         <p>
           Are you the creator of {tool.name}? 
-          <a href={`/vendor/claim/${tool.id}`} class="ml-1 font-medium text-blue-600 hover:text-blue-500 hover:underline">
+          <a href={`/vendor/claim/${tool.id}`} class="ml-1 font-medium text-primary-600 hover:text-primary-500 hover:underline">
             Claim this page
           </a> 
           to manage your listing.

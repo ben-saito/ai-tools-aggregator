@@ -5,19 +5,19 @@ const tools = getAllTools();
 
 <div data-tools={JSON.stringify(tools)}>
   <section class="mb-12">
-    <h2 class="mb-6 text-2xl font-bold">🔥 Trending Now</h2>
+    <h2 class="mb-6 text-2xl font-bold text-[var(--color-text-primary)]">Trending Now</h2>
     <div id="trending-tools" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <div class="col-span-full text-center py-8">
-        <div class="inline-block h-6 w-6 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"></div>
+        <div class="inline-block h-6 w-6 animate-spin rounded-full border-4 border-[var(--color-border-primary)] border-t-primary-600"></div>
       </div>
     </div>
   </section>
 
   <section class="mb-12">
-    <h2 class="mb-6 text-2xl font-bold">⭐ Top Rated Tools</h2>
+    <h2 class="mb-6 text-2xl font-bold text-[var(--color-text-primary)]">Top Rated Tools</h2>
     <div id="top-rated-tools" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <div class="col-span-full text-center py-8">
-        <div class="inline-block h-6 w-6 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"></div>
+        <div class="inline-block h-6 w-6 animate-spin rounded-full border-4 border-[var(--color-border-primary)] border-t-primary-600"></div>
       </div>
     </div>
   </section>
@@ -71,12 +71,12 @@ const tools = getAllTools();
       const tools = getAllTools();
       const trending = await getTrendingTools(6);
       const container = document.getElementById('trending-tools');
-      
+
       if (!container) return;
 
       if (trending.length === 0) {
         container.innerHTML = `
-          <div class="col-span-full text-center py-8 text-gray-600">
+          <div class="col-span-full text-center py-8 text-[var(--color-text-secondary)]">
             No trending tools yet. Be the first to review!
           </div>
         `;
@@ -91,24 +91,24 @@ const tools = getAllTools();
         .filter(item => item.tool != null);
 
       container.innerHTML = trendingTools.map(item => `
-        <a href="/tools/${item.tool.id}" class="group block rounded-lg border border-gray-200 bg-white p-6 transition hover:border-primary-500 hover:shadow-md">
+        <a href="/tools/${item.tool.id}" class="group block rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-[var(--shadow-card)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-500 hover:shadow-[var(--shadow-card-hover)]">
           <div class="flex items-start gap-4">
             ${item.tool.logoUrl ? `
               <img src="${item.tool.logoUrl}" alt="${item.tool.name}" class="h-12 w-12 rounded-lg">
             ` : ''}
             <div class="flex-1 min-w-0">
-              <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 truncate">
+              <h3 class="font-semibold text-[var(--color-text-primary)] group-hover:text-primary-600 transition-colors truncate">
                 ${item.tool.name}
               </h3>
-              <p class="mt-1 text-sm text-gray-600 line-clamp-2">${item.tool.description}</p>
+              <p class="mt-1 text-sm text-[var(--color-text-secondary)] line-clamp-2">${item.tool.description}</p>
               <div class="mt-3 flex items-center gap-3 text-sm">
                 <div class="flex items-center gap-1">
-                  <span class="text-yellow-400">⭐</span>
-                  <span class="font-medium">${item.average_rating.toFixed(1)}</span>
+                  <span class="text-yellow-400">&#11088;</span>
+                  <span class="font-medium text-[var(--color-text-primary)]">${item.average_rating.toFixed(1)}</span>
                 </div>
-                <span class="text-gray-500">${item.review_count} reviews</span>
-                <span class="text-orange-600 font-medium">
-                  🔥 ${item.trending_score.toFixed(1)}
+                <span class="text-[var(--color-text-tertiary)]">${item.review_count} reviews</span>
+                <span class="text-orange-600 dark:text-orange-400 font-medium">
+                  ${item.trending_score.toFixed(1)}
                 </span>
               </div>
             </div>
@@ -120,7 +120,7 @@ const tools = getAllTools();
       const container = document.getElementById('trending-tools');
       if (container) {
         container.innerHTML = `
-          <div class="col-span-full text-center py-8 text-gray-600">
+          <div class="col-span-full text-center py-8 text-[var(--color-text-secondary)]">
             No trending data available yet.
           </div>
         `;
@@ -133,12 +133,12 @@ const tools = getAllTools();
       const tools = getAllTools();
       const topRated = await getTopRatedTools(6, 3); // Min 3 reviews
       const container = document.getElementById('top-rated-tools');
-      
+
       if (!container) return;
 
       if (topRated.length === 0) {
         container.innerHTML = `
-          <div class="col-span-full text-center py-8 text-gray-600">
+          <div class="col-span-full text-center py-8 text-[var(--color-text-secondary)]">
             No top-rated tools yet. Be the first to review!
           </div>
         `;
@@ -153,22 +153,22 @@ const tools = getAllTools();
         .filter(item => item.tool != null);
 
       container.innerHTML = topRatedTools.map(item => `
-        <a href="/tools/${item.tool.id}" class="group block rounded-lg border border-gray-200 bg-white p-6 transition hover:border-primary-500 hover:shadow-md">
+        <a href="/tools/${item.tool.id}" class="group block rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-[var(--shadow-card)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-500 hover:shadow-[var(--shadow-card-hover)]">
           <div class="flex items-start gap-4">
             ${item.tool.logoUrl ? `
               <img src="${item.tool.logoUrl}" alt="${item.tool.name}" class="h-12 w-12 rounded-lg">
             ` : ''}
             <div class="flex-1 min-w-0">
-              <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 truncate">
+              <h3 class="font-semibold text-[var(--color-text-primary)] group-hover:text-primary-600 transition-colors truncate">
                 ${item.tool.name}
               </h3>
-              <p class="mt-1 text-sm text-gray-600 line-clamp-2">${item.tool.description}</p>
+              <p class="mt-1 text-sm text-[var(--color-text-secondary)] line-clamp-2">${item.tool.description}</p>
               <div class="mt-3 flex items-center gap-3 text-sm">
                 <div class="flex items-center gap-1">
-                  <span class="text-yellow-400">⭐</span>
-                  <span class="font-medium">${item.average_rating.toFixed(1)}</span>
+                  <span class="text-yellow-400">&#11088;</span>
+                  <span class="font-medium text-[var(--color-text-primary)]">${item.average_rating.toFixed(1)}</span>
                 </div>
-                <span class="text-gray-500">${item.review_count} reviews</span>
+                <span class="text-[var(--color-text-tertiary)]">${item.review_count} reviews</span>
               </div>
             </div>
           </div>
@@ -179,7 +179,7 @@ const tools = getAllTools();
       const container = document.getElementById('top-rated-tools');
       if (container) {
         container.innerHTML = `
-          <div class="col-span-full text-center py-8 text-gray-600">
+          <div class="col-span-full text-center py-8 text-[var(--color-text-secondary)]">
             No top-rated data available yet.
           </div>
         `;

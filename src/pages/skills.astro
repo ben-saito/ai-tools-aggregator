@@ -21,8 +21,8 @@ try {
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-8">
     <div class="mb-8">
-      <h1 class="text-4xl font-bold text-gray-900 mb-2">📊 Skills Ranking</h1>
-      <p class="text-lg text-gray-600">Trending and popular Clawdbot skills from GitHub</p>
+      <h1 class="text-4xl font-bold text-[var(--color-text-primary)] mb-2">📊 Skills Ranking</h1>
+      <p class="text-lg text-[var(--color-text-secondary)]">Trending and popular Clawdbot skills from GitHub</p>
     </div>
 
     {error && (
@@ -32,18 +32,18 @@ try {
     )}
 
     <!-- Sort Tabs -->
-    <div class="mb-8 border-b border-gray-200">
+    <div class="mb-8 border-b border-[var(--color-border-primary)]">
       <nav class="-mb-px flex gap-6 flex-wrap">
-        <button class="sort-tab active border-b-2 border-blue-600 px-1 pb-4 text-sm font-medium text-blue-600" data-sort="score">
+        <button class="sort-tab active border-b-2 border-primary-600 px-1 pb-4 text-sm font-medium text-primary-600" data-sort="score">
           🏆 Total Score
         </button>
-        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-sort="stars">
+        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-[var(--color-text-tertiary)] hover:border-[var(--color-border-primary)] hover:text-[var(--color-text-secondary)]" data-sort="stars">
           ⭐ Most Stars
         </button>
-        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-sort="forks">
+        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-[var(--color-text-tertiary)] hover:border-[var(--color-border-primary)] hover:text-[var(--color-text-secondary)]" data-sort="forks">
           🍴 Most Forks
         </button>
-        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-sort="updated">
+        <button class="sort-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-[var(--color-text-tertiary)] hover:border-[var(--color-border-primary)] hover:text-[var(--color-text-secondary)]" data-sort="updated">
           🔄 Recently Updated
         </button>
       </nav>
@@ -53,34 +53,34 @@ try {
     <div id="skills-list" class="space-y-4">
       {skills.length === 0 && !error && (
         <div class="text-center py-12">
-          <p class="text-gray-500">No skills found.</p>
+          <p class="text-[var(--color-text-tertiary)]">No skills found.</p>
         </div>
       )}
 
       {skills.map((skill) => (
-        <div class="skill-card bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200" data-skill={JSON.stringify(skill)}>
+        <div class="skill-card bg-[var(--color-bg-elevated)] rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-[var(--color-border-primary)]" data-skill={JSON.stringify(skill)}>
           <div class="flex items-start justify-between">
             <div class="flex-1">
               <div class="flex items-center gap-3 mb-2">
-                <span class="text-2xl font-bold text-gray-400">#{skill.rank}</span>
-                <h3 class="text-xl font-semibold text-gray-900">
-                  <a href={skill.url} target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">
+                <span class="text-2xl font-bold text-[var(--color-text-tertiary)]">#{skill.rank}</span>
+                <h3 class="text-xl font-semibold text-[var(--color-text-primary)]">
+                  <a href={skill.url} target="_blank" rel="noopener noreferrer" class="hover:text-primary-600">
                     {skill.name}
                   </a>
                 </h3>
               </div>
               
               {skill.description && (
-                <p class="text-gray-600 mb-3">{skill.description}</p>
+                <p class="text-[var(--color-text-secondary)] mb-3">{skill.description}</p>
               )}
 
               <div class="flex flex-wrap gap-2 mb-3">
                 {skill.topics.map((topic) => (
-                  <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">{topic}</span>
+                  <span class="px-2 py-1 bg-primary-100 text-primary-800 text-xs rounded-full">{topic}</span>
                 ))}
               </div>
 
-              <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+              <div class="flex flex-wrap gap-4 text-sm text-[var(--color-text-tertiary)]">
                 <span class="flex items-center gap-1">
                   ⭐ <strong>{skill.stars.toLocaleString()}</strong> stars
                 </span>
@@ -99,9 +99,9 @@ try {
             </div>
 
             <div class="ml-4 text-right">
-              <div class="text-2xl font-bold text-blue-600">{skill.score}</div>
-              <div class="text-xs text-gray-500">Score</div>
-              <div class="mt-2 text-xs text-gray-400">
+              <div class="text-2xl font-bold text-primary-600">{skill.score}</div>
+              <div class="text-xs text-[var(--color-text-tertiary)]">Score</div>
+              <div class="mt-2 text-xs text-[var(--color-text-tertiary)]">
                 Updated: {new Date(skill.pushedAt).toLocaleDateString()}
               </div>
             </div>
@@ -112,30 +112,30 @@ try {
 
     <!-- Statistics Summary -->
     {skills.length > 0 && (
-      <div class="mt-12 bg-gray-50 rounded-lg p-6">
-        <h2 class="text-xl font-bold text-gray-900 mb-4">📈 Statistics</h2>
+      <div class="mt-12 bg-[var(--color-bg-secondary)] rounded-lg p-6">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">📈 Statistics</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div>
-            <div class="text-3xl font-bold text-blue-600">{skills.length}</div>
-            <div class="text-sm text-gray-600">Total Skills</div>
+            <div class="text-3xl font-bold text-primary-600">{skills.length}</div>
+            <div class="text-sm text-[var(--color-text-secondary)]">Total Skills</div>
           </div>
           <div>
-            <div class="text-3xl font-bold text-blue-600">
+            <div class="text-3xl font-bold text-primary-600">
               {skills.reduce((sum, s) => sum + s.stars, 0).toLocaleString()}
             </div>
-            <div class="text-sm text-gray-600">Total Stars</div>
+            <div class="text-sm text-[var(--color-text-secondary)]">Total Stars</div>
           </div>
           <div>
-            <div class="text-3xl font-bold text-blue-600">
+            <div class="text-3xl font-bold text-primary-600">
               {skills.reduce((sum, s) => sum + s.forks, 0).toLocaleString()}
             </div>
-            <div class="text-sm text-gray-600">Total Forks</div>
+            <div class="text-sm text-[var(--color-text-secondary)]">Total Forks</div>
           </div>
           <div>
-            <div class="text-3xl font-bold text-blue-600">
+            <div class="text-3xl font-bold text-primary-600">
               {Math.round(skills.reduce((sum, s) => sum + s.stars, 0) / skills.length)}
             </div>
-            <div class="text-sm text-gray-600">Avg Stars</div>
+            <div class="text-sm text-[var(--color-text-secondary)]">Avg Stars</div>
           </div>
         </div>
       </div>
@@ -152,25 +152,25 @@ try {
   
   function renderSkills(sortedSkills) {
     skillsList.innerHTML = sortedSkills.map((skill, index) => `
-      <div class="skill-card bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200">
+      <div class="skill-card bg-[var(--color-bg-elevated)] rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-[var(--color-border-primary)]">
         <div class="flex items-start justify-between">
           <div class="flex-1">
             <div class="flex items-center gap-3 mb-2">
-              <span class="text-2xl font-bold text-gray-400">#${index + 1}</span>
-              <h3 class="text-xl font-semibold text-gray-900">
-                <a href="${skill.url}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">
+              <span class="text-2xl font-bold text-[var(--color-text-tertiary)]">#${index + 1}</span>
+              <h3 class="text-xl font-semibold text-[var(--color-text-primary)]">
+                <a href="${skill.url}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600">
                   ${skill.name}
                 </a>
               </h3>
             </div>
             
-            ${skill.description ? `<p class="text-gray-600 mb-3">${skill.description}</p>` : ''}
+            ${skill.description ? `<p class="text-[var(--color-text-secondary)] mb-3">${skill.description}</p>` : ''}
 
             <div class="flex flex-wrap gap-2 mb-3">
-              ${skill.topics.map(topic => `<span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">${topic}</span>`).join('')}
+              ${skill.topics.map(topic => `<span class="px-2 py-1 bg-primary-100 text-primary-800 text-xs rounded-full">${topic}</span>`).join('')}
             </div>
 
-            <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+            <div class="flex flex-wrap gap-4 text-sm text-[var(--color-text-tertiary)]">
               <span class="flex items-center gap-1">
                 ⭐ <strong>${skill.stars.toLocaleString()}</strong> stars
               </span>
@@ -185,9 +185,9 @@ try {
           </div>
 
           <div class="ml-4 text-right">
-            <div class="text-2xl font-bold text-blue-600">${skill.score}</div>
-            <div class="text-xs text-gray-500">Score</div>
-            <div class="mt-2 text-xs text-gray-400">
+            <div class="text-2xl font-bold text-primary-600">${skill.score}</div>
+            <div class="text-xs text-[var(--color-text-tertiary)]">Score</div>
+            <div class="mt-2 text-xs text-[var(--color-text-tertiary)]">
               Updated: ${new Date(skill.pushedAt).toLocaleDateString()}
             </div>
           </div>
@@ -202,11 +202,11 @@ try {
       
       // Update active tab
       sortTabs.forEach(t => {
-        t.classList.remove('active', 'border-blue-600', 'text-blue-600');
-        t.classList.add('border-transparent', 'text-gray-500');
+        t.classList.remove('active', 'border-primary-600', 'text-primary-600');
+        t.classList.add('border-transparent', 'text-[var(--color-text-tertiary)]');
       });
-      tab.classList.add('active', 'border-blue-600', 'text-blue-600');
-      tab.classList.remove('border-transparent', 'text-gray-500');
+      tab.classList.add('active', 'border-primary-600', 'text-primary-600');
+      tab.classList.remove('border-transparent', 'text-[var(--color-text-tertiary)]');
       
       // Sort skills
       let sorted = [...currentSkills];

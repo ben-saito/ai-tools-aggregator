@@ -91,45 +91,45 @@ const shareRecommendations = recommendations.map((r: any) => ({ name: r.name, sc
 ---
 
 <Layout title={t.title} description={t.description} image={ogImage}>
-  <div class="min-h-screen bg-gray-50 py-12 md:py-20">
+  <div class="min-h-screen bg-[var(--color-bg-secondary)] py-12 md:py-20">
     <div class="container mx-auto px-4">
 
       {/* Header */}
       <div class="mb-12 text-center">
-        <span class="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-blue-600">
+        <span class="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-primary-600">
           {t.badge}
         </span>
-        <h1 class="text-3xl font-bold text-gray-900 md:text-5xl">
+        <h1 class="text-3xl font-bold text-[var(--color-text-primary)] md:text-5xl">
           {t.heading}
         </h1>
-        <p class="mt-4 text-gray-600">
-          {t.basedOn} <strong class="text-gray-900">{getLabel('purpose', answers.purpose)}</strong> {t.and} <strong class="text-gray-900">{getLabel('usage', answers.usage)}</strong>
+        <p class="mt-4 text-[var(--color-text-secondary)]">
+          {t.basedOn} <strong class="text-[var(--color-text-primary)]">{getLabel('purpose', answers.purpose)}</strong> {t.and} <strong class="text-[var(--color-text-primary)]">{getLabel('usage', answers.usage)}</strong>
         </p>
       </div>
 
       {/* Diagnostic Summary */}
-      <div class="mx-auto mb-12 max-w-2xl rounded-2xl bg-white p-6 shadow-lg">
-        <h3 class="mb-4 text-lg font-bold text-gray-900">{t.profileTitle}</h3>
+      <div class="mx-auto mb-12 max-w-2xl rounded-2xl bg-[var(--color-bg-elevated)] p-6 shadow-lg">
+        <h3 class="mb-4 text-lg font-bold text-[var(--color-text-primary)]">{t.profileTitle}</h3>
         <div class="grid grid-cols-2 gap-4 sm:grid-cols-5">
           <div class="text-center">
-            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profilePurpose}</p>
-            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('purpose', answers.purpose)}</p>
+            <p class="text-xs font-medium uppercase tracking-wider text-[var(--color-text-tertiary)]">{t.profilePurpose}</p>
+            <p class="mt-1 text-sm font-semibold text-[var(--color-text-primary)]">{getLabel('purpose', answers.purpose)}</p>
           </div>
           <div class="text-center">
-            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profileUsage}</p>
-            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('usage', answers.usage)}</p>
+            <p class="text-xs font-medium uppercase tracking-wider text-[var(--color-text-tertiary)]">{t.profileUsage}</p>
+            <p class="mt-1 text-sm font-semibold text-[var(--color-text-primary)]">{getLabel('usage', answers.usage)}</p>
           </div>
           <div class="text-center">
-            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profileBudget}</p>
-            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('budget', answers.budget)}</p>
+            <p class="text-xs font-medium uppercase tracking-wider text-[var(--color-text-tertiary)]">{t.profileBudget}</p>
+            <p class="mt-1 text-sm font-semibold text-[var(--color-text-primary)]">{getLabel('budget', answers.budget)}</p>
           </div>
           <div class="text-center">
-            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profileSkill}</p>
-            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('skill', answers.skill)}</p>
+            <p class="text-xs font-medium uppercase tracking-wider text-[var(--color-text-tertiary)]">{t.profileSkill}</p>
+            <p class="mt-1 text-sm font-semibold text-[var(--color-text-primary)]">{getLabel('skill', answers.skill)}</p>
           </div>
           <div class="text-center">
-            <p class="text-xs font-medium uppercase tracking-wider text-gray-400">{t.profileTeam}</p>
-            <p class="mt-1 text-sm font-semibold text-gray-900">{getLabel('team', answers.team)}</p>
+            <p class="text-xs font-medium uppercase tracking-wider text-[var(--color-text-tertiary)]">{t.profileTeam}</p>
+            <p class="mt-1 text-sm font-semibold text-[var(--color-text-primary)]">{getLabel('team', answers.team)}</p>
           </div>
         </div>
       </div>
@@ -137,9 +137,9 @@ const shareRecommendations = recommendations.map((r: any) => ({ name: r.name, sc
       {/* Tool Cards Grid */}
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {recommendations.map((item: any, index: number) => (
-          <div class="relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-2xl">
+          <div class="relative overflow-hidden rounded-2xl bg-[var(--color-bg-elevated)] shadow-xl transition-all hover:shadow-2xl">
             {/* Rank Badge */}
-            <div class="absolute left-0 top-0 rounded-br-2xl bg-blue-600 px-4 py-2 font-bold text-white">
+            <div class="absolute left-0 top-0 rounded-br-2xl bg-primary-600 px-4 py-2 font-bold text-white">
               #{index + 1}
             </div>
 
@@ -149,12 +149,12 @@ const shareRecommendations = recommendations.map((r: any) => ({ name: r.name, sc
             </div>
 
             <div class="p-8 pt-16">
-              <h3 class="mb-2 text-2xl font-bold text-gray-900">{item.name}</h3>
-              <p class="mb-4 line-clamp-3 text-gray-600">{item.description}</p>
+              <h3 class="mb-2 text-2xl font-bold text-[var(--color-text-primary)]">{item.name}</h3>
+              <p class="mb-4 line-clamp-3 text-[var(--color-text-secondary)]">{item.description}</p>
 
               <div class="mb-6 flex flex-wrap gap-2">
                 {item.reasons.map((reason: string) => (
-                  <span class="rounded-lg bg-gray-100 px-2 py-1 text-xs text-gray-600">{reason}</span>
+                  <span class="rounded-lg bg-[var(--color-bg-secondary)] px-2 py-1 text-xs text-[var(--color-text-secondary)]">{reason}</span>
                 ))}
               </div>
 
@@ -180,7 +180,7 @@ const shareRecommendations = recommendations.map((r: any) => ({ name: r.name, sc
 
         <a
           href={quizUrl}
-          class="mt-4 rounded-full border-2 border-gray-200 bg-white px-8 py-4 font-bold text-gray-700 transition-colors hover:bg-gray-50"
+          class="mt-4 rounded-full border-2 border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] px-8 py-4 font-bold text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-secondary)]"
         >
           {t.restartQuiz}
         </a>

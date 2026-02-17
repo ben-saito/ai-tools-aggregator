@@ -7,7 +7,7 @@ import type { Tool } from '../lib/types';
 // Fetch top tools "Today" (simulated by recent updates + trending score)
 // For now, we'll fetch all tools and sort by a mock 'trending' logic if DB is empty
 // Ideally we join tools_stats. Here we will fetch stats client side or SSR if possible.
-// Let's assume SSR for Index page or client fetch. 
+// Let's assume SSR for Index page or client fetch.
 // Given the current architecture is hybrid, we can fetch in frontmatter if this component is used in a .astro page with SSR.
 
 // For the MVP, we might need to fetch stats.
@@ -23,27 +23,27 @@ import type { Tool } from '../lib/types';
 const { title = "Today's Top Launches" } = Astro.props;
 ---
 
-<div class="rounded-xl border border-gray-200 bg-white shadow-sm">
-  <div class="border-b border-gray-100 px-6 py-4">
+<div class="rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] shadow-[var(--shadow-card)]">
+  <div class="border-b border-[var(--color-border-secondary)] px-6 py-4">
     <div class="flex items-center justify-between">
-      <h2 class="text-lg font-bold text-gray-900">{title}</h2>
+      <h2 class="text-lg font-bold text-[var(--color-text-primary)]">{title}</h2>
       <div class="flex gap-2 text-sm">
-        <button class="rounded-md bg-gray-100 px-3 py-1 font-medium text-gray-900 hover:bg-gray-200">Today</button>
-        <button class="rounded-md px-3 py-1 font-medium text-gray-500 hover:text-gray-900">Week</button>
-        <button class="rounded-md px-3 py-1 font-medium text-gray-500 hover:text-gray-900">Month</button>
+        <button class="rounded-md bg-[var(--color-bg-tertiary)] px-3 py-1 font-medium text-[var(--color-text-primary)] hover:bg-primary-100 dark:hover:bg-primary-900/30">Today</button>
+        <button class="rounded-md px-3 py-1 font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">Week</button>
+        <button class="rounded-md px-3 py-1 font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">Month</button>
       </div>
     </div>
   </div>
 
-  <div id="leaderboard-list" class="divide-y divide-gray-100">
-    <div class="p-8 text-center text-gray-500">
-        <div class="inline-block h-6 w-6 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"></div>
+  <div id="leaderboard-list" class="divide-y divide-[var(--color-border-secondary)]">
+    <div class="p-8 text-center text-[var(--color-text-tertiary)]">
+        <div class="inline-block h-6 w-6 animate-spin rounded-full border-2 border-[var(--color-border-primary)] border-t-primary-600"></div>
         <p class="mt-2 text-sm">Loading top tools...</p>
     </div>
   </div>
-  
-  <div class="border-t border-gray-100 bg-gray-50 px-6 py-3 text-center">
-    <a href="/tools" class="text-sm font-medium text-blue-600 hover:text-blue-500">View all launches &rarr;</a>
+
+  <div class="border-t border-[var(--color-border-secondary)] bg-[var(--color-bg-secondary)] px-6 py-3 text-center rounded-b-xl">
+    <a href="/tools" class="text-sm font-medium text-primary-600 transition-colors hover:text-primary-500">&rarr; View all launches</a>
   </div>
 </div>
 
@@ -60,13 +60,6 @@ const { title = "Today's Top Launches" } = Astro.props;
     }
 
     try {
-      // Fetch tools joined with stats
-      // Supabase join syntax: tools(*, tools_stats(*)) requires FK.
-      // tools_stats has PK tool_id, but no explicit FK in definition above? 
-      // Actually definition: tool_id TEXT PRIMARY KEY.
-      // We might need to fetch separate and merge, or use a view.
-      // For simplicity: Fetch tools, then fetch stats for them.
-      
       const { data: tools, error: toolsError } = await supabase
         .from('tools')
         .select('*')
@@ -87,61 +80,56 @@ const { title = "Today's Top Launches" } = Astro.props;
         const stat = stats?.find(s => s.tool_id === tool.id) || { upvote_count: 0, comment_count: 0 };
         return { ...tool, ...stat };
       });
-      
+
       // Sort by upvotes (client side sort for now)
       toolsWithStats.sort((a, b) => (b.upvote_count || 0) - (a.upvote_count || 0));
 
       // Render
       if (toolsWithStats.length === 0) {
-        list.innerHTML = `<div class="p-6 text-center text-gray-500">No tools found.</div>`;
+        list.innerHTML = `<div class="p-6 text-center text-[var(--color-text-tertiary)]">No tools found.</div>`;
         return;
       }
 
       list.innerHTML = toolsWithStats.map((tool, index) => `
-        <div class="group relative flex items-start gap-4 p-6 transition-colors hover:bg-gray-50">
-          <div class="flex-shrink-0 pt-1 text-lg font-bold text-gray-300 w-6 text-center">
+        <div class="group relative flex items-start gap-4 p-6 transition-colors hover:bg-[var(--color-bg-secondary)]">
+          <div class="flex-shrink-0 pt-1 text-lg font-bold text-[var(--color-text-tertiary)] w-6 text-center">
             ${index + 1}
           </div>
-          
+
           <div class="flex-shrink-0">
-             ${tool.logo_url ? 
-                `<img src="${tool.logo_url}" alt="${tool.name}" class="h-12 w-12 rounded-lg object-cover shadow-sm bg-white">` :
-                `<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-xl">${tool.name.charAt(0)}</div>`
+             ${tool.logo_url ?
+                `<img src="${tool.logo_url}" alt="${tool.name}" class="h-12 w-12 rounded-lg object-cover shadow-sm bg-[var(--color-bg-elevated)]">` :
+                `<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-primary-500 to-accent-600 text-white font-bold text-xl">${tool.name.charAt(0)}</div>`
              }
           </div>
 
           <div class="min-w-0 flex-1">
-            <h3 class="flex items-center gap-2 text-base font-bold text-gray-900">
+            <h3 class="flex items-center gap-2 text-base font-bold text-[var(--color-text-primary)]">
               <a href="/tools/${tool.id}" class="hover:underline">
                 ${tool.name}
               </a>
-              ${tool.featured ? '<span class="rounded bg-yellow-100 px-1.5 py-0.5 text-xs font-medium text-yellow-800">Featured</span>' : ''}
+              ${tool.featured ? '<span class="rounded bg-yellow-100 px-1.5 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300">Featured</span>' : ''}
             </h3>
-            <p class="mt-1 line-clamp-2 text-sm text-gray-600">${tool.description}</p>
-            <div class="mt-2 flex items-center gap-4 text-xs text-gray-500">
+            <p class="mt-1 line-clamp-2 text-sm text-[var(--color-text-secondary)]">${tool.description}</p>
+            <div class="mt-2 flex items-center gap-4 text-xs text-[var(--color-text-tertiary)]">
               <span class="flex items-center gap-1">
                 <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
                 ${tool.review_count || 0} reviews
               </span>
-              <span class="rounded-full bg-gray-100 px-2 py-0.5">${tool.category}</span>
+              <span class="rounded-full bg-[var(--color-bg-tertiary)] px-2 py-0.5">${tool.category}</span>
             </div>
           </div>
 
           <div class="flex-shrink-0">
-             <!-- Inject UpvoteButton here. Since this is client-side rendered HTML string, 
-                  we can't use the Astro component directly. 
-                  We need to structure the HTML to match UpvoteButton and re-init the script.
-                  OR better: use a simpler button structure here and reuse the logic.
-              -->
               <button
-                class="upvote-btn group flex flex-col items-center rounded-lg border border-gray-200 bg-white px-3 py-2 transition-all hover:border-orange-500 hover:bg-orange-50 data-[voted=true]:border-orange-500 data-[voted=true]:bg-orange-50"
+                class="upvote-btn group flex flex-col items-center rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] px-3 py-2 transition-all hover:border-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20 data-[voted=true]:border-orange-500 data-[voted=true]:bg-orange-50 dark:data-[voted=true]:bg-orange-900/20"
                 data-tool-id="${tool.id}"
                 data-count="${tool.upvote_count || 0}"
                 >
                 <svg
-                    class="h-4 w-4 text-gray-400 transition-colors group-hover:text-orange-500 group-data-[voted=true]:text-orange-500"
+                    class="h-4 w-4 text-[var(--color-text-tertiary)] transition-colors group-hover:text-orange-500 group-data-[voted=true]:text-orange-500"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                 >
@@ -152,7 +140,7 @@ const { title = "Today's Top Launches" } = Astro.props;
                     />
                 </svg>
                 <span
-                    class="text-sm font-semibold text-gray-600 group-hover:text-orange-600 group-data-[voted=true]:text-orange-600"
+                    class="text-sm font-semibold text-[var(--color-text-secondary)] group-hover:text-orange-600 group-data-[voted=true]:text-orange-600"
                 >
                     ${tool.upvote_count || 0}
                 </span>
@@ -161,20 +149,8 @@ const { title = "Today's Top Launches" } = Astro.props;
         </div>
       `).join('');
 
-      // Re-initialize upvote buttons (logic copied/imported from UpvoteButton)
-      // Since we can't easily import the init function if it's not exported, lets dispatch an event
-      // or just re-run the logic if available globally.
-      // For now, we'll rely on the script in UpvoteButton.astro dealing with data-voted.
-      // Wait, UpvoteButton script runs once. We need to trigger it again.
-      
-      // Let's assume we copy the init logic here or make it global.
-      // Making it global is cleaner.
       if (window.initUpvoteButtons) {
           window.initUpvoteButtons();
-      } else {
-          // Fallback: Dispatch event that UpvoteButton.astro might listen to?
-          // Or just inline the essential init logic here for simplicity.
-          // See below.
       }
 
     } catch (e) {

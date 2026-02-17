@@ -50,18 +50,18 @@ const t = texts[lang];
 ---
 
 <Layout title={t.title} description={t.description}>
-  <div class="min-h-screen bg-gradient-to-b from-blue-50 to-white py-12 md:py-20">
+  <div class="min-h-screen bg-gradient-to-b from-primary-50 to-white py-12 md:py-20">
     <div class="container mx-auto px-4 text-center">
 
       {/* Hero Section */}
       <div class="mb-12 space-y-4">
-        <span class="inline-block rounded-full bg-blue-100 px-4 py-1.5 text-sm font-semibold text-blue-700">
+        <span class="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-sm font-semibold text-primary-700">
           {t.badge}
         </span>
-        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 md:text-6xl">
-          {t.heading1} <span class="bg-gradient-to-r from-blue-600 to-indigo-600 box-decoration-clone bg-clip-text text-transparent">{t.headingHighlight}</span>
+        <h1 class="text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)] md:text-6xl">
+          {t.heading1} <span class="bg-gradient-to-r from-primary-600 to-indigo-600 box-decoration-clone bg-clip-text text-transparent">{t.headingHighlight}</span>
         </h1>
-        <p class="mx-auto max-w-2xl text-lg text-gray-600 md:text-xl">
+        <p class="mx-auto max-w-2xl text-lg text-[var(--color-text-secondary)] md:text-xl">
           {t.subheading}
         </p>
       </div>
@@ -72,7 +72,7 @@ const t = texts[lang];
       </div>
 
       {/* Social Proof / Footer */}
-      <div class="mt-12 text-sm text-gray-400">
+      <div class="mt-12 text-sm text-[var(--color-text-tertiary)]">
         <p>{t.footer}</p>
       </div>
 
