@@ -11,7 +11,10 @@ const currentPath = Astro.url.pathname;
 <header class="sticky top-0 z-40 border-b border-[var(--header-border)] bg-[var(--color-bg-primary)] transition-theme">
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
     <a href={lang === 'ja' ? '/ja' : '/'} class="flex items-center gap-2">
-      <img src="/logo.png" alt="AI Tools Hub" class="h-8 w-8" />
+      <picture>
+        <source srcset="/logo.webp" type="image/webp" />
+        <img src="/logo.png" alt="AI Tools Hub" class="h-8 w-8" width="32" height="32" loading="eager" decoding="auto" />
+      </picture>
       <span class="text-lg font-bold text-primary-600 sm:text-xl">AI Tools Hub</span>
     </a>
 

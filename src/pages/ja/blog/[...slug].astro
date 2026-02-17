@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
-import SEO from '../../../components/SEO.astro';
+// import SEO from '../../../components/SEO.astro';
 
 export const prerender = true;
 
@@ -17,6 +17,12 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+
+// Guard against undefined post
+if (!post) {
+  return Astro.redirect('/ja/blog');
+}
+
 const { Content } = await post.render();
 
 const formattedDate = new Date(post.data.publishedAt).toLocaleDateString('ja-JP', {
@@ -25,13 +31,16 @@ const formattedDate = new Date(post.data.publishedAt).toLocaleDateString('ja-JP'
   day: 'numeric'
 });
 
-// 関連記事を取得（同じカテゴリまたは共通タグ）
+// 全記事を取得
 const allPosts = await getCollection('blog', ({ data }) => {
   return data.lang === 'ja';
 });
 
-const relatedPosts = allPosts
-  .filter(p => p.slug !== post.slug) // 現在の記事を除外
+// 現在の記事を除外した記事リスト
+const otherPosts = allPosts.filter(p => p.slug !== post.slug);
+
+// 1. 関連記事を取得（同じカテゴリまたは共通タグ）
+const relatedPosts = otherPosts
   .map(p => {
     // 関連性スコアを計算
     let score = 0;
@@ -44,9 +53,20 @@ const relatedPosts = allPosts
   .sort((a, b) => b.score - a.score) // スコア順にソート
   .slice(0, 3) // TOP 3
   .map(({ post }) => post);
+
+// 2. 人気記事を取得（featuredフラグがtrueの記事）
+const popularPosts = otherPosts
+  .filter(p => p.data.featured === true)
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime())
+  .slice(0, 3);
+
+// 3. 最新記事を取得
+const latestPosts = otherPosts
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime())
+  .slice(0, 3);
 ---
 
-<SEO
+<!-- <SEO
   title={`${post.data.title} - AI Tools Hub`}
   description={post.data.description}
   keywords={post.data.seo?.keywords || post.data.tags?.join(', ')}
@@ -56,9 +76,72 @@ const relatedPosts = allPosts
     author: post.data.author,
     tags: post.data.tags,
   }}
-/>
+/> -->
 
 <Layout title={post.data.title}>
+  <!-- Article Schema.org Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "image": post.data.seo?.ogImage || `${Astro.site}og-image-blog.png`,
+    "author": {
+      "@type": "Organization",
+      "name": post.data.author,
+      "url": Astro.site
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Tools Hub",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${Astro.site}logo.webp`
+      }
+    },
+    "datePublished": post.data.publishedAt,
+    "dateModified": post.data.publishedAt,
+    "articleSection": post.data.category,
+    "keywords": post.data.tags.join(', '),
+    "inLanguage": "ja-JP",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${Astro.site}ja/blog/${post.slug}`
+    }
+  })} />
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": `${Astro.site}ja`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "ブログ",
+        "item": `${Astro.site}ja/blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.data.category,
+        "item": `${Astro.site}ja/blog?category=${encodeURIComponent(post.data.category)}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": post.data.title,
+        "item": `${Astro.site}ja/blog/${post.slug}`
+      }
+    ]
+  })} />
+
   <Header />
   <div class="min-h-screen bg-[var(--color-bg-secondary)] py-12">
     <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -171,6 +254,68 @@ const relatedPosts = allPosts
                   {relatedPost.data.description}
                 </p>
                 <div class="mt-4 text-sm text-primary-600 font-medium group-hover:underline">
+                  続きを読む →
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Popular Articles -->
+      {popularPosts.length > 0 && (
+        <div class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md p-8 mb-8">
+          <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">人気記事</h3>
+          <div class="grid gap-6 md:grid-cols-3">
+            {popularPosts.map((popularPost) => (
+              <a
+                href={`/ja/blog/${popularPost.slug}`}
+                class="group block bg-gradient-to-br from-primary-50 to-purple-50 rounded-lg p-6 hover:shadow-lg transition-all"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                  <span class="text-sm text-primary-600 font-semibold">{popularPost.data.category}</span>
+                </div>
+                <h4 class="text-lg font-semibold text-[var(--color-text-primary)] mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
+                  {popularPost.data.title}
+                </h4>
+                <p class="text-sm text-[var(--color-text-secondary)] line-clamp-2">
+                  {popularPost.data.description}
+                </p>
+                <div class="mt-4 text-sm text-primary-600 font-medium group-hover:underline">
+                  続きを読む →
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Latest Articles -->
+      {latestPosts.length > 0 && (
+        <div class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md p-8 mb-8">
+          <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">最新記事</h3>
+          <div class="grid gap-6 md:grid-cols-3">
+            {latestPosts.map((latestPost) => (
+              <a
+                href={`/ja/blog/${latestPost.slug}`}
+                class="group block bg-[var(--color-bg-secondary)] rounded-lg p-6 hover:bg-green-50 hover:shadow-md transition-all"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span class="text-sm text-primary-600 font-semibold">{latestPost.data.category}</span>
+                </div>
+                <h4 class="text-lg font-semibold text-[var(--color-text-primary)] mb-2 group-hover:text-green-700 transition-colors line-clamp-2">
+                  {latestPost.data.title}
+                </h4>
+                <p class="text-sm text-[var(--color-text-secondary)] line-clamp-2">
+                  {latestPost.data.description}
+                </p>
+                <div class="mt-4 text-sm text-green-600 font-medium group-hover:underline">
                   続きを読む →
                 </div>
               </a>

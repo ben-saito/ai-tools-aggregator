@@ -1,0 +1,59 @@
+---
+/**
+ * SoftwareApplication Schema for Release Note Articles
+ * Use this component when article is about software release notes
+ */
+
+interface Props {
+  softwareName: string;
+  version: string;
+  releaseDate: string;
+  description: string;
+  operatingSystem?: string[];
+  applicationCategory?: string;
+  downloadUrl?: string;
+  softwareRequirements?: string;
+  releaseNotes?: string;
+  offers?: {
+    price: string;
+    priceCurrency?: string;
+  };
+}
+
+const {
+  softwareName,
+  version,
+  releaseDate,
+  description,
+  operatingSystem = ['Windows', 'macOS', 'Linux'],
+  applicationCategory = 'DeveloperApplication',
+  downloadUrl,
+  softwareRequirements,
+  releaseNotes,
+  offers
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": softwareName,
+  "version": version,
+  "description": description,
+  "applicationCategory": applicationCategory,
+  "operatingSystem": operatingSystem.join(', '),
+  "datePublished": releaseDate,
+  "softwareVersion": version,
+  ...(downloadUrl && { "downloadUrl": downloadUrl }),
+  ...(softwareRequirements && { "softwareRequirements": softwareRequirements }),
+  ...(releaseNotes && { "releaseNotes": releaseNotes }),
+  ...(offers && {
+    "offers": {
+      "@type": "Offer",
+      "price": offers.price,
+      "priceCurrency": offers.priceCurrency || "USD"
+    }
+  })
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

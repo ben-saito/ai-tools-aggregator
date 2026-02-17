@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import SEO from '../../components/SEO.astro';
+// import SEO from '../../components/SEO.astro';
 import { getCollection } from 'astro:content';
 
 export const prerender = true;
@@ -20,13 +20,16 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 const { title, description, publishedAt, author, category, tags, seo } = post.data;
 
-// Get related posts (same category or shared tags)
+// Get all posts
 const allPosts = await getCollection('blog', ({ data }) => {
   return data.lang === 'en' || data.lang === undefined;
 });
 
-const relatedPosts = allPosts
-  .filter(p => p.slug !== post.slug) // Exclude current post
+// Filter out current post
+const otherPosts = allPosts.filter(p => p.slug !== post.slug);
+
+// 1. Get related posts (same category or shared tags)
+const relatedPosts = otherPosts
   .map(p => {
     // Calculate relevance score
     let score = 0;
@@ -39,9 +42,20 @@ const relatedPosts = allPosts
   .sort((a, b) => b.score - a.score) // Sort by relevance
   .slice(0, 3) // Top 3
   .map(({ post }) => post);
+
+// 2. Get popular posts (featured articles)
+const popularPosts = otherPosts
+  .filter(p => p.data.featured === true)
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime())
+  .slice(0, 3);
+
+// 3. Get latest posts
+const latestPosts = otherPosts
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime())
+  .slice(0, 3);
 ---
 
-<SEO
+<!-- <SEO
   title={`${title} - AI Tools Hub`}
   description={description}
   keywords={seo?.keywords || tags.join(', ')}
@@ -51,12 +65,74 @@ const relatedPosts = allPosts
   articleAuthor={author}
   articleSection={category}
   articleTags={tags}
-/>
+/> -->
 
 <Layout
   title={`${title} - AI Tools Hub`}
   description={description}
 >
+  <!-- Article Schema.org Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "image": seo?.ogImage || `${Astro.site}og-image-blog.png`,
+    "author": {
+      "@type": "Organization",
+      "name": author,
+      "url": Astro.site
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Tools Hub",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${Astro.site}logo.webp`
+      }
+    },
+    "datePublished": publishedAt,
+    "dateModified": publishedAt,
+    "articleSection": category,
+    "keywords": tags.join(', '),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${Astro.site}blog/${post.slug}`
+    }
+  })} />
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": Astro.site
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${Astro.site}blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": category,
+        "item": `${Astro.site}blog?category=${encodeURIComponent(category)}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": title,
+        "item": `${Astro.site}blog/${post.slug}`
+      }
+    ]
+  })} />
+
   <Header />
   <article class="min-h-screen bg-[var(--color-bg-primary)]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -144,6 +220,68 @@ const relatedPosts = allPosts
                 </p>
                 <div class="mt-4 text-sm text-primary-600 font-medium group-hover:underline">
                   Read more &rarr;
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Popular Articles -->
+      {popularPosts.length > 0 && (
+        <section class="mt-16 pt-8 border-t border-gray-200">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Popular Articles</h2>
+          <div class="grid gap-6 md:grid-cols-3">
+            {popularPosts.map((popularPost) => (
+              <a 
+                href={`/blog/${popularPost.slug}`}
+                class="group block bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 hover:shadow-lg transition-all"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                  <span class="text-sm text-blue-600 font-semibold">{popularPost.data.category}</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors line-clamp-2">
+                  {popularPost.data.title}
+                </h3>
+                <p class="text-sm text-gray-600 line-clamp-2">
+                  {popularPost.data.description}
+                </p>
+                <div class="mt-4 text-sm text-blue-600 font-medium group-hover:underline">
+                  Read more →
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Latest Articles -->
+      {latestPosts.length > 0 && (
+        <section class="mt-16 pt-8 border-t border-gray-200">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Latest Articles</h2>
+          <div class="grid gap-6 md:grid-cols-3">
+            {latestPosts.map((latestPost) => (
+              <a 
+                href={`/blog/${latestPost.slug}`}
+                class="group block bg-gray-50 rounded-lg p-6 hover:bg-green-50 hover:shadow-md transition-all"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span class="text-sm text-blue-600 font-semibold">{latestPost.data.category}</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors line-clamp-2">
+                  {latestPost.data.title}
+                </h3>
+                <p class="text-sm text-gray-600 line-clamp-2">
+                  {latestPost.data.description}
+                </p>
+                <div class="mt-4 text-sm text-green-600 font-medium group-hover:underline">
+                  Read more →
                 </div>
               </a>
             ))}

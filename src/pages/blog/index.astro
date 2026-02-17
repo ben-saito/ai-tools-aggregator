@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import SEO from '../../components/SEO.astro';
+// import SEO from '../../components/SEO.astro';
 import { getCollection } from 'astro:content';
 
 const blogPosts = await getCollection('blog', ({ data }) => {
@@ -10,16 +10,24 @@ const blogPosts = await getCollection('blog', ({ data }) => {
 const sortedPosts = blogPosts.sort((a, b) => 
   new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime()
 );
+
+// Get featured posts for popular section
+const featuredPosts = blogPosts
+  .filter(post => post.data.featured === true)
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime())
+  .slice(0, 3);
+
+// Get posts by category for quick access
+const categories = [...new Set(blogPosts.map(post => post.data.category))].slice(0, 6);
 ---
 
-<SEO
-  title="Blog - AI Tools Hub | Guides, Tutorials & AI Tool Reviews"
-  description="Comprehensive guides and tutorials about AI tools. Learn how to use ChatGPT, Claude, Midjourney, and other AI tools to boost productivity and creativity."
-  keywords="AI tools blog, ChatGPT tutorials, AI tool guides, AI productivity tips, AI writing tools, AI coding tools, AI comparison"
-  ogImage="/og-image-blog.png"
-/>
-
 <Layout title="Blog - AI Tools Hub">
+  <!-- <SEO
+    title="Blog - AI Tools Hub | Guides, Tutorials & AI Tool Reviews"
+    description="Comprehensive guides and tutorials about AI tools. Learn how to use ChatGPT, Claude, Midjourney, and other AI tools to boost productivity and creativity."
+    keywords="AI tools blog, ChatGPT tutorials, AI tool guides, AI productivity tips, AI writing tools, AI coding tools, AI comparison"
+    ogImage="/og-image-blog.png"
+  /> -->
   <Header />
   <div class="min-h-screen bg-[var(--color-bg-secondary)] py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,6 +41,58 @@ const sortedPosts = blogPosts.sort((a, b) =>
         </p>
       </div>
 
+      <!-- Category Navigation -->
+      {categories.length > 0 && (
+        <div class="mb-12">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Browse by Category</h2>
+          <div class="flex flex-wrap gap-3">
+            {categories.map((category) => (
+              <a 
+                href={`/blog?category=${encodeURIComponent(category)}`}
+                class="inline-block px-4 py-2 bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors text-sm font-medium"
+              >
+                {category}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Featured/Popular Posts -->
+      {featuredPosts.length > 0 && (
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Popular Articles</h2>
+          <div class="grid gap-6 md:grid-cols-3">
+            {featuredPosts.map((post) => (
+              <a 
+                href={`/blog/${post.slug}`}
+                class="group block bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-lg p-6 hover:shadow-lg transition-all"
+              >
+                <div class="text-xs text-blue-600 font-bold mb-2">
+                  ⭐ {post.data.category}
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                  {post.data.title}
+                </h3>
+                <p class="text-sm text-gray-600 line-clamp-2 mb-3">
+                  {post.data.description}
+                </p>
+                <div class="text-xs text-gray-500">
+                  {new Date(post.data.publishedAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                  })}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- All Blog Posts -->
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">All Articles</h2>
+      
       <!-- Blog Posts Grid -->
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {sortedPosts.map((post) => (
