@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-// import Header from '../../../components/Header.astro';
+import Header from '../../../components/Header.astro';
 // import SEO from '../../../components/SEO.astro';
 import { getCollection } from 'astro:content';
 
@@ -22,44 +22,15 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
 ---
 
 <Layout title="ブログ - AI Tools Hub">
-  <!-- <SEO
-    title="ブログ - AI Tools Hub | ガイド、チュートリアル、AIツールレビュー"
-    description="AIツールに関する包括的なガイドとチュートリアル。ChatGPT、Claude、MidjourneyなどのAIツールを使って生産性と創造性を高める方法を学びましょう。"
-    keywords="AIツール ブログ, ChatGPT チュートリアル, AIツール ガイド, AI 生産性 ヒント, AI ライティングツール, AI コーディングツール, AI 比較"
-    ogImage="/og-image-blog.png"
-  /> -->
-  
-  <!-- Inline Header for Blog Page -->
-  <header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
-      <a href="/ja" class="flex items-center gap-2">
-        <img src="/logo.png" alt="AI Tools Hub" class="h-8 w-8" width="32" height="32" />
-        <span class="text-lg font-bold text-primary-600 sm:text-xl">AI Tools Hub</span>
-      </a>
-      
-      <div class="flex items-center gap-4 lg:gap-6">
-        <a href="/ja" class="text-gray-600 hover:text-primary-600">ホーム</a>
-        <a href="/ja/blog" class="text-gray-600 hover:text-primary-600">ブログ</a>
-        <a href="/ja/search" class="text-gray-600 hover:text-primary-600">検索</a>
-        <a href="/ja/rankings" class="text-gray-600 hover:text-primary-600">ランキング</a>
-        <a href="/ja/skills" class="text-gray-600 hover:text-primary-600">スキル</a>
-        <a href="/ja/submit" class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">ツール登録</a>
-        <a href="/ja/favorites" class="text-gray-600 hover:text-primary-600">お気に入り</a>
-        <div class="flex items-center gap-1 rounded-lg border border-gray-300 bg-white">
-          <a href="/blog" class="px-3 py-1 text-sm font-medium text-gray-600 hover:text-primary-600">EN</a>
-          <a href="/ja/blog" class="px-3 py-1 text-sm font-medium bg-primary-600 text-white rounded-lg">JA</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <div class="min-h-screen bg-gray-50 py-12">
+  <Header />
+  <div class="min-h-screen bg-[var(--color-bg-secondary)] py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        <h1 class="text-4xl font-bold text-[var(--color-text-primary)] mb-4">
           ブログ
         </h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p class="text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto">
           AIツールの使い方に関するガイド、チュートリアル、洞察
         </p>
       </div>
@@ -67,12 +38,12 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
       <!-- カテゴリナビゲーション -->
       {categories.length > 0 && (
         <div class="mb-12">
-          <h2 class="text-lg font-semibold text-gray-900 mb-4">カテゴリから探す</h2>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-4">カテゴリから探す</h2>
           <div class="flex flex-wrap gap-3">
             {categories.map((category) => (
               <a 
                 href={`/ja/blog?category=${encodeURIComponent(category)}`}
-                class="inline-block px-4 py-2 bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors text-sm font-medium"
+                class="inline-block px-4 py-2 bg-[var(--color-bg-elevated)] border border-[var(--color-border-primary)] rounded-lg hover:border-primary-500 hover:text-primary-600 transition-colors text-sm font-medium"
               >
                 {category}
               </a>
@@ -84,23 +55,23 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
       <!-- 人気記事 -->
       {featuredPosts.length > 0 && (
         <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">人気記事</h2>
+          <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">人気記事</h2>
           <div class="grid gap-6 md:grid-cols-3">
             {featuredPosts.map((post) => (
               <a 
                 href={`/ja/blog/${post.slug}`}
-                class="group block bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-lg p-6 hover:shadow-lg transition-all"
+                class="group block bg-gradient-to-br from-primary-50 to-white border border-primary-100 rounded-lg p-6 hover:shadow-lg transition-all"
               >
-                <div class="text-xs text-blue-600 font-bold mb-2">
+                <div class="text-xs text-primary-600 font-bold mb-2">
                   ⭐ {post.data.category}
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
                   {post.data.title}
                 </h3>
-                <p class="text-sm text-gray-600 line-clamp-2 mb-3">
+                <p class="text-sm text-[var(--color-text-secondary)] line-clamp-2 mb-3">
                   {post.data.description}
                 </p>
-                <div class="text-xs text-gray-500">
+                <div class="text-xs text-[var(--color-text-tertiary)]">
                   {new Date(post.data.publishedAt).toLocaleDateString('ja-JP', {
                     year: 'numeric',
                     month: 'short',
@@ -114,39 +85,39 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
       )}
 
       <!-- 全記事 -->
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">すべての記事</h2>
+      <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">すべての記事</h2>
       
       <!-- Blog Posts Grid -->
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {sortedPosts.map((post) => (
-          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <article class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
             <!-- Featured Badge -->
             {post.data.featured && (
-              <div class="bg-blue-600 text-white text-xs font-bold px-3 py-1 inline-block">
+              <div class="bg-primary-600 text-white text-xs font-bold px-3 py-1 inline-block">
                 注目
               </div>
             )}
 
             <div class="p-6">
               <!-- Category -->
-              <div class="text-sm text-blue-600 font-semibold mb-2">
+              <div class="text-sm text-primary-600 font-semibold mb-2">
                 {post.data.category}
               </div>
 
               <!-- Title -->
-              <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+              <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-3 hover:text-primary-600 transition-colors">
                 <a href={`/ja/blog/${post.slug}`}>
                   {post.data.title}
                 </a>
               </h2>
 
               <!-- Description -->
-              <p class="text-gray-600 mb-4 line-clamp-3">
+              <p class="text-[var(--color-text-secondary)] mb-4 line-clamp-3">
                 {post.data.description}
               </p>
 
               <!-- Meta -->
-              <div class="flex items-center justify-between text-sm text-gray-500">
+              <div class="flex items-center justify-between text-sm text-[var(--color-text-tertiary)]">
                 <span>{post.data.author}</span>
                 <time datetime={post.data.publishedAt}>
                   {new Date(post.data.publishedAt).toLocaleDateString('ja-JP', {
@@ -160,7 +131,7 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
               <!-- Tags -->
               <div class="mt-4 flex flex-wrap gap-2">
                 {post.data.tags.slice(0, 3).map((tag) => (
-                  <span class="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+                  <span class="inline-block bg-[var(--color-bg-tertiary)] text-[var(--color-text-secondary)] text-xs px-2 py-1 rounded">
                     {tag}
                   </span>
                 ))}
@@ -169,7 +140,7 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
               <!-- Read More -->
               <a 
                 href={`/ja/blog/${post.slug}`}
-                class="inline-block mt-4 text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+                class="inline-block mt-4 text-primary-600 font-semibold hover:text-primary-800 transition-colors"
               >
                 続きを読む →
               </a>
@@ -181,7 +152,7 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
       <!-- Empty State -->
       {sortedPosts.length === 0 && (
         <div class="text-center py-12">
-          <p class="text-gray-500 text-lg">ブログ記事はまだありません。近日公開予定です！</p>
+          <p class="text-[var(--color-text-tertiary)] text-lg">ブログ記事はまだありません。近日公開予定です！</p>
         </div>
       )}
     </div>

@@ -12,21 +12,21 @@ const tools = getAllTools();
 >
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-8" data-tools={JSON.stringify(tools)}>
-    <h1 class="mb-8 text-3xl font-bold text-gray-900">AI Tools Rankings</h1>
+    <h1 class="mb-8 text-3xl font-bold text-[var(--color-text-primary)]">AI Tools Rankings</h1>
 
     <!-- Tabs -->
-    <div class="mb-8 border-b border-gray-200">
+    <div class="mb-8 border-b border-[var(--color-border-primary)]">
       <nav class="-mb-px flex gap-6">
-        <button class="ranking-tab active border-b-2 border-blue-600 px-1 pb-4 text-sm font-medium text-blue-600" data-tab="total-score">
+        <button class="ranking-tab active border-b-2 border-primary-600 px-1 pb-4 text-sm font-medium text-primary-600" data-tab="total-score">
           🏆 Total Score
         </button>
-        <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-tab="trending">
+        <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-[var(--color-text-tertiary)] hover:border-[var(--color-border-primary)] hover:text-[var(--color-text-secondary)]" data-tab="trending">
           🔥 Trending
         </button>
-        <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-tab="top-rated">
+        <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-[var(--color-text-tertiary)] hover:border-[var(--color-border-primary)] hover:text-[var(--color-text-secondary)]" data-tab="top-rated">
           ⭐ Top Rated
         </button>
-        <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" data-tab="most-reviewed">
+        <button class="ranking-tab border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-[var(--color-text-tertiary)] hover:border-[var(--color-border-primary)] hover:text-[var(--color-text-secondary)]" data-tab="most-reviewed">
           💬 Most Reviewed
         </button>
       </nav>
@@ -35,8 +35,8 @@ const tools = getAllTools();
     <!-- Rankings Content -->
     <div id="ranking-content" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       <div class="col-span-full text-center py-8">
-        <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"></div>
-        <p class="mt-2 text-gray-600">Loading rankings...</p>
+        <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-[var(--color-border-primary)] border-t-primary-600"></div>
+        <p class="mt-2 text-[var(--color-text-secondary)]">Loading rankings...</p>
       </div>
     </div>
   </main>
@@ -95,18 +95,18 @@ const tools = getAllTools();
     // Update tab styles
     document.querySelectorAll('.ranking-tab').forEach(btn => {
       if (btn.getAttribute('data-tab') === tab) {
-        btn.classList.add('active', 'border-blue-600', 'text-blue-600');
-        btn.classList.remove('border-transparent', 'text-gray-500');
+        btn.classList.add('active', 'border-primary-600', 'text-primary-600');
+        btn.classList.remove('border-transparent', 'text-[var(--color-text-tertiary)]');
       } else {
-        btn.classList.remove('active', 'border-blue-600', 'text-blue-600');
-        btn.classList.add('border-transparent', 'text-gray-500');
+        btn.classList.remove('active', 'border-primary-600', 'text-primary-600');
+        btn.classList.add('border-transparent', 'text-[var(--color-text-tertiary)]');
       }
     });
 
     content.innerHTML = `
       <div class="col-span-full text-center py-8">
-        <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"></div>
-        <p class="mt-2 text-gray-600">Loading rankings...</p>
+        <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-[var(--color-border-primary)] border-t-primary-600"></div>
+        <p class="mt-2 text-[var(--color-text-secondary)]">Loading rankings...</p>
       </div>
     `;
 
@@ -121,28 +121,28 @@ const tools = getAllTools();
         scoresData = scores || [];
         
         if (scoresData.length === 0) {
-          content.innerHTML = '<div class="col-span-full text-center py-12 text-gray-600">No scores available yet.</div>';
+          content.innerHTML = '<div class="col-span-full text-center py-12 text-[var(--color-text-secondary)]">No scores available yet.</div>';
           return;
         }
         
         const rankedTools = scoresData.map(score => ({ ...score, tool: tools.find(t => t.id === score.tool_id) })).filter(item => item.tool);
         content.innerHTML = rankedTools.map((item, index) => `
-          <div class="rounded-lg border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
+          <div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 hover:shadow-lg transition-shadow">
             <div class="flex items-start gap-4">
-              <div class="text-3xl font-bold text-gray-300">#${index + 1}</div>
+              <div class="text-3xl font-bold text-[var(--color-text-tertiary)]">#${index + 1}</div>
               <div class="flex-1">
                 ${item.tool.logoUrl ? `<img src="${item.tool.logoUrl}" alt="${item.tool.name}" class="mb-3 h-12 w-12 rounded-lg">` : ''}
-                <h3 class="text-lg font-semibold text-gray-900"><a href="/tools/${item.tool.id}" class="hover:text-blue-600">${item.tool.name}</a></h3>
-                <p class="mt-1 text-sm text-gray-600">${item.tool.description}</p>
-                <div class="mt-4 rounded bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-3">
+                <h3 class="text-lg font-semibold text-[var(--color-text-primary)]"><a href="/tools/${item.tool.id}" class="hover:text-primary-600">${item.tool.name}</a></h3>
+                <p class="mt-1 text-sm text-[var(--color-text-secondary)]">${item.tool.description}</p>
+                <div class="mt-4 rounded bg-gradient-to-r from-primary-50 to-purple-50 px-4 py-3">
                   <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-gray-700">Total Score</span>
-                    <span class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">${item.total_score.toFixed(1)}</span>
+                    <span class="text-sm font-medium text-[var(--color-text-secondary)]">Total Score</span>
+                    <span class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-purple-600">${item.total_score.toFixed(1)}</span>
                   </div>
                 </div>
                 <div class="mt-4 flex gap-2">
-                  <span class="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700">${item.tool.category}</span>
-                  <span class="rounded bg-blue-50 px-2 py-1 text-xs text-blue-700">${item.tool.pricing}</span>
+                  <span class="rounded bg-[var(--color-bg-secondary)] px-2 py-1 text-xs text-[var(--color-text-secondary)]">${item.tool.category}</span>
+                  <span class="rounded bg-primary-50 px-2 py-1 text-xs text-primary-700">${item.tool.pricing}</span>
                 </div>
               </div>
             </div>
@@ -164,7 +164,7 @@ const tools = getAllTools();
 
       if (statsData.length === 0) {
         content.innerHTML = `
-          <div class="col-span-full text-center py-12 text-gray-600">
+          <div class="col-span-full text-center py-12 text-[var(--color-text-secondary)]">
             No tools found. Be the first to review!
           </div>
         `;
@@ -180,26 +180,26 @@ const tools = getAllTools();
         .filter(item => item.tool); // Only include tools that exist
 
       content.innerHTML = rankedTools.map((item, index) => `
-        <div class="rounded-lg border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
+        <div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 hover:shadow-lg transition-shadow">
           <div class="flex items-start gap-4">
-            <div class="text-3xl font-bold text-gray-300">#${index + 1}</div>
+            <div class="text-3xl font-bold text-[var(--color-text-tertiary)]">#${index + 1}</div>
             <div class="flex-1">
               ${item.tool.logoUrl ? `
                 <img src="${item.tool.logoUrl}" alt="${item.tool.name}" class="mb-3 h-12 w-12 rounded-lg">
               ` : ''}
-              <h3 class="text-lg font-semibold text-gray-900">
-                <a href="/tools/${item.tool.id}" class="hover:text-blue-600">
+              <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">
+                <a href="/tools/${item.tool.id}" class="hover:text-primary-600">
                   ${item.tool.name}
                 </a>
               </h3>
-              <p class="mt-1 text-sm text-gray-600">${item.tool.description}</p>
+              <p class="mt-1 text-sm text-[var(--color-text-secondary)]">${item.tool.description}</p>
               
               <div class="mt-4 flex items-center gap-4 text-sm">
                 <div class="flex items-center gap-1">
                   <span class="text-yellow-400">⭐</span>
                   <span class="font-medium">${item.average_rating.toFixed(1)}</span>
                 </div>
-                <div class="text-gray-600">
+                <div class="text-[var(--color-text-secondary)]">
                   ${item.review_count} reviews
                 </div>
                 ${tab === 'trending' ? `
@@ -210,10 +210,10 @@ const tools = getAllTools();
               </div>
 
               <div class="mt-4 flex gap-2">
-                <span class="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700">
+                <span class="rounded bg-[var(--color-bg-secondary)] px-2 py-1 text-xs text-[var(--color-text-secondary)]">
                   ${item.tool.category}
                 </span>
-                <span class="rounded bg-blue-50 px-2 py-1 text-xs text-blue-700">
+                <span class="rounded bg-primary-50 px-2 py-1 text-xs text-primary-700">
                   ${item.tool.pricing}
                 </span>
               </div>

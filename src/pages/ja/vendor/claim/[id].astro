@@ -19,20 +19,20 @@ if (!tool) {
 <Layout title={`Claim Ownership: ${tool.name}`}>
   <main class="mx-auto max-w-3xl px-4 py-12">
     <div class="mb-8 text-center">
-      <h1 class="text-3xl font-bold text-gray-900">Claim Ownership of {tool.name}</h1>
-      <p class="mt-2 text-gray-600">
+      <h1 class="text-3xl font-bold text-[var(--color-text-primary)]">Claim Ownership of {tool.name}</h1>
+      <p class="mt-2 text-[var(--color-text-secondary)]">
         Prove that you are the creator or authorized representative of this tool to access the vendor dashboard.
       </p>
     </div>
 
-    <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+    <div class="rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-8 shadow-sm">
       <div id="auth-check" class="text-center">
-        <p class="mb-4 text-gray-600">Checking your authentication status...</p>
+        <p class="mb-4 text-[var(--color-text-secondary)]">Checking your authentication status...</p>
       </div>
 
       <form id="claim-form" class="hidden space-y-6">
         <div>
-          <label for="proof_contact" class="block text-sm font-medium text-gray-700">
+          <label for="proof_contact" class="block text-sm font-medium text-[var(--color-text-secondary)]">
             Work Email or Contact for Verification
           </label>
           <div class="mt-1">
@@ -40,12 +40,12 @@ if (!tool) {
               type="text"
               name="proof_contact"
               id="proof_contact"
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              class="block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
               placeholder="founder@company.com"
               required
             />
           </div>
-          <p class="mt-2 text-sm text-gray-500">
+          <p class="mt-2 text-sm text-[var(--color-text-tertiary)]">
             We will use this to verify your connection to the tool's domain.
           </p>
         </div>
@@ -53,7 +53,7 @@ if (!tool) {
         <div>
           <button
             type="submit"
-            class="flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            class="flex w-full justify-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
           >
             Submit Claim
           </button>
@@ -66,11 +66,11 @@ if (!tool) {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 class="mt-2 text-lg font-medium text-gray-900">Claim Submitted!</h3>
-        <p class="mt-1 text-gray-500">
+        <h3 class="mt-2 text-lg font-medium text-[var(--color-text-primary)]">Claim Submitted!</h3>
+        <p class="mt-1 text-[var(--color-text-tertiary)]">
           We have received your request. We will review it shortly.
           <br/>
-          Check the <a href="/vendor/dashboard" class="text-blue-600 hover:underline">Vendor Dashboard</a> for status updates.
+          Check the <a href="/vendor/dashboard" class="text-primary-600 hover:underline">Vendor Dashboard</a> for status updates.
         </p>
       </div>
        <div id="existing-claim-message" class="hidden text-center">
@@ -79,11 +79,11 @@ if (!tool) {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
           </svg>
         </div>
-        <h3 class="mt-2 text-lg font-medium text-gray-900">Already Claimed</h3>
-        <p class="mt-1 text-gray-500">
+        <h3 class="mt-2 text-lg font-medium text-[var(--color-text-primary)]">Already Claimed</h3>
+        <p class="mt-1 text-[var(--color-text-tertiary)]">
           You or someone else has already submitted a claim for this tool.
            <br/>
-          Check the <a href="/vendor/dashboard" class="text-blue-600 hover:underline">Vendor Dashboard</a>.
+          Check the <a href="/vendor/dashboard" class="text-primary-600 hover:underline">Vendor Dashboard</a>.
         </p>
       </div>
     </div>
@@ -105,7 +105,7 @@ if (!tool) {
     if (!session) {
       if (authCheck) authCheck.innerHTML = `
         <p class="mb-4 text-red-600">You must be logged in to claim a tool.</p>
-        <button id="login-btn" class="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Log In</button>
+        <button id="login-btn" class="rounded bg-primary-600 px-4 py-2 text-white hover:bg-primary-700">Log In</button>
       `;
       document.getElementById('login-btn')?.addEventListener('click', async () => {
          const { error } = await supabase.auth.signInWithOAuth({

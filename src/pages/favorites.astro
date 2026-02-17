@@ -9,16 +9,16 @@ export const prerender = false; // Dynamic page for user favorites
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-8">
     <div class="mb-8">
-      <h1 class="text-4xl font-bold text-gray-900">My Favorites</h1>
-      <p class="mt-2 text-lg text-gray-600">
+      <h1 class="text-4xl font-bold text-[var(--color-text-primary)]">My Favorites</h1>
+      <p class="mt-2 text-lg text-[var(--color-text-secondary)]">
         Tools you've saved for later
       </p>
     </div>
 
     <!-- Auth check -->
-    <div id="auth-check" class="rounded-lg bg-white p-12 text-center shadow">
-      <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-primary-600"></div>
-      <p class="mt-4 text-gray-600">Loading...</p>
+    <div id="auth-check" class="rounded-lg bg-[var(--color-bg-elevated)] p-12 text-center shadow">
+      <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-[var(--color-border-primary)] border-t-primary-600"></div>
+      <p class="mt-4 text-[var(--color-text-secondary)]">Loading...</p>
     </div>
 
     <!-- Favorites list -->
@@ -26,12 +26,12 @@ export const prerender = false; // Dynamic page for user favorites
       <div id="favorites-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Will be populated dynamically -->
       </div>
-      <div id="no-favorites" class="hidden rounded-lg border-2 border-dashed border-gray-300 p-12 text-center">
-        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div id="no-favorites" class="hidden rounded-lg border-2 border-dashed border-[var(--color-border-primary)] p-12 text-center">
+        <svg class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
         </svg>
-        <h3 class="mt-2 text-sm font-medium text-gray-900">No favorites yet</h3>
-        <p class="mt-1 text-sm text-gray-500">Start exploring and save your favorite tools!</p>
+        <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No favorites yet</h3>
+        <p class="mt-1 text-sm text-[var(--color-text-tertiary)]">Start exploring and save your favorite tools!</p>
         <div class="mt-6">
           <a href="/" class="inline-flex items-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">
             Browse Tools
@@ -56,7 +56,7 @@ export const prerender = false; // Dynamic page for user favorites
       if (authCheck) {
         authCheck.innerHTML = `
           <div>
-            <p class="mb-4 text-gray-600">Please login to view your favorites</p>
+            <p class="mb-4 text-[var(--color-text-secondary)]">Please login to view your favorites</p>
             <a href="/login" class="inline-flex items-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">
               Login
             </a>
@@ -100,15 +100,15 @@ export const prerender = false; // Dynamic page for user favorites
       grid.innerHTML = favoriteTools.map(tool => `
         <a 
           href="/tools/${tool.id}" 
-          class="block rounded-lg border border-gray-200 p-4 transition hover:shadow-lg"
+          class="block rounded-lg border border-[var(--color-border-primary)] p-4 transition hover:shadow-lg"
         >
           <div class="flex items-start gap-3">
             ${tool.logoUrl ? `<img src="${tool.logoUrl}" alt="${tool.name}" class="h-8 w-8 rounded" loading="lazy" />` : ''}
             <div class="flex-1">
-              <h3 class="font-semibold text-gray-900">${tool.name}</h3>
-              <p class="mt-1 text-sm text-gray-600 line-clamp-2">${tool.description}</p>
+              <h3 class="font-semibold text-[var(--color-text-primary)]">${tool.name}</h3>
+              <p class="mt-1 text-sm text-[var(--color-text-secondary)] line-clamp-2">${tool.description}</p>
               <div class="mt-2 flex gap-2">
-                <span class="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-600">${tool.category}</span>
+                <span class="rounded bg-[var(--color-bg-secondary)] px-2 py-0.5 text-xs text-[var(--color-text-secondary)]">${tool.category}</span>
                 <span class="rounded bg-primary-50 px-2 py-0.5 text-xs text-primary-700">${tool.pricing}</span>
               </div>
             </div>

@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
-// import Header from '../../../components/Header.astro';
+import Header from '../../../components/Header.astro';
 // import SEO from '../../../components/SEO.astro';
+
+export const prerender = true;
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog', ({ data }) => {
@@ -140,37 +142,14 @@ const latestPosts = otherPosts
     ]
   })} />
 
-  <!-- Inline Header for Blog Article Page -->
-  <header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
-      <a href="/ja" class="flex items-center gap-2">
-        <img src="/logo.png" alt="AI Tools Hub" class="h-8 w-8" width="32" height="32" />
-        <span class="text-lg font-bold text-primary-600 sm:text-xl">AI Tools Hub</span>
-      </a>
-      
-      <div class="flex items-center gap-4 lg:gap-6">
-        <a href="/ja" class="text-gray-600 hover:text-primary-600">ホーム</a>
-        <a href="/ja/blog" class="text-gray-600 hover:text-primary-600">ブログ</a>
-        <a href="/ja/search" class="text-gray-600 hover:text-primary-600">検索</a>
-        <a href="/ja/rankings" class="text-gray-600 hover:text-primary-600">ランキング</a>
-        <a href="/ja/skills" class="text-gray-600 hover:text-primary-600">スキル</a>
-        <a href="/ja/submit" class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">ツール登録</a>
-        <a href="/ja/favorites" class="text-gray-600 hover:text-primary-600">お気に入り</a>
-        <div class="flex items-center gap-1 rounded-lg border border-gray-300 bg-white">
-          <a href="/blog" class="px-3 py-1 text-sm font-medium text-gray-600 hover:text-primary-600">EN</a>
-          <a href="/ja/blog" class="px-3 py-1 text-sm font-medium bg-primary-600 text-white rounded-lg">JA</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-  
-  <div class="min-h-screen bg-gray-50 py-12">
+  <Header />
+  <div class="min-h-screen bg-[var(--color-bg-secondary)] py-12">
     <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Back to Blog -->
       <div class="mb-8">
         <a 
           href="/ja/blog"
-          class="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+          class="inline-flex items-center text-primary-600 hover:text-primary-800 transition-colors"
         >
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -180,26 +159,26 @@ const latestPosts = otherPosts
       </div>
 
       <!-- Article Header -->
-      <header class="bg-white rounded-lg shadow-md p-8 mb-8">
+      <header class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md p-8 mb-8">
         {post.data.featured && (
-          <div class="inline-block bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded mb-4">
+          <div class="inline-block bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded mb-4">
             注目
           </div>
         )}
         
-        <div class="text-sm text-blue-600 font-semibold mb-2">
+        <div class="text-sm text-primary-600 font-semibold mb-2">
           {post.data.category}
         </div>
 
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        <h1 class="text-4xl font-bold text-[var(--color-text-primary)] mb-4">
           {post.data.title}
         </h1>
 
-        <p class="text-xl text-gray-600 mb-6">
+        <p class="text-xl text-[var(--color-text-secondary)] mb-6">
           {post.data.description}
         </p>
 
-        <div class="flex items-center justify-between text-sm text-gray-500 pb-6 border-b border-gray-200">
+        <div class="flex items-center justify-between text-sm text-[var(--color-text-tertiary)] pb-6 border-b border-[var(--color-border-primary)]">
           <div class="flex items-center gap-4">
             <span class="font-medium">投稿者: {post.data.author}</span>
             <time datetime={post.data.publishedAt}>
@@ -211,7 +190,7 @@ const latestPosts = otherPosts
         <!-- Tags -->
         <div class="mt-6 flex flex-wrap gap-2">
           {post.data.tags.map((tag) => (
-            <span class="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded">
+            <span class="inline-block bg-[var(--color-bg-tertiary)] text-[var(--color-text-secondary)] text-sm px-3 py-1 rounded">
               {tag}
             </span>
           ))}
@@ -219,39 +198,21 @@ const latestPosts = otherPosts
       </header>
 
       <!-- Article Content -->
-      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-        <div class="prose prose-lg max-w-none
-          prose-headings:font-bold
-          prose-h1:text-3xl prose-h1:mb-4
-          prose-h2:text-2xl prose-h2:mb-3 prose-h2:mt-8
-          prose-h3:text-xl prose-h3:mb-2 prose-h3:mt-6
-          prose-p:mb-4 prose-p:leading-relaxed
-          prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
-          prose-strong:font-bold prose-strong:text-gray-900
-          prose-ul:mb-4 prose-ul:list-disc prose-ul:pl-6
-          prose-ol:mb-4 prose-ol:list-decimal prose-ol:pl-6
-          prose-li:mb-2
-          prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
-          prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
-          prose-blockquote:border-l-4 prose-blockquote:border-blue-600 prose-blockquote:pl-4 prose-blockquote:italic
-          prose-img:rounded-lg prose-img:shadow-md
-          prose-table:border-collapse prose-table:w-full
-          prose-th:bg-gray-100 prose-th:p-3 prose-th:text-left prose-th:font-semibold
-          prose-td:border prose-td:border-gray-300 prose-td:p-3
-        ">
+      <div class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md p-8 mb-8">
+        <div class="prose-blog max-w-none">
           <Content />
         </div>
       </div>
 
       <!-- Share Section -->
-      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+      <div class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md p-8 mb-8">
         <h3 class="text-xl font-bold mb-4">この記事をシェア</h3>
         <div class="flex gap-4">
           <a 
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(`https://ai-tools-aggregator-seven.vercel.app/ja/blog/${post.slug}`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors"
+            class="inline-flex items-center px-4 py-2 bg-[#1DA1F2] text-white rounded-lg hover:opacity-90 transition-opacity"
           >
             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
               <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
@@ -263,7 +224,7 @@ const latestPosts = otherPosts
             href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://ai-tools-aggregator-seven.vercel.app/ja/blog/${post.slug}`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            class="inline-flex items-center px-4 py-2 bg-[#1877F2] text-white rounded-lg hover:opacity-90 transition-opacity"
           >
             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -275,24 +236,24 @@ const latestPosts = otherPosts
 
       <!-- Related Articles -->
       {relatedPosts.length > 0 && (
-        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">関連記事</h3>
+        <div class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md p-8 mb-8">
+          <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">関連記事</h3>
           <div class="grid gap-6 md:grid-cols-3">
             {relatedPosts.map((relatedPost) => (
               <a 
                 href={`/ja/blog/${relatedPost.slug}`}
-                class="group block bg-gray-50 rounded-lg p-6 hover:bg-blue-50 hover:shadow-md transition-all"
+                class="group block bg-[var(--color-bg-secondary)] rounded-lg p-6 hover:bg-primary-50 hover:shadow-md transition-all"
               >
-                <div class="text-sm text-blue-600 font-semibold mb-2">
+                <div class="text-sm text-primary-600 font-semibold mb-2">
                   {relatedPost.data.category}
                 </div>
-                <h4 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors line-clamp-2">
+                <h4 class="text-lg font-semibold text-[var(--color-text-primary)] mb-2 group-hover:text-primary-700 transition-colors line-clamp-2">
                   {relatedPost.data.title}
                 </h4>
-                <p class="text-sm text-gray-600 line-clamp-2">
+                <p class="text-sm text-[var(--color-text-secondary)] line-clamp-2">
                   {relatedPost.data.description}
                 </p>
-                <div class="mt-4 text-sm text-blue-600 font-medium group-hover:underline">
+                <div class="mt-4 text-sm text-primary-600 font-medium group-hover:underline">
                   続きを読む →
                 </div>
               </a>
@@ -303,27 +264,27 @@ const latestPosts = otherPosts
 
       <!-- Popular Articles -->
       {popularPosts.length > 0 && (
-        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">人気記事</h3>
+        <div class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md p-8 mb-8">
+          <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">人気記事</h3>
           <div class="grid gap-6 md:grid-cols-3">
             {popularPosts.map((popularPost) => (
-              <a 
+              <a
                 href={`/ja/blog/${popularPost.slug}`}
-                class="group block bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 hover:shadow-lg transition-all"
+                class="group block bg-gradient-to-br from-primary-50 to-purple-50 rounded-lg p-6 hover:shadow-lg transition-all"
               >
                 <div class="flex items-center gap-2 mb-2">
                   <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                   </svg>
-                  <span class="text-sm text-blue-600 font-semibold">{popularPost.data.category}</span>
+                  <span class="text-sm text-primary-600 font-semibold">{popularPost.data.category}</span>
                 </div>
-                <h4 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors line-clamp-2">
+                <h4 class="text-lg font-semibold text-[var(--color-text-primary)] mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
                   {popularPost.data.title}
                 </h4>
-                <p class="text-sm text-gray-600 line-clamp-2">
+                <p class="text-sm text-[var(--color-text-secondary)] line-clamp-2">
                   {popularPost.data.description}
                 </p>
-                <div class="mt-4 text-sm text-blue-600 font-medium group-hover:underline">
+                <div class="mt-4 text-sm text-primary-600 font-medium group-hover:underline">
                   続きを読む →
                 </div>
               </a>
@@ -334,24 +295,24 @@ const latestPosts = otherPosts
 
       <!-- Latest Articles -->
       {latestPosts.length > 0 && (
-        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">最新記事</h3>
+        <div class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md p-8 mb-8">
+          <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">最新記事</h3>
           <div class="grid gap-6 md:grid-cols-3">
             {latestPosts.map((latestPost) => (
-              <a 
+              <a
                 href={`/ja/blog/${latestPost.slug}`}
-                class="group block bg-gray-50 rounded-lg p-6 hover:bg-green-50 hover:shadow-md transition-all"
+                class="group block bg-[var(--color-bg-secondary)] rounded-lg p-6 hover:bg-green-50 hover:shadow-md transition-all"
               >
                 <div class="flex items-center gap-2 mb-2">
                   <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
-                  <span class="text-sm text-blue-600 font-semibold">{latestPost.data.category}</span>
+                  <span class="text-sm text-primary-600 font-semibold">{latestPost.data.category}</span>
                 </div>
-                <h4 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors line-clamp-2">
+                <h4 class="text-lg font-semibold text-[var(--color-text-primary)] mb-2 group-hover:text-green-700 transition-colors line-clamp-2">
                   {latestPost.data.title}
                 </h4>
-                <p class="text-sm text-gray-600 line-clamp-2">
+                <p class="text-sm text-[var(--color-text-secondary)] line-clamp-2">
                   {latestPost.data.description}
                 </p>
                 <div class="mt-4 text-sm text-green-600 font-medium group-hover:underline">
@@ -364,19 +325,19 @@ const latestPosts = otherPosts
       )}
 
       <!-- CTA - Browse More Tools -->
-      <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg shadow-md p-8 mb-8">
-        <h3 class="text-2xl font-bold text-gray-900 mb-2">他のAIツールも探す</h3>
-        <p class="text-gray-600 mb-4">生産性、創造性、イノベーションのための60以上のAIツールの厳選ディレクトリをご覧ください。</p>
+      <div class="bg-gradient-to-r from-primary-50 to-purple-50 rounded-lg shadow-md p-8 mb-8">
+        <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-2">他のAIツールも探す</h3>
+        <p class="text-[var(--color-text-secondary)] mb-4">生産性、創造性、イノベーションのための60以上のAIツールの厳選ディレクトリをご覧ください。</p>
         <div class="flex gap-4">
           <a 
             href="/ja/"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
           >
             AIツールを探す →
           </a>
           <a 
             href="/ja/blog"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors border-2 border-blue-600"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-bg-elevated)] text-primary-600 font-semibold rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors border-2 border-primary-600"
           >
             他の記事を読む
           </a>

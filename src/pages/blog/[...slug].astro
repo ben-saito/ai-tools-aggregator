@@ -67,7 +67,7 @@ const latestPosts = otherPosts
   articleTags={tags}
 /> -->
 
-<Layout 
+<Layout
   title={`${title} - AI Tools Hub`}
   description={description}
 >
@@ -134,31 +134,31 @@ const latestPosts = otherPosts
   })} />
 
   <Header />
-  <article class="min-h-screen bg-white">
+  <article class="min-h-screen bg-[var(--color-bg-primary)]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <!-- Breadcrumbs -->
       <nav class="mb-8 text-sm">
-        <a href="/" class="text-blue-600 hover:text-blue-800">Home</a>
-        <span class="mx-2 text-gray-400">›</span>
-        <a href="/blog" class="text-blue-600 hover:text-blue-800">Blog</a>
-        <span class="mx-2 text-gray-400">›</span>
-        <span class="text-gray-600">{category}</span>
+        <a href="/" class="text-primary-600 hover:text-primary-800 transition-colors">Home</a>
+        <span class="mx-2 text-[var(--color-text-tertiary)]">&rsaquo;</span>
+        <a href="/blog" class="text-primary-600 hover:text-primary-800 transition-colors">Blog</a>
+        <span class="mx-2 text-[var(--color-text-tertiary)]">&rsaquo;</span>
+        <span class="text-[var(--color-text-secondary)]">{category}</span>
       </nav>
 
       <!-- Header -->
-      <header class="mb-12">
+      <header class="mb-12 animate-fade-up">
         <!-- Category -->
-        <div class="text-sm text-blue-600 font-semibold mb-4">
+        <div class="text-sm text-primary-600 font-semibold mb-4">
           {category}
         </div>
 
         <!-- Title -->
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h1 class="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6">
           {title}
         </h1>
 
         <!-- Meta -->
-        <div class="flex items-center gap-6 text-gray-600 mb-6">
+        <div class="flex items-center gap-6 text-[var(--color-text-secondary)] mb-6">
           <div class="flex items-center gap-2">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -182,44 +182,44 @@ const latestPosts = otherPosts
         <!-- Tags -->
         <div class="flex flex-wrap gap-2 mb-8">
           {tags.map((tag: string) => (
-            <span class="inline-block bg-blue-50 text-blue-700 text-sm px-3 py-1 rounded-full">
+            <span class="inline-block bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm px-3 py-1 rounded-full">
               #{tag}
             </span>
           ))}
         </div>
 
         <!-- Description -->
-        <p class="text-xl text-gray-600 leading-relaxed">
+        <p class="text-xl text-[var(--color-text-secondary)] leading-relaxed">
           {description}
         </p>
       </header>
 
       <!-- Content -->
-      <div class="prose prose-lg prose-blue max-w-none">
+      <div class="prose-blog max-w-none">
         <Content />
       </div>
 
       <!-- Related Articles -->
       {relatedPosts.length > 0 && (
-        <section class="mt-16 pt-8 border-t border-gray-200">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Articles</h2>
+        <section class="mt-16 pt-8 border-t border-[var(--color-border-primary)]">
+          <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">Related Articles</h2>
           <div class="grid gap-6 md:grid-cols-3">
             {relatedPosts.map((relatedPost) => (
-              <a 
+              <a
                 href={`/blog/${relatedPost.slug}`}
-                class="group block bg-gray-50 rounded-lg p-6 hover:bg-blue-50 hover:shadow-md transition-all"
+                class="group block bg-[var(--color-bg-secondary)] rounded-xl p-6 border border-[var(--color-border-secondary)] hover:border-primary-500 hover:shadow-[var(--shadow-card-hover)] transition-all duration-200"
               >
-                <div class="text-sm text-blue-600 font-semibold mb-2">
+                <div class="text-sm text-primary-600 font-semibold mb-2">
                   {relatedPost.data.category}
                 </div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors line-clamp-2">
+                <h3 class="text-lg font-semibold text-[var(--color-text-primary)] mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
                   {relatedPost.data.title}
                 </h3>
-                <p class="text-sm text-gray-600 line-clamp-2">
+                <p class="text-sm text-[var(--color-text-secondary)] line-clamp-2">
                   {relatedPost.data.description}
                 </p>
-                <div class="mt-4 text-sm text-blue-600 font-medium group-hover:underline">
-                  Read more →
+                <div class="mt-4 text-sm text-primary-600 font-medium group-hover:underline">
+                  Read more &rarr;
                 </div>
               </a>
             ))}
@@ -290,24 +290,24 @@ const latestPosts = otherPosts
       )}
 
       <!-- Footer -->
-      <footer class="mt-16 pt-8 border-t border-gray-200">
+      <footer class="mt-16 pt-8 border-t border-[var(--color-border-primary)]">
         <!-- Share -->
         <div class="mb-8">
-          <h3 class="text-lg font-semibold text-gray-900 mb-4">Share this article</h3>
+          <h3 class="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Share this article</h3>
           <div class="flex gap-4">
-            <a 
+            <a
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-[#1DA1F2] text-white rounded-lg hover:opacity-90 transition-opacity"
             >
               Twitter
             </a>
-            <a 
+            <a
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(Astro.url.href)}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-[#0A66C2] text-white rounded-lg hover:opacity-90 transition-opacity"
             >
               LinkedIn
             </a>
@@ -315,149 +315,25 @@ const latestPosts = otherPosts
         </div>
 
         <!-- CTA - Browse More Tools -->
-        <div class="mb-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Discover More AI Tools</h3>
-          <p class="text-gray-600 mb-4">Explore our curated directory of 60+ AI tools for productivity, creativity, and innovation.</p>
-          <a 
+        <div class="mb-8 p-6 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950/20 dark:to-accent-950/20 rounded-xl border border-[var(--color-border-secondary)]">
+          <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2">Discover More AI Tools</h3>
+          <p class="text-[var(--color-text-secondary)] mb-4">Explore our curated directory of 60+ AI tools for productivity, creativity, and innovation.</p>
+          <a
             href="/"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
           >
-            Browse AI Tools →
+            Browse AI Tools &rarr;
           </a>
         </div>
 
         <!-- Back to Blog -->
-        <a 
+        <a
           href="/blog"
-          class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+          class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-800 transition-colors"
         >
-          ← Back to Blog
+          &larr; Back to Blog
         </a>
       </footer>
     </div>
   </article>
 </Layout>
-
-<style is:global>
-  /* Prose Styles for Blog Content */
-  .prose {
-    color: #1f2937;
-    max-width: 65ch;
-    font-size: 1.125rem;
-    line-height: 1.75;
-  }
-  .prose h1 {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: #111827;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-  .prose h2 {
-    font-size: 1.875rem;
-    font-weight: 700;
-    color: #111827;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-  }
-  .prose h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #111827;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-  }
-  .prose h4 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #111827;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  .prose p {
-    margin-bottom: 1rem;
-    line-height: 1.75;
-  }
-  .prose a {
-    color: #2563eb;
-    text-decoration: underline;
-  }
-  .prose a:hover {
-    color: #1d4ed8;
-  }
-  .prose ul,
-  .prose ol {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-  }
-  .prose li {
-    margin-bottom: 0.5rem;
-  }
-  .prose ul li {
-    list-style-type: disc;
-  }
-  .prose ol li {
-    list-style-type: decimal;
-  }
-  .prose blockquote {
-    border-left: 4px solid #3b82f6;
-    padding-left: 1rem;
-    font-style: italic;
-    margin: 1.5rem 0;
-    color: #4b5563;
-  }
-  .prose code {
-    background-color: #f3f4f6;
-    padding: 0.125rem 0.375rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    font-family: 'Courier New', monospace;
-    color: #1e40af;
-  }
-  .prose pre {
-    background-color: #1f2937;
-    color: #f9fafb;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
-    margin-bottom: 1rem;
-  }
-  .prose pre code {
-    background-color: transparent;
-    color: #f9fafb;
-    padding: 0;
-  }
-  .prose table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-  }
-  .prose th {
-    background-color: #f3f4f6;
-    font-weight: 600;
-    padding: 0.75rem;
-    text-align: left;
-    border: 1px solid #d1d5db;
-  }
-  .prose td {
-    padding: 0.75rem;
-    border: 1px solid #d1d5db;
-  }
-  .prose img {
-    border-radius: 0.5rem;
-    margin: 1.5rem 0;
-  }
-  .prose hr {
-    margin: 2rem 0;
-    border-color: #d1d5db;
-  }
-  .prose strong {
-    font-weight: 700;
-    color: #111827;
-  }
-  .prose em {
-    font-style: italic;
-  }
-</style>

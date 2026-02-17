@@ -6,8 +6,8 @@ interface Props {
   canonical?: string;
 }
 
-const { 
-  title, 
+const {
+  title,
   description = 'Discover the best AI tools for 2026. Curated directory of 60+ AI tools across 10 categories including text generation, image creation, coding assistants, and more.',
   image = '/og-image.png',
   canonical
@@ -48,34 +48,50 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" type="image/png" href="/favicon.svg" />
     <link rel="canonical" href={fullCanonical} />
-    
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <!-- Preload critical assets for LCP optimization -->
     <link rel="preload" href="/logo.webp" as="image" type="image/webp" />
-    
+
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://mqksqezqbauqymftrydy.supabase.co" crossorigin />
     <link rel="dns-prefetch" href="https://mqksqezqbauqymftrydy.supabase.co" />
+
+    <!-- Dark Mode Init (FOUC prevention) -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={fullCanonical} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={fullImage} />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={fullCanonical} />
     <meta property="twitter:title" content={pageTitle} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={fullImage} />
-    
+
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="AI tools, AI directory, ChatGPT, Midjourney, AI software, artificial intelligence, machine learning tools" />
-    
+
     <!-- Supabase CDN - dynamically loaded -->
     <script is:inline>
       (function() {
@@ -85,7 +101,7 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
           // Create a single global Supabase client instance
           const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
           const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
-          
+
           window.supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
           window.__supabaseReady = true;
           window.dispatchEvent(new Event('supabase-ready'));
@@ -93,7 +109,7 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
         document.head.appendChild(script);
       })();
     </script>
-    
+
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ3BQ6FSE" is:inline></script>
     <script is:inline>
@@ -104,83 +120,83 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
         page_path: window.location.pathname,
       });
     </script>
-    
+
     <!-- Language Consistency -->
     <script is:inline>
       (function() {
         const currentPath = window.location.pathname;
         const preferredLang = localStorage.getItem('preferred-lang');
         const redirected = sessionStorage.getItem('lang-redirected');
-        
+
         // Don't redirect if already redirected in this session or on language change
         if (redirected === 'true') return;
-        
+
         // Detect current language from URL
         const isJaPage = currentPath.startsWith('/ja');
         const currentLang = isJaPage ? 'ja' : 'en';
-        
+
         // Auto-redirect only if preferred language doesn't match and user hasn't manually changed it
         if (preferredLang && preferredLang !== currentLang && !redirected) {
           sessionStorage.setItem('lang-redirected', 'true');
-          
+
           let newPath;
           if (preferredLang === 'ja' && !isJaPage) {
             newPath = '/ja' + currentPath;
           } else if (preferredLang === 'en' && isJaPage) {
             newPath = currentPath.replace(/^\/ja/, '') || '/';
           }
-          
+
           if (newPath && newPath !== currentPath) {
             window.location.href = newPath;
           }
         }
       })();
     </script>
-    
+
     <title>{pageTitle}</title>
   </head>
-  <body class="min-h-screen bg-white text-gray-900">
+  <body class="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] transition-theme">
     <slot />
-    
-    <footer class="mt-20 border-t border-gray-100 bg-gray-50 py-12">
+
+    <footer class="mt-20 border-t border-[var(--color-border-primary)] bg-[var(--color-bg-secondary)] py-12">
       <div class="mx-auto max-w-7xl px-4">
         <div class="grid gap-8 md:grid-cols-4">
           <!-- About Section -->
           <div>
-            <h3 class="text-lg font-bold text-gray-900">AI Tools Hub</h3>
-            <p class="mt-2 text-sm text-gray-600">Discover the best AI tools for 2026. Curated directory of 60+ AI tools across 10 categories.</p>
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)]">AI Tools Hub</h3>
+            <p class="mt-2 text-sm text-[var(--color-text-secondary)]">Discover the best AI tools for 2026. Curated directory of 60+ AI tools across 10 categories.</p>
           </div>
-          
+
           <!-- Popular Categories -->
           <div>
-            <h4 class="text-sm font-bold text-gray-900 mb-3">Categories</h4>
+            <h4 class="text-sm font-bold text-[var(--color-text-primary)] mb-3">Categories</h4>
             <ul class="space-y-2 text-sm">
-              <li><a href="/categories/text-generation" class="text-gray-600 hover:text-blue-600 transition-colors">Text Generation</a></li>
-              <li><a href="/categories/image-generation" class="text-gray-600 hover:text-blue-600 transition-colors">Image Generation</a></li>
-              <li><a href="/categories/coding-assistant" class="text-gray-600 hover:text-blue-600 transition-colors">Coding Assistant</a></li>
-              <li><a href="/categories/video-editing" class="text-gray-600 hover:text-blue-600 transition-colors">Video Editing</a></li>
+              <li><a href="/categories/text-generation" class="text-[var(--color-text-secondary)] hover:text-primary-600 transition-colors">Text Generation</a></li>
+              <li><a href="/categories/image-generation" class="text-[var(--color-text-secondary)] hover:text-primary-600 transition-colors">Image Generation</a></li>
+              <li><a href="/categories/coding-assistant" class="text-[var(--color-text-secondary)] hover:text-primary-600 transition-colors">Coding Assistant</a></li>
+              <li><a href="/categories/video-editing" class="text-[var(--color-text-secondary)] hover:text-primary-600 transition-colors">Video Editing</a></li>
             </ul>
           </div>
-          
+
           <!-- Quick Links -->
           <div>
-            <h4 class="text-sm font-bold text-gray-900 mb-3">Quick Links</h4>
+            <h4 class="text-sm font-bold text-[var(--color-text-primary)] mb-3">Quick Links</h4>
             <ul class="space-y-2 text-sm">
-              <li><a href="/blog" class="text-gray-600 hover:text-blue-600 transition-colors">Blog</a></li>
-              <li><a href="/skills" class="text-gray-600 hover:text-blue-600 transition-colors">AI Agent Skills</a></li>
-              <li><a href="/submit" class="text-gray-600 hover:text-blue-600 transition-colors">Submit Tool</a></li>
-              <li><a href="/api/v1/tools" class="text-gray-600 hover:text-blue-600 transition-colors">API</a></li>
+              <li><a href="/blog" class="text-[var(--color-text-secondary)] hover:text-primary-600 transition-colors">Blog</a></li>
+              <li><a href="/skills" class="text-[var(--color-text-secondary)] hover:text-primary-600 transition-colors">AI Agent Skills</a></li>
+              <li><a href="/submit" class="text-[var(--color-text-secondary)] hover:text-primary-600 transition-colors">Submit Tool</a></li>
+              <li><a href="/api/v1/tools" class="text-[var(--color-text-secondary)] hover:text-primary-600 transition-colors">API</a></li>
             </ul>
           </div>
-          
+
           <!-- Newsletter -->
           <div>
             <NewsletterSignup />
           </div>
         </div>
-        
-        <div class="mt-8 pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} AI Tools Hub. All rights reserved.
+
+        <div class="mt-8 pt-8 border-t border-[var(--color-border-primary)] text-center text-sm text-[var(--color-text-tertiary)]">
+          &copy; {new Date().getFullYear()} AI Tools Hub. All rights reserved.
         </div>
       </div>
     </footer>
@@ -233,6 +249,24 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
           trackEvent('tool_view', { tool_id: toolId });
         }
 
+      })();
+    </script>
+
+    <!-- Scroll Reveal Observer -->
+    <script is:inline>
+      (function() {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+          observer.observe(el);
+        });
       })();
     </script>
     <ComparisonBar />

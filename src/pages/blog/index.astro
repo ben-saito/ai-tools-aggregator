@@ -29,14 +29,14 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
     ogImage="/og-image-blog.png"
   /> -->
   <Header />
-  <div class="min-h-screen bg-gray-50 py-12">
+  <div class="min-h-screen bg-[var(--color-bg-secondary)] py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        <h1 class="text-4xl font-bold text-[var(--color-text-primary)] mb-4">
           Blog
         </h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p class="text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto">
           Guides, tutorials, and insights about AI tools and how to use them effectively.
         </p>
       </div>
@@ -96,34 +96,34 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
       <!-- Blog Posts Grid -->
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {sortedPosts.map((post) => (
-          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <article class="bg-[var(--color-bg-elevated)] rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
             <!-- Featured Badge -->
             {post.data.featured && (
-              <div class="bg-blue-600 text-white text-xs font-bold px-3 py-1 inline-block">
+              <div class="bg-primary-600 text-white text-xs font-bold px-3 py-1 inline-block">
                 FEATURED
               </div>
             )}
 
             <div class="p-6">
               <!-- Category -->
-              <div class="text-sm text-blue-600 font-semibold mb-2">
+              <div class="text-sm text-primary-600 font-semibold mb-2">
                 {post.data.category}
               </div>
 
               <!-- Title -->
-              <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+              <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-3 hover:text-primary-600 transition-colors">
                 <a href={`/blog/${post.slug}`}>
                   {post.data.title}
                 </a>
               </h2>
 
               <!-- Description -->
-              <p class="text-gray-600 mb-4 line-clamp-3">
+              <p class="text-[var(--color-text-secondary)] mb-4 line-clamp-3">
                 {post.data.description}
               </p>
 
               <!-- Meta -->
-              <div class="flex items-center justify-between text-sm text-gray-500">
+              <div class="flex items-center justify-between text-sm text-[var(--color-text-tertiary)]">
                 <span>{post.data.author}</span>
                 <time datetime={post.data.publishedAt}>
                   {new Date(post.data.publishedAt).toLocaleDateString('en-US', {
@@ -137,7 +137,7 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
               <!-- Tags -->
               <div class="mt-4 flex flex-wrap gap-2">
                 {post.data.tags.slice(0, 3).map((tag) => (
-                  <span class="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+                  <span class="inline-block bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] text-xs px-2 py-1 rounded">
                     {tag}
                   </span>
                 ))}
@@ -146,7 +146,7 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
               <!-- Read More -->
               <a 
                 href={`/blog/${post.slug}`}
-                class="inline-block mt-4 text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+                class="inline-block mt-4 text-primary-600 font-semibold hover:text-primary-800 transition-colors"
               >
                 Read More →
               </a>
@@ -158,7 +158,7 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))].slice
       <!-- Empty State -->
       {sortedPosts.length === 0 && (
         <div class="text-center py-12">
-          <p class="text-gray-500 text-lg">No blog posts yet. Check back soon!</p>
+          <p class="text-[var(--color-text-tertiary)] text-lg">No blog posts yet. Check back soon!</p>
         </div>
       )}
     </div>

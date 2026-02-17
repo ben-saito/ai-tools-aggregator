@@ -10,61 +10,61 @@ export const prerender = false; // SSR required for dynamic content
 <Layout title="Vendor Dashboard">
   <main class="mx-auto max-w-7xl px-4 py-8">
     <div class="mb-8 flex items-center justify-between">
-      <h1 class="text-3xl font-bold text-gray-900">Vendor Dashboard</h1>
-      <a href="/tools" class="text-sm font-medium text-blue-600 hover:text-blue-500">
+      <h1 class="text-3xl font-bold text-[var(--color-text-primary)]">Vendor Dashboard</h1>
+      <a href="/tools" class="text-sm font-medium text-primary-600 hover:text-primary-500">
         Browse more tools to claim &rarr;
       </a>
     </div>
 
-    <div id="auth-check" class="rounded-lg bg-white p-12 text-center shadow">
+    <div id="auth-check" class="rounded-lg bg-[var(--color-bg-elevated)] p-12 text-center shadow">
       <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
         <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
       </div>
-      <p class="mt-4 text-gray-600">Verifying access...</p>
+      <p class="mt-4 text-[var(--color-text-secondary)]">Verifying access...</p>
     </div>
 
     <div id="dashboard-content" class="hidden space-y-8">
         <!-- Overview Stats -->
         <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <p class="text-sm font-medium text-gray-500">Total Tools</p>
-                <p class="mt-2 text-3xl font-bold text-gray-900" id="stat-total-tools">-</p>
+            <div class="rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-sm">
+                <p class="text-sm font-medium text-[var(--color-text-tertiary)]">Total Tools</p>
+                <p class="mt-2 text-3xl font-bold text-[var(--color-text-primary)]" id="stat-total-tools">-</p>
             </div>
-            <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <p class="text-sm font-medium text-gray-500">Total Views</p>
-                <p class="mt-2 text-3xl font-bold text-gray-900" id="stat-total-views">-</p>
+            <div class="rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-sm">
+                <p class="text-sm font-medium text-[var(--color-text-tertiary)]">Total Views</p>
+                <p class="mt-2 text-3xl font-bold text-[var(--color-text-primary)]" id="stat-total-views">-</p>
             </div>
-             <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <p class="text-sm font-medium text-gray-500">Total Upvotes</p>
-                <p class="mt-2 text-3xl font-bold text-gray-900" id="stat-total-upvotes">-</p>
+             <div class="rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-sm">
+                <p class="text-sm font-medium text-[var(--color-text-tertiary)]">Total Upvotes</p>
+                <p class="mt-2 text-3xl font-bold text-[var(--color-text-primary)]" id="stat-total-upvotes">-</p>
             </div>
-             <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <p class="text-sm font-medium text-gray-500">Total Reviews</p>
-                <p class="mt-2 text-3xl font-bold text-gray-900" id="stat-total-reviews">-</p>
+             <div class="rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-sm">
+                <p class="text-sm font-medium text-[var(--color-text-tertiary)]">Total Reviews</p>
+                <p class="mt-2 text-3xl font-bold text-[var(--color-text-primary)]" id="stat-total-reviews">-</p>
             </div>
         </section>
 
         <!-- Tool List -->
         <section>
-            <h2 class="mb-4 text-xl font-bold text-gray-900">My Tools</h2>
-             <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+            <h2 class="mb-4 text-xl font-bold text-[var(--color-text-primary)]">My Tools</h2>
+             <div class="overflow-hidden rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] shadow-sm">
+                <table class="min-w-full divide-y divide-[var(--color-border-primary)]">
+                    <thead class="bg-[var(--color-bg-secondary)]">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tool Name</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Views</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Upvotes</th>
-                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reviews</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-[var(--color-text-tertiary)] uppercase tracking-wider">Tool Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-[var(--color-text-tertiary)] uppercase tracking-wider">Status</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-[var(--color-text-tertiary)] uppercase tracking-wider">Views</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-[var(--color-text-tertiary)] uppercase tracking-wider">Upvotes</th>
+                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-[var(--color-text-tertiary)] uppercase tracking-wider">Reviews</th>
                             <th scope="col" class="relative px-6 py-3"><span class="sr-only">Actions</span></th>
                         </tr>
                     </thead>
-                    <tbody id="tool-list-body" class="bg-white divide-y divide-gray-200">
+                    <tbody id="tool-list-body" class="bg-[var(--color-bg-elevated)] divide-y divide-[var(--color-border-primary)]">
                         <!-- Loaded dynamically -->
                     </tbody>
                 </table>
-                 <div id="no-tools-msg" class="hidden p-8 text-center text-gray-500">
-                    You haven't claimed any tools yet. <a href="/tools" class="text-blue-600 hover:underline">Find your tool</a> to claim ownership.
+                 <div id="no-tools-msg" class="hidden p-8 text-center text-[var(--color-text-tertiary)]">
+                    You haven't claimed any tools yet. <a href="/tools" class="text-primary-600 hover:underline">Find your tool</a> to claim ownership.
                 </div>
             </div>
         </section>
@@ -169,8 +169,8 @@ export const prerender = false; // SSR required for dynamic content
                             ${tool.logo_url ? `<img class="h-10 w-10 rounded-full object-cover" src="${tool.logo_url}" alt="">` : `<div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center font-bold">${tool.name.charAt(0)}</div>`}
                         </div>
                         <div class="ml-4">
-                            <div class="text-sm font-medium text-gray-900">${tool.name}</div>
-                            <div class="text-sm text-gray-500"><a href="/tools/${tool.id}" target="_blank" class="hover:underline">View Page</a></div>
+                            <div class="text-sm font-medium text-[var(--color-text-primary)]">${tool.name}</div>
+                            <div class="text-sm text-[var(--color-text-tertiary)]"><a href="/tools/${tool.id}" target="_blank" class="hover:underline">View Page</a></div>
                         </div>
                     </div>
                 </td>
@@ -183,17 +183,17 @@ export const prerender = false; // SSR required for dynamic content
                         ${owner.status.charAt(0).toUpperCase() + owner.status.slice(1)}
                     </span>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-[var(--color-text-tertiary)]">
                     ${stat.view_count || 0}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-[var(--color-text-tertiary)]">
                     ${stat.upvote_count || 0}
                 </td>
-                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                 <td class="px-6 py-4 whitespace-nowrap text-sm text-[var(--color-text-tertiary)]">
                     ${stat.review_count || 0}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    ${owner.status === 'approved' ? `<a href="/vendor/dashboard/${tool.id}" class="text-blue-600 hover:text-blue-900">Details</a>` : '<span class="text-gray-400">Details</span>'}
+                    ${owner.status === 'approved' ? `<a href="/vendor/dashboard/${tool.id}" class="text-primary-600 hover:text-primary-900">Details</a>` : '<span class="text-gray-400">Details</span>'}
                 </td>
             </tr>
         `;

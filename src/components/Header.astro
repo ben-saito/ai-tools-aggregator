@@ -8,7 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
+<header class="sticky top-0 z-40 border-b border-[var(--header-border)] bg-[var(--color-bg-primary)] transition-theme">
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
     <a href={lang === 'ja' ? '/ja' : '/'} class="flex items-center gap-2">
       <picture>
@@ -17,27 +17,27 @@ const currentPath = Astro.url.pathname;
       </picture>
       <span class="text-lg font-bold text-primary-600 sm:text-xl">AI Tools Hub</span>
     </a>
-    
+
     <!-- Desktop Navigation -->
     <div class="hidden items-center gap-4 lg:flex lg:gap-6">
-      <a href={lang === 'ja' ? '/ja' : '/'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'ホーム' : 'Home'}</a>
-      <a href={lang === 'ja' ? '/ja/blog' : '/blog'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'ブログ' : 'Blog'}</a>
-      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? '検索' : 'Search'}</a>
-      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'ランキング' : 'Rankings'}</a>
-      <a href={lang === 'ja' ? '/ja/skills' : '/skills'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'スキル' : 'Skills'}</a>
+      <a href={lang === 'ja' ? '/ja' : '/'} class="text-[var(--color-text-secondary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'ホーム' : 'Home'}</a>
+      <a href={lang === 'ja' ? '/ja/blog' : '/blog'} class="text-[var(--color-text-secondary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'ブログ' : 'Blog'}</a>
+      <a href={lang === 'ja' ? '/ja/search' : '/search'} class="text-[var(--color-text-secondary)] transition-colors hover:text-primary-600">{lang === 'ja' ? '検索' : 'Search'}</a>
+      <a href={lang === 'ja' ? '/ja/rankings' : '/rankings'} class="text-[var(--color-text-secondary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'ランキング' : 'Rankings'}</a>
+      <a href={lang === 'ja' ? '/ja/skills' : '/skills'} class="text-[var(--color-text-secondary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'スキル' : 'Skills'}</a>
       <div class="group relative">
-        <button class="flex items-center gap-1 text-gray-600 hover:text-primary-600">
+        <button class="flex items-center gap-1 text-[var(--color-text-secondary)] transition-colors hover:text-primary-600">
           {lang === 'ja' ? 'カテゴリー' : 'Categories'}
           <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
         <div class="pointer-events-none absolute right-0 top-full pt-2 w-64 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 z-50">
-          <div class="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
+          <div class="animate-fade-down rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] py-2 shadow-[var(--shadow-card-hover)]">
             {categories.map((category) => (
               <a
                 href={lang === 'ja' ? `/ja/categories/${category.slug}` : `/categories/${category.slug}`}
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                class="block px-4 py-2 text-sm text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-secondary)] hover:text-primary-600"
               >
                 <span class="mr-2">{category.icon}</span>
                 {category.name}
@@ -46,39 +46,62 @@ const currentPath = Astro.url.pathname;
           </div>
         </div>
       </div>
-      <a href={lang === 'ja' ? '/ja/submit' : '/submit'} class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">
+      <a href={lang === 'ja' ? '/ja/submit' : '/submit'} class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-700">
         {lang === 'ja' ? 'ツール登録' : 'Submit Tool'}
       </a>
-      <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? 'お気に入り' : 'Favorites'}</a>
-      <a href={lang === 'ja' ? '/ja/about' : '/about'} class="text-gray-600 hover:text-primary-600">{lang === 'ja' ? '概要' : 'About'}</a>
-      
+      <a href={lang === 'ja' ? '/ja/favorites' : '/favorites'} class="text-[var(--color-text-secondary)] transition-colors hover:text-primary-600">{lang === 'ja' ? 'お気に入り' : 'Favorites'}</a>
+      <a href={lang === 'ja' ? '/ja/about' : '/about'} class="text-[var(--color-text-secondary)] transition-colors hover:text-primary-600">{lang === 'ja' ? '概要' : 'About'}</a>
+
+      <!-- Dark Mode Toggle -->
+      <button
+        id="theme-toggle"
+        class="rounded-lg p-2 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-secondary)] hover:text-primary-600"
+        aria-label="Toggle dark mode"
+      >
+        <!-- Sun icon (shown in dark mode) -->
+        <svg class="hidden h-5 w-5 dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg class="block h-5 w-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+
       <!-- Language Switcher -->
-      <div class="flex items-center gap-1 rounded-lg border border-gray-300 bg-white">
-        <a 
+      <div class="flex items-center gap-1 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)]">
+        <a
           href={lang === 'ja' ? currentPath.replace(/^\/ja/, '') || '/' : currentPath}
-          class={`px-3 py-1 text-sm font-medium transition ${lang === 'en' ? 'bg-primary-600 text-white rounded-lg' : 'text-gray-600 hover:text-primary-600'}`}
+          class={`px-3 py-1 text-sm font-medium transition ${lang === 'en' ? 'bg-primary-600 text-white rounded-lg' : 'text-[var(--color-text-secondary)] hover:text-primary-600'}`}
           data-lang="en"
         >
           EN
         </a>
-        <a 
+        <a
           href={lang === 'en' ? `/ja${currentPath}` : currentPath}
-          class={`px-3 py-1 text-sm font-medium transition ${lang === 'ja' ? 'bg-primary-600 text-white rounded-lg' : 'text-gray-600 hover:text-primary-600'}`}
+          class={`px-3 py-1 text-sm font-medium transition ${lang === 'ja' ? 'bg-primary-600 text-white rounded-lg' : 'text-[var(--color-text-secondary)] hover:text-primary-600'}`}
           data-lang="ja"
         >
           JA
         </a>
       </div>
-      
+
       <AuthButton />
     </div>
-    
+
     <!-- Mobile Navigation Button -->
     <MobileNav />
   </nav>
 </header>
 
 <script>
+  // Dark mode toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle?.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
   // Store language preference when clicking language links
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[data-lang]').forEach(link => {
