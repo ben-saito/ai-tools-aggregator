@@ -1,11 +1,11 @@
 {
   "cursor": {
     "lastVersion": "2.5 (Plugins, Sandbox Access Controls, Async Subagents)",
-    "lastChecked": "2026-02-18T11:15:20Z"
+    "lastChecked": "2026-02-18T22:15:03Z"
   },
   "claudeCode": {
-    "lastVersion": "2.1.45",
-    "lastChecked": "2026-02-18T15:30:04Z",
-    "note": "v2.1.45 confirmed - no new version as of 2026-02-19 00:30 JST"
+    "lastVersion": "2.1.47",
+    "lastChecked": "2026-02-18T22:30:07Z",
+    "note": "v2.1.47 detected and articles published - 2026-02-19 07:30 JST"
   }
 }
