@@ -1,7 +1,7 @@
 ---
 title: "Claude Sonnet 4.6リリース、Opus級の性能をSonnet価格で実現"
 description: "AnthropicがClaude Sonnet 4.6を発表。コンピューター使用能力が人間レベルに到達し、1Mトークンコンテキストウィンドウをベータ版で提供。ユーザーの70%が前バージョンより高評価、59%がOpus 4.5を上回る評価。"
-publishedAt: "2026-02-18T07:00:00+09:00"
+publishedAt: "2026-02-18T12:00:00+09:00"
 author: "AI Tools Hub"
 category: "release"
 lang: "ja"

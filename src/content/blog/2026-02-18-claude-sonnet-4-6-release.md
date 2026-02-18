@@ -1,7 +1,7 @@
 ---
 title: "Claude Sonnet 4.6 Released with Opus-Level Performance at Sonnet Pricing"
 description: "Anthropic launches Claude Sonnet 4.6, delivering human-level computer use capabilities and 1M token context window in beta. 70% of users prefer it over the previous version, and 59% rate it higher than Opus 4.5."
-publishedAt: "2026-02-18T07:00:00+09:00"
+publishedAt: "2026-02-18T12:00:00+09:00"
 author: "AI Tools Hub"
 category: "release"
 lang: "en"

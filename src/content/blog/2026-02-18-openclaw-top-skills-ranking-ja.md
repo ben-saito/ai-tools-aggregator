@@ -1,7 +1,7 @@
 ---
 title: "OpenClaw人気スキルランキング2026年2月版：トップ10に躍進したプランニングスキルとセキュリティ強化"
 description: "GitHub上のOpenClawスキルランキングでは、awesome-openclaw-skills（16,139スター）、Manus-style planningを実装したplanning-with-files（14,000スター）、Obsidian統合（9,998スター）がトップ3を独占。"
-publishedAt: "2026-02-18T00:00:00+09:00"
+publishedAt: "2026-02-18T12:00:00+09:00"
 author: "AI Tools Aggregator"
 category: "AI開発"
 tags: ["OpenClaw", "Clawdbot", "Skills", "ランキング", "GitHub", "Manus AI"]
