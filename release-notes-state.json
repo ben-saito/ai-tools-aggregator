@@ -1,11 +1,11 @@
 {
   "cursor": {
-    "lastVersion": "2.5 (Plugins, Sandbox Access Controls, Async Subagents)",
-    "lastChecked": "2026-02-18T22:15:03Z"
+    "lastVersion": "CLI Improvements and Mermaid ASCII Diagrams (cli-feb-18-2026)",
+    "lastChecked": "2026-02-19T00:15:03Z"
   },
   "claudeCode": {
     "lastVersion": "2.1.47",
-    "lastChecked": "2026-02-18T22:30:07Z",
-    "note": "v2.1.47 detected and articles published - 2026-02-19 07:30 JST"
+    "lastChecked": "2026-02-18T23:30:07Z",
+    "note": "v2.1.47 confirmed - no new version as of 2026-02-19 08:30 JST"
   }
 }
