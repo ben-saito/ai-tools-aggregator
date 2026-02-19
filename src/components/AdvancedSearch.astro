@@ -5,13 +5,13 @@
 <div class="mb-8 rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-[var(--shadow-card)]">
   <div class="mb-4">
     <label for="search-input" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
-      Search AI Tools
+      AIツールを検索
     </label>
     <div class="relative">
       <input
         type="text"
         id="search-input"
-        placeholder="Search by name, description, or category..."
+        placeholder="ツール名、説明、カテゴリで検索..."
         class="w-full rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] pl-10 pr-4 py-3 transition-all focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
       />
       <svg
@@ -35,57 +35,55 @@
     <!-- Category Filter -->
     <div>
       <label for="category-filter" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
-        Category
+        カテゴリ
       </label>
       <select
         id="category-filter"
         class="w-full rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] px-3 py-2 focus:border-primary-500 focus:outline-none"
       >
-        <option value="">All Categories</option>
-        <option value="text-generation">Text Generation</option>
-        <option value="image-generation">Image Generation</option>
-        <option value="video-generation">Video Generation</option>
-        <option value="audio-music">Audio & Music</option>
-        <option value="code-development">Code Development</option>
-        <option value="marketing-sales">Marketing & Sales</option>
-        <option value="productivity">Productivity</option>
-        <option value="research-education">Research & Education</option>
-        <option value="design-creative">Design & Creative</option>
-        <option value="data-analytics">Data & Analytics</option>
+        <option value="">すべてのカテゴリ</option>
+        <option value="text-generation">テキスト生成</option>
+        <option value="image-generation">画像生成</option>
+        <option value="video-generation">動画生成</option>
+        <option value="audio-music">音声・音楽</option>
+        <option value="code-development">コード開発</option>
+        <option value="marketing-sales">マーケティング・営業</option>
+        <option value="productivity">生産性向上</option>
+        <option value="research-education">リサーチ・教育</option>
+        <option value="design-creative">デザイン・クリエイティブ</option>
+        <option value="data-analytics">データ・分析</option>
       </select>
     </div>
 
     <!-- Pricing Filter -->
     <div>
       <label for="pricing-filter" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
-        Pricing
+        料金プラン
       </label>
       <select
         id="pricing-filter"
         class="w-full rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] px-3 py-2 focus:border-primary-500 focus:outline-none"
       >
-        <option value="">All Pricing</option>
-        <option value="free">Free</option>
-        <option value="freemium">Freemium</option>
-        <option value="paid">Paid</option>
-        <option value="open-source">Open Source</option>
+        <option value="">すべての料金</option>
+        <option value="free">無料</option>
+        <option value="freemium">フリーミアム</option>
+        <option value="paid">有料</option>
+        <option value="open-source">オープンソース</option>
       </select>
     </div>
 
     <!-- Sort -->
     <div>
       <label for="sort-by" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
-        Sort By
+        並び替え
       </label>
       <select
         id="sort-by"
         class="w-full rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] px-3 py-2 focus:border-primary-500 focus:outline-none"
       >
-        <option value="trending">Trending</option>
-        <option value="rating">Highest Rated</option>
-        <option value="reviews">Most Reviewed</option>
-        <option value="newest">Newest</option>
-        <option value="name">Name (A-Z)</option>
+        <option value="newest">新着順</option>
+        <option value="name">名前 (A-Z)</option>
+        <option value="featured">おすすめ順</option>
       </select>
     </div>
   </div>
@@ -93,20 +91,20 @@
   <!-- Active Tag Filter -->
   <div id="active-tag-container" class="mt-4 hidden">
     <div class="flex items-center gap-2">
-      <span class="text-sm text-[var(--color-text-secondary)]">Tag:</span>
+      <span class="text-sm text-[var(--color-text-secondary)]">タグ:</span>
       <span id="active-tag" class="inline-flex items-center gap-1 rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-700"></span>
       <button
         id="clear-tag"
         class="text-sm text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
       >
-        Clear
+        クリア
       </button>
     </div>
   </div>
 
   <!-- Results Count -->
   <div class="mt-4 text-sm text-[var(--color-text-secondary)]">
-    <span id="results-count">Loading...</span>
+    <span id="results-count">読み込み中...</span>
   </div>
 </div>
 
@@ -114,201 +112,169 @@
 <div id="search-results" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
   <div class="col-span-full text-center py-8">
     <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-[var(--color-border-primary)] border-t-primary-600"></div>
-    <p class="mt-2 text-[var(--color-text-secondary)]">Loading tools...</p>
+    <p class="mt-2 text-[var(--color-text-secondary)]">ツールを読み込み中...</p>
   </div>
 </div>
 
-<script>
-  (async function() {
-    // Wait for Supabase to load
-    while (!window.__supabaseReady && typeof window.supabase === 'undefined') {
-      await new Promise(resolve => setTimeout(resolve, 50));
-    }
+<script is:inline>
+  (function() {
+    var supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
+    var supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
+    var apiBase = supabaseUrl + '/rest/v1';
+    var headers = {
+      'apikey': supabaseAnonKey,
+      'Authorization': 'Bearer ' + supabaseAnonKey,
+      'Content-Type': 'application/json'
+    };
 
-    const supabaseUrl = 'https://mqksqezqbauqymftrydy.supabase.co';
-    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xa3NxZXpxYmF1cXltZnRyeWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2ODIwMDIsImV4cCI6MjA4NjI1ODAwMn0.Bf6nGo9I0skJWwFnXHHAKOBSBepYx7G8OHLw3Ih_Ytw';
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+    var searchInput = document.getElementById('search-input');
+    var categoryFilter = document.getElementById('category-filter');
+    var pricingFilter = document.getElementById('pricing-filter');
+    var sortBy = document.getElementById('sort-by');
+    var resultsContainer = document.getElementById('search-results');
+    var resultsCount = document.getElementById('results-count');
+    var activeTagContainer = document.getElementById('active-tag-container');
+    var activeTagSpan = document.getElementById('active-tag');
+    var clearTagBtn = document.getElementById('clear-tag');
 
-    const searchInput = document.getElementById('search-input');
-    const categoryFilter = document.getElementById('category-filter');
-    const pricingFilter = document.getElementById('pricing-filter');
-    const sortBy = document.getElementById('sort-by');
-    const resultsContainer = document.getElementById('search-results');
-    const resultsCount = document.getElementById('results-count');
-    const activeTagContainer = document.getElementById('active-tag-container');
-    const activeTagSpan = document.getElementById('active-tag');
-    const clearTagBtn = document.getElementById('clear-tag');
+    var urlParams = new URLSearchParams(window.location.search);
+    var tagFilter = urlParams.get('tag');
 
-    // Get tag from URL parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const tagFilter = urlParams.get('tag');
-
-    // Display active tag if present
-    if (tagFilter) {
+    if (tagFilter && activeTagContainer && activeTagSpan) {
       activeTagContainer.classList.remove('hidden');
       activeTagSpan.textContent = tagFilter;
     }
 
-    // Clear tag filter
-    clearTagBtn?.addEventListener('click', () => {
-      const url = new URL(window.location.href);
-      url.searchParams.delete('tag');
-      window.location.href = url.toString();
-    });
+    if (clearTagBtn) {
+      clearTagBtn.addEventListener('click', function() {
+        var url = new URL(window.location.href);
+        url.searchParams.delete('tag');
+        window.location.href = url.toString();
+      });
+    }
 
-    let debounceTimer;
+    var debounceTimer;
+
+    function buildQueryUrl() {
+      var query = searchInput ? searchInput.value.trim() : '';
+      var category = categoryFilter ? categoryFilter.value : '';
+      var pricing = pricingFilter ? pricingFilter.value : '';
+      var sort = sortBy ? sortBy.value : 'newest';
+
+      var params = ['select=*', 'limit=50'];
+
+      // テキスト検索: nameとdescriptionでilike検索
+      if (query) {
+        var encoded = encodeURIComponent('%' + query + '%');
+        params.push('or=(name.ilike.' + encoded + ',description.ilike.' + encoded + ')');
+      }
+
+      // カテゴリフィルター
+      if (category) {
+        params.push('category=eq.' + encodeURIComponent(category));
+      }
+
+      // 料金フィルター
+      if (pricing) {
+        params.push('pricing=eq.' + encodeURIComponent(pricing));
+      }
+
+      // ソート
+      if (sort === 'name') {
+        params.push('order=name.asc');
+      } else if (sort === 'featured') {
+        params.push('order=featured.desc,created_at.desc');
+      } else {
+        // newest (default)
+        params.push('order=created_at.desc');
+      }
+
+      return apiBase + '/tools?' + params.join('&');
+    }
+
+    function renderTool(tool) {
+      var logoHtml = tool.logo_url
+        ? '<img src="' + tool.logo_url + '" alt="' + (tool.name || '') + '" class="h-12 w-12 rounded-lg object-contain flex-shrink-0" onerror="this.style.display=\'none\'">'
+        : '<div class="h-12 w-12 rounded-lg bg-[var(--color-bg-tertiary)] flex items-center justify-center flex-shrink-0"><span class="text-lg font-bold text-[var(--color-text-secondary)]">' + (tool.name || '?')[0] + '</span></div>';
+
+      var category = (tool.category || '').replace(/-/g, ' ');
+      var pricing = tool.pricing || '';
+      var toolUrl = '/ja/tools/' + tool.id;
+
+      return '<a href="' + toolUrl + '" class="group block rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-[var(--shadow-card)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-500 hover:shadow-[var(--shadow-card-hover)]">' +
+        '<div class="flex items-start gap-4">' +
+          logoHtml +
+          '<div class="flex-1 min-w-0">' +
+            '<h3 class="font-semibold text-[var(--color-text-primary)] group-hover:text-primary-600 transition-colors line-clamp-1">' + (tool.name || '') + '</h3>' +
+            '<p class="mt-2 text-sm text-[var(--color-text-secondary)] line-clamp-2">' + (tool.description || '') + '</p>' +
+            '<div class="mt-3 flex flex-wrap gap-2">' +
+              (category ? '<span class="rounded-md bg-[var(--color-bg-tertiary)] px-2 py-1 text-xs text-[var(--color-text-secondary)]">' + category + '</span>' : '') +
+              (pricing ? '<span class="rounded-md bg-primary-50 dark:bg-primary-900/30 px-2 py-1 text-xs text-primary-700 dark:text-primary-300">' + pricing + '</span>' : '') +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</a>';
+    }
 
     async function searchTools() {
-      const query = searchInput.value.trim();
-      const category = categoryFilter.value;
-      const pricing = pricingFilter.value;
-      const sort = sortBy.value;
+      if (!resultsContainer) return;
 
-      // Show loading
-      resultsContainer.innerHTML = `
-        <div class="col-span-full text-center py-8">
-          <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-[var(--color-border-primary)] border-t-primary-600"></div>
-          <p class="mt-2 text-[var(--color-text-secondary)]">Searching...</p>
-        </div>
-      `;
+      resultsContainer.innerHTML =
+        '<div class="col-span-full text-center py-8">' +
+          '<div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-[var(--color-border-primary)] border-t-primary-600"></div>' +
+          '<p class="mt-2 text-[var(--color-text-secondary)]">検索中...</p>' +
+        '</div>';
 
       try {
-        // If tag filter is present, first get tool IDs with that tag
-        let filteredToolIds = null;
-        if (tagFilter) {
-          const { data: taggedTools } = await supabase
-            .from('tool_tags')
-            .select('tool_id')
-            .eq('tag_name', tagFilter);
-          
-          if (taggedTools && taggedTools.length > 0) {
-            filteredToolIds = taggedTools.map(t => t.tool_id);
-          } else {
-            // No tools with this tag
-            filteredToolIds = [];
-          }
+        var url = buildQueryUrl();
+        var response = await fetch(url, { headers: headers });
+
+        if (!response.ok) {
+          var errText = await response.text();
+          throw new Error('API error: ' + response.status + ' - ' + errText);
         }
 
-        let dbQuery = supabase
-          .from('tools')
-          .select('*');
+        var tools = await response.json();
 
-        // Apply tag filter
-        if (filteredToolIds !== null) {
-          if (filteredToolIds.length === 0) {
-            // No results for this tag
-            resultsContainer.innerHTML = `
-              <div class="col-span-full text-center py-12">
-                <p class="text-[var(--color-text-secondary)]">No tools found with tag "${tagFilter}"</p>
-              </div>
-            `;
-            resultsCount.textContent = 'No tools found';
-            return;
-          }
-          dbQuery = dbQuery.in('id', filteredToolIds);
+        if (resultsCount) {
+          resultsCount.textContent = tools.length + '件のツールが見つかりました';
         }
 
-        // Apply full-text search if query exists
-        if (query) {
-          dbQuery = dbQuery.textSearch('search_vector', query);
-        }
-
-        // Apply filters
-        if (category) {
-          dbQuery = dbQuery.eq('category', category);
-        }
-
-        if (pricing) {
-          dbQuery = dbQuery.eq('pricing', pricing);
-        }
-
-        // Apply sorting
-        switch (sort) {
-          case 'rating':
-            // Join with tools_stats for rating
-            dbQuery = dbQuery.order('average_rating', { ascending: false });
-            break;
-          case 'reviews':
-            dbQuery = dbQuery.order('review_count', { ascending: false });
-            break;
-          case 'newest':
-            dbQuery = dbQuery.order('created_at', { ascending: false });
-            break;
-          case 'name':
-            dbQuery = dbQuery.order('name', { ascending: true });
-            break;
-          case 'trending':
-          default:
-            dbQuery = dbQuery.order('trending_score', { ascending: false });
-        }
-
-        const { data: tools, error } = await dbQuery.limit(50);
-
-        if (error) throw error;
-
-        // Update results count
-        resultsCount.textContent = `${tools.length} tools found`;
-
-        // Render results
-        if (tools.length === 0) {
-          resultsContainer.innerHTML = `
-            <div class="col-span-full text-center py-12">
-              <svg class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 12h.01M12 12h.01M12 12h.01"></path>
-              </svg>
-              <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No tools found</h3>
-              <p class="mt-1 text-sm text-[var(--color-text-tertiary)]">Try adjusting your search or filters</p>
-            </div>
-          `;
+        if (!tools || tools.length === 0) {
+          resultsContainer.innerHTML =
+            '<div class="col-span-full text-center py-12">' +
+              '<svg class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>' +
+              '</svg>' +
+              '<h3 class="mt-4 text-sm font-medium text-[var(--color-text-primary)]">ツールが見つかりませんでした</h3>' +
+              '<p class="mt-1 text-sm text-[var(--color-text-tertiary)]">検索条件を変えてみてください</p>' +
+            '</div>';
         } else {
-          resultsContainer.innerHTML = tools.map(tool => `
-            <a href="/tools/${tool.id}" class="group block rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-bg-elevated)] p-6 shadow-[var(--shadow-card)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-500 hover:shadow-[var(--shadow-card-hover)]">
-              <div class="flex items-start gap-4">
-                ${tool.logo_url ? `<img src="${tool.logo_url}" alt="${tool.name}" class="h-12 w-12 rounded-lg">` : ''}
-                <div class="flex-1 min-w-0">
-                  <h3 class="font-semibold text-[var(--color-text-primary)] group-hover:text-primary-600 transition-colors line-clamp-1">
-                    ${tool.name}
-                  </h3>
-                  <p class="mt-2 text-sm text-[var(--color-text-secondary)] line-clamp-2">
-                    ${tool.description}
-                  </p>
-                  <div class="mt-3 flex gap-2">
-                    <span class="rounded-md bg-[var(--color-bg-tertiary)] px-2 py-1 text-xs text-[var(--color-text-secondary)]">
-                      ${tool.category.replace('-', ' ')}
-                    </span>
-                    <span class="rounded-md bg-primary-50 dark:bg-primary-900/30 px-2 py-1 text-xs text-primary-700 dark:text-primary-300">
-                      ${tool.pricing}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          `).join('');
+          resultsContainer.innerHTML = tools.map(renderTool).join('');
         }
-
-      } catch (error) {
-        console.error('Search error:', error);
-        resultsContainer.innerHTML = `
-          <div class="col-span-full text-center py-12">
-            <p class="text-red-600">Error loading tools. Please try again.</p>
-          </div>
-        `;
+      } catch (err) {
+        console.error('Search error:', err);
+        if (resultsContainer) {
+          resultsContainer.innerHTML =
+            '<div class="col-span-full text-center py-12">' +
+              '<p class="text-red-500">エラーが発生しました: ' + err.message + '</p>' +
+              '<button onclick="location.reload()" class="mt-4 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">再読み込み</button>' +
+            '</div>';
+        }
       }
     }
 
-    // Debounced search
     function debouncedSearch() {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(searchTools, 300);
     }
 
-    // Event listeners
-    searchInput?.addEventListener('input', debouncedSearch);
-    categoryFilter?.addEventListener('change', searchTools);
-    pricingFilter?.addEventListener('change', searchTools);
-    sortBy?.addEventListener('change', searchTools);
+    if (searchInput) searchInput.addEventListener('input', debouncedSearch);
+    if (categoryFilter) categoryFilter.addEventListener('change', searchTools);
+    if (pricingFilter) pricingFilter.addEventListener('change', searchTools);
+    if (sortBy) sortBy.addEventListener('change', searchTools);
 
-    // Initial load
+    // 初回ロード
     searchTools();
   })();
 </script>
@@ -320,7 +286,6 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
