@@ -220,100 +220,97 @@ const postsData = sortedPosts.map(post => ({
   }
 </style>
 
-<script>
-  const searchInput = document.getElementById('search-input') as HTMLInputElement;
-  const categoryBtns = document.querySelectorAll('.category-btn');
-  const cards = document.querySelectorAll('.blog-post-card') as NodeListOf<HTMLElement>;
-  const emptyState = document.getElementById('empty-state') as HTMLElement;
-  const resultsCount = document.getElementById('results-count') as HTMLElement;
-  const featuredSection = document.getElementById('featured-section');
-  const clearSearch = document.getElementById('clear-search');
+<script is:inline>
+  (function() {
+    var searchInput = document.getElementById('search-input');
+    var categoryBtns = document.querySelectorAll('.category-btn');
+    var cards = document.querySelectorAll('.blog-post-card');
+    var emptyState = document.getElementById('empty-state');
+    var resultsCount = document.getElementById('results-count');
+    var featuredSection = document.getElementById('featured-section');
+    var clearSearch = document.getElementById('clear-search');
 
-  let currentQuery = '';
-  let currentCategory = 'all';
+    var currentQuery = '';
+    var currentCategory = 'all';
 
-  function filterPosts() {
-    const query = currentQuery.trim().toLowerCase();
-    let visibleCount = 0;
+    function filterPosts() {
+      var query = currentQuery.trim().toLowerCase();
+      var visibleCount = 0;
 
-    cards.forEach((card) => {
-      const title = card.dataset.title || '';
-      const description = card.dataset.description || '';
-      const category = card.dataset.category || '';
-      const tags = card.dataset.tags || '';
+      cards.forEach(function(card) {
+        var title = card.getAttribute('data-title') || '';
+        var description = card.getAttribute('data-description') || '';
+        var category = card.getAttribute('data-category') || '';
+        var tags = card.getAttribute('data-tags') || '';
 
-      const matchesQuery = !query || 
-        title.includes(query) || 
-        description.includes(query) || 
-        tags.includes(query);
+        var matchesQuery = !query ||
+          title.indexOf(query) !== -1 ||
+          description.indexOf(query) !== -1 ||
+          tags.indexOf(query) !== -1;
 
-      const matchesCategory = currentCategory === 'all' || category === currentCategory;
+        var matchesCategory = currentCategory === 'all' || category === currentCategory;
 
-      if (matchesQuery && matchesCategory) {
-        card.style.display = '';
-        visibleCount++;
-      } else {
-        card.style.display = 'none';
+        if (matchesQuery && matchesCategory) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (resultsCount) resultsCount.textContent = visibleCount + '件';
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
       }
-    });
 
-    // 件数更新
-    resultsCount.textContent = `${visibleCount}件`;
-
-    // 空の場合の表示
-    if (visibleCount === 0) {
-      emptyState.classList.remove('hidden');
-    } else {
-      emptyState.classList.add('hidden');
-    }
-
-    // 検索中は人気記事を非表示
-    if (featuredSection) {
-      if (query || currentCategory !== 'all') {
-        featuredSection.style.display = 'none';
-      } else {
-        featuredSection.style.display = '';
+      if (featuredSection) {
+        featuredSection.style.display = (query || currentCategory !== 'all') ? 'none' : '';
       }
     }
-  }
 
-  // 検索入力
-  searchInput?.addEventListener('input', (e) => {
-    currentQuery = (e.target as HTMLInputElement).value;
-    filterPosts();
-  });
+    if (searchInput) {
+      searchInput.addEventListener('input', function(e) {
+        currentQuery = e.target.value;
+        filterPosts();
+      });
+    }
 
-  // カテゴリフィルター
-  categoryBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      categoryBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentCategory = (btn as HTMLElement).dataset.category || 'all';
-      filterPosts();
-    });
-  });
-
-  // 検索リセット
-  clearSearch?.addEventListener('click', () => {
-    searchInput.value = '';
-    currentQuery = '';
-    currentCategory = 'all';
-    categoryBtns.forEach(b => b.classList.remove('active'));
-    categoryBtns[0]?.classList.add('active');
-    filterPosts();
-  });
-
-  // URLパラメータからカテゴリを初期設定
-  const urlParams = new URLSearchParams(window.location.search);
-  const categoryParam = urlParams.get('category');
-  if (categoryParam) {
-    currentCategory = categoryParam;
-    categoryBtns.forEach((btn) => {
-      btn.classList.remove('active');
-      if ((btn as HTMLElement).dataset.category === categoryParam) {
+    categoryBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        categoryBtns.forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
-      }
+        currentCategory = btn.getAttribute('data-category') || 'all';
+        filterPosts();
+      });
     });
-    filterPosts();
-  }
+
+    if (clearSearch) {
+      clearSearch.addEventListener('click', function() {
+        if (searchInput) searchInput.value = '';
+        currentQuery = '';
+        currentCategory = 'all';
+        categoryBtns.forEach(function(b) { b.classList.remove('active'); });
+        if (categoryBtns[0]) categoryBtns[0].classList.add('active');
+        filterPosts();
+      });
+    }
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var categoryParam = urlParams.get('category');
+    if (categoryParam) {
+      currentCategory = categoryParam;
+      categoryBtns.forEach(function(btn) {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-category') === categoryParam) {
+          btn.classList.add('active');
+        }
+      });
+      filterPosts();
+    }
+  })();
 </script>
