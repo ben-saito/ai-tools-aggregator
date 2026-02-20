@@ -1795,5 +1795,25 @@
     "premium": false,
     "logoUrl": "https://tabnine.com/favicon.ico",
     "addedAt": "2026-02-12"
+  },
+  {
+    "id": "google-cloud-code-assist",
+    "name": "Google Cloud Code Assist (Antigravity)",
+    "url": "https://cloud.google.com/products/gemini/code-assist",
+    "category": "code-development",
+    "description": "Google's AI coding assistant powered by Gemini. Offers code completion, generation, refactoring, and explanation. Available via Google account quotas with monthly free credits. Natively integrates with OpenClaw. Also known internally as Antigravity (Cloud Code Assist) — Google's answer to GitHub Copilot and Claude Code.",
+    "pricing": "freemium",
+    "tags": [
+      "coding",
+      "gemini",
+      "google",
+      "code-completion",
+      "ai-assistant",
+      "antigravity"
+    ],
+    "featured": false,
+    "premium": false,
+    "logoUrl": "https://www.gstatic.com/devrel-devsite/prod/v45f61267e8345b8c6b420de96f21bf81b2e12bbd8ca7e1fe430ba04d50a5c0b1/cloud/images/cloud-logo.svg",
+    "addedAt": "2026-02-20"
   }
 ]
