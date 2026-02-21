@@ -1,0 +1,24 @@
+# AI Tools Hub
+
+> AI Tools Hubは、100以上のAIツールを日本語と英語でキュレーション・評価・比較するディレクトリサイトです。
+
+## サービス概要
+- URL: https://ai-tools-aggregator-seven.vercel.app
+- カテゴリ: テキスト生成、画像生成、コーディング、生産性向上、マーケティングなど10カテゴリ
+- 対応言語: 日本語・英語
+- 特徴: 週次更新、価格比較、用途別おすすめ
+
+## ブログ（AIツール解説記事 140件以上）
+- /ja/blog - 日本語ブログ一覧
+- /blog - 英語ブログ一覧
+
+## 主要ツールカテゴリ
+（各カテゴリのURLパターン: /ja/tools/{tool-id}）
+- テキスト生成: chatgpt, claude, gemini, copilot
+- コーディング: cursor, github-copilot, claude-code, google-cloud-code-assist
+- 画像生成: midjourney, dalle, stable-diffusion, ideogram
+- 動画生成: sora, runway, pika
+- 生産性: notion-ai, otter-ai, motion
+
+## 検索
+AIツールを検索・フィルタリング: /ja/search

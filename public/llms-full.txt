@@ -1,0 +1,846 @@
+# AI Tools Hub - Full Tool List
+
+> 全AIツール一覧（101件）。各ツールのID、名前、カテゴリ、料金プラン、概要を収録。
+
+Generated: 2026-02-21
+Source: https://ai-tools-aggregator-seven.vercel.app
+
+---
+
+## テキスト生成
+
+### ChatGPT
+- ID: chatgpt
+- URL: https://chat.openai.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Conversational AI by OpenAI. Answers questions, writes content, codes, and assists with various tasks.
+- タグ: chatbot, writing, coding, reasoning
+- ページ: /ja/tools/chatgpt
+
+### Claude
+- ID: claude
+- URL: https://claude.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: Anthropic's AI assistant. Excels at analysis, coding, writing, and complex reasoning tasks.
+- タグ: chatbot, coding, analysis, long-context
+- ページ: /ja/tools/claude
+
+### Gemini
+- ID: gemini
+- URL: https://gemini.google.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Google's multimodal AI. Understands text, images, audio, video, and code.
+- タグ: chatbot, multimodal, google, search
+- ページ: /ja/tools/gemini
+
+### Mistral AI
+- ID: mistral
+- URL: https://mistral.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: European AI model. Open-source and multilingual alternatives to GPT.
+- タグ: open-source, multilingual, european, ai-model
+- ページ: /ja/tools/mistral
+
+### Character.AI
+- ID: character-ai
+- URL: https://character.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: Chat with AI characters. Create and talk to fictional or historical personas.
+- タグ: chatbot, characters, roleplay, entertainment
+- ページ: /ja/tools/character-ai
+
+
+## 画像生成
+
+### Midjourney
+- ID: midjourney
+- URL: https://midjourney.com
+- 料金: 有料
+- 概要: AI image generator creating stunning, artistic visuals from text prompts via Discord.
+- タグ: art, design, discord, high-quality
+- ページ: /ja/tools/midjourney
+
+### DALL-E 3
+- ID: dall-e
+- URL: https://openai.com/dall-e-3
+- 料金: 有料
+- 概要: OpenAI's image generator. Creates detailed images from text descriptions with high accuracy.
+- タグ: art, design, openai
+- ページ: /ja/tools/dall-e
+
+### Stable Diffusion
+- ID: stable-diffusion
+- URL: https://stability.ai
+- 料金: オープンソース
+- 概要: Open-source image generation model. Run locally or via cloud services.
+- タグ: art, open-source, local, customizable
+- ページ: /ja/tools/stable-diffusion
+
+### Leonardo.ai
+- ID: leonardo-ai
+- URL: https://leonardo.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI image generator focused on game assets, concept art, and design.
+- タグ: art, game-design, concept-art, 3d
+- ページ: /ja/tools/leonardo-ai
+
+### Ideogram
+- ID: ideogram
+- URL: https://ideogram.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI image generator with excellent text rendering capabilities.
+- タグ: art, text-in-image, design, logos
+- ページ: /ja/tools/ideogram
+
+### Playground AI
+- ID: playground-ai
+- URL: https://playgroundai.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI image creation and editing platform. Mix, edit, and upscale images.
+- タグ: art, editing, mixing, upscaling
+- ページ: /ja/tools/playground-ai
+
+### Adobe Firefly
+- ID: adobe-firefly
+- URL: https://firefly.adobe.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Adobe's AI image generator. Integrated with Creative Cloud apps.
+- タグ: art, adobe, creative-cloud, commercial
+- ページ: /ja/tools/adobe-firefly
+
+### Ideogram
+- ID: ideogram
+- URL: https://ideogram.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI image generator with text rendering. Best for images with accurate text overlays.
+- タグ: image, text-rendering, design, graphics
+- ページ: /ja/tools/ideogram
+
+### Leonardo.ai
+- ID: leonardo-ai
+- URL: https://leonardo.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI art generator focused on game assets and creative content.
+- タグ: game-art, assets, creative, generation
+- ページ: /ja/tools/leonardo-ai
+
+### Clipdrop
+- ID: clipdrop
+- URL: https://clipdrop.co
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI image editing tools. Remove backgrounds, upscale, cleanup instantly.
+- タグ: image-editing, background-removal, upscaling, cleanup
+- ページ: /ja/tools/clipdrop
+
+### Playground AI
+- ID: playground-ai
+- URL: https://playgroundai.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Free AI image generator with daily credits. Mix models and styles.
+- タグ: image-generation, mixed-models, free-credits, creative
+- ページ: /ja/tools/playground-ai
+
+### Adobe Firefly
+- ID: Adobe-firefly
+- URL: https://firefly.adobe.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Adobe's AI image generator. Safe for commercial use, integrated with Creative Cloud.
+- タグ: adobe, commercial-safe, creative-cloud, enterprise
+- ページ: /ja/tools/Adobe-firefly
+
+### Remove.bg
+- ID: remove-bg
+- URL: https://remove.bg
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI background removal. Remove image backgrounds in seconds.
+- タグ: background-removal, image-editing, automation, e-commerce
+- ページ: /ja/tools/remove-bg
+
+### Jasper Art
+- ID: jasper-art
+- URL: https://jasper.ai/art
+- 料金: 有料
+- 概要: AI image generator from Jasper. Create marketing visuals from text.
+- タグ: marketing, images, visuals, generation
+- ページ: /ja/tools/jasper-art
+
+
+## コーディング・開発
+
+### GitHub Copilot
+- ID: github-copilot
+- URL: https://github.com/features/copilot
+- 料金: 有料
+- 概要: AI pair programmer by GitHub and OpenAI. Code suggestions in your IDE.
+- タグ: coding, vscode, github, autocomplete
+- ページ: /ja/tools/github-copilot
+
+### Cursor
+- ID: cursor
+- URL: https://cursor.sh
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-first code editor. Built on VSCode with powerful AI assistance and chat.
+- タグ: coding, ide, vscode-fork, ai-native
+- ページ: /ja/tools/cursor
+
+### v0.dev
+- ID: v0-dev
+- URL: https://v0.dev
+- 料金: フリーミアム（無料プランあり）
+- 概要: Vercel's AI UI generator. Generate React components from text descriptions.
+- タグ: coding, react, ui, vercel
+- ページ: /ja/tools/v0-dev
+
+### Claude Code
+- ID: claude-code
+- URL: https://claude.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: Anthropic's coding assistant. Edit codebases, debug, and build features.
+- タグ: coding, cli, agent, autonomous
+- ページ: /ja/tools/claude-code
+
+### Replit
+- ID: replit
+- URL: https://replit.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Online IDE with AI code generation. Code, collaborate, and deploy from browser.
+- タグ: coding, ide, collaboration, deployment
+- ページ: /ja/tools/replit
+
+### Tabnine
+- ID: tabnine
+- URL: https://tabnine.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI code completion for IDEs. Context-aware suggestions across languages.
+- タグ: coding, autocomplete, ide, productivity
+- ページ: /ja/tools/tabnine
+
+### Codeium
+- ID: codeium
+- URL: https://codeium.com
+- 料金: 完全無料
+- 概要: Free AI code assistant. Autocomplete, search, and chat in 70+ languages.
+- タグ: coding, autocomplete, free, multi-language
+- ページ: /ja/tools/codeium
+
+### Replit AI
+- ID: replit-ai
+- URL: https://replit.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered coding environment. Build, run, and deploy apps with AI assistance.
+- タグ: coding, ide, deployment, collaboration
+- ページ: /ja/tools/replit-ai
+
+### v0 by Vercel
+- ID: v0
+- URL: https://v0.dev
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI UI generator. Generate production-ready React components from prompts.
+- タグ: ui, react, frontend, code-generation
+- ページ: /ja/tools/v0
+
+### Bolt.new
+- ID: bolt-new
+- URL: https://bolt.new
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered full-stack web development. Deploy apps directly from prompts.
+- タグ: full-stack, deployment, no-code, web-dev
+- ページ: /ja/tools/bolt-new
+
+### Codeium
+- ID: codeium
+- URL: https://codeium.com
+- 料金: 完全無料
+- 概要: Free AI code completion. Like Copilot but completely free.
+- タグ: coding, autocomplete, free, ide
+- ページ: /ja/tools/codeium
+
+### Tabnine
+- ID: tabnine
+- URL: https://tabnine.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI code completion. Privacy-focused, runs locally or in cloud.
+- タグ: coding, autocomplete, privacy, local
+- ページ: /ja/tools/tabnine
+
+### Google Cloud Code Assist (Antigravity)
+- ID: google-cloud-code-assist
+- URL: https://cloud.google.com/products/gemini/code-assist
+- 料金: フリーミアム（無料プランあり）
+- 概要: Google's AI coding assistant powered by Gemini. Offers code completion, generation, refactoring, and explanation. Available via Google account quotas with monthly free credits. Natively integrates with OpenClaw. Also known internally as Antigravity (Cloud Code Assist) — Google's answer to GitHub Copilot and Claude Code.
+- タグ: coding, gemini, google, code-completion, ai-assistant, antigravity
+- ページ: /ja/tools/google-cloud-code-assist
+
+
+## 動画生成
+
+### Runway
+- ID: runway
+- URL: https://runwayml.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI video editor and generator. Create, edit, and enhance videos with AI tools.
+- タグ: video, editing, generation, creative
+- ページ: /ja/tools/runway
+
+### Synthesia
+- ID: synthesia
+- URL: https://synthesia.io
+- 料金: 有料
+- 概要: AI video platform. Create videos with AI avatars from text scripts.
+- タグ: video, avatars, training, corporate
+- ページ: /ja/tools/synthesia
+
+### HeyGen
+- ID: heygen
+- URL: https://heygen.com
+- 料金: 有料
+- 概要: AI video platform. Create videos with customizable AI avatars and voices.
+- タグ: video, avatars, text-to-video, multilingual
+- ページ: /ja/tools/heygen
+
+### Lumen5
+- ID: lumen5
+- URL: https://lumen5.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI video creator for social media. Turn blog posts into engaging videos.
+- タグ: video, social-media, marketing, automation
+- ページ: /ja/tools/lumen5
+
+### Pictory
+- ID: pictory
+- URL: https://pictory.ai
+- 料金: 有料
+- 概要: AI video editor. Create short videos from long content automatically.
+- タグ: video, editing, short-form, content-repurposing
+- ページ: /ja/tools/pictory
+
+### Pika
+- ID: pika
+- URL: https://pika.art
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI video generator. Transform text and images into cinematic videos.
+- タグ: video, generation, text-to-video, creative
+- ページ: /ja/tools/pika
+
+### HeyGen
+- ID: heygen
+- URL: https://heygen.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI avatar video platform. Create spokesperson videos with AI presenters.
+- タグ: avatars, video, presentation, marketing
+- ページ: /ja/tools/heygen
+
+### Descript
+- ID: descript
+- URL: https://descript.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI video and audio editor. Edit videos like editing text documents.
+- タグ: video-editing, audio-editing, transcription, podcasting
+- ページ: /ja/tools/descript
+
+### Kling AI
+- ID: kling
+- URL: https://klingai.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Chinese AI video generator. High-quality text-to-video with impressive realism.
+- タグ: video, generation, chinese, text-to-video
+- ページ: /ja/tools/kling
+
+### Luma AI
+- ID: lumalabs
+- URL: https://lumalabs.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI 3D capture and video generation. Create cinematic shots from text.
+- タグ: 3d, video, cinematic, generation
+- ページ: /ja/tools/lumalabs
+
+### Vidyo.ai
+- ID: vidyo-ai
+- URL: https://vidyo.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI video repurposing. Turn long videos into short clips for social media.
+- タグ: video-editing, repurposing, social-media, clips
+- ページ: /ja/tools/vidyo-ai
+
+### Pictory
+- ID: pictory
+- URL: https://pictory.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI video creation from text. Turn scripts into engaging videos automatically.
+- タグ: video, text-to-video, automation, marketing
+- ページ: /ja/tools/pictory
+
+### Synthesia
+- ID: synthesia-io
+- URL: https://synthesia.io
+- 料金: 有料
+- 概要: AI video platform with avatars. Create training videos without filming.
+- タグ: avatars, video, training, corporate
+- ページ: /ja/tools/synthesia-io
+
+### Lumen5
+- ID: lumen5
+- URL: https://lumen5.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI video creation for social media. Turn blog posts into videos.
+- タグ: video, social-media, content-repurposing, marketing
+- ページ: /ja/tools/lumen5
+
+
+## 音声・音楽
+
+### ElevenLabs
+- ID: elevenlabs
+- URL: https://elevenlabs.io
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI voice synthesis and cloning. Natural, expressive speech in multiple languages.
+- タグ: voice, tts, voice-cloning, multilingual
+- ページ: /ja/tools/elevenlabs
+
+### Descript
+- ID: descript
+- URL: https://descript.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Audio/video editor with AI transcription, voice cloning, and Studio Sound.
+- タグ: audio, video, transcription, podcasting
+- ページ: /ja/tools/descript
+
+### Suno
+- ID: suno
+- URL: https://suno.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI music generator. Create full songs from text prompts with vocals and instruments.
+- タグ: music, generation, vocals, production
+- ページ: /ja/tools/suno
+
+### Udio
+- ID: udio
+- URL: https://udio.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI music creation platform. Generate high-quality music tracks from prompts.
+- タグ: music, generation, production
+- ページ: /ja/tools/udio
+
+### Suno AI
+- ID: suno
+- URL: https://suno.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI music generator. Create original songs from text prompts in any genre.
+- タグ: music, generation, songwriting, creative
+- ページ: /ja/tools/suno
+
+### Otter.ai
+- ID: otter-ai
+- URL: https://otter.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI meeting transcription. Real-time notes, summaries, and action items.
+- タグ: transcription, meetings, notes, collaboration
+- ページ: /ja/tools/otter-ai
+
+### Murf AI
+- ID: murf-ai
+- URL: https://murf.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI voice generator for videos and presentations. Studio-quality voices.
+- タグ: voice, narration, video, presentation
+- ページ: /ja/tools/murf-ai
+
+### Soundraw
+- ID: soundraw
+- URL: https://soundraw.io
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI music generator. Create royalty-free music for your projects.
+- タグ: music, royalty-free, background-music, generation
+- ページ: /ja/tools/soundraw
+
+### Cleanvoice
+- ID: cleanvoice
+- URL: https://cleanvoice.ai
+- 料金: 有料
+- 概要: AI audio editing for podcasts. Remove filler words, mouth sounds automatically.
+- タグ: podcast, audio-editing, cleanup, automation
+- ページ: /ja/tools/cleanvoice
+
+### Krisp
+- ID: krisp
+- URL: https://krisp.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI noise cancellation. Remove background noise from calls and recordings.
+- タグ: noise-cancellation, calls, audio, productivity
+- ページ: /ja/tools/krisp
+
+
+## 生産性向上
+
+### Notion AI
+- ID: notion-ai
+- URL: https://notion.so/product/ai
+- 料金: 有料
+- 概要: AI assistant built into Notion. Write, summarize, brainstorm, and organize.
+- タグ: productivity, notes, writing, workspace
+- ページ: /ja/tools/notion-ai
+
+### Grammarly
+- ID: grammarly
+- URL: https://grammarly.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI writing assistant. Grammar, spelling, tone, clarity suggestions across apps.
+- タグ: writing, grammar, editing, browser-extension
+- ページ: /ja/tools/grammarly
+
+### Fireflies.ai
+- ID: fireflies
+- URL: https://fireflies.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI meeting assistant. Transcribes, summarizes, and analyzes meetings automatically.
+- タグ: meetings, transcription, notes, crm
+- ページ: /ja/tools/fireflies
+
+### Otter.ai
+- ID: otter
+- URL: https://otter.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI meeting notes and transcription. Real-time collaboration and search.
+- タグ: transcription, meetings, notes, collaboration
+- ページ: /ja/tools/otter
+
+### Zapier Central
+- ID: zapier-central
+- URL: https://zapier.com/central
+- 料金: 有料
+- 概要: AI automation assistant. Connects apps and automates workflows with natural language.
+- タグ: automation, workflow, integration, no-code
+- ページ: /ja/tools/zapier-central
+
+### Reclaim.ai
+- ID: reclaim-ai
+- URL: https://reclaim.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI calendar assistant. Automatically schedules tasks, habits, and meetings.
+- タグ: calendar, scheduling, time-management, automation
+- ページ: /ja/tools/reclaim-ai
+
+### Motion
+- ID: motion
+- URL: https://usemotion.com
+- 料金: 有料
+- 概要: AI project manager and calendar. Auto-schedules tasks based on priorities.
+- タグ: project-management, calendar, automation, scheduling
+- ページ: /ja/tools/motion
+
+### Gamma
+- ID: gamma
+- URL: https://gamma.app
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered presentations. Create beautiful slides from text prompts.
+- タグ: presentations, slides, design, ai-generation
+- ページ: /ja/tools/gamma
+
+### Mem
+- ID: mem
+- URL: https://mem.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered note-taking. Self-organizing workspace with AI search.
+- タグ: notes, knowledge-management, search, organization
+- ページ: /ja/tools/mem
+
+### Tome
+- ID: tome
+- URL: https://tome.app
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI storytelling format. Create immersive presentations and documents.
+- タグ: storytelling, presentations, documents, creative
+- ページ: /ja/tools/tome
+
+### Tome
+- ID: tome
+- URL: https://tome.app
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI storytelling format. Create immersive presentations and documents.
+- タグ: storytelling, presentations, documents, creative
+- ページ: /ja/tools/tome
+
+### Wordtune
+- ID: wordtune
+- URL: https://wordtune.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI writing companion. Rewrite sentences for clarity and tone.
+- タグ: writing, rewriting, editing, productivity
+- ページ: /ja/tools/wordtune
+
+### QuillBot
+- ID: quillbot
+- URL: https://quillbot.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI paraphrasing tool. Rewrite text while maintaining meaning.
+- タグ: paraphrasing, writing, academic, rewriting
+- ページ: /ja/tools/quillbot
+
+### Notion AI
+- ID: notion-ai
+- URL: https://notion.so/product/ai
+- 料金: 有料
+- 概要: AI built into Notion. Write, summarize, brainstorm in your workspace.
+- タグ: notion, productivity, notes, workspace
+- ページ: /ja/tools/notion-ai
+
+### Lex
+- ID: lex
+- URL: https://lex.page
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered word processor. Write with AI assistance, like Google Docs meets GPT.
+- タグ: writing, word-processor, ai-assistant, documents
+- ページ: /ja/tools/lex
+
+
+## マーケティング・セールス
+
+### Jasper
+- ID: jasper
+- URL: https://jasper.ai
+- 料金: 有料
+- 概要: AI content platform for marketing teams. Generate blog posts, ads, social content.
+- タグ: marketing, content, copywriting, seo
+- ページ: /ja/tools/jasper
+
+### Copy.ai
+- ID: copyai
+- URL: https://copy.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI copywriter for marketing. Blog posts, emails, social media, and more.
+- タグ: marketing, copywriting, automation
+- ページ: /ja/tools/copyai
+
+### Writesonic
+- ID: writesonic
+- URL: https://writesonic.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI content creation platform. Articles, ads, product descriptions, and more.
+- タグ: content, marketing, copywriting, automation
+- ページ: /ja/tools/writesonic
+
+### Surfer SEO
+- ID: surfer-seo
+- URL: https://surferseo.com
+- 料金: 有料
+- 概要: AI-powered SEO tool. Optimize content for search rankings with data-driven insights.
+- タグ: seo, content-optimization, research, analytics
+- ページ: /ja/tools/surfer-seo
+
+### Tidio
+- ID: tidio
+- URL: https://tidio.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI chatbot for customer service. Automate support and sales conversations.
+- タグ: chatbot, customer-service, support, sales
+- ページ: /ja/tools/tidio
+
+### Taplio
+- ID: taplio
+- URL: https://taplio.com
+- 料金: 有料
+- 概要: AI-powered LinkedIn growth. Content creation, scheduling, and analytics.
+- タグ: linkedin, social-media, content, analytics
+- ページ: /ja/tools/taplio
+
+### Writesonic
+- ID: writesonic
+- URL: https://writesonic.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI writing assistant for marketing. Blog posts, ads, and product descriptions.
+- タグ: writing, marketing, seo, content
+- ページ: /ja/tools/writesonic
+
+### Namelix
+- ID: namelix
+- URL: https://namelix.com
+- 料金: 完全無料
+- 概要: AI business name generator. Create unique brand names with logos.
+- タグ: naming, branding, business, logo
+- ページ: /ja/tools/namelix
+
+
+## デザイン・クリエイティブ
+
+### Canva AI
+- ID: canva-ai
+- URL: https://canva.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Graphic design platform with AI tools. Text-to-image, Magic Edit, templates.
+- タグ: design, graphics, templates, easy
+- ページ: /ja/tools/canva-ai
+
+### Tome
+- ID: tome
+- URL: https://tome.app
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered storytelling and presentation tool. Create slides and narratives.
+- タグ: presentations, storytelling, slides, design
+- ページ: /ja/tools/tome
+
+### Beautiful.ai
+- ID: beautiful-ai
+- URL: https://beautiful.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: Presentation software with AI design assistance. Auto-formatting and templates.
+- タグ: presentations, design, templates, auto-format
+- ページ: /ja/tools/beautiful-ai
+
+### Gamma
+- ID: gamma
+- URL: https://gamma.app
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI presentation and document creator. Beautiful slides in seconds.
+- タグ: presentations, documents, design, no-formatting
+- ページ: /ja/tools/gamma
+
+### Framer
+- ID: framer-ai
+- URL: https://framer.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: Website builder with AI. Design, prototype, and publish responsive sites.
+- タグ: web-design, no-code, prototyping, responsive
+- ページ: /ja/tools/framer-ai
+
+### Looka
+- ID: looka
+- URL: https://looka.com
+- 料金: 有料
+- 概要: AI logo and brand kit generator. Create professional branding in minutes.
+- タグ: logo, branding, design, business
+- ページ: /ja/tools/looka
+
+### Framer AI
+- ID: framer-ai
+- URL: https://framer.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI website builder. Design and publish websites with AI assistance.
+- タグ: website-builder, design, no-code, prototyping
+- ページ: /ja/tools/framer-ai
+
+### Beautiful.ai
+- ID: beautiful-ai
+- URL: https://beautiful.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI presentation software. Smart slides that design themselves.
+- タグ: presentations, slides, design, automation
+- ページ: /ja/tools/beautiful-ai
+
+
+## リサーチ・教育
+
+### Perplexity AI
+- ID: perplexity
+- URL: https://perplexity.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered search engine. Answers with sources and citations in real-time.
+- タグ: search, research, citations, real-time
+- ページ: /ja/tools/perplexity
+
+### ChatPDF
+- ID: chatpdf
+- URL: https://chatpdf.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered PDF analysis. Ask questions about any PDF document.
+- タグ: pdf, research, analysis, documents
+- ページ: /ja/tools/chatpdf
+
+### Consensus
+- ID: consensus
+- URL: https://consensus.app
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered search engine for scientific research. Find and summarize papers.
+- タグ: research, science, academic, papers
+- ページ: /ja/tools/consensus
+
+### Elicit
+- ID: elicit
+- URL: https://elicit.com
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI research assistant. Automates literature reviews and data extraction.
+- タグ: research, academic, automation, literature-review
+- ページ: /ja/tools/elicit
+
+### Perplexity AI
+- ID: perplexity
+- URL: https://perplexity.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI-powered search engine. Get instant answers with sources, not just links.
+- タグ: search, research, fact-checking, citations
+- ページ: /ja/tools/perplexity
+
+### Hugging Face
+- ID: huggingface
+- URL: https://huggingface.co
+- 料金: オープンソース
+- 概要: Open-source AI models hub. Access 100K+ models for free.
+- タグ: models, open-source, research, community
+- ページ: /ja/tools/huggingface
+
+### Replicate
+- ID: replicate
+- URL: https://replicate.com
+- 料金: 有料
+- 概要: Run AI models in the cloud. Pay-per-use API for any open-source model.
+- タグ: api, models, cloud, infrastructure
+- ページ: /ja/tools/replicate
+
+### Jenni AI
+- ID: jenni-ai
+- URL: https://jenni.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI writing assistant for research. Write papers, essays, and literature reviews.
+- タグ: academic, research, writing, papers
+- ページ: /ja/tools/jenni-ai
+
+### Consensus
+- ID: scholarai
+- URL: https://consensus.app
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI search engine for research papers. Find scientific answers with citations.
+- タグ: research, academic, papers, citations
+- ページ: /ja/tools/scholarai
+
+
+## データ分析
+
+### Tableau Pulse
+- ID: tableau-pulse
+- URL: https://tableau.com
+- 料金: 有料
+- 概要: AI-powered analytics from Tableau. Automated insights and visualizations.
+- タグ: analytics, business-intelligence, visualization, insights
+- ページ: /ja/tools/tableau-pulse
+
+### Julius AI
+- ID: julius-ai
+- URL: https://julius.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: AI data analyst. Analyze data, create visualizations, and generate insights.
+- タグ: analytics, data-analysis, visualization, charts
+- ページ: /ja/tools/julius-ai
+
+### Scale AI
+- ID: scale-ai
+- URL: https://scale.com
+- 料金: 有料
+- 概要: AI data labeling and training. Enterprise-grade data infrastructure.
+- タグ: data-labeling, ml-ops, enterprise, infrastructure
+- ページ: /ja/tools/scale-ai
+
+### Pattern
+- ID: pattern
+- URL: https://pattern.com
+- 料金: 有料
+- 概要: AI data platform. Automate data analysis and visualization.
+- タグ: data-analysis, visualization, automation, enterprise
+- ページ: /ja/tools/pattern
+
+### Browse AI
+- ID: browse-ai
+- URL: https://browse.ai
+- 料金: フリーミアム（無料プランあり）
+- 概要: No-code web scraper. Extract data from any website with AI.
+- タグ: web-scraping, data-extraction, no-code, automation
+- ページ: /ja/tools/browse-ai
+
