@@ -2,7 +2,7 @@
   {
     "id": "chatgpt",
     "name": "ChatGPT",
-    "url": "https://chat.openai.com",
+    "url": "https://chatgpt.com",
     "category": "text-generation",
     "description": "Conversational AI by OpenAI. Answers questions, writes content, codes, and assists with various tasks.",
     "pricing": "freemium",
@@ -75,7 +75,7 @@
     "name": "Gemini",
     "url": "https://gemini.google.com",
     "category": "text-generation",
-    "description": "Google's multimodal AI. Understands text, images, audio, video, and code.",
+    "description": "Google製マルチモーダルAIアシスタント。Gemini 2.5 Flash/Pro搭載、1Mトークンコンテキスト対応。Google検索統合、画像・音声・コード生成に対応。",
     "pricing": "freemium",
     "tags": [
       "chatbot",
@@ -94,7 +94,7 @@
     "url": "https://github.com/features/copilot",
     "category": "code-development",
     "description": "AI pair programmer by GitHub and OpenAI. Code suggestions in your IDE.",
-    "pricing": "paid",
+    "pricing": "freemium",
     "tags": [
       "coding",
       "vscode",
@@ -109,7 +109,7 @@
   {
     "id": "cursor",
     "name": "Cursor",
-    "url": "https://cursor.sh",
+    "url": "https://cursor.com",
     "category": "code-development",
     "description": "AI-first code editor. Built on VSCode with powerful AI assistance and chat.",
     "pricing": "freemium",
@@ -344,7 +344,7 @@
     "name": "Claude Code",
     "url": "https://claude.ai",
     "category": "code-development",
-    "description": "Anthropic's coding assistant. Edit codebases, debug, and build features.",
+    "description": "Anthropic製のターミナルベースAIコーディングアシスタント。Claude Sonnet/Opusモデルを活用し、コードベース全体を理解してファイル編集・テスト実行・Git操作を自律実行。Claude Max/APIプラン向け。",
     "pricing": "freemium",
     "tags": [
       "coding",
@@ -592,10 +592,10 @@
   },
   {
     "id": "codeium",
-    "name": "Codeium",
+    "name": "Windsurf (Codeium)",
     "url": "https://codeium.com",
     "category": "code-development",
-    "description": "Free AI code assistant. Autocomplete, search, and chat in 70+ languages.",
+    "description": "元Codeium社が開発したAIコードエディタ。2024年よりWindsurfブランドで展開。無料プランで無制限補完提供。 Free AI code assistant. Autocomplete, search, and chat in 70+ languages.",
     "pricing": "free",
     "tags": [
       "coding",
@@ -879,42 +879,6 @@
     "addedAt": "2026-02-10"
   },
   {
-    "id": "perplexity",
-    "name": "Perplexity AI",
-    "url": "https://perplexity.ai",
-    "category": "research-education",
-    "description": "AI-powered search engine. Get instant answers with sources, not just links.",
-    "pricing": "freemium",
-    "tags": [
-      "search",
-      "research",
-      "fact-checking",
-      "citations"
-    ],
-    "featured": true,
-    "premium": false,
-    "logoUrl": "https://perplexity.ai/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "suno",
-    "name": "Suno AI",
-    "url": "https://suno.ai",
-    "category": "audio-music",
-    "description": "AI music generator. Create original songs from text prompts in any genre.",
-    "pricing": "freemium",
-    "tags": [
-      "music",
-      "generation",
-      "songwriting",
-      "creative"
-    ],
-    "featured": true,
-    "premium": false,
-    "logoUrl": "https://suno.ai/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
     "id": "pika",
     "name": "Pika",
     "url": "https://pika.art",
@@ -930,96 +894,6 @@
     "featured": true,
     "premium": false,
     "logoUrl": "https://pika.art/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "heygen",
-    "name": "HeyGen",
-    "url": "https://heygen.com",
-    "category": "video-generation",
-    "description": "AI avatar video platform. Create spokesperson videos with AI presenters.",
-    "pricing": "freemium",
-    "tags": [
-      "avatars",
-      "video",
-      "presentation",
-      "marketing"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://heygen.com/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "descript",
-    "name": "Descript",
-    "url": "https://descript.com",
-    "category": "video-generation",
-    "description": "AI video and audio editor. Edit videos like editing text documents.",
-    "pricing": "freemium",
-    "tags": [
-      "video-editing",
-      "audio-editing",
-      "transcription",
-      "podcasting"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://descript.com/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "replit-ai",
-    "name": "Replit AI",
-    "url": "https://replit.com",
-    "category": "code-development",
-    "description": "AI-powered coding environment. Build, run, and deploy apps with AI assistance.",
-    "pricing": "freemium",
-    "tags": [
-      "coding",
-      "ide",
-      "deployment",
-      "collaboration"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://replit.com/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "v0",
-    "name": "v0 by Vercel",
-    "url": "https://v0.dev",
-    "category": "code-development",
-    "description": "AI UI generator. Generate production-ready React components from prompts.",
-    "pricing": "freemium",
-    "tags": [
-      "ui",
-      "react",
-      "frontend",
-      "code-generation"
-    ],
-    "featured": true,
-    "premium": false,
-    "logoUrl": "https://v0.dev/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "framer-ai",
-    "name": "Framer AI",
-    "url": "https://framer.com",
-    "category": "design-creative",
-    "description": "AI website builder. Design and publish websites with AI assistance.",
-    "pricing": "freemium",
-    "tags": [
-      "website-builder",
-      "design",
-      "no-code",
-      "prototyping"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://framer.com/favicon.ico",
     "addedAt": "2026-02-12"
   },
   {
@@ -1041,24 +915,6 @@
     "addedAt": "2026-02-12"
   },
   {
-    "id": "ideogram",
-    "name": "Ideogram",
-    "url": "https://ideogram.ai",
-    "category": "image-generation",
-    "description": "AI image generator with text rendering. Best for images with accurate text overlays.",
-    "pricing": "freemium",
-    "tags": [
-      "image",
-      "text-rendering",
-      "design",
-      "graphics"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://ideogram.ai/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
     "id": "bolt-new",
     "name": "Bolt.new",
     "url": "https://bolt.new",
@@ -1074,24 +930,6 @@
     "featured": true,
     "premium": false,
     "logoUrl": "https://bolt.new/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "gamma",
-    "name": "Gamma",
-    "url": "https://gamma.app",
-    "category": "productivity",
-    "description": "AI-powered presentations. Create beautiful slides from text prompts.",
-    "pricing": "freemium",
-    "tags": [
-      "presentations",
-      "slides",
-      "design",
-      "ai-generation"
-    ],
-    "featured": true,
-    "premium": false,
-    "logoUrl": "https://gamma.app/favicon.ico",
     "addedAt": "2026-02-12"
   },
   {
@@ -1131,42 +969,6 @@
     "addedAt": "2026-02-12"
   },
   {
-    "id": "tome",
-    "name": "Tome",
-    "url": "https://tome.app",
-    "category": "productivity",
-    "description": "AI storytelling format. Create immersive presentations and documents.",
-    "pricing": "freemium",
-    "tags": [
-      "storytelling",
-      "presentations",
-      "documents",
-      "creative"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://tome.app/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "leonardo-ai",
-    "name": "Leonardo.ai",
-    "url": "https://leonardo.ai",
-    "category": "image-generation",
-    "description": "AI art generator focused on game assets and creative content.",
-    "pricing": "freemium",
-    "tags": [
-      "game-art",
-      "assets",
-      "creative",
-      "generation"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://leonardo.ai/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
     "id": "clipdrop",
     "name": "Clipdrop",
     "url": "https://clipdrop.co",
@@ -1200,24 +1002,6 @@
     "featured": true,
     "premium": false,
     "logoUrl": "https://lumalabs.ai/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "playground-ai",
-    "name": "Playground AI",
-    "url": "https://playgroundai.com",
-    "category": "image-generation",
-    "description": "Free AI image generator with daily credits. Mix models and styles.",
-    "pricing": "freemium",
-    "tags": [
-      "image-generation",
-      "mixed-models",
-      "free-credits",
-      "creative"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://playgroundai.com/favicon.ico",
     "addedAt": "2026-02-12"
   },
   {
@@ -1290,24 +1074,6 @@
     "featured": false,
     "premium": false,
     "logoUrl": "https://tidio.com/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "tome",
-    "name": "Tome",
-    "url": "https://tome.app",
-    "category": "productivity",
-    "description": "AI storytelling format. Create immersive presentations and documents.",
-    "pricing": "freemium",
-    "tags": [
-      "storytelling",
-      "presentations",
-      "documents",
-      "creative"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://tome.app/favicon.ico",
     "addedAt": "2026-02-12"
   },
   {
@@ -1419,42 +1185,6 @@
     "addedAt": "2026-02-12"
   },
   {
-    "id": "pictory",
-    "name": "Pictory",
-    "url": "https://pictory.ai",
-    "category": "video-generation",
-    "description": "AI video creation from text. Turn scripts into engaging videos automatically.",
-    "pricing": "freemium",
-    "tags": [
-      "video",
-      "text-to-video",
-      "automation",
-      "marketing"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://pictory.ai/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "writesonic",
-    "name": "Writesonic",
-    "url": "https://writesonic.com",
-    "category": "marketing-sales",
-    "description": "AI writing assistant for marketing. Blog posts, ads, and product descriptions.",
-    "pricing": "freemium",
-    "tags": [
-      "writing",
-      "marketing",
-      "seo",
-      "content"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://writesonic.com/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
     "id": "wordtune",
     "name": "Wordtune",
     "url": "https://wordtune.com",
@@ -1509,24 +1239,6 @@
     "addedAt": "2026-02-12"
   },
   {
-    "id": "notion-ai",
-    "name": "Notion AI",
-    "url": "https://notion.so/product/ai",
-    "category": "productivity",
-    "description": "AI built into Notion. Write, summarize, brainstorm in your workspace.",
-    "pricing": "paid",
-    "tags": [
-      "notion",
-      "productivity",
-      "notes",
-      "workspace"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://notion.so/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
     "id": "scale-ai",
     "name": "Scale AI",
     "url": "https://scale.com",
@@ -1545,24 +1257,6 @@
     "addedAt": "2026-02-12"
   },
   {
-    "id": "beautiful-ai",
-    "name": "Beautiful.ai",
-    "url": "https://beautiful.ai",
-    "category": "design-creative",
-    "description": "AI presentation software. Smart slides that design themselves.",
-    "pricing": "freemium",
-    "tags": [
-      "presentations",
-      "slides",
-      "design",
-      "automation"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://beautiful.ai/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
     "id": "remove-bg",
     "name": "Remove.bg",
     "url": "https://remove.bg",
@@ -1578,24 +1272,6 @@
     "featured": false,
     "premium": false,
     "logoUrl": "https://remove.bg/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "lumen5",
-    "name": "Lumen5",
-    "url": "https://lumen5.com",
-    "category": "video-generation",
-    "description": "AI video creation for social media. Turn blog posts into videos.",
-    "pricing": "freemium",
-    "tags": [
-      "video",
-      "social-media",
-      "content-repurposing",
-      "marketing"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://lumen5.com/favicon.ico",
     "addedAt": "2026-02-12"
   },
   {
@@ -1761,42 +1437,6 @@
     "addedAt": "2026-02-12"
   },
   {
-    "id": "codeium",
-    "name": "Codeium",
-    "url": "https://codeium.com",
-    "category": "code-development",
-    "description": "Free AI code completion. Like Copilot but completely free.",
-    "pricing": "free",
-    "tags": [
-      "coding",
-      "autocomplete",
-      "free",
-      "ide"
-    ],
-    "featured": true,
-    "premium": false,
-    "logoUrl": "https://codeium.com/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
-    "id": "tabnine",
-    "name": "Tabnine",
-    "url": "https://tabnine.com",
-    "category": "code-development",
-    "description": "AI code completion. Privacy-focused, runs locally or in cloud.",
-    "pricing": "freemium",
-    "tags": [
-      "coding",
-      "autocomplete",
-      "privacy",
-      "local"
-    ],
-    "featured": false,
-    "premium": false,
-    "logoUrl": "https://tabnine.com/favicon.ico",
-    "addedAt": "2026-02-12"
-  },
-  {
     "id": "google-cloud-code-assist",
     "name": "Google Cloud Code Assist (Antigravity)",
     "url": "https://cloud.google.com/products/gemini/code-assist",
@@ -1815,5 +1455,120 @@
     "premium": false,
     "logoUrl": "https://www.gstatic.com/devrel-devsite/prod/v45f61267e8345b8c6b420de96f21bf81b2e12bbd8ca7e1fe430ba04d50a5c0b1/cloud/images/cloud-logo.svg",
     "addedAt": "2026-02-20"
+  },
+  {
+    "id": "grok",
+    "name": "Grok",
+    "url": "https://x.ai/grok",
+    "category": "text-generation",
+    "description": "xAI（Elon Musk）が開発したAIアシスタント。リアルタイムのX（旧Twitter）データにアクセスし、最新情報に基づいた回答が可能。Grok 3搭載。X Premium/SuperGrokサブスクリプションで利用可能。",
+    "pricing": "freemium",
+    "tags": [
+      "chatbot",
+      "xai",
+      "real-time",
+      "twitter",
+      "grok3"
+    ],
+    "featured": false,
+    "premium": false,
+    "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Grok_logo.png",
+    "addedAt": "2026-02-21"
+  },
+  {
+    "id": "deepseek",
+    "name": "DeepSeek",
+    "url": "https://chat.deepseek.com",
+    "category": "text-generation",
+    "description": "中国のDeepSeek社が開発したオープンソースAIモデル。DeepSeek R1/V3はベンチマークでGPT-4o相当の性能をはるかに低コストで実現。API料金はGPT-4oの約95%安。",
+    "pricing": "freemium",
+    "tags": [
+      "chatbot",
+      "open-source",
+      "reasoning",
+      "low-cost",
+      "chinese"
+    ],
+    "featured": false,
+    "premium": false,
+    "logoUrl": "https://chat.deepseek.com/favicon.ico",
+    "addedAt": "2026-02-21"
+  },
+  {
+    "id": "copilot-microsoft",
+    "name": "Microsoft Copilot",
+    "url": "https://copilot.microsoft.com",
+    "category": "productivity",
+    "description": "MicrosoftのAIアシスタント。GPT-4oとBing検索を統合し、Windows・Office・Edge全製品に組み込み。無料プランあり、Microsoft 365サブスクリプションで高度機能が利用可能。",
+    "pricing": "freemium",
+    "tags": [
+      "microsoft",
+      "office",
+      "chatbot",
+      "search",
+      "productivity"
+    ],
+    "featured": false,
+    "premium": false,
+    "logoUrl": "https://copilot.microsoft.com/favicon.ico",
+    "addedAt": "2026-02-21"
+  },
+  {
+    "id": "windsurf",
+    "name": "Windsurf",
+    "url": "https://windsurf.com",
+    "category": "code-development",
+    "description": "Codeium社（現Windsurf社）が開発したAIコードエディタ。「Flow」機能によりエージェントとコパイロットを融合。無料プランで月間クレジット制、有料プランは月$15から。",
+    "pricing": "freemium",
+    "tags": [
+      "coding",
+      "ide",
+      "ai-native",
+      "flow",
+      "agentic"
+    ],
+    "featured": false,
+    "premium": false,
+    "logoUrl": "https://windsurf.com/favicon.ico",
+    "addedAt": "2026-02-21"
+  },
+  {
+    "id": "openai-o3",
+    "name": "OpenAI o3",
+    "url": "https://openai.com/o3",
+    "category": "research-education",
+    "description": "OpenAIの高度推論モデル。数学・科学・コーディングで最高水準のベンチマーク性能を達成。ARC-AGI-1で87.5%。思考プロセスを段階的に実行するchain-of-thoughtを内部実装。",
+    "pricing": "paid",
+    "tags": [
+      "reasoning",
+      "math",
+      "science",
+      "openai",
+      "chain-of-thought"
+    ],
+    "featured": false,
+    "premium": true,
+    "logoUrl": "https://openai.com/favicon.ico",
+    "addedAt": "2026-02-21"
+  },
+  {
+    "id": "gemini-cli",
+    "name": "Gemini CLI",
+    "url": "https://geminicli.com",
+    "category": "code-development",
+    "description": "Googleのオープンソースターミナル用AIエージェント。Gemini Code Assistライセンス（月間無料枠）または個人無料ティアで利用可能。コード理解・ファイル操作・コマンド実行をターミナルから直接実行。",
+    "pricing": "free",
+    "tags": [
+      "terminal",
+      "cli",
+      "google",
+      "gemini",
+      "open-source",
+      "agentic"
+    ],
+    "featured": false,
+    "premium": false,
+    "logoUrl": "https://geminicli.com/favicon.ico",
+    "addedAt": "2026-02-21"
   }
 ]
