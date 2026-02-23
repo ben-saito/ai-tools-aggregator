@@ -1,0 +1,44 @@
+# .claudeignore - ai-tools-aggregator プロジェクト用
+# Claude Codeのコンテキストトークンを節約する
+
+# 依存関係（最大のトークン消費源）
+node_modules/
+
+# ビルド成果物
+dist/
+.output/
+.vercel/output/
+.astro/
+
+# バイナリ・画像
+public/images/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.ico
+*.woff*
+
+# 大量データファイル
+data/history/
+work/all-tools.json
+pricing-data.json
+
+# パッケージロック
+package-lock.json
+
+# 環境変数
+.env
+.env.local
+credentials/
+
+# ログ
+*.log
+
+# Git
+.git/
+
+# 古いブログ記事（必要なら個別指定）
+# src/content/blog/2026-01-*.md
+# src/content/blog/2025-*.md

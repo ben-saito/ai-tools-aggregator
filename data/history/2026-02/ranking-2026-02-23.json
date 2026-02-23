@@ -1,0 +1,2738 @@
+{
+  "generatedAt": "2026-02-22T21:30:00.000Z",
+  "date": "2026-02-23",
+  "overall": [
+    {
+      "id": "claude",
+      "name": "Claude",
+      "url": "https://claude.ai",
+      "category": "text-generation",
+      "description": "Anthropic's AI assistant. Excels at analysis, coding, writing, and complex reasoning tasks.",
+      "pricing": "freemium",
+      "tags": [
+        "chatbot",
+        "coding",
+        "analysis",
+        "long-context"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://claude.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 84,
+        "functionality": 44,
+        "value": 76,
+        "development": 75,
+        "userRating": 69
+      },
+      "totalScore": 69.6
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "url": "https://gemini.google.com",
+      "category": "text-generation",
+      "description": "Google's multimodal AI. Understands text, images, audio, video, and code.",
+      "pricing": "freemium",
+      "tags": [
+        "chatbot",
+        "multimodal",
+        "google",
+        "search"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 85,
+        "functionality": 43,
+        "value": 74,
+        "development": 74,
+        "userRating": 69
+      },
+      "totalScore": 69.0
+    },
+    {
+      "id": "bolt-new",
+      "name": "Bolt.new",
+      "url": "https://bolt.new",
+      "category": "code-development",
+      "description": "AI-powered full-stack web development. Deploy apps directly from prompts.",
+      "pricing": "freemium",
+      "tags": [
+        "full-stack",
+        "deployment",
+        "no-code",
+        "web-dev"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://bolt.new/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 84,
+        "functionality": 41,
+        "value": 76,
+        "development": 70,
+        "userRating": 71
+      },
+      "totalScore": 68.2
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "url": "https://runwayml.com",
+      "category": "video-generation",
+      "description": "AI video editor and generator. Create, edit, and enhance videos with AI tools.",
+      "pricing": "freemium",
+      "tags": [
+        "video",
+        "editing",
+        "generation",
+        "creative"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://runwayml.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 83,
+        "functionality": 40,
+        "value": 76,
+        "development": 73,
+        "userRating": 71
+      },
+      "totalScore": 68.1
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "url": "https://suno.ai",
+      "category": "audio-music",
+      "description": "AI music generator. Create full songs from text prompts with vocals and instruments.",
+      "pricing": "freemium",
+      "tags": [
+        "music",
+        "generation",
+        "vocals",
+        "production"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://suno.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 83,
+        "functionality": 40,
+        "value": 74,
+        "development": 73,
+        "userRating": 71
+      },
+      "totalScore": 67.8
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity AI",
+      "url": "https://perplexity.ai",
+      "category": "research-education",
+      "description": "AI-powered search engine. Answers with sources and citations in real-time.",
+      "pricing": "freemium",
+      "tags": [
+        "search",
+        "research",
+        "citations",
+        "real-time"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://perplexity.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 81,
+        "functionality": 40,
+        "value": 76,
+        "development": 70,
+        "userRating": 72
+      },
+      "totalScore": 67.2
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "url": "https://pika.art",
+      "category": "video-generation",
+      "description": "AI video generator. Transform text and images into cinematic videos.",
+      "pricing": "freemium",
+      "tags": [
+        "video",
+        "generation",
+        "text-to-video",
+        "creative"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://pika.art/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 81,
+        "functionality": 40,
+        "value": 76,
+        "development": 71,
+        "userRating": 70
+      },
+      "totalScore": 67.2
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "url": "https://cursor.sh",
+      "category": "code-development",
+      "description": "AI-first code editor. Built on VSCode with powerful AI assistance and chat.",
+      "pricing": "freemium",
+      "tags": [
+        "coding",
+        "ide",
+        "vscode-fork",
+        "ai-native"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://cursor.sh/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 82,
+        "functionality": 39,
+        "value": 74,
+        "development": 72,
+        "userRating": 71
+      },
+      "totalScore": 67.0
+    },
+    {
+      "id": "v0",
+      "name": "v0 by Vercel",
+      "url": "https://v0.dev",
+      "category": "code-development",
+      "description": "AI UI generator. Generate production-ready React components from prompts.",
+      "pricing": "freemium",
+      "tags": [
+        "ui",
+        "react",
+        "frontend",
+        "code-generation"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://v0.dev/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 81,
+        "functionality": 41,
+        "value": 75,
+        "development": 69,
+        "userRating": 71
+      },
+      "totalScore": 67.0
+    },
+    {
+      "id": "Adobe-firefly",
+      "name": "Adobe Firefly",
+      "url": "https://firefly.adobe.com",
+      "category": "image-generation",
+      "description": "Adobe's AI image generator. Safe for commercial use, integrated with Creative Cloud.",
+      "pricing": "freemium",
+      "tags": [
+        "adobe",
+        "commercial-safe",
+        "creative-cloud",
+        "enterprise"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://firefly.adobe.com/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 81,
+        "functionality": 40,
+        "value": 74,
+        "development": 71,
+        "userRating": 71
+      },
+      "totalScore": 66.8
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "url": "https://elevenlabs.io",
+      "category": "audio-music",
+      "description": "AI voice synthesis and cloning. Natural, expressive speech in multiple languages.",
+      "pricing": "freemium",
+      "tags": [
+        "voice",
+        "tts",
+        "voice-cloning",
+        "multilingual"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://elevenlabs.io/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 80,
+        "functionality": 41,
+        "value": 76,
+        "development": 69,
+        "userRating": 70
+      },
+      "totalScore": 66.8
+    },
+    {
+      "id": "lumalabs",
+      "name": "Luma AI",
+      "url": "https://lumalabs.ai",
+      "category": "video-generation",
+      "description": "AI 3D capture and video generation. Create cinematic shots from text.",
+      "pricing": "freemium",
+      "tags": [
+        "3d",
+        "video",
+        "cinematic",
+        "generation"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://lumalabs.ai/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 80,
+        "functionality": 40,
+        "value": 76,
+        "development": 71,
+        "userRating": 70
+      },
+      "totalScore": 66.8
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "url": "https://chat.openai.com",
+      "category": "text-generation",
+      "description": "Conversational AI by OpenAI. Answers questions, writes content, codes, and assists with various tasks.",
+      "pricing": "freemium",
+      "tags": [
+        "chatbot",
+        "writing",
+        "coding",
+        "reasoning"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.59f2e898.png",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 81,
+        "functionality": 39,
+        "value": 75,
+        "development": 70,
+        "userRating": 69
+      },
+      "totalScore": 66.5
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "url": "https://gamma.app",
+      "category": "productivity",
+      "description": "AI-powered presentations. Create beautiful slides from text prompts.",
+      "pricing": "freemium",
+      "tags": [
+        "presentations",
+        "slides",
+        "design",
+        "ai-generation"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://gamma.app/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 80,
+        "functionality": 39,
+        "value": 74,
+        "development": 70,
+        "userRating": 71
+      },
+      "totalScore": 66.1
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "url": "https://midjourney.com",
+      "category": "image-generation",
+      "description": "AI image generator creating stunning, artistic visuals from text prompts via Discord.",
+      "pricing": "paid",
+      "tags": [
+        "art",
+        "design",
+        "discord",
+        "high-quality"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://midjourney.com/apple-touch-icon.png",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 83,
+        "functionality": 41,
+        "value": 51,
+        "development": 69,
+        "userRating": 70
+      },
+      "totalScore": 62.7
+    },
+    {
+      "id": "google-cloud-code-assist",
+      "name": "Google Cloud Code Assist (Antigravity)",
+      "url": "https://cloud.google.com/products/gemini/code-assist",
+      "category": "code-development",
+      "description": "Google's AI coding assistant powered by Gemini. Offers code completion, generation, refactoring, and explanation. Available via Google account quotas with monthly free credits. Natively integrates with OpenClaw. Also known internally as Antigravity (Cloud Code Assist) — Google's answer to GitHub Copilot and Claude Code.",
+      "pricing": "freemium",
+      "tags": [
+        "coding",
+        "gemini",
+        "google",
+        "code-completion",
+        "ai-assistant",
+        "antigravity"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://www.gstatic.com/devrel-devsite/prod/v45f61267e8345b8c6b420de96f21bf81b2e12bbd8ca7e1fe430ba04d50a5c0b1/cloud/images/cloud-logo.svg",
+      "addedAt": "2026-02-20",
+      "scores": {
+        "popularity": 49,
+        "functionality": 60,
+        "value": 75,
+        "development": 71,
+        "userRating": 70
+      },
+      "totalScore": 62.4
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "url": "https://claude.ai",
+      "category": "code-development",
+      "description": "Anthropic's coding assistant. Edit codebases, debug, and build features.",
+      "pricing": "freemium",
+      "tags": [
+        "coding",
+        "cli",
+        "agent",
+        "autonomous"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://claude.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 59,
+        "functionality": 44,
+        "value": 74,
+        "development": 78,
+        "userRating": 70
+      },
+      "totalScore": 62.2
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "url": "https://github.com/features/copilot",
+      "category": "code-development",
+      "description": "AI pair programmer by GitHub and OpenAI. Code suggestions in your IDE.",
+      "pricing": "paid",
+      "tags": [
+        "coding",
+        "vscode",
+        "github",
+        "autocomplete"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://github.githubassets.com/favicons/favicon.svg",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 80,
+        "functionality": 39,
+        "value": 51,
+        "development": 70,
+        "userRating": 70
+      },
+      "totalScore": 61.5
+    },
+    {
+      "id": "namelix",
+      "name": "Namelix",
+      "url": "https://namelix.com",
+      "category": "marketing-sales",
+      "description": "AI business name generator. Create unique brand names with logos.",
+      "pricing": "free",
+      "tags": [
+        "naming",
+        "branding",
+        "business",
+        "logo"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://namelix.com/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 49,
+        "functionality": 39,
+        "value": 99,
+        "development": 69,
+        "userRating": 69
+      },
+      "totalScore": 61.5
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "url": "https://huggingface.co",
+      "category": "research-education",
+      "description": "Open-source AI models hub. Access 100K+ models for free.",
+      "pricing": "open-source",
+      "tags": [
+        "models",
+        "open-source",
+        "research",
+        "community"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://huggingface.co/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 79,
+        "functionality": 41,
+        "value": 51,
+        "development": 69,
+        "userRating": 69
+      },
+      "totalScore": 61.4
+    },
+    {
+      "id": "codeium",
+      "name": "Codeium",
+      "url": "https://codeium.com",
+      "category": "code-development",
+      "description": "Free AI code completion. Like Copilot but completely free.",
+      "pricing": "free",
+      "tags": [
+        "coding",
+        "autocomplete",
+        "free",
+        "ide"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://codeium.com/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 47,
+        "functionality": 39,
+        "value": 100,
+        "development": 69,
+        "userRating": 71
+      },
+      "totalScore": 61.3
+    },
+    {
+      "id": "dall-e",
+      "name": "DALL-E 3",
+      "url": "https://openai.com/dall-e-3",
+      "category": "image-generation",
+      "description": "OpenAI's image generator. Creates detailed images from text descriptions with high accuracy.",
+      "pricing": "paid",
+      "tags": [
+        "art",
+        "design",
+        "openai"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://openai.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 81,
+        "functionality": 30,
+        "value": 51,
+        "development": 71,
+        "userRating": 69
+      },
+      "totalScore": 59.5
+    },
+    {
+      "id": "heygen",
+      "name": "HeyGen",
+      "url": "https://heygen.com",
+      "category": "video-generation",
+      "description": "AI avatar video platform. Create spokesperson videos with AI presenters.",
+      "pricing": "freemium",
+      "tags": [
+        "avatars",
+        "video",
+        "presentation",
+        "marketing"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://heygen.com/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 53,
+        "functionality": 39,
+        "value": 76,
+        "development": 72,
+        "userRating": 71
+      },
+      "totalScore": 58.8
+    },
+    {
+      "id": "canva-ai",
+      "name": "Canva AI",
+      "url": "https://canva.com",
+      "category": "design-creative",
+      "description": "Graphic design platform with AI tools. Text-to-image, Magic Edit, templates.",
+      "pricing": "freemium",
+      "tags": [
+        "design",
+        "graphics",
+        "templates",
+        "easy"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://canva.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 51,
+        "functionality": 41,
+        "value": 76,
+        "development": 71,
+        "userRating": 71
+      },
+      "totalScore": 58.5
+    },
+    {
+      "id": "consensus",
+      "name": "Consensus",
+      "url": "https://consensus.app",
+      "category": "research-education",
+      "description": "AI-powered search engine for scientific research. Find and summarize papers.",
+      "pricing": "freemium",
+      "tags": [
+        "research",
+        "science",
+        "academic",
+        "papers"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://consensus.app/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 51,
+        "functionality": 41,
+        "value": 74,
+        "development": 71,
+        "userRating": 71
+      },
+      "totalScore": 58.1
+    },
+    {
+      "id": "framer-ai",
+      "name": "Framer",
+      "url": "https://framer.com",
+      "category": "design-creative",
+      "description": "Website builder with AI. Design, prototype, and publish responsive sites.",
+      "pricing": "freemium",
+      "tags": [
+        "web-design",
+        "no-code",
+        "prototyping",
+        "responsive"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://framer.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 41,
+        "value": 76,
+        "development": 71,
+        "userRating": 70
+      },
+      "totalScore": 58.1
+    },
+    {
+      "id": "replit",
+      "name": "Replit",
+      "url": "https://replit.com",
+      "category": "code-development",
+      "description": "Online IDE with AI code generation. Code, collaborate, and deploy from browser.",
+      "pricing": "freemium",
+      "tags": [
+        "coding",
+        "ide",
+        "collaboration",
+        "deployment"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://replit.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 41,
+        "value": 76,
+        "development": 71,
+        "userRating": 70
+      },
+      "totalScore": 58.1
+    },
+    {
+      "id": "v0-dev",
+      "name": "v0.dev",
+      "url": "https://v0.dev",
+      "category": "code-development",
+      "description": "Vercel's AI UI generator. Generate React components from text descriptions.",
+      "pricing": "freemium",
+      "tags": [
+        "coding",
+        "react",
+        "ui",
+        "vercel"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://v0.dev/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 51,
+        "functionality": 41,
+        "value": 75,
+        "development": 70,
+        "userRating": 71
+      },
+      "totalScore": 58.1
+    },
+    {
+      "id": "fireflies",
+      "name": "Fireflies.ai",
+      "url": "https://fireflies.ai",
+      "category": "productivity",
+      "description": "AI meeting assistant. Transcribes, summarizes, and analyzes meetings automatically.",
+      "pricing": "freemium",
+      "tags": [
+        "meetings",
+        "transcription",
+        "notes",
+        "crm"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://fireflies.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 51,
+        "functionality": 41,
+        "value": 74,
+        "development": 70,
+        "userRating": 71
+      },
+      "totalScore": 57.9
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "url": "https://descript.com",
+      "category": "audio-music",
+      "description": "Audio/video editor with AI transcription, voice cloning, and Studio Sound.",
+      "pricing": "freemium",
+      "tags": [
+        "audio",
+        "video",
+        "transcription",
+        "podcasting"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://descript.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 51,
+        "functionality": 41,
+        "value": 74,
+        "development": 69,
+        "userRating": 71
+      },
+      "totalScore": 57.8
+    },
+    {
+      "id": "grammarly",
+      "name": "Grammarly",
+      "url": "https://grammarly.com",
+      "category": "productivity",
+      "description": "AI writing assistant. Grammar, spelling, tone, clarity suggestions across apps.",
+      "pricing": "freemium",
+      "tags": [
+        "writing",
+        "grammar",
+        "editing",
+        "browser-extension"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://grammarly.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 49,
+        "functionality": 41,
+        "value": 76,
+        "development": 71,
+        "userRating": 69
+      },
+      "totalScore": 57.7
+    },
+    {
+      "id": "ideogram",
+      "name": "Ideogram",
+      "url": "https://ideogram.ai",
+      "category": "image-generation",
+      "description": "AI image generator with excellent text rendering capabilities.",
+      "pricing": "freemium",
+      "tags": [
+        "art",
+        "text-in-image",
+        "design",
+        "logos"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://ideogram.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 41,
+        "value": 75,
+        "development": 69,
+        "userRating": 71
+      },
+      "totalScore": 57.7
+    },
+    {
+      "id": "lumen5",
+      "name": "Lumen5",
+      "url": "https://lumen5.com",
+      "category": "video-generation",
+      "description": "AI video creator for social media. Turn blog posts into engaging videos.",
+      "pricing": "freemium",
+      "tags": [
+        "video",
+        "social-media",
+        "marketing",
+        "automation"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://lumen5.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 41,
+        "value": 75,
+        "development": 70,
+        "userRating": 69
+      },
+      "totalScore": 57.6
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "url": "https://gamma.app",
+      "category": "design-creative",
+      "description": "AI presentation and document creator. Beautiful slides in seconds.",
+      "pricing": "freemium",
+      "tags": [
+        "presentations",
+        "documents",
+        "design",
+        "no-formatting"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://gamma.app/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 49,
+        "functionality": 41,
+        "value": 75,
+        "development": 71,
+        "userRating": 69
+      },
+      "totalScore": 57.5
+    },
+    {
+      "id": "playground-ai",
+      "name": "Playground AI",
+      "url": "https://playgroundai.com",
+      "category": "image-generation",
+      "description": "AI image creation and editing platform. Mix, edit, and upscale images.",
+      "pricing": "freemium",
+      "tags": [
+        "art",
+        "editing",
+        "mixing",
+        "upscaling"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://playgroundai.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 40,
+        "value": 75,
+        "development": 71,
+        "userRating": 69
+      },
+      "totalScore": 57.5
+    },
+    {
+      "id": "beautiful-ai",
+      "name": "Beautiful.ai",
+      "url": "https://beautiful.ai",
+      "category": "design-creative",
+      "description": "Presentation software with AI design assistance. Auto-formatting and templates.",
+      "pricing": "freemium",
+      "tags": [
+        "presentations",
+        "design",
+        "templates",
+        "auto-format"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://beautiful.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 41,
+        "value": 74,
+        "development": 69,
+        "userRating": 70
+      },
+      "totalScore": 57.4
+    },
+    {
+      "id": "otter",
+      "name": "Otter.ai",
+      "url": "https://otter.ai",
+      "category": "productivity",
+      "description": "AI meeting notes and transcription. Real-time collaboration and search.",
+      "pricing": "freemium",
+      "tags": [
+        "transcription",
+        "meetings",
+        "notes",
+        "collaboration"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://otter.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 49,
+        "functionality": 40,
+        "value": 75,
+        "development": 71,
+        "userRating": 70
+      },
+      "totalScore": 57.4
+    },
+    {
+      "id": "reclaim-ai",
+      "name": "Reclaim.ai",
+      "url": "https://reclaim.ai",
+      "category": "productivity",
+      "description": "AI calendar assistant. Automatically schedules tasks, habits, and meetings.",
+      "pricing": "freemium",
+      "tags": [
+        "calendar",
+        "scheduling",
+        "time-management",
+        "automation"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://reclaim.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 49,
+        "functionality": 41,
+        "value": 75,
+        "development": 70,
+        "userRating": 69
+      },
+      "totalScore": 57.4
+    },
+    {
+      "id": "adobe-firefly",
+      "name": "Adobe Firefly",
+      "url": "https://firefly.adobe.com",
+      "category": "image-generation",
+      "description": "Adobe's AI image generator. Integrated with Creative Cloud apps.",
+      "pricing": "freemium",
+      "tags": [
+        "art",
+        "adobe",
+        "creative-cloud",
+        "commercial"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://firefly.adobe.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 40,
+        "value": 74,
+        "development": 71,
+        "userRating": 69
+      },
+      "totalScore": 57.3
+    },
+    {
+      "id": "tabnine",
+      "name": "Tabnine",
+      "url": "https://tabnine.com",
+      "category": "code-development",
+      "description": "AI code completion for IDEs. Context-aware suggestions across languages.",
+      "pricing": "freemium",
+      "tags": [
+        "coding",
+        "autocomplete",
+        "ide",
+        "productivity"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://tabnine.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 51,
+        "functionality": 40,
+        "value": 74,
+        "development": 69,
+        "userRating": 69
+      },
+      "totalScore": 57.3
+    },
+    {
+      "id": "chatpdf",
+      "name": "ChatPDF",
+      "url": "https://chatpdf.com",
+      "category": "research-education",
+      "description": "AI-powered PDF analysis. Ask questions about any PDF document.",
+      "pricing": "freemium",
+      "tags": [
+        "pdf",
+        "research",
+        "analysis",
+        "documents"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://chatpdf.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 49,
+        "functionality": 41,
+        "value": 74,
+        "development": 69,
+        "userRating": 71
+      },
+      "totalScore": 57.2
+    },
+    {
+      "id": "julius-ai",
+      "name": "Julius AI",
+      "url": "https://julius.ai",
+      "category": "data-analytics",
+      "description": "AI data analyst. Analyze data, create visualizations, and generate insights.",
+      "pricing": "freemium",
+      "tags": [
+        "analytics",
+        "data-analysis",
+        "visualization",
+        "charts"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://julius.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 40,
+        "value": 74,
+        "development": 70,
+        "userRating": 69
+      },
+      "totalScore": 57.2
+    },
+    {
+      "id": "writesonic",
+      "name": "Writesonic",
+      "url": "https://writesonic.com",
+      "category": "marketing-sales",
+      "description": "AI content creation platform. Articles, ads, product descriptions, and more.",
+      "pricing": "freemium",
+      "tags": [
+        "content",
+        "marketing",
+        "copywriting",
+        "automation"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://writesonic.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 40,
+        "value": 75,
+        "development": 69,
+        "userRating": 69
+      },
+      "totalScore": 57.2
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "url": "https://descript.com",
+      "category": "video-generation",
+      "description": "AI video and audio editor. Edit videos like editing text documents.",
+      "pricing": "freemium",
+      "tags": [
+        "video-editing",
+        "audio-editing",
+        "transcription",
+        "podcasting"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://descript.com/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 50,
+        "functionality": 39,
+        "value": 74,
+        "development": 70,
+        "userRating": 71
+      },
+      "totalScore": 57.1
+    },
+    {
+      "id": "leonardo-ai",
+      "name": "Leonardo.ai",
+      "url": "https://leonardo.ai",
+      "category": "image-generation",
+      "description": "AI image generator focused on game assets, concept art, and design.",
+      "pricing": "freemium",
+      "tags": [
+        "art",
+        "game-design",
+        "concept-art",
+        "3d"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://leonardo.ai/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 50,
+        "functionality": 40,
+        "value": 74,
+        "development": 69,
+        "userRating": 70
+      },
+      "totalScore": 57.1
+    },
+    {
+      "id": "tome",
+      "name": "Tome",
+      "url": "https://tome.app",
+      "category": "design-creative",
+      "description": "AI-powered storytelling and presentation tool. Create slides and narratives.",
+      "pricing": "freemium",
+      "tags": [
+        "presentations",
+        "storytelling",
+        "slides",
+        "design"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://tome.app/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 49,
+        "functionality": 40,
+        "value": 75,
+        "development": 69,
+        "userRating": 69
+      },
+      "totalScore": 57.0
+    },
+    {
+      "id": "elicit",
+      "name": "Elicit",
+      "url": "https://elicit.com",
+      "category": "research-education",
+      "description": "AI research assistant. Automates literature reviews and data extraction.",
+      "pricing": "freemium",
+      "tags": [
+        "research",
+        "academic",
+        "automation",
+        "literature-review"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://elicit.com/favicon.ico",
+      "addedAt": "2026-02-10",
+      "scores": {
+        "popularity": 49,
+        "functionality": 39,
+        "value": 75,
+        "development": 69,
+        "userRating": 69
+      },
+      "totalScore": 56.7
+    }
+  ],
+  "categories": {
+    "text-generation": [
+      {
+        "id": "claude",
+        "name": "Claude",
+        "url": "https://claude.ai",
+        "category": "text-generation",
+        "description": "Anthropic's AI assistant. Excels at analysis, coding, writing, and complex reasoning tasks.",
+        "pricing": "freemium",
+        "tags": [
+          "chatbot",
+          "coding",
+          "analysis",
+          "long-context"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://claude.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 84,
+          "functionality": 44,
+          "value": 76,
+          "development": 75,
+          "userRating": 69
+        },
+        "totalScore": 69.6
+      },
+      {
+        "id": "gemini",
+        "name": "Gemini",
+        "url": "https://gemini.google.com",
+        "category": "text-generation",
+        "description": "Google's multimodal AI. Understands text, images, audio, video, and code.",
+        "pricing": "freemium",
+        "tags": [
+          "chatbot",
+          "multimodal",
+          "google",
+          "search"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 85,
+          "functionality": 43,
+          "value": 74,
+          "development": 74,
+          "userRating": 69
+        },
+        "totalScore": 69.0
+      },
+      {
+        "id": "chatgpt",
+        "name": "ChatGPT",
+        "url": "https://chat.openai.com",
+        "category": "text-generation",
+        "description": "Conversational AI by OpenAI. Answers questions, writes content, codes, and assists with various tasks.",
+        "pricing": "freemium",
+        "tags": [
+          "chatbot",
+          "writing",
+          "coding",
+          "reasoning"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.59f2e898.png",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 81,
+          "functionality": 39,
+          "value": 75,
+          "development": 70,
+          "userRating": 69
+        },
+        "totalScore": 66.5
+      }
+    ],
+    "code-development": [
+      {
+        "id": "bolt-new",
+        "name": "Bolt.new",
+        "url": "https://bolt.new",
+        "category": "code-development",
+        "description": "AI-powered full-stack web development. Deploy apps directly from prompts.",
+        "pricing": "freemium",
+        "tags": [
+          "full-stack",
+          "deployment",
+          "no-code",
+          "web-dev"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://bolt.new/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 84,
+          "functionality": 41,
+          "value": 76,
+          "development": 70,
+          "userRating": 71
+        },
+        "totalScore": 68.2
+      },
+      {
+        "id": "cursor",
+        "name": "Cursor",
+        "url": "https://cursor.sh",
+        "category": "code-development",
+        "description": "AI-first code editor. Built on VSCode with powerful AI assistance and chat.",
+        "pricing": "freemium",
+        "tags": [
+          "coding",
+          "ide",
+          "vscode-fork",
+          "ai-native"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://cursor.sh/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 82,
+          "functionality": 39,
+          "value": 74,
+          "development": 72,
+          "userRating": 71
+        },
+        "totalScore": 67.0
+      },
+      {
+        "id": "v0",
+        "name": "v0 by Vercel",
+        "url": "https://v0.dev",
+        "category": "code-development",
+        "description": "AI UI generator. Generate production-ready React components from prompts.",
+        "pricing": "freemium",
+        "tags": [
+          "ui",
+          "react",
+          "frontend",
+          "code-generation"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://v0.dev/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 81,
+          "functionality": 41,
+          "value": 75,
+          "development": 69,
+          "userRating": 71
+        },
+        "totalScore": 67.0
+      },
+      {
+        "id": "google-cloud-code-assist",
+        "name": "Google Cloud Code Assist (Antigravity)",
+        "url": "https://cloud.google.com/products/gemini/code-assist",
+        "category": "code-development",
+        "description": "Google's AI coding assistant powered by Gemini. Offers code completion, generation, refactoring, and explanation. Available via Google account quotas with monthly free credits. Natively integrates with OpenClaw. Also known internally as Antigravity (Cloud Code Assist) — Google's answer to GitHub Copilot and Claude Code.",
+        "pricing": "freemium",
+        "tags": [
+          "coding",
+          "gemini",
+          "google",
+          "code-completion",
+          "ai-assistant",
+          "antigravity"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://www.gstatic.com/devrel-devsite/prod/v45f61267e8345b8c6b420de96f21bf81b2e12bbd8ca7e1fe430ba04d50a5c0b1/cloud/images/cloud-logo.svg",
+        "addedAt": "2026-02-20",
+        "scores": {
+          "popularity": 49,
+          "functionality": 60,
+          "value": 75,
+          "development": 71,
+          "userRating": 70
+        },
+        "totalScore": 62.4
+      },
+      {
+        "id": "claude-code",
+        "name": "Claude Code",
+        "url": "https://claude.ai",
+        "category": "code-development",
+        "description": "Anthropic's coding assistant. Edit codebases, debug, and build features.",
+        "pricing": "freemium",
+        "tags": [
+          "coding",
+          "cli",
+          "agent",
+          "autonomous"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://claude.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 59,
+          "functionality": 44,
+          "value": 74,
+          "development": 78,
+          "userRating": 70
+        },
+        "totalScore": 62.2
+      },
+      {
+        "id": "github-copilot",
+        "name": "GitHub Copilot",
+        "url": "https://github.com/features/copilot",
+        "category": "code-development",
+        "description": "AI pair programmer by GitHub and OpenAI. Code suggestions in your IDE.",
+        "pricing": "paid",
+        "tags": [
+          "coding",
+          "vscode",
+          "github",
+          "autocomplete"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://github.githubassets.com/favicons/favicon.svg",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 80,
+          "functionality": 39,
+          "value": 51,
+          "development": 70,
+          "userRating": 70
+        },
+        "totalScore": 61.5
+      },
+      {
+        "id": "codeium",
+        "name": "Codeium",
+        "url": "https://codeium.com",
+        "category": "code-development",
+        "description": "Free AI code completion. Like Copilot but completely free.",
+        "pricing": "free",
+        "tags": [
+          "coding",
+          "autocomplete",
+          "free",
+          "ide"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://codeium.com/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 47,
+          "functionality": 39,
+          "value": 100,
+          "development": 69,
+          "userRating": 71
+        },
+        "totalScore": 61.3
+      },
+      {
+        "id": "replit",
+        "name": "Replit",
+        "url": "https://replit.com",
+        "category": "code-development",
+        "description": "Online IDE with AI code generation. Code, collaborate, and deploy from browser.",
+        "pricing": "freemium",
+        "tags": [
+          "coding",
+          "ide",
+          "collaboration",
+          "deployment"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://replit.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 41,
+          "value": 76,
+          "development": 71,
+          "userRating": 70
+        },
+        "totalScore": 58.1
+      },
+      {
+        "id": "v0-dev",
+        "name": "v0.dev",
+        "url": "https://v0.dev",
+        "category": "code-development",
+        "description": "Vercel's AI UI generator. Generate React components from text descriptions.",
+        "pricing": "freemium",
+        "tags": [
+          "coding",
+          "react",
+          "ui",
+          "vercel"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://v0.dev/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 51,
+          "functionality": 41,
+          "value": 75,
+          "development": 70,
+          "userRating": 71
+        },
+        "totalScore": 58.1
+      },
+      {
+        "id": "tabnine",
+        "name": "Tabnine",
+        "url": "https://tabnine.com",
+        "category": "code-development",
+        "description": "AI code completion for IDEs. Context-aware suggestions across languages.",
+        "pricing": "freemium",
+        "tags": [
+          "coding",
+          "autocomplete",
+          "ide",
+          "productivity"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://tabnine.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 51,
+          "functionality": 40,
+          "value": 74,
+          "development": 69,
+          "userRating": 69
+        },
+        "totalScore": 57.3
+      }
+    ],
+    "video-generation": [
+      {
+        "id": "runway",
+        "name": "Runway",
+        "url": "https://runwayml.com",
+        "category": "video-generation",
+        "description": "AI video editor and generator. Create, edit, and enhance videos with AI tools.",
+        "pricing": "freemium",
+        "tags": [
+          "video",
+          "editing",
+          "generation",
+          "creative"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://runwayml.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 83,
+          "functionality": 40,
+          "value": 76,
+          "development": 73,
+          "userRating": 71
+        },
+        "totalScore": 68.1
+      },
+      {
+        "id": "pika",
+        "name": "Pika",
+        "url": "https://pika.art",
+        "category": "video-generation",
+        "description": "AI video generator. Transform text and images into cinematic videos.",
+        "pricing": "freemium",
+        "tags": [
+          "video",
+          "generation",
+          "text-to-video",
+          "creative"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://pika.art/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 81,
+          "functionality": 40,
+          "value": 76,
+          "development": 71,
+          "userRating": 70
+        },
+        "totalScore": 67.2
+      },
+      {
+        "id": "lumalabs",
+        "name": "Luma AI",
+        "url": "https://lumalabs.ai",
+        "category": "video-generation",
+        "description": "AI 3D capture and video generation. Create cinematic shots from text.",
+        "pricing": "freemium",
+        "tags": [
+          "3d",
+          "video",
+          "cinematic",
+          "generation"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://lumalabs.ai/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 80,
+          "functionality": 40,
+          "value": 76,
+          "development": 71,
+          "userRating": 70
+        },
+        "totalScore": 66.8
+      },
+      {
+        "id": "heygen",
+        "name": "HeyGen",
+        "url": "https://heygen.com",
+        "category": "video-generation",
+        "description": "AI avatar video platform. Create spokesperson videos with AI presenters.",
+        "pricing": "freemium",
+        "tags": [
+          "avatars",
+          "video",
+          "presentation",
+          "marketing"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://heygen.com/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 53,
+          "functionality": 39,
+          "value": 76,
+          "development": 72,
+          "userRating": 71
+        },
+        "totalScore": 58.8
+      },
+      {
+        "id": "lumen5",
+        "name": "Lumen5",
+        "url": "https://lumen5.com",
+        "category": "video-generation",
+        "description": "AI video creator for social media. Turn blog posts into engaging videos.",
+        "pricing": "freemium",
+        "tags": [
+          "video",
+          "social-media",
+          "marketing",
+          "automation"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://lumen5.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 41,
+          "value": 75,
+          "development": 70,
+          "userRating": 69
+        },
+        "totalScore": 57.6
+      },
+      {
+        "id": "descript",
+        "name": "Descript",
+        "url": "https://descript.com",
+        "category": "video-generation",
+        "description": "AI video and audio editor. Edit videos like editing text documents.",
+        "pricing": "freemium",
+        "tags": [
+          "video-editing",
+          "audio-editing",
+          "transcription",
+          "podcasting"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://descript.com/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 50,
+          "functionality": 39,
+          "value": 74,
+          "development": 70,
+          "userRating": 71
+        },
+        "totalScore": 57.1
+      }
+    ],
+    "audio-music": [
+      {
+        "id": "suno",
+        "name": "Suno",
+        "url": "https://suno.ai",
+        "category": "audio-music",
+        "description": "AI music generator. Create full songs from text prompts with vocals and instruments.",
+        "pricing": "freemium",
+        "tags": [
+          "music",
+          "generation",
+          "vocals",
+          "production"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://suno.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 83,
+          "functionality": 40,
+          "value": 74,
+          "development": 73,
+          "userRating": 71
+        },
+        "totalScore": 67.8
+      },
+      {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "url": "https://elevenlabs.io",
+        "category": "audio-music",
+        "description": "AI voice synthesis and cloning. Natural, expressive speech in multiple languages.",
+        "pricing": "freemium",
+        "tags": [
+          "voice",
+          "tts",
+          "voice-cloning",
+          "multilingual"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://elevenlabs.io/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 80,
+          "functionality": 41,
+          "value": 76,
+          "development": 69,
+          "userRating": 70
+        },
+        "totalScore": 66.8
+      },
+      {
+        "id": "descript",
+        "name": "Descript",
+        "url": "https://descript.com",
+        "category": "audio-music",
+        "description": "Audio/video editor with AI transcription, voice cloning, and Studio Sound.",
+        "pricing": "freemium",
+        "tags": [
+          "audio",
+          "video",
+          "transcription",
+          "podcasting"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://descript.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 51,
+          "functionality": 41,
+          "value": 74,
+          "development": 69,
+          "userRating": 71
+        },
+        "totalScore": 57.8
+      }
+    ],
+    "research-education": [
+      {
+        "id": "perplexity",
+        "name": "Perplexity AI",
+        "url": "https://perplexity.ai",
+        "category": "research-education",
+        "description": "AI-powered search engine. Answers with sources and citations in real-time.",
+        "pricing": "freemium",
+        "tags": [
+          "search",
+          "research",
+          "citations",
+          "real-time"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://perplexity.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 81,
+          "functionality": 40,
+          "value": 76,
+          "development": 70,
+          "userRating": 72
+        },
+        "totalScore": 67.2
+      },
+      {
+        "id": "huggingface",
+        "name": "Hugging Face",
+        "url": "https://huggingface.co",
+        "category": "research-education",
+        "description": "Open-source AI models hub. Access 100K+ models for free.",
+        "pricing": "open-source",
+        "tags": [
+          "models",
+          "open-source",
+          "research",
+          "community"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://huggingface.co/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 79,
+          "functionality": 41,
+          "value": 51,
+          "development": 69,
+          "userRating": 69
+        },
+        "totalScore": 61.4
+      },
+      {
+        "id": "consensus",
+        "name": "Consensus",
+        "url": "https://consensus.app",
+        "category": "research-education",
+        "description": "AI-powered search engine for scientific research. Find and summarize papers.",
+        "pricing": "freemium",
+        "tags": [
+          "research",
+          "science",
+          "academic",
+          "papers"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://consensus.app/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 51,
+          "functionality": 41,
+          "value": 74,
+          "development": 71,
+          "userRating": 71
+        },
+        "totalScore": 58.1
+      },
+      {
+        "id": "chatpdf",
+        "name": "ChatPDF",
+        "url": "https://chatpdf.com",
+        "category": "research-education",
+        "description": "AI-powered PDF analysis. Ask questions about any PDF document.",
+        "pricing": "freemium",
+        "tags": [
+          "pdf",
+          "research",
+          "analysis",
+          "documents"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://chatpdf.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 49,
+          "functionality": 41,
+          "value": 74,
+          "development": 69,
+          "userRating": 71
+        },
+        "totalScore": 57.2
+      },
+      {
+        "id": "elicit",
+        "name": "Elicit",
+        "url": "https://elicit.com",
+        "category": "research-education",
+        "description": "AI research assistant. Automates literature reviews and data extraction.",
+        "pricing": "freemium",
+        "tags": [
+          "research",
+          "academic",
+          "automation",
+          "literature-review"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://elicit.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 49,
+          "functionality": 39,
+          "value": 75,
+          "development": 69,
+          "userRating": 69
+        },
+        "totalScore": 56.7
+      }
+    ],
+    "image-generation": [
+      {
+        "id": "Adobe-firefly",
+        "name": "Adobe Firefly",
+        "url": "https://firefly.adobe.com",
+        "category": "image-generation",
+        "description": "Adobe's AI image generator. Safe for commercial use, integrated with Creative Cloud.",
+        "pricing": "freemium",
+        "tags": [
+          "adobe",
+          "commercial-safe",
+          "creative-cloud",
+          "enterprise"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://firefly.adobe.com/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 81,
+          "functionality": 40,
+          "value": 74,
+          "development": 71,
+          "userRating": 71
+        },
+        "totalScore": 66.8
+      },
+      {
+        "id": "midjourney",
+        "name": "Midjourney",
+        "url": "https://midjourney.com",
+        "category": "image-generation",
+        "description": "AI image generator creating stunning, artistic visuals from text prompts via Discord.",
+        "pricing": "paid",
+        "tags": [
+          "art",
+          "design",
+          "discord",
+          "high-quality"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://midjourney.com/apple-touch-icon.png",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 83,
+          "functionality": 41,
+          "value": 51,
+          "development": 69,
+          "userRating": 70
+        },
+        "totalScore": 62.7
+      },
+      {
+        "id": "dall-e",
+        "name": "DALL-E 3",
+        "url": "https://openai.com/dall-e-3",
+        "category": "image-generation",
+        "description": "OpenAI's image generator. Creates detailed images from text descriptions with high accuracy.",
+        "pricing": "paid",
+        "tags": [
+          "art",
+          "design",
+          "openai"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://openai.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 81,
+          "functionality": 30,
+          "value": 51,
+          "development": 71,
+          "userRating": 69
+        },
+        "totalScore": 59.5
+      },
+      {
+        "id": "ideogram",
+        "name": "Ideogram",
+        "url": "https://ideogram.ai",
+        "category": "image-generation",
+        "description": "AI image generator with excellent text rendering capabilities.",
+        "pricing": "freemium",
+        "tags": [
+          "art",
+          "text-in-image",
+          "design",
+          "logos"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://ideogram.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 41,
+          "value": 75,
+          "development": 69,
+          "userRating": 71
+        },
+        "totalScore": 57.7
+      },
+      {
+        "id": "playground-ai",
+        "name": "Playground AI",
+        "url": "https://playgroundai.com",
+        "category": "image-generation",
+        "description": "AI image creation and editing platform. Mix, edit, and upscale images.",
+        "pricing": "freemium",
+        "tags": [
+          "art",
+          "editing",
+          "mixing",
+          "upscaling"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://playgroundai.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 40,
+          "value": 75,
+          "development": 71,
+          "userRating": 69
+        },
+        "totalScore": 57.5
+      },
+      {
+        "id": "adobe-firefly",
+        "name": "Adobe Firefly",
+        "url": "https://firefly.adobe.com",
+        "category": "image-generation",
+        "description": "Adobe's AI image generator. Integrated with Creative Cloud apps.",
+        "pricing": "freemium",
+        "tags": [
+          "art",
+          "adobe",
+          "creative-cloud",
+          "commercial"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://firefly.adobe.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 40,
+          "value": 74,
+          "development": 71,
+          "userRating": 69
+        },
+        "totalScore": 57.3
+      },
+      {
+        "id": "leonardo-ai",
+        "name": "Leonardo.ai",
+        "url": "https://leonardo.ai",
+        "category": "image-generation",
+        "description": "AI image generator focused on game assets, concept art, and design.",
+        "pricing": "freemium",
+        "tags": [
+          "art",
+          "game-design",
+          "concept-art",
+          "3d"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://leonardo.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 40,
+          "value": 74,
+          "development": 69,
+          "userRating": 70
+        },
+        "totalScore": 57.1
+      }
+    ],
+    "productivity": [
+      {
+        "id": "gamma",
+        "name": "Gamma",
+        "url": "https://gamma.app",
+        "category": "productivity",
+        "description": "AI-powered presentations. Create beautiful slides from text prompts.",
+        "pricing": "freemium",
+        "tags": [
+          "presentations",
+          "slides",
+          "design",
+          "ai-generation"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://gamma.app/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 80,
+          "functionality": 39,
+          "value": 74,
+          "development": 70,
+          "userRating": 71
+        },
+        "totalScore": 66.1
+      },
+      {
+        "id": "fireflies",
+        "name": "Fireflies.ai",
+        "url": "https://fireflies.ai",
+        "category": "productivity",
+        "description": "AI meeting assistant. Transcribes, summarizes, and analyzes meetings automatically.",
+        "pricing": "freemium",
+        "tags": [
+          "meetings",
+          "transcription",
+          "notes",
+          "crm"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://fireflies.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 51,
+          "functionality": 41,
+          "value": 74,
+          "development": 70,
+          "userRating": 71
+        },
+        "totalScore": 57.9
+      },
+      {
+        "id": "grammarly",
+        "name": "Grammarly",
+        "url": "https://grammarly.com",
+        "category": "productivity",
+        "description": "AI writing assistant. Grammar, spelling, tone, clarity suggestions across apps.",
+        "pricing": "freemium",
+        "tags": [
+          "writing",
+          "grammar",
+          "editing",
+          "browser-extension"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://grammarly.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 49,
+          "functionality": 41,
+          "value": 76,
+          "development": 71,
+          "userRating": 69
+        },
+        "totalScore": 57.7
+      },
+      {
+        "id": "otter",
+        "name": "Otter.ai",
+        "url": "https://otter.ai",
+        "category": "productivity",
+        "description": "AI meeting notes and transcription. Real-time collaboration and search.",
+        "pricing": "freemium",
+        "tags": [
+          "transcription",
+          "meetings",
+          "notes",
+          "collaboration"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://otter.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 49,
+          "functionality": 40,
+          "value": 75,
+          "development": 71,
+          "userRating": 70
+        },
+        "totalScore": 57.4
+      },
+      {
+        "id": "reclaim-ai",
+        "name": "Reclaim.ai",
+        "url": "https://reclaim.ai",
+        "category": "productivity",
+        "description": "AI calendar assistant. Automatically schedules tasks, habits, and meetings.",
+        "pricing": "freemium",
+        "tags": [
+          "calendar",
+          "scheduling",
+          "time-management",
+          "automation"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://reclaim.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 49,
+          "functionality": 41,
+          "value": 75,
+          "development": 70,
+          "userRating": 69
+        },
+        "totalScore": 57.4
+      }
+    ],
+    "marketing-sales": [
+      {
+        "id": "namelix",
+        "name": "Namelix",
+        "url": "https://namelix.com",
+        "category": "marketing-sales",
+        "description": "AI business name generator. Create unique brand names with logos.",
+        "pricing": "free",
+        "tags": [
+          "naming",
+          "branding",
+          "business",
+          "logo"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://namelix.com/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 49,
+          "functionality": 39,
+          "value": 99,
+          "development": 69,
+          "userRating": 69
+        },
+        "totalScore": 61.5
+      },
+      {
+        "id": "writesonic",
+        "name": "Writesonic",
+        "url": "https://writesonic.com",
+        "category": "marketing-sales",
+        "description": "AI content creation platform. Articles, ads, product descriptions, and more.",
+        "pricing": "freemium",
+        "tags": [
+          "content",
+          "marketing",
+          "copywriting",
+          "automation"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://writesonic.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 40,
+          "value": 75,
+          "development": 69,
+          "userRating": 69
+        },
+        "totalScore": 57.2
+      }
+    ],
+    "design-creative": [
+      {
+        "id": "canva-ai",
+        "name": "Canva AI",
+        "url": "https://canva.com",
+        "category": "design-creative",
+        "description": "Graphic design platform with AI tools. Text-to-image, Magic Edit, templates.",
+        "pricing": "freemium",
+        "tags": [
+          "design",
+          "graphics",
+          "templates",
+          "easy"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://canva.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 51,
+          "functionality": 41,
+          "value": 76,
+          "development": 71,
+          "userRating": 71
+        },
+        "totalScore": 58.5
+      },
+      {
+        "id": "framer-ai",
+        "name": "Framer",
+        "url": "https://framer.com",
+        "category": "design-creative",
+        "description": "Website builder with AI. Design, prototype, and publish responsive sites.",
+        "pricing": "freemium",
+        "tags": [
+          "web-design",
+          "no-code",
+          "prototyping",
+          "responsive"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://framer.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 41,
+          "value": 76,
+          "development": 71,
+          "userRating": 70
+        },
+        "totalScore": 58.1
+      },
+      {
+        "id": "gamma",
+        "name": "Gamma",
+        "url": "https://gamma.app",
+        "category": "design-creative",
+        "description": "AI presentation and document creator. Beautiful slides in seconds.",
+        "pricing": "freemium",
+        "tags": [
+          "presentations",
+          "documents",
+          "design",
+          "no-formatting"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://gamma.app/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 49,
+          "functionality": 41,
+          "value": 75,
+          "development": 71,
+          "userRating": 69
+        },
+        "totalScore": 57.5
+      },
+      {
+        "id": "beautiful-ai",
+        "name": "Beautiful.ai",
+        "url": "https://beautiful.ai",
+        "category": "design-creative",
+        "description": "Presentation software with AI design assistance. Auto-formatting and templates.",
+        "pricing": "freemium",
+        "tags": [
+          "presentations",
+          "design",
+          "templates",
+          "auto-format"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://beautiful.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 41,
+          "value": 74,
+          "development": 69,
+          "userRating": 70
+        },
+        "totalScore": 57.4
+      },
+      {
+        "id": "tome",
+        "name": "Tome",
+        "url": "https://tome.app",
+        "category": "design-creative",
+        "description": "AI-powered storytelling and presentation tool. Create slides and narratives.",
+        "pricing": "freemium",
+        "tags": [
+          "presentations",
+          "storytelling",
+          "slides",
+          "design"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://tome.app/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 49,
+          "functionality": 40,
+          "value": 75,
+          "development": 69,
+          "userRating": 69
+        },
+        "totalScore": 57.0
+      }
+    ],
+    "data-analytics": [
+      {
+        "id": "julius-ai",
+        "name": "Julius AI",
+        "url": "https://julius.ai",
+        "category": "data-analytics",
+        "description": "AI data analyst. Analyze data, create visualizations, and generate insights.",
+        "pricing": "freemium",
+        "tags": [
+          "analytics",
+          "data-analysis",
+          "visualization",
+          "charts"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://julius.ai/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 50,
+          "functionality": 40,
+          "value": 74,
+          "development": 70,
+          "userRating": 69
+        },
+        "totalScore": 57.2
+      }
+    ]
+  },
+  "changes": [
+    {
+      "id": "bolt-new",
+      "name": "Bolt.new",
+      "previousRank": 14,
+      "currentRank": 3,
+      "delta": 11
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "previousRank": 11,
+      "currentRank": 5,
+      "delta": 6
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity AI",
+      "previousRank": 10,
+      "currentRank": 6,
+      "delta": 4
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "previousRank": 12,
+      "currentRank": 7,
+      "delta": 5
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "previousRank": 5,
+      "currentRank": 8,
+      "delta": -3
+    },
+    {
+      "id": "v0",
+      "name": "v0 by Vercel",
+      "previousRank": 13,
+      "currentRank": 9,
+      "delta": 4
+    },
+    {
+      "id": "Adobe-firefly",
+      "name": "Adobe Firefly",
+      "previousRank": 17,
+      "currentRank": 10,
+      "delta": 7
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "previousRank": 7,
+      "currentRank": 11,
+      "delta": -4
+    },
+    {
+      "id": "lumalabs",
+      "name": "Luma AI",
+      "previousRank": 16,
+      "currentRank": 12,
+      "delta": 4
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "previousRank": 2,
+      "currentRank": 13,
+      "delta": -11
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "previousRank": 47,
+      "currentRank": 14,
+      "delta": 33
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "previousRank": 21,
+      "currentRank": 15,
+      "delta": 6
+    },
+    {
+      "id": "google-cloud-code-assist",
+      "name": "Google Cloud Code Assist (Antigravity)",
+      "previousRank": 20,
+      "currentRank": 16,
+      "delta": 4
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "previousRank": 29,
+      "currentRank": 17,
+      "delta": 12
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "previousRank": 22,
+      "currentRank": 18,
+      "delta": 4
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "previousRank": 23,
+      "currentRank": 20,
+      "delta": 3
+    },
+    {
+      "id": "codeium",
+      "name": "Codeium",
+      "previousRank": 18,
+      "currentRank": 21,
+      "delta": -3
+    },
+    {
+      "id": "heygen",
+      "name": "HeyGen",
+      "previousRank": 49,
+      "currentRank": 23,
+      "delta": 26
+    },
+    {
+      "id": "consensus",
+      "name": "Consensus",
+      "previousRank": 43,
+      "currentRank": 25,
+      "delta": 18
+    },
+    {
+      "id": "framer-ai",
+      "name": "Framer",
+      "previousRank": 48,
+      "currentRank": 26,
+      "delta": 22
+    },
+    {
+      "id": "replit",
+      "name": "Replit",
+      "previousRank": 36,
+      "currentRank": 27,
+      "delta": 9
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "previousRank": 50,
+      "currentRank": 30,
+      "delta": 20
+    },
+    {
+      "id": "grammarly",
+      "name": "Grammarly",
+      "previousRank": 25,
+      "currentRank": 31,
+      "delta": -6
+    },
+    {
+      "id": "ideogram",
+      "name": "Ideogram",
+      "previousRank": 39,
+      "currentRank": 32,
+      "delta": 7
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "previousRank": 47,
+      "currentRank": 34,
+      "delta": 13
+    },
+    {
+      "id": "playground-ai",
+      "name": "Playground AI",
+      "previousRank": 40,
+      "currentRank": 35,
+      "delta": 5
+    },
+    {
+      "id": "beautiful-ai",
+      "name": "Beautiful.ai",
+      "previousRank": 33,
+      "currentRank": 36,
+      "delta": -3
+    },
+    {
+      "id": "otter",
+      "name": "Otter.ai",
+      "previousRank": 31,
+      "currentRank": 37,
+      "delta": -6
+    },
+    {
+      "id": "reclaim-ai",
+      "name": "Reclaim.ai",
+      "previousRank": 46,
+      "currentRank": 38,
+      "delta": 8
+    },
+    {
+      "id": "tabnine",
+      "name": "Tabnine",
+      "previousRank": 37,
+      "currentRank": 40,
+      "delta": -3
+    },
+    {
+      "id": "julius-ai",
+      "name": "Julius AI",
+      "previousRank": 45,
+      "currentRank": 42,
+      "delta": 3
+    },
+    {
+      "id": "writesonic",
+      "name": "Writesonic",
+      "previousRank": 35,
+      "currentRank": 43,
+      "delta": -8
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "previousRank": 50,
+      "currentRank": 44,
+      "delta": 6
+    },
+    {
+      "id": "leonardo-ai",
+      "name": "Leonardo.ai",
+      "previousRank": 38,
+      "currentRank": 45,
+      "delta": -7
+    },
+    {
+      "id": "tome",
+      "name": "Tome",
+      "previousRank": 32,
+      "currentRank": 46,
+      "delta": -14
+    },
+    {
+      "id": "elicit",
+      "name": "Elicit",
+      "previousRank": 44,
+      "currentRank": 47,
+      "delta": -3
+    }
+  ],
+  "metadata": {
+    "totalTools": 47,
+    "weights": {
+      "popularity": 0.3,
+      "functionality": 0.25,
+      "value": 0.2,
+      "development": 0.15,
+      "userRating": 0.1
+    }
+  }
+}
