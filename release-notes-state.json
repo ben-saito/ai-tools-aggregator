@@ -4,8 +4,8 @@
     "lastChecked": "2026-03-01T12:15:20Z"
   },
   "claudeCode": {
-    "lastVersion": "2.1.63",
-    "lastChecked": "2026-03-02T01:30:00Z",
-    "note": "v2.1.63 - HTTP Hooks, /simplify, /batch, massive memory leak fixes"
+    "lastVersion": "2.1.64",
+    "lastChecked": "2026-03-02T03:30:00Z",
+    "note": "v2.1.64 - /simplify and /batch commands, HTTP hooks, multiple memory leak fixes"
   }
 }
