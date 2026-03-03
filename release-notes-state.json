@@ -1,11 +1,10 @@
 {
   "cursor": {
     "lastVersion": "Bugbot Autofix (02-26-26)",
-    "lastChecked": "2026-03-02T22:15:06Z"
+    "lastChecked": "2026-03-04T06:15:00+09:00"
   },
   "claudeCode": {
-    "lastVersion": "2.1.64",
-    "lastChecked": "2026-03-03T08:30:00+09:00",
-    "note": "v2.1.64 - UI flicker fixes, agent notifications, remote control shutdown, Windows stability, WebAssembly interpreter fixes"
+    "lastVersion": "2.1.63",
+    "lastChecked": "2026-03-04T06:32:00+09:00"
   }
 }
