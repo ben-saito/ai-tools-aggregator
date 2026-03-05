@@ -4,8 +4,8 @@
     "lastChecked": "2026-03-05T09:15:00+09:00"
   },
   "claudeCode": {
-    "lastVersion": "v2.1.68",
-    "lastChecked": "2026-03-05T08:30:00+09:00",
-    "latestCommit": "04 Mar 2026 - Opus 4.6 defaults, ultrathink returns, Opus 4/4.1 removed"
+    "lastVersion": "v2.1.69",
+    "lastChecked": "2026-03-05T09:30:00+09:00",
+    "latestCommit": "05 Mar 2026 - /claude-api skill, Voice STT 20 languages, security fixes"
   }
 }
