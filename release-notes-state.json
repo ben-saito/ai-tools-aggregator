@@ -1,11 +1,11 @@
 {
   "cursor": {
     "lastVersion": "Cursor in JetBrains IDEs (v2.7)",
-    "lastChecked": "2026-03-05T09:15:00+09:00"
+    "lastChecked": "2026-03-05T22:15:00+09:00"
   },
   "claudeCode": {
-    "lastVersion": "v2.1.69",
-    "lastChecked": "2026-03-05T09:30:00+09:00",
-    "latestCommit": "05 Mar 2026 - /claude-api skill, Voice STT 20 languages, security fixes"
+    "lastVersion": "v2.1.70",
+    "lastChecked": "2026-03-06T00:30:00+09:00",
+    "latestCommit": "06 Mar 2026 - /simplify, /batch slash commands, auto-memory feature, HTTP hooks"
   }
 }
