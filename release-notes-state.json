@@ -5,7 +5,7 @@
   },
   "claudeCode": {
     "lastVersion": "v2.1.70",
-    "lastChecked": "2026-03-06T10:30:00+09:00",
-    "latestCommit": "06 Mar 2026 - API error fixes, Windows/WSL clipboard fixes, Remote Control polling optimization, VSCode improvements"
+    "lastChecked": "2026-03-06T18:30:00+09:00",
+    "latestCommit": "06 Mar 2026 - Bug fixes, VS Code improvements"
   }
 }
