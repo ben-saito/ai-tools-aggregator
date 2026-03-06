@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-05T21:32:10.655Z",
-  "date": "2026-03-05",
+  "generatedAt": "2026-03-05T21:32:46.086Z",
+  "date": "2026-03-06",
   "overall": [
     {
       "id": "gemini-cli",
@@ -25,7 +25,7 @@
         "popularity": 70,
         "functionality": 80.7,
         "value": 100,
-        "development": 93.55132722800926,
+        "development": 93.36362220486112,
         "userRating": 70
       },
       "totalScore": 82.2
@@ -53,10 +53,10 @@
         "popularity": 70,
         "functionality": 100,
         "value": 70,
-        "development": 93.05132722800926,
+        "development": 92.86362220486112,
         "userRating": 70
       },
-      "totalScore": 81
+      "totalScore": 80.9
     },
     {
       "id": "codeium",
@@ -79,10 +79,10 @@
         "popularity": 70,
         "functionality": 73.4,
         "value": 100,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
-      "totalScore": 79.6
+      "totalScore": 79.5
     },
     {
       "id": "Adobe-firefly",
@@ -105,36 +105,10 @@
         "popularity": 90,
         "functionality": 68.4,
         "value": 70,
-        "development": 89.0513272337963,
+        "development": 88.86362220486112,
         "userRating": 70
       },
-      "totalScore": 78.5
-    },
-    {
-      "id": "runway",
-      "name": "Runway",
-      "url": "https://runwayml.com",
-      "category": "video-generation",
-      "description": "AI video editor and generator. Create, edit, and enhance videos with AI tools.",
-      "pricing": "freemium",
-      "tags": [
-        "video",
-        "editing",
-        "generation",
-        "creative"
-      ],
-      "featured": true,
-      "premium": false,
-      "logoUrl": "https://runwayml.com/favicon.ico",
-      "addedAt": "2026-02-10",
-      "scores": {
-        "popularity": 90,
-        "functionality": 67.8,
-        "value": 70,
-        "development": 88.0513272337963,
-        "userRating": 70
-      },
-      "totalScore": 78.2
+      "totalScore": 78.4
     },
     {
       "id": "bolt-new",
@@ -157,7 +131,7 @@
         "popularity": 90,
         "functionality": 67.3,
         "value": 70,
-        "development": 89.0513272337963,
+        "development": 88.86362220486112,
         "userRating": 70
       },
       "totalScore": 78.2
@@ -183,33 +157,33 @@
         "popularity": 90,
         "functionality": 67.5,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 78.1
     },
     {
-      "id": "pika",
-      "name": "Pika",
-      "url": "https://pika.art",
+      "id": "runway",
+      "name": "Runway",
+      "url": "https://runwayml.com",
       "category": "video-generation",
-      "description": "AI video generator. Transform text and images into cinematic videos.",
+      "description": "AI video editor and generator. Create, edit, and enhance videos with AI tools.",
       "pricing": "freemium",
       "tags": [
         "video",
+        "editing",
         "generation",
-        "text-to-video",
         "creative"
       ],
       "featured": true,
       "premium": false,
-      "logoUrl": "https://pika.art/favicon.ico",
-      "addedAt": "2026-02-12",
+      "logoUrl": "https://runwayml.com/favicon.ico",
+      "addedAt": "2026-02-10",
       "scores": {
         "popularity": 90,
-        "functionality": 66.8,
+        "functionality": 67.8,
         "value": 70,
-        "development": 89.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 78.1
@@ -235,10 +209,36 @@
         "popularity": 90,
         "functionality": 66.9,
         "value": 70,
-        "development": 89.0513272337963,
+        "development": 88.86362220486112,
         "userRating": 70
       },
       "totalScore": 78.1
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "url": "https://pika.art",
+      "category": "video-generation",
+      "description": "AI video generator. Transform text and images into cinematic videos.",
+      "pricing": "freemium",
+      "tags": [
+        "video",
+        "generation",
+        "text-to-video",
+        "creative"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://pika.art/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 90,
+        "functionality": 66.8,
+        "value": 70,
+        "development": 88.86362220486112,
+        "userRating": 70
+      },
+      "totalScore": 78
     },
     {
       "id": "github-copilot",
@@ -261,10 +261,10 @@
         "popularity": 90,
         "functionality": 67,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
-      "totalScore": 78
+      "totalScore": 77.9
     },
     {
       "id": "suno",
@@ -287,7 +287,7 @@
         "popularity": 88,
         "functionality": 68.4,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 77.7
@@ -313,7 +313,7 @@
         "popularity": 88,
         "functionality": 68.1,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 77.6
@@ -339,10 +339,10 @@
         "popularity": 88,
         "functionality": 67.4,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
-      "totalScore": 77.5
+      "totalScore": 77.4
     },
     {
       "id": "chatgpt",
@@ -365,10 +365,10 @@
         "popularity": 84,
         "functionality": 70.2,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
-      "totalScore": 77
+      "totalScore": 76.9
     },
     {
       "id": "claude",
@@ -391,7 +391,7 @@
         "popularity": 84,
         "functionality": 69.1,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 76.7
@@ -417,7 +417,7 @@
         "popularity": 84,
         "functionality": 68.7,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 76.6
@@ -443,7 +443,7 @@
         "popularity": 64,
         "functionality": 66.5,
         "value": 100,
-        "development": 89.05132722800926,
+        "development": 88.86362220486112,
         "userRating": 70
       },
       "totalScore": 76.2
@@ -470,7 +470,7 @@
         "popularity": 70,
         "functionality": 75.6,
         "value": 70,
-        "development": 93.55132722800926,
+        "development": 93.36362220486112,
         "userRating": 70
       },
       "totalScore": 74.9
@@ -497,10 +497,10 @@
         "popularity": 70,
         "functionality": 74.1,
         "value": 70,
-        "development": 93.55132722800926,
+        "development": 93.36362220486112,
         "userRating": 70
       },
-      "totalScore": 74.6
+      "totalScore": 74.5
     },
     {
       "id": "grok",
@@ -524,36 +524,10 @@
         "popularity": 64,
         "functionality": 76.4,
         "value": 70,
-        "development": 93.55132722800926,
+        "development": 93.36362220486112,
         "userRating": 70
       },
       "totalScore": 73.3
-    },
-    {
-      "id": "huggingface",
-      "name": "Hugging Face",
-      "url": "https://huggingface.co",
-      "category": "research-education",
-      "description": "Open-source AI models hub. Access 100K+ models for free.",
-      "pricing": "open-source",
-      "tags": [
-        "models",
-        "open-source",
-        "research",
-        "community"
-      ],
-      "featured": true,
-      "premium": false,
-      "logoUrl": "https://huggingface.co/favicon.ico",
-      "addedAt": "2026-02-12",
-      "scores": {
-        "popularity": 88,
-        "functionality": 65.6,
-        "value": 50,
-        "development": 89.05132722800926,
-        "userRating": 70
-      },
-      "totalScore": 73.2
     },
     {
       "id": "claude-code",
@@ -576,7 +550,33 @@
         "popularity": 70,
         "functionality": 71.7,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
+        "userRating": 70
+      },
+      "totalScore": 73.1
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "url": "https://huggingface.co",
+      "category": "research-education",
+      "description": "Open-source AI models hub. Access 100K+ models for free.",
+      "pricing": "open-source",
+      "tags": [
+        "models",
+        "open-source",
+        "research",
+        "community"
+      ],
+      "featured": true,
+      "premium": false,
+      "logoUrl": "https://huggingface.co/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 88,
+        "functionality": 65.6,
+        "value": 50,
+        "development": 88.86362220486112,
         "userRating": 70
       },
       "totalScore": 73.1
@@ -603,36 +603,10 @@
         "popularity": 64,
         "functionality": 74.5,
         "value": 70,
-        "development": 93.55132722800926,
+        "development": 93.36362220486112,
         "userRating": 70
       },
-      "totalScore": 72.9
-    },
-    {
-      "id": "lex",
-      "name": "Lex",
-      "url": "https://lex.page",
-      "category": "productivity",
-      "description": "AI-powered word processor. Write with AI assistance, like Google Docs meets GPT.",
-      "pricing": "freemium",
-      "tags": [
-        "writing",
-        "word-processor",
-        "ai-assistant",
-        "documents"
-      ],
-      "featured": false,
-      "premium": false,
-      "logoUrl": "https://lex.page/favicon.ico",
-      "addedAt": "2026-02-12",
-      "scores": {
-        "popularity": 70,
-        "functionality": 68,
-        "value": 70,
-        "development": 89.05132722800926,
-        "userRating": 70
-      },
-      "totalScore": 72.4
+      "totalScore": 72.8
     },
     {
       "id": "midjourney",
@@ -655,7 +629,7 @@
         "popularity": 90,
         "functionality": 68.5,
         "value": 40,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 72.3
@@ -681,7 +655,7 @@
         "popularity": 70,
         "functionality": 68.3,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 72.3
@@ -707,7 +681,33 @@
         "popularity": 70,
         "functionality": 67.9,
         "value": 70,
-        "development": 89.0513272337963,
+        "development": 88.86362220486112,
+        "userRating": 70
+      },
+      "totalScore": 72.3
+    },
+    {
+      "id": "lex",
+      "name": "Lex",
+      "url": "https://lex.page",
+      "category": "productivity",
+      "description": "AI-powered word processor. Write with AI assistance, like Google Docs meets GPT.",
+      "pricing": "freemium",
+      "tags": [
+        "writing",
+        "word-processor",
+        "ai-assistant",
+        "documents"
+      ],
+      "featured": false,
+      "premium": false,
+      "logoUrl": "https://lex.page/favicon.ico",
+      "addedAt": "2026-02-12",
+      "scores": {
+        "popularity": 70,
+        "functionality": 68,
+        "value": 70,
+        "development": 88.86362220486112,
         "userRating": 70
       },
       "totalScore": 72.3
@@ -733,7 +733,7 @@
         "popularity": 70,
         "functionality": 67.9,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 72.2
@@ -759,7 +759,7 @@
         "popularity": 70,
         "functionality": 67.9,
         "value": 70,
-        "development": 88.0513272337963,
+        "development": 87.86362220486112,
         "userRating": 70
       },
       "totalScore": 72.2
@@ -785,7 +785,7 @@
         "popularity": 70,
         "functionality": 67.3,
         "value": 70,
-        "development": 89.05132722800926,
+        "development": 88.86362220486112,
         "userRating": 70
       },
       "totalScore": 72.2
@@ -814,10 +814,10 @@
           "popularity": 84,
           "functionality": 70.2,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
-        "totalScore": 77
+        "totalScore": 76.9
       },
       {
         "id": "claude",
@@ -840,7 +840,7 @@
           "popularity": 84,
           "functionality": 69.1,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 76.7
@@ -866,7 +866,7 @@
           "popularity": 84,
           "functionality": 68.7,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 76.6
@@ -893,7 +893,7 @@
           "popularity": 64,
           "functionality": 76.4,
           "value": 70,
-          "development": 93.55132722800926,
+          "development": 93.36362220486112,
           "userRating": 70
         },
         "totalScore": 73.3
@@ -920,10 +920,10 @@
           "popularity": 64,
           "functionality": 74.5,
           "value": 70,
-          "development": 93.55132722800926,
+          "development": 93.36362220486112,
           "userRating": 70
         },
-        "totalScore": 72.9
+        "totalScore": 72.8
       }
     ],
     "image-generation": [
@@ -948,10 +948,10 @@
           "popularity": 90,
           "functionality": 68.4,
           "value": 70,
-          "development": 89.0513272337963,
+          "development": 88.86362220486112,
           "userRating": 70
         },
-        "totalScore": 78.5
+        "totalScore": 78.4
       },
       {
         "id": "midjourney",
@@ -974,7 +974,7 @@
           "popularity": 90,
           "functionality": 68.5,
           "value": 40,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 72.3
@@ -1000,36 +1000,10 @@
           "popularity": 70,
           "functionality": 67.1,
           "value": 70,
-          "development": 89.0513272337963,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 72.1
-      },
-      {
-        "id": "playground-ai",
-        "name": "Playground AI",
-        "url": "https://playgroundai.com",
-        "category": "image-generation",
-        "description": "AI image creation and editing platform. Mix, edit, and upscale images.",
-        "pricing": "freemium",
-        "tags": [
-          "art",
-          "editing",
-          "mixing",
-          "upscaling"
-        ],
-        "featured": false,
-        "premium": false,
-        "logoUrl": "https://playgroundai.com/favicon.ico",
-        "addedAt": "2026-02-10",
-        "scores": {
-          "popularity": 70,
-          "functionality": 67,
-          "value": 70,
-          "development": 88.0513272337963,
-          "userRating": 70
-        },
-        "totalScore": 72
       },
       {
         "id": "leonardo-ai",
@@ -1052,7 +1026,33 @@
           "popularity": 70,
           "functionality": 66.7,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
+          "userRating": 70
+        },
+        "totalScore": 71.9
+      },
+      {
+        "id": "playground-ai",
+        "name": "Playground AI",
+        "url": "https://playgroundai.com",
+        "category": "image-generation",
+        "description": "AI image creation and editing platform. Mix, edit, and upscale images.",
+        "pricing": "freemium",
+        "tags": [
+          "art",
+          "editing",
+          "mixing",
+          "upscaling"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://playgroundai.com/favicon.ico",
+        "addedAt": "2026-02-10",
+        "scores": {
+          "popularity": 70,
+          "functionality": 67,
+          "value": 70,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 71.9
@@ -1082,7 +1082,7 @@
           "popularity": 70,
           "functionality": 80.7,
           "value": 100,
-          "development": 93.55132722800926,
+          "development": 93.36362220486112,
           "userRating": 70
         },
         "totalScore": 82.2
@@ -1110,10 +1110,10 @@
           "popularity": 70,
           "functionality": 100,
           "value": 70,
-          "development": 93.05132722800926,
+          "development": 92.86362220486112,
           "userRating": 70
         },
-        "totalScore": 81
+        "totalScore": 80.9
       },
       {
         "id": "codeium",
@@ -1136,10 +1136,10 @@
           "popularity": 70,
           "functionality": 73.4,
           "value": 100,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
-        "totalScore": 79.6
+        "totalScore": 79.5
       },
       {
         "id": "bolt-new",
@@ -1162,7 +1162,7 @@
           "popularity": 90,
           "functionality": 67.3,
           "value": 70,
-          "development": 89.0513272337963,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 78.2
@@ -1188,7 +1188,7 @@
           "popularity": 90,
           "functionality": 67.5,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 78.1
@@ -1216,33 +1216,7 @@
           "popularity": 90,
           "functionality": 67.8,
           "value": 70,
-          "development": 88.0513272337963,
-          "userRating": 70
-        },
-        "totalScore": 78.2
-      },
-      {
-        "id": "pika",
-        "name": "Pika",
-        "url": "https://pika.art",
-        "category": "video-generation",
-        "description": "AI video generator. Transform text and images into cinematic videos.",
-        "pricing": "freemium",
-        "tags": [
-          "video",
-          "generation",
-          "text-to-video",
-          "creative"
-        ],
-        "featured": true,
-        "premium": false,
-        "logoUrl": "https://pika.art/favicon.ico",
-        "addedAt": "2026-02-12",
-        "scores": {
-          "popularity": 90,
-          "functionality": 66.8,
-          "value": 70,
-          "development": 89.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 78.1
@@ -1268,10 +1242,36 @@
           "popularity": 90,
           "functionality": 66.9,
           "value": 70,
-          "development": 89.0513272337963,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 78.1
+      },
+      {
+        "id": "pika",
+        "name": "Pika",
+        "url": "https://pika.art",
+        "category": "video-generation",
+        "description": "AI video generator. Transform text and images into cinematic videos.",
+        "pricing": "freemium",
+        "tags": [
+          "video",
+          "generation",
+          "text-to-video",
+          "creative"
+        ],
+        "featured": true,
+        "premium": false,
+        "logoUrl": "https://pika.art/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 90,
+          "functionality": 66.8,
+          "value": 70,
+          "development": 88.86362220486112,
+          "userRating": 70
+        },
+        "totalScore": 78
       },
       {
         "id": "kling",
@@ -1294,7 +1294,7 @@
           "popularity": 70,
           "functionality": 67.9,
           "value": 70,
-          "development": 89.0513272337963,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 72.3
@@ -1320,7 +1320,7 @@
           "popularity": 70,
           "functionality": 67.3,
           "value": 70,
-          "development": 89.05132722800926,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 72.2
@@ -1348,7 +1348,7 @@
           "popularity": 88,
           "functionality": 68.4,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 77.7
@@ -1374,7 +1374,7 @@
           "popularity": 88,
           "functionality": 68.1,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 77.6
@@ -1400,36 +1400,10 @@
           "popularity": 68,
           "functionality": 67.3,
           "value": 70,
-          "development": 89.05132722800926,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 71.6
-      },
-      {
-        "id": "descript",
-        "name": "Descript",
-        "url": "https://descript.com",
-        "category": "audio-music",
-        "description": "Audio/video editor with AI transcription, voice cloning, and Studio Sound.",
-        "pricing": "freemium",
-        "tags": [
-          "audio",
-          "video",
-          "transcription",
-          "podcasting"
-        ],
-        "featured": false,
-        "premium": false,
-        "logoUrl": "https://descript.com/favicon.ico",
-        "addedAt": "2026-02-10",
-        "scores": {
-          "popularity": 68,
-          "functionality": 67.4,
-          "value": 70,
-          "development": 88.0513272337963,
-          "userRating": 70
-        },
-        "totalScore": 71.5
       },
       {
         "id": "otter-ai",
@@ -1452,7 +1426,33 @@
           "popularity": 68,
           "functionality": 67.1,
           "value": 70,
-          "development": 89.0513272337963,
+          "development": 88.86362220486112,
+          "userRating": 70
+        },
+        "totalScore": 71.5
+      },
+      {
+        "id": "murf-ai",
+        "name": "Murf AI",
+        "url": "https://murf.ai",
+        "category": "audio-music",
+        "description": "AI voice generator for videos and presentations. Studio-quality voices.",
+        "pricing": "freemium",
+        "tags": [
+          "voice",
+          "narration",
+          "video",
+          "presentation"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://murf.ai/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 68,
+          "functionality": 67.1,
+          "value": 70,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 71.5
@@ -1480,7 +1480,7 @@
           "popularity": 64,
           "functionality": 66.5,
           "value": 100,
-          "development": 89.05132722800926,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 76.2
@@ -1506,7 +1506,7 @@
           "popularity": 64,
           "functionality": 67.4,
           "value": 70,
-          "development": 89.0513272337963,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 70.4
@@ -1532,7 +1532,7 @@
           "popularity": 64,
           "functionality": 67.6,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 70.3
@@ -1557,33 +1557,33 @@
           "popularity": 64,
           "functionality": 62.2,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
-        "totalScore": 69
+        "totalScore": 68.9
       },
       {
-        "id": "jasper",
-        "name": "Jasper",
-        "url": "https://jasper.ai",
+        "id": "surfer-seo",
+        "name": "Surfer SEO",
+        "url": "https://surferseo.com",
         "category": "marketing-sales",
-        "description": "AI content platform for marketing teams. Generate blog posts, ads, social content.",
+        "description": "AI-powered SEO tool. Optimize content for search rankings with data-driven insights.",
         "pricing": "paid",
         "tags": [
-          "marketing",
-          "content",
-          "copywriting",
-          "seo"
+          "seo",
+          "content-optimization",
+          "research",
+          "analytics"
         ],
         "featured": false,
         "premium": false,
-        "logoUrl": "https://jasper.ai/favicon.ico",
+        "logoUrl": "https://surferseo.com/favicon.ico",
         "addedAt": "2026-02-10",
         "scores": {
           "popularity": 64,
-          "functionality": 68.2,
+          "functionality": 68.4,
           "value": 40,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 64.5
@@ -1612,36 +1612,10 @@
           "popularity": 70,
           "functionality": 75.6,
           "value": 70,
-          "development": 93.55132722800926,
+          "development": 93.36362220486112,
           "userRating": 70
         },
         "totalScore": 74.9
-      },
-      {
-        "id": "lex",
-        "name": "Lex",
-        "url": "https://lex.page",
-        "category": "productivity",
-        "description": "AI-powered word processor. Write with AI assistance, like Google Docs meets GPT.",
-        "pricing": "freemium",
-        "tags": [
-          "writing",
-          "word-processor",
-          "ai-assistant",
-          "documents"
-        ],
-        "featured": false,
-        "premium": false,
-        "logoUrl": "https://lex.page/favicon.ico",
-        "addedAt": "2026-02-12",
-        "scores": {
-          "popularity": 70,
-          "functionality": 68,
-          "value": 70,
-          "development": 89.05132722800926,
-          "userRating": 70
-        },
-        "totalScore": 72.4
       },
       {
         "id": "fireflies",
@@ -1664,7 +1638,33 @@
           "popularity": 70,
           "functionality": 68.3,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
+          "userRating": 70
+        },
+        "totalScore": 72.3
+      },
+      {
+        "id": "lex",
+        "name": "Lex",
+        "url": "https://lex.page",
+        "category": "productivity",
+        "description": "AI-powered word processor. Write with AI assistance, like Google Docs meets GPT.",
+        "pricing": "freemium",
+        "tags": [
+          "writing",
+          "word-processor",
+          "ai-assistant",
+          "documents"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://lex.page/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 70,
+          "functionality": 68,
+          "value": 70,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 72.3
@@ -1690,7 +1690,7 @@
           "popularity": 70,
           "functionality": 67.9,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 72.2
@@ -1716,7 +1716,7 @@
           "popularity": 70,
           "functionality": 67.5,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 72.1
@@ -1744,7 +1744,7 @@
           "popularity": 62,
           "functionality": 67.9,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 69.8
@@ -1770,7 +1770,7 @@
           "popularity": 62,
           "functionality": 67.6,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 69.7
@@ -1796,7 +1796,7 @@
           "popularity": 62,
           "functionality": 67.6,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 69.7
@@ -1822,7 +1822,7 @@
           "popularity": 62,
           "functionality": 67.3,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 69.6
@@ -1848,10 +1848,10 @@
           "popularity": 62,
           "functionality": 66.6,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
-        "totalScore": 69.5
+        "totalScore": 69.4
       }
     ],
     "research-education": [
@@ -1876,10 +1876,10 @@
           "popularity": 88,
           "functionality": 67.4,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
-        "totalScore": 77.5
+        "totalScore": 77.4
       },
       {
         "id": "huggingface",
@@ -1902,10 +1902,10 @@
           "popularity": 88,
           "functionality": 65.6,
           "value": 50,
-          "development": 89.05132722800926,
+          "development": 88.86362220486112,
           "userRating": 70
         },
-        "totalScore": 73.2
+        "totalScore": 73.1
       },
       {
         "id": "jenni-ai",
@@ -1928,10 +1928,10 @@
           "popularity": 68,
           "functionality": 68,
           "value": 70,
-          "development": 89.05132722800926,
+          "development": 88.86362220486112,
           "userRating": 70
         },
-        "totalScore": 71.8
+        "totalScore": 71.7
       },
       {
         "id": "scholarai",
@@ -1954,7 +1954,7 @@
           "popularity": 68,
           "functionality": 67.7,
           "value": 70,
-          "development": 89.05132722800926,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 71.7
@@ -1980,7 +1980,7 @@
           "popularity": 68,
           "functionality": 67.6,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 71.5
@@ -2008,7 +2008,7 @@
           "popularity": 60,
           "functionality": 67.6,
           "value": 70,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
           "userRating": 70
         },
         "totalScore": 69.1
@@ -2034,36 +2034,10 @@
           "popularity": 60,
           "functionality": 65.9,
           "value": 70,
-          "development": 89.05132722800926,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 68.8
-      },
-      {
-        "id": "scale-ai",
-        "name": "Scale AI",
-        "url": "https://scale.com",
-        "category": "data-analytics",
-        "description": "AI data labeling and training. Enterprise-grade data infrastructure.",
-        "pricing": "paid",
-        "tags": [
-          "data-labeling",
-          "ml-ops",
-          "enterprise",
-          "infrastructure"
-        ],
-        "featured": false,
-        "premium": false,
-        "logoUrl": "https://scale.com/favicon.ico",
-        "addedAt": "2026-02-12",
-        "scores": {
-          "popularity": 60,
-          "functionality": 66.8,
-          "value": 40,
-          "development": 89.05132722800926,
-          "userRating": 70
-        },
-        "totalScore": 63.1
       },
       {
         "id": "tableau-pulse",
@@ -2086,7 +2060,33 @@
           "popularity": 60,
           "functionality": 67.3,
           "value": 40,
-          "development": 88.0513272337963,
+          "development": 87.86362220486112,
+          "userRating": 70
+        },
+        "totalScore": 63
+      },
+      {
+        "id": "scale-ai",
+        "name": "Scale AI",
+        "url": "https://scale.com",
+        "category": "data-analytics",
+        "description": "AI data labeling and training. Enterprise-grade data infrastructure.",
+        "pricing": "paid",
+        "tags": [
+          "data-labeling",
+          "ml-ops",
+          "enterprise",
+          "infrastructure"
+        ],
+        "featured": false,
+        "premium": false,
+        "logoUrl": "https://scale.com/favicon.ico",
+        "addedAt": "2026-02-12",
+        "scores": {
+          "popularity": 60,
+          "functionality": 66.8,
+          "value": 40,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 63
@@ -2112,7 +2112,7 @@
           "popularity": 60,
           "functionality": 65.9,
           "value": 40,
-          "development": 89.05132722800926,
+          "development": 88.86362220486112,
           "userRating": 70
         },
         "totalScore": 62.8
