@@ -1,10 +1,10 @@
 {
   "cursor": {
-    "lastVersion": "Composer 2 (March 19, 2026)",
-    "lastChecked": "2026-03-25T11:15:00+09:00"
+    "lastVersion": "Self-hosted Cloud Agents (March 25, 2026)",
+    "lastChecked": "2026-03-26T06:15:00+09:00"
   },
   "claudeCode": {
-    "lastVersion": "v2.1.84",
-    "lastChecked": "2026-03-25T22:30:00+09:00"
+    "lastVersion": "v2.1.85",
+    "lastChecked": "2026-03-26T06:32:00+09:00"
   }
 }
