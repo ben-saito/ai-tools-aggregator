@@ -1,0 +1,42 @@
+# AI開発ニュース速報 (2026-05-09)
+
+本日は、日本のLLM開発における大規模プロジェクトの進展、エッジデバイスでのAI実行技術の向上、そして複数のLLMを効率的に活用するためのプラットフォームの拡張についてお届けします。
+
+---
+
+## 日本語LLMの進化：楽天と経産省の連携
+
+経産省、楽天の生成AI開発を仕組み化 “長期記憶”で複雑な日本語文脈に対応するLLM構築へ
+
+### 技術的詳細
+経済産業省の「GENIAC」プロジェクトにおいて、楽天が日本語の複雑な文脈や「長期記憶」を保持できるLLMの開発を推進しています。これは、日本のビジネス文脈における高い推論能力とコンテキスト保持の実現を目指したものです。
+
+---
+
+## エッジAIの拡大：MediaTek DimensityとLlama 3.2
+
+MediaTek Dimensity プラットフォームは、新しい Llama 3.2 Generative AI LLM をサポート
+
+### 開発者への影響
+MediaTekのDimensityチップセットが、Metaの最新モデルであるLlama 3.2のサポートを開始しました。これにより、モバイルデバイス上でのエッジAI（Generative AI）の実行がさらに容易になり、プライバシーと低遅延を両立したAI体験が期待されます。
+
+---
+
+## マルチLLMオーケストレーション：exaBase Generative AIの拡張
+
+エクサウィザーズ、複数のLLMを切り替えて利用できる「exaBase Generative AI」を拡張
+
+### マルチモデルの最適化
+exaBase Generative AIが、AnthropicのClaude、GoogleのGemini、NTTのtsuzumiなど、複数の高性能LLMを最適なモデルへシームレスに切り替えて利用できる機能を強化。開発者はタスクの性質に合わせて、コスト・速度・性能を最適化できるようになります。
+
+---
+
+## 参考リンク
+
+- [経産省、楽天の生成AI開発を支援 - ITmedia](https://news.google.com/rss/articles/CBMib0FVX3lxTFAxblVWa0hXLVZEZnZPMzZaUjFYWWdLcmJCOVg3T0E1YkNDS3ZpVE1OXzQ3RGY4ZG1ha0xTb0R3a1p5TjVMcUxMUFR5RFFuZFVuR3hXaGVabGtMc1cwSWJsd1Utamlja2Nyc0RNMzBxWQ?oc=5)
+- [MediaTek Dimensity Llama 3.2 Support - MediaTek](https://news.google.com/rss/articles/CBMisgJBVV95cUxNaFVXSHJselNLX3dpUU9WYUpIOGdBZWgtNS1BUVBwTFhoMFJyeXdwZDhnTUlCbnlObGFLY0duZnpMa1AzeVJ3RGZRckVQX3pnM0l6WThXazBSUHU5V1JsNjdrYnVqam4wemJvZXRMdS1jN3g3T2t5dkxnT3VFWUdxTThmbGxNdXJ0cU9UR2U2S2xCUGxjem45WmJ3RFhHZG5LbFE4am5pM2VWY1BlY241d2w3NFk5UUZuUzlPRzNHWDAyckF2OTFaWkt2MENoMzVhLXdVaEFuWWdkRDRfM0x5aTExR2lCMXdJeHhkdEpPSFNtTjVCczdFdUNNS0tkZHluNExrLVNmOEdYWlRNb05JUktuMm5acjhyamlIdUdtSG5kcHRqZ3lyajhrVk4tNkZzZUHSAcICQVVfeXFMT2s5R0JKX3BBdDRNZ0ZqSm5KWUI3TjItNDZMRlRpTzY5MDFCbkE2OU1mSWJodHBoQUR2TVZzTU92U0dmcG9wZ3BDNWg0UWJybXpiMnZnTEp3dW5WVGJ5dFpKYjU1dlRlTlB6Zko2aTdzNVhERFRrYUstUHNwdjFoeFJoRE9CM1JGME1BaWpUSlR5Vm9TQmZHaEtwMFl1X050Q3Y3RjFSLUk2eHNGLTJXNEp1bmswTVljMUlFVy1EMU84QnhhQmZObEU4RXBrUXM2QWdGdF9yZVJROE5HQWxsREFVbWI3MW9VbkF5akN0dWhHdHhVMzB2YjhjMHJCZ3o1WjlOWk9OU0liR2FGNmxRaGNlZG9Bd1UxelN3eGZMel9XckpYYndmU1diaERJejE4R0J2c1dXWGE3LXd5MjdGcXFIdw?oc=5)
+- [exaBase Generative AI Expansion - Exawizards](https://news.google.com/rss/articles/CBMiU0FVX0xyT01QdjJYaEdtT2hkMTB6X0ZIU0hDeWVJb0pfQlE5X0xpa05kOWE1ZTJHd0FrdHBOX0g1S0hkVjEtM1lXNXk1Sm4yWVI0?oc=5)
+
+---
+
+*（本文の情報は2026-05-09時点のものです...）*
