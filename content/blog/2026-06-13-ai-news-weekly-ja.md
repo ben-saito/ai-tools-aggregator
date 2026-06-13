@@ -1,137 +1,79 @@
 # AI開発ニュースまとめ（2026年6月13日）
 
-AI業界は6月も中盤に入り、生成AIモデルの最適化、AIエージェントのセキュリティ、コーディング支援ツールの競争激化など、複数の重要トピックが動きを見せている。今週はMistral AIの大型資金調達噂、GoogleのAI使ったサイバー犯罪訴追、Microsoftのオープンソーススキル最適化フレームワーク、XiaomiのターミナルAIコーディングハーネスなど、開発者にとって重要なニュースが多い。
+6月上旬のAI開発領域は、モデル開発における**透明性への批判**、エージェンティックAIの**セキュリティ基盤整備**、そしてRAGやスキル最適化といった実用化技術の進化が同時進行する興味深い週となった。
 
 ---
 
-## Mistral AI、€300億調達交渉中？評価額€200億に成長
+## Anthropic、安全警告が裏目に——Claude Fable 5の限定解除和政府との関係
 
-フランス発のAI企業**Mistral AI**が、€30億（約€20億の評価額）を調達する交渉を抱えているとTechCrunchが報じた。Series Cの評価額€117億からほぼ倍増ことになる。EUのAIラボとして唯一の存在であるMistralは、Google、OpenAI、Anthropicに次ぐ評価額となりつつある。
+Anthropicは6月12日、最新モデル**Claude Fable 5**の公開停止措置を政府に対して行った。これは企業の安全性に関する警告が、政府の判断に影響を与えたことを意味する。Anthropicはブログ投稿で、「狭いジャイルブレイクの可能性を理由に、何百万人ものユーザーが利用する商用モデルの公開を停止すべきするという主張には同意できない」と明示的に反論した。
 
-現在進行中のIPOサマリー（SpaceX、Anthropic、OpenAI）と合わせて、**2026年夏はAI企業のIPO・大型調達ラッシュ**となりそうだ。Mistralの調達が成功すれば、EUのAIエコシステムに対する機関投資家の信頼がさらに強まることになる。
-
----
-
-## Google、AI使った大規模詐欺短信送信者を提訴
-
-Googleは「Outsider Enterprise」と名乗る中国ベースのサイバー犯罪グループを提訴した。同グループはAIを使って2週間で**250万通の詐欺短信**を送信し、十数万人以上の被害者を対象としていた。
-
-この訴訟は、AIがサイバー犯罪のコストを劇的に引き下げる可能性を示す事例となる。AI使った犯行の適格性を法的に認めており、**AI辅助のサイバー犯罪に対する法的枠組み**が今後整備されていく值得关注。
+この一件は、**安全性インプロセスと透明性の境界**について業界全体で再考を促すものとなっている。モデルの能力向上と安全性のバランスをどのように取るかは、規制当局との対話において今後ますます重要な論点になりそうだ。
 
 ---
 
-## NanoClaw × JFrog：AIエージェントのサプライチェーンを守る「免疫系」
+## Kimi K2.7-Code発表——思考トークン30%削減の実態
 
-VentureBeatが報じた**NanoClaw**と**JFrog**のパートナーシップは、AIエージェントのセキュリティ課題に直接挑んでいる。NanoClawは自律型AIエージェントで、ユーザーに代わってパッケージをダウンロード・インストールするが、悪意のあるコードが混入されたオープンソースパッケージに脆弱性がある。
+Moonshot AI（北京）が**Kimi K2.7-Code**をリリースした。K2シリーズ待望のアップデートであり、思考トークン使用量を前バージョンK2.6比で**30%削減**と主張している。OpenAI互換APIで提供されるため、既存のK2.6運用基盤からの移行が容易な点が評価されている。
 
-### 問題の本質
-
-AIエージェントは自律的にパッケージをインストールするため、従来の開発者によるコードレビューをバイパスする。ユーザーは開発者でなくても、AIrès Agentに高レベルな指示만出し、バックグラウンドでパッケージがインストールされる。この**サプライチェーンリスク**が急速に拡大している。
-
-### 解決策
-
-NanoClawエージェントは、ソフトウェアパッケージ・CLIツール・MCPサーバーのリクエストをJFrogレジストリ経由のみにルーティングする。悪意のあるパッケージが検出された場合、インストールをブロックし、承認済みバージョンへの自動誘導を行う。
-
-**オープンソースコミュニティ向けは完全無料**、エンタープライズ向けは既存のJFrog環境と連携する。NanoClawエージェントの安全性を確保しながら、エンタープライズのコンプライアンス要件も満たす設計だ。
+しかし独立系ベンチマークでは!**KernelBench-Hard**でK2.7-Codeを実行した研究者Elliot Arledge氏の結果によると、「K2.7はより正直だが、能力は向上していない」という結果が出ている。Moonshot AIが自社開発しているプロプライエタリベンチマーク（Kimi Code Bench v2、Program Bench、MLS Bench Lite）での数値と、独立ベンチマークの結果に乖離があることが指摘されており、モデルルーティングの判断材料として**DeepSWE**など中立ベンチマークへの提出が業界から求められている。
 
 ---
 
-## PixelRAG：テキスト解析をバイパスし精度18.1%向上・トークンコスト10分の1
+## Google、「Faithful Uncertainty」発表——ハルシネーションの新フレーミング
 
-UC Berkeley、Princeton、EPFL、Databricksの研究チームが**PixelRAG**を発表した。HTMLテキスト解析の代わりに、レンダリング済みスクリーンショットを視覚言語モデル（VLM）で直接読み取るシステムだ。
+Googleの研究者はLLMの**ハルシネーション問題**に対する新しい概念的アプローチ「**Faithful Uncertainty**」を論文として発表した。核となるアイデアは、ハルシネーションを「事実誤認一律」ではなく「確信犯的な誤り（confident errors）」として再定義し、モデルの**内部的信頼度と言語的表現の不一致**是正を目指すものだ。
 
-### テキストRAGの3つの欠損パターン
+従来の方法では事実誤認を排除すると「利用可能な回答まで除外してしまう」という**utility tax**が存在した。例として、エラー率25%を5%以下に抑えるだけで、モデルの正しい回答の52%が捨てられるという数値が示されている。Faithful Uncertaintyでは、モデルが内部的確信度に応じて適切にヘッジした回答（「私の最善の推測では...」）を提供することを許容し、ユーザーの信頼を保ちながら有用性を維持することを目指す。
 
- 研究チームはSimpleQAベンチマーク（1000件のfactual Wikipedia質問）でテキストRAGの欠損パターンを特定した：
-
-- **パーサー欠損（36.6%）**：HTMLからテキストへの変換で構造が破壊され、回答がどのチャンクにも存在しない
-- **ランク欠損（55.2%）**：回答がチャンクに存在するがInfoboxにranksされて順位が悪い
-- **リーダー欠損（8.2%）**：正しいコンテンツがリーダーに届くが構造の平坦化で誤帰属
-
-### システム構成
-
-1. **レンダリング**：Playwrightで875ピクセルビューポート、レンダリング後1024ピクセルタイルに分割
-2. **インデックス**：Qwen3-VL-Embedding-2Bで各タイルを2048次元ベクトル化しFAISS近似最近傍インデックスに保存
-3. **トレーニング**：商店コントラスト学習データで微調整、LoRA適用
-4. **ストレージ**：オンデマンドレンダリングで永続ストレージを不要に（5.6TB→120GB）
-
-### ベンチマーク結果
-
-- SimpleQA精度：**78.8%** vs テキストベース71.6%
-- 構造化テーブルクエリ：**48.8%** vs 42.5%
-- エージェントトークンコスト：**360万トークン** vs テキストベース3750万トークン（10分の1以下）
-
-**視覚チャンキング**が未解決の問題として残る。テキストRAGはセマンティックなチャンキング策略を多年かけて洗練させてきたが、PixelRAGはまだ固定ピクセル高でページを切片するため、セクション境界の概念がない。
+エンタープライズAIの観点からは、**エージェンティックAIにおけるメタ認知レイヤー**としての重要性が増す。外部ツールへの参照タイミングの制御や検索結果の質評価においても、内部的不確実性の認識が中核的な制御機構として機能する。
 
 ---
 
-## Microsoft SkillOpt：モデル重みを触らずにAIエージェントスキルを自動最適化
+## NanoClaw × JFrog——AIエージェント向け「免疫系」提供
 
-MicrosoftがMITライセンスのオープンソースフレームワーク**SkillOpt**をGitHubで公開した。AIエージェントのスキル（.mdファイルで保存された命令群）を、深層学習スタイルの最適化で自動改善する。
+NanoClawの開発者であるNanoCo AIとソフトウェアサプライチェーン管理のJFrogが提携し、AIエージェントが悪意あるコードをダウンロードすることを不能にするセキュリティ統合をリリースした。
 
-### 従来の問題
+NanoClawエージェントは自律的にパッケージをインストールする機能を持つが、それが悪意のあるオープンソースパッケージによる攻撃対象となっている問題を解決する。JFrogのレジストリを通じて承認済みのみをインストールし、脆弱なバージョンを検出した場合は自動的にセキュアな代替案を提案する動的補正ループを形成する。
 
-エージェントスキルはテキストドキュメントとして保存され、エンドユーザーのコンテキストに挿入されて実行される。スキルを最適化するには通常、ファイルを手動で再入力する必要があり、改善点を「当てずっぽう」で見つける必要があった。
-
-テキスト編集には深層学習のような**数学的統制**がないため、編集が極めて不安定になる。
-
-### SkillOptのアプローチ
-
-SkillOptは**提案→テストの反復ループ**でスキル文書を最適化する：
-
-1. 対象モデルがバッチタスクを実行し、実行軌跡を生成
-2. オフラインオプティマイザが軌跡を分析し、成功と失敗を分離
-3. スキル文書への追加・削除・置換編集を提案
-4. 編集予算（学習率に相当）をクリップして候補スキルを生成
-5. 検証セットで候補を評価し、改善すれば受容、悪化すれば拒否バッファに送信
-
-### ベンチマーク結果
-
-- GPT-5.5で**+23.5ポイント**改善（スキルなしベースライン比）
-- エンタープライズ痛点（文書のデータ抽出、AP自動化、クレーム、コンプライアンス）で最大の改善
-- 最終スキルは**最大2000トークン**（中央値約920トークン）で人間にとってレビュー・運用が容易
+オープンソースコミュニティ向けは無償提供、エンタープライズ向けは既存の商用JFrog環境に統合する。AIエージェントの**セキュリティガバナンスとコンプライアンス**の基盤として注目される。
 
 ---
 
-## Xiaomi MiMo Code：200ステップ以上の長距タスクでClaude Codeを上回る
+## PixelRAG——ビジョン言語モデルでRAGの精度とコストを改善
 
-XiaomiのMiMo AIチームがMITライセンスの**MiMo Code V0.1.0**をオープンソース公開した。ターミナルベースのAIコーディングアシスタントで、200ステップ以上の長距タスクでClaude Codeを上回る性能を確認したという。
+UC Berkeley、Princeton、EPFL、Databricksの研究者が**PixelRAG**論文を公开发表した。既存のテキストベースRAGがHTML解析時に失う情報を、ページをそのままスクリーンショットとしてインデックスすることで解決する。
 
-### メモリアーキテクチャ
+シンプルな測定結果：6つのベンチマークでテキストベースRAG全てに上回り、精度は最大**18.1%向上**。AIエージェントのトークン使用量は3.6Mトークン（PixelRAG使用時）vs 37.5Mトークン（テキスト検索時）と**約10分の1**に削減できることが示された。
 
-MiMo Codeのコアは**4層クロスセッション記憶システム**：
+テキストRAGの失敗原因分析が注目に値する：
 
-- プロジェクトメモリ（永続MEMORY.mdファイル）
-- セッションチeckポイント
-- スクラッチノート
-- タスクごとの進捗ログ
+- **Parser loss（36.6%）**：HTML-to-text変換で文書構造が破壊され、回答がどのチャンクにも含まれなくなる
+- **Rank loss（55.2%）**：回答は存在するがキーワード密度の高い infobox に押し出されランク20以下に
+- **Reader loss（8.2%）**：正しいコンテンツに到達するが平板化で帰属先が不明確
 
-「チェックポイントライター」サブエージェントが主力エージェントと連携し、コンテキストウィンドウが限界に近づくと、環境を構造化チェックポイントから再構築する。
+エンタープライズRAGのビルダーにとっては、テキスト検索とビジュアル検索の**ハイブリッド構成**が最短経路となる。
 
-### ベンチマーク
+---
 
-| ベンチマーク | MiMo Code + MiMo-V2.5-Pro | Claude Code + Claude Sonnet 4.6 |
-|---|---|---|
-| SWE-bench Verified | **82%** | 79% |
-| SWE-bench Pro | **62%** | 55% |
-| Terminal Bench 2 | **73%** | 69% |
+## Microsoft SkillOpt——AIエージェントスキルの自動最適化フレームワーク
 
-ハーネス本身的にも約5ポイントの差があり、**足場（ハーネス）エンジニアリングがモデル能力と同じくらい重要**になりつつあることを示している。
+Microsoft Research Asiaが**SkillOpt**をオープンスソース（MIT）発表した。エージェントスキル（.mdファイルで記述されたプロシージャルナレッジ）を、深層学習の最適化手法を適用して自動改善するフレームワークだ。
 
-### 価格競争力
+深層学習と同様の数学的統制をテキストに輸入することが核心である。**Edit budget**（学習率相当）、**Validation set**（検証損失に相当）、**Rejected-edit buffer**（負のメモリ）の3要素により、テキスト編集の不安定性を克服する。
 
-MiMo-V2.5は**$0.40/$2.00/百万トークン**（入力/出力）、V2.5-Proは**$1.00/$3.00/百万トークン**で、Claude Opus 4.8の$5.00/$25.00やGPT-5.5の$5.00/$30.00と比較すると大幅に安い。
+評価結果では、GPT-5.5でスキルなし基底線比**+23.5ポイント**向上。GPT-5.4-nanoではマルチモーダル文書QAでスコア約2倍、身体的相互作用と逐次的意思決定で3倍を記録した。Codex CLIで学習したスプレッドシートスキルをClaude Codeに転送したところ、**+59.7ポイント**の基底線超え達成している。
 
 ---
 
 ## 参考リンク
 
-- [Mistral AI資金調達噂（TechCrunch）](https://techcrunch.com/2026/06/12/mistral-is-rumored-to-be-raising-e3b-at-e20-valuation/)
-- [Google提訴記事（TechCrunch）](https://techcrunch.com/2026/06/12/google-sues-alleged-chinese-cybercrime-operation-that-used-ai-to-send-scam-texts/)
+- [Anthropic、政府のモデル停止措置に反論（TechCrunch）](https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/)
+- [Kimi K2.7-Code（VentureBeat）](https://venturebeat.com/technology/kimi-k2-7-code-cuts-thinking-tokens-30-practitioners-say-benchmarks-dont-check-out)
+- [Google Faithful Uncertainty（VentureBeat）](https://venturebeat.com/orchestration/google-researchers-introduce-faithful-uncertainty-allowing-llms-to-offer-best-guesses-instead-of-hallucinations)
 - [NanoClaw × JFrog（VentureBeat）](https://venturebeat.com/security/nanoclaw-and-jfrog-launch-immune-system-to-block-ai-agents-from-downloading-malicious-code)
-- [PixelRAG論文（VentureBeat）](https://venturebeat.com/data/pixelrag-beats-text-parsers-on-accuracy-and-cuts-ai-agent-token-costs-10x)
+- [PixelRAG（VentureBeat）](https://venturebeat.com/data/pixelrag-beats-text-parsers-on-accuracy-and-cuts-ai-agent-token-costs-10x)
 - [Microsoft SkillOpt（VentureBeat）](https://venturebeat.com/orchestration/microsofts-open-source-skillopt-automatically-upgrades-ai-agent-skills-without-touching-model-weights)
-- [Xiaomi MiMo Code（VentureBeat）](https://venturebeat.com/technology/xiaomis-new-open-source-agentic-ai-coding-harness-mimo-code-beats-claude-code-at-ultra-long-200-step-tasks)
 
 ---
 
