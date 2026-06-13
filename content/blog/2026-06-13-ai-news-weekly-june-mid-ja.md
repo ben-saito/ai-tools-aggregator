@@ -1,85 +1,123 @@
 # AI開発ニュースまとめ（2026年6月13日）
 
-6月も中盤に入り、AI業界は大型調達・IPOラッシュと内部問題の表面化が同時進行する週となった。SpaceXが過去最大規模のIPOを完了し、Jeff Bezos氏支援のPrometheusが$12Bを調達して物理AIに参入する一方、Metaの社内AIユニットでは6,500人規模の内NECTが起きている。今週は以上のトピックを中心にまとめる。
+AI業界は今週、**XiaomiのオープンソースコーディングエージェントMiMo Code**がClaude Code超えを宣言するかたわら、**Googleのハルシネーション対策研究**や**MicrosoftのSkillOpt**など、開発者が即座に試せるツールが複数登場。千元以下で基盤モデルを学習した研究や、Googleの検索UI刷新も話題に。6月第2週の注目ニュースをまとめる。
 
 ---
 
-## SpaceX、$135で過去最大IPOを実現——AI×宇宙の交差点
+## Xiaomi MiMo Code登場 —— 200ステップ超えの長時間タスクでClaude Codeを凌駕
 
-SpaceXは6月11日（米国時間）、公式に株価を**1株$135**と決定し、過去最大規模となるIPOを実施した。TechCrunchのライブアップデートによれば、同社の評価額は約**$2,800億〜$3,000億**に達し、米国的史上最大規模の上場となった。
+6月12日（米国時間）、**Xiaomi**がオープンソースの自律型AIコーディングフレームワーク**MiMo Code**をリリースし、VentureBeat等多个媒体から注目浴びている。
 
-AI業界との関連で注目すべきは、SpaceXがStarlink通了のグローバル接続基盤と、AI衛星処理・Crew Dragonの自律制御システムへの投資を拡大している点だ。Anthropicとのデータセンターパートナーシップとも相まって、宇宙×AIの交点は2026年最大のテーマの一つとなっている。
+**核心的な性能:**
+- **200ステップ以上の長時間タスク**でClaude Code比自己得分更高
+- 永続メモリシステムを搭載し、エージェント開発において広く求められていたpain pointに対応
+- 競合各社が similares な機能を開発中で、パーシステントメモリの競争が加速
 
----
+**アーキテクチャの注目点:**
+- 複雑なコードベース全体を通じた文脈保持に強み
+- エージェントワークフローでの長大タスク遂行特化
+- オープンソースとして企業で免费下载・カスタマイズ可能
 
-## Prometheus AI：Jeff Bezosが$12Bを投資——「物理世界のAGエンジニア」を目指す
-
-Jeff Bezos氏が出資するスタートアップ**Prometheus AI**が、$12B（約¥1.8兆）の大型調達を完了した。評価額は**$410億**に達した。
-
-### ミッションと技術的アプローチ
-
-Prometheusが揭げるのは「**artificial general engineer（人工汎用エンジニア）**」——物理世界の重的エンジニアリング作業と創薬プロセスの自動化を目指す。従来のソフトウェアAIとは異なり、ロボティクス・材料工学・生物学の领域横断的な知识が求められる。
-
-### 調達の意義
-
-$12Bという調達規模は、OpenAIの過去の資金調達と比較しても最大級だ。Bezos氏個人と、NVIDIAやBlackRockなどの機関投資家が主要な出资者となる。物理AIという领域は、表話推理ではなく実世界のデータと実地検証が不可欠なため、ハードウェアへの投資が避けられず、そのための巨額調達である。
+**開発者にとっての意味:** 長時間タスクでの性能向北は、プロダクション環境でのAIエージェントの実用性を大きく左右する。MiMo Codeの永続メモリ方式是、この領域における新しいベンチマークになる可能性を秘めている。
 
 ---
 
-## Meta AIユニット、6,500人のエンジニアが「反乱」の危機——内部告発の报告显示
+## Microsoft SkillOpt —— モデル重みを変更せずにAIエージェントのスキルを自動アップグレード
 
-TechCrunchが6月12日に伝えたところによれば、Meta内に設置された**6,500人規模のAI開発ユニット**が、内部资料によると「魂が壊れる刑務所のような環境」と描述される状况にあるという。
+Microsoftは6月11日、**SkillOpt**をオープンソースとして公开发表した。AIエージェントのスキル（プロンプト・動作パターン）を、モデル本身の重みを触れずに自動最適化するツールだ。
 
-### 报告主要内容
+**核心的な特徴:**
+- 手動のプロンプト调整为数学的に検証されたテキスト最適化に置き換える
+- 深層学習の disciplin をエージェントスキルに適用
+- モデル重力を変更しないため、再トレーニング不要で安全に家をけない
 
-- 工程师たちの间で生产性への不满が积累
-- 移动希望者が増加倾向
-- 复雑な报告体系と频繁な方向变更が负担に
-- AI開発のスピード требованияと品質のバランス失调
-
-この报告は、AI企业における组织的課題が表面化してきたことを示している。单纯に人员数を増やせば生产性が上がるわけではない——特に基础研究とプロダクト開発が并行する环境では、组织の 밸런스管理が至关重要となる。
+**なぜ重要か:** エージェントのスキル向上は従来、プロンプトの手動調整に大きく依存していた。SkillOptはこのプロセスを体系化し、再現可能な最適化を実現。Enterpriseで数百体のエージェントを運用する場合に特に有効。
 
 ---
 
-## Avataar AI：印度スケールの映像生成——$0.005/秒の破格的价格
+## Google、「Faithful Uncertainty」でハルシネーション対策のパラダイムシフト
 
-**Avataar AI**は6月11日、印度市場向けの映像生成AIモデルを発表。従来のテキスト・映像生成モデル相比ぶ価格設定が注目引く。
+Google研究チームは6月12日、**「Faithful Uncertainty（忠実な不確実性）」**と呼ぶ新しいアプローチを公开发表した。LLMに「不确定なことを曖昧にせず、最善の推定を提供する」機能を実装する。
 
-### 主要な特徴
+**従来の課題:**
+- ハルシネーションゼロを目標にすると、有効な回答まで失われる
+- エンタープライズAIにおいて、過剰な慎重さが実用性を損なう
 
-- **価格：$0.005/秒**（従来の1/10以下と推定）
-- 印度的文化的文脈を理解したモデル设计
-- 蒸馏（distillation）による轻量化で低コスト推論を実現
-- 地域の言語・文化适应済みの印度语モデル
+**Faithful Uncertaintyのアプローチ:**
+- LLMにメタ認知機能を付与し、不確実性を適切に表現
+- 確信度に応じた「最善の推定」と「不定表示」の切り替えを実現
+- ハルシネーションを完全に消除する代わりに、回答の信頼性を透明かに表示
 
-### 市場戦略
-
-Avataarのアプローチは「**India first**」——既存のグローバルモデルが対応していない印度的文化的ニュアンス（宗教、祝祭、地域言語）を理解し、低コストで映像生成できる点を 차별化要因としている。印度のユーザーは13亿人以上おり、急成長するデジタル広告・エンターテインメント市場で大きな需要が見込まれる。
+**開発者への示唆:** エンタープライズAIで「正直な不確実性」を表示する機能は、コンプライアンスや監査要件が厳しい分野で特に重要。Googleのリサーチが実用化されれば、LLM応用の設計思想そのものに影響を与える可能性がある。
 
 ---
 
-## Theker、$85M調達——「専門特化しない」ファクトリーロボット
+## Google DiffusionGemma —— 256トークンを並列生成し的自己纠错
 
-ロボットスタートアップの**Theker**が、$85Mのシードラウンドを発表している。従来の工場ロボット（如くBoston DynamicsのHumanoid）が固定された形态で设计されているのに対し、Thekerのロボットは**再構成可能な形态**を特徴とする。
+同日、Googleは**DiffusionGemma**を公开发表。従来の自己回帰モデルとは根本的に異なる生成方式を採用している。
 
-### 技術的アプローチ
+**技術的特徴:**
+- **256トークンを並列生成**——1トークンずつ生成する従来方式より大幅に高速
+- 生成途中に自己纠错を実行し、エラー発生時に即座に修正
+- コンシューマーGPU上での高速動作に特化
 
-- タスクに応じて роботの形态を变更可能
-- 泛用的な基盤プラットフォーム＋交换可能なエンドエフェクタ
-- 轻量化・个省エネルギーで従来の専門机器人よりコスト効率が高い
+**制約:**
+- オープンエンディングなタスクでは性能が弱い
+- 構造化された出力が求められる場面で特に有効
 
-この「**形態自由度**」のアプローチは、AIの泛用性と似ており、ロボティクス业界でも「AI的な泛用ロボット」への潮流が生まれている。
+**ベンチマーク結果:** 一部タスクでは従来の自己回帰モデルを超える生成速度を達成。ただし全能ではなく、タスクの性質による使い分けが重要になる。
+
+---
+
+## Kimi K2.7-Code —— 思考トークンを30%削減も、ベンチマークへの信頼性问题
+
+中国のAIスタートアップ**Moonshot AI**旗下的**Kimi**が6月13日、**K2.7-Code**をリリース。思考トークンを30%削減特点として売っているが、現場レベルではベンチマークの信憑性に対する疑問が呈されている。
+
+**報告されている特徴:**
+- 思考トークン30%削減により、推論コストを大幅に縮減
+- ライブラリをwrapする代わりに直接コード生成する「正直な」アプローチ
+- しかし2つのカーネルで失敗、MoE結果がK2.6からリグレッション
+
+**从业者の反応:** 「ベンチマークの数字と実陖性能に差がある」との声较多。K2.7が公式ベンチマークで良い成績を残す一方、現場での複雑なコード生成では課題が残る可能性が高い。
+
+---
+
+## $1,500で基盤モデルを訓練 —— 研究者が示す低コストAI民主化の另一面
+
+6月10日、研究者チームが**約1,500ドル（约22万円）**で基盤モデルを从头训练できたことを報告。この1B reasoningモデルが、遙かに大規模なLLMと主要なベンチマークで互角の性能を示したという。
+
+**注目ポイント:**
+- インターネットスケールのデータが不要
+- 特定ドメイン特化なら低コストで構築可能
+- 計算資源の民主化を示す事例
+
+**注意すべき点:** この成果がすべてのシナリオに適用できるわけではないが、LLM開発の敷居が急速に低下していることは確か。特定用途であれば小企业や研究機関でも独自モデルの構築が可能になりつつある。
+
+---
+
+## Anthropic CEO、Dario AmodeiがFAAスタイルのAI規制を呼吁
+
+AnthropicのCEO**Dario Amodei**は6月10日、強力なAIモデルに対して**FAA（米国連邦航空局）スタイルの規制**を求めると述べた。
+
+**提案の内容:**
+- 航空安全のように、AIモデルの認証・審査プロセスを法定化
+- ハイパーリسكAIに対する国際的な安全管理枠組みの創設
+- Enterpriseには单一ベンダーロックインの回避が緊急課題として浮上
+
+**Enterpriseへの警示:** 規制強化が現実になれば、主要AIモデルの突然の利用不可リスクに対応するために、マルチベンダー戦略への移行が迫切化する。
 
 ---
 
 ## 参考リンク
 
-- [SpaceX IPO - Live updates (TechCrunch)](https://techcrunch.com/2026/06/12/spacex-ipo-live-updates-on-everything-you-need-to-know/)
-- [Jeff Bezos's Prometheus raises $12B (TechCrunch)](https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/)
-- [Meta's AI unit internal report (TechCrunch)](https://techcrunch.com/2026/06/12/metas-months-old-ai-unit-is-a-soul-crushing-gulag-say-the-engineers-stuck-inside-it/)
-- [Avataar's video AI for India (TechCrunch)](https://techcrunch.com/2026/06/11/cheaper-faster-and-culturally-aware-avataars-video-ai-is-built-for-indias-scale/)
-- [Theker factory robot (TechCrunch)](https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/)
+- [Xiaomi MiMo Code - VentureBeat](https://venturebeat.com/technology/xiaomi-mimo-code-beats-claude-code-at-ultra-long-200-step-tasks)
+- [Microsoft SkillOpt - VentureBeat](https://venturebeat.com/technology/microsoft-skillopt-automatically-upgrades-ai-agent-skills-without-touching-model-weights)
+- [Google Faithful Uncertainty - VentureBeat](https://venturebeat.com/research/google-researchers-introduce-faithful-uncertainty-allowing-llms-to-offer-best-guesses-instead-of-hallucinations)
+- [Google DiffusionGemma - VentureBeat](https://venturebeat.com/technology/googles-diffusiongemma-generates-256-tokens-in-parallel-and-self-corrects-as-it-goes)
+- [Kimi K2.7-Code - VentureBeat](https://venturebeat.com/technology/kimi-k2-7-code-cuts-thinking-tokens-30-but-practitioners-say-the-benchmarks-dont-check-out)
+- [Foundation Model $1,500 Training - VentureBeat](https://venturebeat.com/research/researchers-say-they-trained-a-foundation-model-from-scratch-for-about-1500)
+- [Anthropic FAA-style Regulation - VentureBeat](https://venturebeat.com/technology/anthropic-ceo-calls-for-faa-style-regulation-of-powerful-ai-models)
 
 ---
 
-*本文の情報は2026年6月13日時点のものです。*
+*（本文の情報は2026年6月13日時点のものです）*
