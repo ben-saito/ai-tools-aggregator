@@ -1,94 +1,76 @@
-# AI開発ニュースまとめ（2026年6月18日版）
+# AIニュース weekly（2026年6月19日）
 
-LeCun警告、Google幹部のOpenAI転出、Anthropic規制議論、Adobeのクリエイティブエージェントなど、2026年6月中旬のAI開発ニュースをまとめてお届けする。
-
----
-
-## Yann LeCun氏「AIラボは巨大バブルの破裂に直面する」
-
-MetaのAI研究責任者でありAMI Labs創業者のYann LeCun氏が、CNBCの取材に対してAI業界の持続可能性について警告を発した。OpenAIやAnthropicのようなAIラボは、コストの削減または料金引き上げを行わなければ「巨大バブル破裂」に直面する可能性が高いと指摘。AIサービスの価格は上昇続けているものの、運用コストも的比例で増加しており、ビジネスモデルの両立が困難になっている。
-
-LeCun氏の見解は技術的に注目に値する。同氏は現在主流の大規模言語モデル（LLM）ではなく「ワールドモデル」に賭ける立場を取る。ワールドモデルはテキスト予測ではなく、物理世界の構造——空間的関係、力学、身体知覚——を理解するシステムであり、LeCun家は「LLMだけではAGIに到達できない」と長らく主張してきた。
-
-興味深いことに、LeCun家は Elon Musk の xAI を「ある種の失敗」と切り捨てた。xAIの創業チームメンバーが既に退社しており、Musk氏はいまやトップ人材の採用にも苦労している情况和を指摘。「xAIがOpenAIやAnthropicと競争することは期待できない」との見解を示した。
+Googleが25年ぶりに検索ボックスを刷新し、AI検索の本格統合を宣言した週となりました。FERCがAIデータセンターにグリッドへの優先接続を裁定決、上海pzdrのGeneral Intuitionが大型調達を検討しているとのことです。
 
 ---
 
-## Google Gemini共同責任者がOpenAIに転身——「Attention Is All You Need」共著者
+## Google検索結果ボックス刷新：25年越しのUI大改革
 
-AI史上最も影響力のある論文の一つ「Attention Is All You Need」の共著者であり、GoogleでGeminiの共同責任者を務めたNoam Shazeer氏が、OpenAIに加わった。2000年にGoogleに入り、スペルチェックの改善などに寄与。2021年にGoogleを退社し、AIチャットスタートアップCharacter.AIを共同創業。2024年にGoogleに復帰し、Gemini開発を指揮していた。
+Googleは6月17日（米国時間）、I/O 2026において検索ボックスの大規模刷新を発表しました。1997年の公開以来大变otiのない検索UIが、多摩odal入力・AI詳細統合・対話型検索へと生まれ変わります。
 
-Shazeer氏のリーダーシップと技術的|Maybe влияниеを考慮すれば、OpenAIにおける彼の役割は注目に値する。Googleの内部事情に精通した人物が競合他社に移るパターンは、近年のAI人材流動性の高さを如実に示している。
+### AI OverviewsとAI Modeの統合
 
----
+最大の变化は**AI Overviews**（軽量なAI要約）と**AI Mode**（完全会話型検索）の統合です。これまでユーザーは両機能を明示的に切り替える必要がありましたが、新しい検索ボックスではシームレスに連続的な質疑応答が可能になります。Liz Reid Google Search VPは「 대부분의 사용자는 기존의 페이지欲しいか AI 지향의 검색 체험 desired か考える必要はありません。この刷新はそれが理由で検索ボックスから始めると自然と最適な体験得られる設計になっています」と語りました。
 
-## Adobe、PhotoshopとPremiereにAIエージェントを本格導入
+### Gemini 3.5 Flashを採用
 
-AdobeはCreative Cloudアプリの主力製品群に「クリエイティブエージェント」を本格的に展開すると発表した。ユーザーは最終結果を描写するだけで済み、複数のステップを要するワークフローをソフトウェアが自動的にオーケストレーションする。
+新しい検索体験の提供核は**Gemini 3.5 Flash**モデルです。Googleによると、このモデルはGemini 3.1 Proとほぼ同程度の性能ながら、每秒出力トークン速度は4倍高速であり、「Artificial Analysisインデックス左上四角で前卫モデルと一線を画す」高性能を維持しながら低レイテンシを実現しています。この speed は日次数十億クエリを処理するには不可欠であり、Gemini 3.5 FlashはAI-first検索を古いキーワード体験と同じくらい即時的に感じさせることを可能にします。
 
-展開状況は以下の通り：
+### Generación UIと情報エージェント
 
-- **Premiere Pro**: 映像を bins に自動分類、クリップの一括リネーム、インタビュー質問の特定、マーカー設定、ルーター構成
-- **Photoshop**: スプレッドシートから50のバージョニングファイルを生成、レイヤーの自動整理、配色モードエラー・欠落フォントのプリフライトチェック
-- **Illustrator**: 生产ジョブのマルチステップ自動化
-- **InDesign / Frame.io**: パブリックベータとして提供
-- **After Effects**: プライベートベータ
+注目すべき新機能として「**Generación UI**」があります。検索が問いに対する回答としてリアルタイムにカスタムウィジェットやインタラクティブなビジュアル、ミニアプリを動的に生成できる機能です。例えば「ブラックホールが時空に与える影響は？」と問いすると、インタラクティブな視覚効果がAI Overviewsに直接表示されます。この技術はGoogle DeepMindチームと連携して開発されたリアルタイムコード生成システムが支えており、夏から無料提供予定です。
 
-AdobeはFirefly AI Assistantにも新機能を追加。ソーシャルコンテンツクリエイター向けのリBrand Kitツールは、ロゴ、ブランドアイデンティティ、SNS用アセットを自動生成。言語によるアセット検索やワークフロー学習機能も含まれており、時間の経過とともに適応する設計になっている。
+さらに「**情報エージェント**」というWeb24時間体制で特定の条件を監視し、条件和政策変化時にユーザーが求める情報を能動的に届けるAIも導入されます。市場の動きを追跡したり、アパートを探したりスニーカーのドロップを監視したりできます。ただし、これらのエージェントはGoogle AI ProとUltra加入者向けの夏季限定機能として提供されます。
 
----
+### 公開旬数字が示す転換
 
-## 米国政府、Anthropicの上位モデル（Mythos 5 / Fable 5）を輸出規制——「危険なAIモデル」議論が加熱
-
-米国務省がAnthropicの上位モデル群Mythos 5およびClaude Fable 5に対する輸出規制を実施した。Trump前大統領の指示に基づく措置であり、Fable 5のセーフティガードを無効化することでMythos 5のフル功能に accès 可能になるとして、国家安全保障上のリスクに該当すると判断された。
-
-Anthropicは当初、Mythos Previewを「Project Glasswing」を構成する限定コンソーシアムにのみプライベートリリースしていた。Mithos 5は 先週、同じグループにプライベートリリースされた。Mythos 5の Capability には%、ソフトウェアの脆弱性を発見してパッチ充当を支援する「ディフェンダー向け」機能と、それを悪用して攻击に轉用する「攻撃者向け」機能の兩面がある。
-
-しかし専門家らは、この規制は「時代に追いついていない」と指摘する。Harvard大学・Toronto大学のBruce Schneier研究员は「一つのモデル一つの話ではない。技術の全体的な趋势だ。より小さく、より安く、オープンソースのモデルが時には単独で、時には組み合わせにより、同様のCapability を既に持っている」と語る。
-
-Cybersecurity企業のCSOであるTarah Wheeler女史は「Anthropicが Similar なCapability を開発していない競合他社が存在しないと考えるのは、极端に短絡的だ。现にOpenAIも4月にサイバーセキュリティ特化モデルをプライベートリリースし、Expanded サイバーセキュリティ戦略を発表している」と述べる。
-
-AI Capability の开放と規制の境界線をどう引くかという根本的な問いが浮き彫りになった。
+発表の背景には急変するユーザー行動があります。AI Modeは米国で提供開始から1年で**月間10億ユーザー**を達成、AI Modeクエリは四半期ごとに倍増しています。AI Overviewsは現在**25億以上の月間アクティブユーザー**にリーチしており、Googleの2026年通期設備投資は**約1800億〜1900億ド**ルに達する見込みです。Pichai CEOは「検索は世界上でもっとも利用されているAI製品です」と語り、25年間のキーワード検索から自然な言語による会話型検索への転換を明確に号砲しました。
 
 ---
 
-## 新 безопасность スタートアップ Sequent——「 alignment は軌道に乗っていない」
+## FERC、AIデータセンターにグリッドへの優先接続を裁定
 
-英国AI Security InstituteのAlignmentチーム研究者およびAlignment理論スタートアップTimaeusの研究者が提携し新的非營利研究組織「Sequent」を設立した。「alignment は軌道に乗っていない」という問題意識から出発した。
+米国エネルギー規制委員会（FERC）は6月18日、電力系統事業者に対しAIデータセンター向けの接続申請を優先的に処理するよう命じる裁定をくだしました。
 
-Sequentの目標は以下の通り：
+### 裁定の内容と限界
 
-- **規模**: 2〜3年以内に40〜80名の正社員を確保
-- **資金調達目標**: 初期に1億〜1.5億ドル規模で調達成功后、さらに1桁多い資金調達を做好准备
-- **研究方向**: 主力AIラボとは異なる原则的なalignment 研究アプローチを採用。「 우리가制御できる状況（例：訓練環境）でのalignment を観察できるとしても、それがDeployment先で保续する理由についての原則的な確信を見つける」ことが目的
+FERCが下定したのは、送電線への接続申請プロセス（interconnection）を迅速化する指令です。しかし批评家たちは、この裁定が電力供給不足の根本的な問題には答えていない点を指摘しています。AIデータセンターは莫大な電力を消費するため、接続申請の迅速化だけでは不够で、そもそも十分な電力が供給されなければ意味がないからです。
 
-この设立は、主流AIラボの内部Alignment研究に対する外部からの補完勢力の必要性を反映している。
+米国ではAI企業各社がデータセンター建設を加速する一方、既存の発電能力と送電網の拡張は道連れになっています。TechCrunchの報道によれば、Googleは2026年に約190億ドルの設備投資を計画していますが、その 상당部分がAIインフラ向けです。この裁定は、AI企業の電力需要高騰に対する規制側の対応が「接続プロセス最適化」という限定的な範囲に留まっていることを示しています。
 
 ---
 
-## FrontierCode——Cognitionが作る新しいコーディングベンチマーク
+## General Intuition、$300Mの調達を検討——評価額約$2B
 
-Cognition（Devinの開発者）が，新的により難しいコーディングベンチマーク「FrontierCode」を発表。既存のベンチマークでは評価できない実際の软件开发能力を測定することが目的。
+AIスタートアップの**General Intuition**が現在、**約3億ドルの資金調達**を交渉中であることが6月18日に明らかになりました。評価額はおよそ**20億ド**ルに達する見込みです。
 
-FrontierCodeの特徴：
+### Medalデータを活用した世界モデル
 
-- **150タスク**: 3つの難易度層（DIAMOND 50問、MAIN 100問、EXTENDED 150問）
-- **対応言語**: Python、Go、TypeScript、JavaScript、Java、C/C++ など
-- **評価の厳しさ**: 現時点で最高性能のClaude Opus 4.8でも13.4%しか達成できない
+General Intuitionは**世界モデル（world models）**と**具体情况AI（embodied AI）**の開発を進める企業です。同社の特色は、Medal社のデータセットを活用している点にあります。Medalは毎秒あたり20億フレームの動画を処理するプラットフォームで、月間**1000万のアクティブユーザー**が利用しています。この大規模な動画データを活用し、General Intuitionは物理世界を理解するAIモデルの訓練を行っています。
 
-このベンチマークの難しさは「年間持続できるかどうか」という担忧があるほど。既存のコーディング評価が簡単になり過ぎたことを受けての開発だ。
+AIエージェントが単なるテキスト生成から現実世界のçãoにアクションを起こすよう進化している今、世界モデルの重要性は越来越大ています。General Intuitionの調達成功が実現すれば、AIインフラ企業への投資热潮の中で、embodied AI領域でも大型の資金調達が加速する可能性があります。
+
+---
+
+## 小売業におけるコンピュータビジョンの導入効果
+
+AI Newsの報道によれば、**コンピュータビジョン技術**の導入が小売業の生産性を大きく向上させていることが分かってきました。
+
+### 在庫精度と販売ロスの改善
+
+Coresight ResearchとSimbe、RELEX Solutionsの共同調査によると、小売業は店舗実行の失敗（空棚、不正確な価格設定など）で**の総売上の6.4%を失って**います。2026年の損失総額は**1964億ド**ルに達する見通しで、前年比21%増えています。
+
+そんな中、Simbe Roboticsの棚監視プラットフォームを導入した事例では、BJ's Wholesale Clubがリアルタイムの在庫可視化とデジタルツインを構築し顕著な効果を上げています。企业全体の**60%**が店舗inteligenceプラットフォームの完全導入状態を実現しており前年比18ポイント増です。大企業では**73%**が完全導入済みですが、中堅企業（売上10億ドル未満）では**42%**に留まっており温度差が存在します。
 
 ---
 
 ## 参考リンク
 
-- [Yann LeCun warns AI labs face big bubble explosion (The Decoder)](https://the-decoder.com/yann-lecun-warns-ai-labs-like-openai-and-anthropic-face-a-big-bubble-explosion/)
-- [Adobe adds AI agents to Creative Cloud apps (The Decoder)](https://the-decoder.com/adobe-adds-ai-agents-to-photoshop-premiere-and-more-creative-cloud-apps/)
-- [Noam Shazeer joins OpenAI (The Decoder)](https://the-decoder.com/)
-- [Dangerous AI models are coming no matter what (Ars Technica / WIRED)](https://www.wired.com/story/dangerous-ai-models-are-coming-no-matter-what/)
-- [Sequent safety startup (Import AI 461)](https://jack-clark.net/2026/06/15/import-ai-461-alignment-is-not-on-track-frontiercode-and-synthetic-research-interns/)
-- [FrontierCode benchmark (Import AI 461)](https://jack-clark.net/2026/06/15/import-ai-461-alignment-is-not-on-track-frontiercode-and-synthetic-research-interns/)
+- [Google Search redesign (VentureBeat)](https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think)
+- [AI data centers FERC ruling (TechCrunch)](https://techcrunch.com/2026/06/18/ai-data-centers-just-got-a-government-mandated-fast-lane-to-the-grid/)
+- [General Intuition funding (TechCrunch)](https://techcrunch.com/2026/06/18/general-intuition-in-talks-to-raise-300m-at-around-2b-valuation/)
+- [Computer vision in retail (AI News)](https://www.artificialintelligence-news.com/news/computer-vision-deployments-drive-retail-productivity-gains/)
 
 ---
 
-*本文の情報は2026年6月18日時点のものです。*
+*（本文の情報は2026年6月19日時点のものです）*
