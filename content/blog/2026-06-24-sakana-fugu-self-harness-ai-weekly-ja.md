@@ -10,7 +10,7 @@
 
 ### アーキテクチャの詳細
 
-Fuguの中核は「master general contractor」として機能するLLM-based coordinatorにある。複雑なリクエストを受け取ると、Fuguは問題を分解し、specialist foundation modelsにサブタスクを委任 затем their workを検証して最終出力を統合する。SakanaのCTO David Ha（元Google Brain）は「Fuguは単なるモデル以上のもの。**オーケストレーションモデル**は、より大きなモデルを超えた次のフロンティア我认为」と語っている。
+Fuguの中核は「master general contractor」として機能するLLM-based coordinatorにある。複雑なリクエストを受け取ると、Fuguは問題を分解し、specialist foundation modelsにサブタスクを委任then their workを検証して最終出力を統合する。SakanaのCTO David Ha（元Google Brain）は「Fuguは単なるモデル以上のもの。**オーケストレーションモデル**は、より大きなモデルを超えた次のフロンティア我认为」と語っている。
 
 ### ベンチマーク結果
 
@@ -76,7 +76,7 @@ Adobeのagentic capabilitiesのextensibility（API公開予定不明）は今後
 
 ## 5. Arbor：Claude Code・Codex比2.5倍のcoding agent最適化フレームワーク
 
-新しいAI最適化フレームワーク「**Arbor**」が、Claude CodeおよびCodex比で**同計算予算の2.5倍性能**を達成したと報告されている。従来のcoding agentsが「learning없이ループ」する問題を解決するため、Arborは各experimentのpersistent treeを構築し、failuresをconstraints（無駄なcomputeではなく）として活用する。
+新しいAI最適化フレームワーク「**Arbor**」が、Claude CodeおよびCodex比で**同計算予算の2.5倍性能**を達成したと報告されている。従来のcoding agentsが「learningせずにループ」する問題を解決するため、Arborは各experimentのpersistent treeを構築し、failuresをconstraints（無駄なcomputeではなく）として活用する。
 
 このアプローチは、**autonomous coding agentsのlearning architecture**に新たな方向性を示している。
 
