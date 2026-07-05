@@ -1,98 +1,121 @@
-# AI開発ニュース weekly (2026年7月第1週)
+# AI開発ニュースまとめ（2026年7月第1週）— NVIDIAと製薬のAI協業、macOSマルウェアの進化、生成AIのHollywoodatitis
 
-2026年7月第1週は、AI業界において法廷闘争や企業戦略の転換点が相次いだ一週間となった。MidjourneyがHollywoodスタジオとの訴訟で逆襲に転じたり、Anthropicが自ら薬を開発する方針を発表したり、ZuckerbergがAIエージェントの進捗が予想より遅いことを社内で認めたりと、表面化する課題と今後の舵取りに影響を与えそうな動きが目立っている。
-
----
-
-## Midjourney、Hollywoodスタジオとの訴訟で逆襲——スタジオのAI使用明細開示を要求
-
-Midjourneyは、同社を相手取ったHollywoodスタジオ3社との法的紛争において、被告側スタジオが themselves AIをどのように活用しているかを明らかにするよう求めしていることが明らかになった。
-
-この訴訟は、スタジオ側がMidjourneyのAI画像生成ツールの活用を巡り提起したものだが、Midjourneyは反撃として、Disney、Universal、Warner Brosの各スタジオが自社プロジェクトでAIをどの程度利用しているかの詳細提出を裁判所に請求。AI技術の活用における透明性や権利問題に関連する複雑な法的議論が浮上している。
-
-**開発者視点ポイント:**
-- プロンプトベースの画像生成において、訓練データの著作権問題が法廷で争われている
-- 被告側が同じ手法を使っている可能性を指摘するのは、防御戦略として興味深いアプローチ
-- この判例は生成AI全般に影響を与える可能性
+2026年7月第1週は、**AI×創薬**の大型協業、**NVIDIA BioNeMo × Claude Science**の統合、macOSを狙う新型マルウェア**PamStealer**の報告など、技術・セキュリティ・倫理の側面から重要な一週間となった。開発者視点で主要トピックを整理する。
 
 ---
 
-## Alibaba、Claude Codeを「高リスクソフトウェア」に分類——従業員の使用を禁止
+## 武田薬品 × Insilico Medicine — 6億ドル規模AI創薬協業
 
-TechCrunchの報道によると、中国のテック大手Alibabaは従業員に対するClaude Codeの利用を禁止し、同ソフトウェアを「高リスク」に分類したことがわかった。
+日本発のグローバル製薬会社**武田薬品**と香港拠点のAI創薬ベンチャーの**Insilico Medicine**が、AIを活用した初期創薬領域での戦略的提携を拡大した。
 
-Anthropicが開発したClaude Codeは、コード生成・編集・解釈を行うAIアシスタントとして開発者注目のツールだが、Alibabaはこの種の外部AIツールがもたらす可能性のあるデータセキュリティリスクを懸念。禁止の動きは、中国国内のAI規制強化と企業機密情報保護の動きを反映している。
+**協業主要内容：**
+- 武田薬品はInsilicoの**Pharma.AIプラットフォーム**にアクセス権を付与。対象は創薬ターゲットの同定、分子設計、臨床試験予測にわたる
+- InsilicoがAI駆動の創薬作業を主導し、武田が候補化合物の臨床開発を進展させる
+- **契約一時金・短期マイルストーン含め約6000万米ドル**。前置臨床・臨床・商業・売上の全マイルストーン達成時、総額**約6億米ドル**規模になる可能性がある
+- 武田は契約 통해選定された候補化合物の全世界での開発・製造・商業化権利を独占取得
 
-**開発者視点ポイント:**
-- 企業によるAIコードツールの採用には、社内的レビュープロセスが必要
-- クラウドベースのAIコーディング支援ツール利用時のデータフロー管理が重要
-- 中国市場の特殊性を踏まえたAIポリシーの設計必要性
+Insilicoの創業者兼CEO **Alex Zhavoronkov**氏によれば、この取引による収益が両社の協調プログラムにおける初期研究の推進を支える。AIの得意領域であるターゲット同定と分子設計のスピードが、伝統的な創薬プロセスのボトルネックをどれだけ解消できるかが焦点となる。
 
----
-
-## Anthropic、Claude Science発表——自ら薬を開発する方針を示唆
-
-Anthropicは「The Briefing: AI for Science」イベントにおいて、科學研究者向けの新AIワークベンチ「Claude Science」を発表した。このプラットフォームは、断片化されたツールやデータセットを統合し、 figuresやビジュアルの自動生成も可能にするとしている。
-
-注目すべきは、Anthropicが単にSaaSを提供するだけでなく、自ら薬を開発する方針を表明した点だ。ライフサイエンス責任者のEric Kauderer-Abrams氏によると、「顧みられない病気」（neglected diseases）に対する治療法の発見に焦点を当てるという。
-
-**開発者視点ポイント:**
-- 生成AIを用いた創薬の可能性——化合物や生物学的データの広範な探索
-- しかし専門家からは、AI-designed drugの人間への承認には「まだ長い道のり」との見解
-- 実際の薬の承認には、臨床試験を含む数年から十数年の期間が必要
-- Anthropicは既に生物学者の採用を開始し、ウェットラボの建設を進めている
+**技術的ポイント：** InsilicoはGAN（敵対的生成ネットワーク）やTransformer系モデルを活用した分子生成で知られ、Pharma.AIプラットフォーム 통해実臨床データとの接続も行う。武田の巨大な臨床開発インフラとの組み合わせは、CRO（契約研究機関）業界への影響も検討が必要だ。
 
 ---
 
-## OpenAI、米政府に株式5%提供を提案——SOvereign Wealth Fund構想
+## NVIDIA BioNeMo × Anthropic Claude Science — 創薬AIの民主化
 
-OpenAIのSam Altman CEOがTrump政権に対し、同社の株式5%を米国の主権基金に提供する案を提示したことがFinancial Timesの報道でわかった。 Altman家は、AIの恩恵を一般市民と分かち合う最好の方法として、政府に財務的関心を持たせることを提案した。
+**Anthropic**は科学研究向けAIワークベンチ**Claude Science**のパブリックベータを発表し、**NVIDIA BioNeMo Agent Toolkit**とのネイティブ統合を明らかにした。
 
-OpenAIの最新の資金調達ラウンドでの企業価値は8520億ドルと評価されており、5%株は実に約426億ドル相当ことになる。
+**BioNeMoとは：**
+- NVIDIAが構築したGPUアクセラレーテッド（cuDNN/CUDA活用）のライフサイエンス向けフレームワーク
+- トップ20グローバル製薬企業の18社がすでに本番環境にBioNeMoを導入済み
+- ゲノム分析、プロテオーム、single-cell解析、ケモinformatics、臨床研究向けのモデルを包括
 
-**開発者視点ポイント:**
-- AI企業と国家関係の新しい形態——株式を通じた利益共有モデル
-- 規制対応と公共イメージ改善の両方を目的とした戦略的アプローチ
-- 今後他のAI企業にも広がる可能性
+**統合のポイント：**
+- 研究者が自然言語で研究タスクを指示すると、Claude Scienceが適切なBioNeMoツールを自律選択・実行
+- 予測モデルの手動設定、ネットワークエンドポイント管理、複雑なソフト環境構築が不要に
+- NVIDIA NIM（NVIDIA Inference Microservices）に含まれるモデル群がClaude Science環境に直接インポート
 
----
-
-## Anthropic Faction 5が復帰——Trump政権との交渉を経て
-
-数週間にわたるTrump政権との交渉を経て、AnthropicはようやくClaude Faction 5のアクセス復元を実現した。同社はXを通じて、Claudeプラットフォーム上のグローバルユーザーへの復元を段階的に再開し、AWS、Google Cloud、Microsoft Foundry上でも近日中にアクセスを回復する計画を発表。
-
-**開発者視点ポイント:**
-- 米国政府とAI企業間の調整プロセスの注目
-- クラウドプラットフォームを通じたAIアクセス管理の重要性が再認識
-- コンプライアンス要件の整備がAI企业提供の前提条件に
+**開発者視点：** NVIDIA BioNeMo Agent Toolkitは"RAPIDS"や"CLIP"等技术とは別軸で、**科学特化のToolformer的アプローチ**を取る。Claude Codeがソフトウェア開発タスクを 자율実行するように、Claude Scienceは実験室プロトコル・計算プロトコルを理解する科学特化エージェントとして機能する。NVIDIA GPU環境を前提とするため、パラメータ量や推論コストの制御が必要だが、18社導入実績のあるプロダクションスタックとの連携は実用的だ。
 
 ---
 
-## Zuckerberg氏、社内でAIエージェントの進捗が予想より遅いことを認める
+## PamStealer — macOSを狙う新型インフォーマーwareの、技術的深度
 
-MetaのCEO Mark Zuckerberg氏は社内ミーティングにおいて、AIエージェント技术的发展が期待通りに进展していないことを明らかにした。MetaはAIエージェント分野に大きな期待を寄せてきたが、実際の開発ペースは内部目標を下回っているという。
+Ars Technicaが報じた**PamStealer**は、macOS環境を狙う情報窃取型マルウェア（Infostealer）で、その**検出回避技術と認証迂回手法**が一線を画している。
 
-これはAI業界全体においても示唆に富む——「AIエージェントが何でも解決する」という楽観視に対する現実的な軌道修正として受け止められている。
+**感染チェーン：**
+1. ユーザーがクリップボードマネージャーなどを装った**.dmg（ディスクイメージ）**をダウンロード
+2. ダブルクリックでAppleScriptがmacOS Script Editorで開く。悪意ある機能はファイル深处に隠蔽
+3. ユーザーは「ダブルクリック後、**Command-R**を押す」ようプロンプトで指示される — これはAppleScript内部の悪意あるコードを即時実行させる
+4. この手法は`com.apple.quarantine`属性のチェックも回避
+
+**第一段階（ドロップヤー）：**
+- JXA（JavaScript for Automation）を自己完結型で実行。外部の`curl`や`zsh`コマンドに頼らず、**Native Objective-C API**でペイロードを取得・ステージング
+- Rustで書かれた第二段階バイナリをDownloadsフォルダにドロップ
+- Finder.appやSoftware Update.appを装ったアプリバンドルを生成
+
+**第二段階（ドロッパー）：**
+- Rustで書かれたMach-Oファイル（Apple Silicon向け）
+- バンドルされたSQLiteアプリ経由でデータを読み取る設計
+- **PAM（Pluggable Authentication Module）APIを使ったローカル認証**が注目点。`dscl`、`security`、`osascript`等の外部プロセスを呼ばずパスワード検証するため、プロセスチェーン監視ツールに痕跡が残りにくい
+
+**最終ペイロード：**
+- パスワード入力後に「ファイルは破損しておりインストールできない」と表示し、感染に気づかせない配慮（！）が存在
+- **ethereumアカウントへのアクセスコード**を含む
+- 偽のMaccy.appにフルディスクアクセス権限を要求
+
+**防御のポイント：** Command-R実行の強制、Script Editor経由のコード起動、Rust+Objective-C+JXAの多言語連携、PAMローカル認証という組み合わせは、従来のmacOSマルウェアとは異なる"DLL読み込み"や"プロセスチェーン"監視を無効化する設計だ。Jamfのレポートによれば、特にApple Silicon + Rustの組み合わせはSwift/Go/Objective-C主体の他のマルウェアと岔線する。
 
 ---
 
-## Google、新型スマートスピーカー「Google Home Speaker」発表——Gemini for Homeの実力は？
+## Google広告 × AI — 「AIが書いた独立宣言」Commercialの波紋
 
-Googleは6年ぶりとなる新型スマートスピーカー「Google Home Speaker」を発売した。 同デバイスは初めて「Gemini built for」と銘打たれた製品だが、レビューによるとGemini for Homeはまだ完成の域に達していないとの指摘がある。
+TechCrunchが報じた通り、Googleがアメリカ独立記念日に合わせた**新しいテレビCM**を放映。その内容が「AI帮助下により書かれた**独立宣言**」というもので、テクノロジー業界と教育現場で波紋を広げている。
 
-ハードウェアの品質は高い一方、AIアシスタントとしての機能には改善の余地があるようで、声音アシスタントの次のステップが問われている。
+**背景：**
+- Googleは2026年6月に複数のAI関連アップデート（AI Overviewsの拡張、Gemini 2.0”系列の商用展開など）を公開済み
+- 同Commercialは、AIが創作活動に参加することの*"normal"*さを示すブランド戦略と解釈されている
+- 一方、AI生成コンテンツの**透明性**や**ライティング能力への過信**を懸念する声も
+
+**Midjourney × Hollywood — AI使用の詳細開示要求**
+
+同じTechCrunchの記事で、**Midjourney**がHollywoodスタジオに対しAIツールの使用状況を詳細に開示するよう求める意向を表明したことが分かった。SAG-AFTRAのストライキ以降、AIと俳優・クリエイターの関係は業界最大の問題の一つであり、Midjourneyのこの動きは**プロンプトベースで画像を生成するツール**の立場からの誠実な対応と受け取られている。
+
+---
+
+## AIブラウザー攻撃の知見 — もう一つのArs Technicaレポート
+
+Ars Technicaは6月末に**AIブラウザーに対する新しい攻撃手法**についても報じた。AI搭載ブラウザがユーザー入力と内部プロンプト境界を曖昧にする設計を狙い、**プロンプトインジェクション**や**コンテキスト毒的入力**によって、安全なはずの環境で悪意あるコードが実行される可能性を示している。
+
+AIブラウザ自体が研究目的・日常利用で増加倾向にあり、**Agentic AI**окраиненийの文脈ではこの攻撃面の重要性が増している。開発者としては、AIエージェントに外部コマンド実行能力を与える際の**権限分離**と**入力サニタイズ**の設計原則の再確認が必要だ。
+
+---
+
+## まとめ
+
+| トピック | 領域 | 重要度 |
+|---------|------|--------|
+| 武田×Insilico 6億ドルAI創薬 | AI×製薬 | ★★★★ |
+| NVIDIA BioNeMo × Claude Science | AI агент × 創薬 | ★★★★ |
+| PamStealer（macOSマルウェア） | セキュリティ | ★★★★ |
+| Google AI独立宣言Commercial | AI倫理・ブランド | ★★★ |
+| Midjourney Hollywood開示要求 | AI倫理 | ★★★ |
+| AIブラウザー攻撃手法 | セキュリティ | ★★★ |
+
+**来週の注目：** Claude Scienceのパブリックベータ拡大、NVIDIA BioNeMoの新しいNIMラインナップ、生成AIのHollywood対応動向、そしてAIブラウザセキュリティの研究動向を引き続き追踪する。
 
 ---
 
 ## 参考リンク
 
-- [Midjourney wants Hollywood studios to reveal the details of their AI usage](https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/) (TechCrunch)
-- [Alibaba reportedly bans employees from using Claude Code](https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/) (TechCrunch)
-- [Anthropic wants to develop its own drugs](https://www.theverge.com/ai-artificial-intelligence/961311/anthropic-claude-science-ai-drug-development) (The Verge)
-- [OpenAI proposed donating 5% of its equity to a US sovereign wealth fund](https://www.theverge.com/ai-artificial-intelligence/960588/openai-government-5-percent-stake-trump) (The Verge)
-- [Mark Zuckerberg tells staff that AI agents haven't progressed as quickly as he'd hoped](https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/) (TechCrunch)
-- [Google built a great smart speaker, but Gemini isn't ready for it](https://www.theverge.com/tech/959503/google-home-speaker-review-gemini-for-home) (The Verge)
+- [Takeda signs US$600M AI drug discovery deal with Insilico](https://www.artificialintelligence-news.com/news/takeda-insilico-ai-drug-discovery-deal/)
+- [NVIDIA BioNeMo accelerates Anthropic Claude Science](https://www.artificialintelligence-news.com/news/nvidia-bionemo-accelerates-anthropic-claude-science/)
+- [Newly discovered PamStealer isn't your typical macOS malware](https://arstechnica.com/security/2026/07/new-pamstealer-macos-malware-uses-clever-tradecraft-to-remain-stealthy/)
+- [New attack provides one more reason why AI browsers are a bad idea](https://arstechnica.com/security/2026/06/ai-browsers-can-be-lulled-into-a-dream-world-where-guardrails-no-longer-apply/)
+- [Midjourney wants Hollywood studios to reveal the details of their AI usage](https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/)
+- [New Google commercial imagines a Declaration of Independence written with help from AI](https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/)
+- [Alibaba reportedly bans employees from using Claude Code](https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/)
+- [Google AI Blog — June 2026 Updates](https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/)
 
 ---
 
-*本文の情報は2026年7月4日〜5日時点のものです。本weeklyはAI開発者に向けて、AI業界の最新動向を独自の視点で編集・要約しています。*
+*（本文の情報は2026年7月5日時点のものです）*
