@@ -8,19 +8,19 @@
 
 Appleは7月11日（米国時間）、OpenAIを米国加州北部地区連邦地方裁判所に提訴した。訴状によると、OpenAIの最高ハードウェア責任者（Tang Tan）がApple在職24年の間に知り得た極秘プロジェクトコードネームを採用面接で流出させたり、Apple退職予定者に社外秘ハードウェア部品の持ち込みを指示したりといった行動があったとされる。
 
-Tang Tan스는 Apple에서 iPhone 및 Apple Watch의 제품 디자인 부책임자로 재직했으며、OpenAIへの跳槽rumoredされるハードウェア製品の開発に関与している可能性がある。AppleはOpenAIに対して差止命令と損害賠償を求めている。
+Tang TanはAppleでiPhoneおよびApple Watchの製品デザイン担当副社長として在職し、OpenAIへの跳槽が噂されるhardware製品の開発に関与している可能性がある。AppleはOpenAIに対して差止命令と損害賠償を求めている。
 
-AI業界ではAppleとOpenAIの関係は微妙な位置づけにあった。Appleは過去 にApple Intelligenceの一部にOpenAIのモデルを採用すると発表しつつも、独自のAI開発も並行して進める方針を示していた。本件公道で関係がさらに恶化することが懸念される。
+AI業界ではAppleとOpenAIの関係は微妙な位置づけにあった。Appleは過去にApple Intelligenceの一部にOpenAIのモデルを採用すると発表しつつも、独自のAI開発も並行して進める方針を示していた。本件により関係がさらに恶化することが懸念される。
 
 ---
 
-## Meta、InstagramのAI機能を撤回——才1週間で終了
+## Meta、InstagramのAI機能を撤回——開始から1週間で終了
 
-Metaは7月10日、Instagramで先週才开始したばかりのAI画像生成機能「Muse Image」の特定要素を撤回した。同機能は、公開Instagramアカウントを@-メンションでそのアカウントの写真を参照してAI画像を生成するものだったが、著名人の写真を悪用した無修正画像生成につながる可能性指摘され、ユーザーやCAAなどの汰趾代理机构から即时に反発をかった。
+Metaは7月10日、Instagramで先週才开始したばかりのAI画像生成機能「Muse Image」の特定要素を撤回した。同機能は、公開Instagramアカウントを@-メンションでそのアカウントの写真を参照してAI画像を生成するものだったが、著名人の写真を悪用した無修正画像生成につながる可能性が指摘され、ユーザーやCAAなどの汰趾代理机构から即时に反発をかった。
 
-Metaの広報担当者は「この機能は標的制作ツールとして有用なはずだったが、期待外れだった」として公式ブロクで撤回を発表した。同社は撤回以降、 해당 기능을利用한사용자의进行处理하는 방법론も発表していない。
+Metaの広報担当者は「この機能は創造ツールとして有用なはずだったが、期待外れだった」として公式ブロクで撤回を発表した。同社は撤回以降、 해당 기능을利用した사용자의 处理방법도 발표하지 않았다。
 
-AIとソーシャルプラットフォームの融合において、こうした职权滥用防止の难点は引き続き 큰 과제となっている。
+AIとソーシャルプラットフォームの融合において、こうした职权滥用防止の难点は引き続き大きな課題となっている。
 
 ---
 
@@ -28,27 +28,27 @@ AIとソーシャルプラットフォームの融合において、こうした
 
 OpenAIは7月9日、待望のGPT-5.6ファミリー正式版を発表した。3つのヴァリアントが利用可能：
 
-- **Sol**: 主力ワークホース。AIcodingタスクで従来モデルより54%トークン効率が高いと主張
+- **Sol**: 主力ワークホース。AI codingタスクで従来モデルより54%トークン効率が高いと主張
 - **Terra**: 中間的な性能とコストのバランス型
-- **Luna**: 低コスト／低リソース向けの `"budget-friendly"` オプション
+- **Luna**: 低コスト／低リソース向けのbudget-friendlyオプション
 
-注目则是、GPT-5.6は `"strongest cybersecurity model yet"` と呼ばれ、脅威モデリング、コードレビュー、パッチ適用、ブルーcheaニング（自陣への攻击シミュレーション）で `"frontier performance"` を達成したという。OpenAIはArtificial Analysis Coding Agent Indexで、SolがAnthropicのFable 5を2.8ポイント上回り、出力トークン数・所要時間・コストすべてで `"half以下"` と主張している。
+注目的是、GPT-5.6はstrongest cybersecurity model yetと呼ばれ、脅威モデリング、コードレビュー、パッチ適用、ブルーcheaニング（自陣への攻击シミュレーション）でfrontier performanceを達成したという。OpenAIはArtificial Analysis Coding Agent Indexで、SolがAnthropicのFable 5を2.8ポイント上回り、出力トークン数・所要時間・コストすべてでhalf以下と主張している。
 
-またMicrosoft Copilot 365ではGPT-5.6（Sol）が `"preferred model"` に指定されている。OpenAIとMicrosoftの関係については最近的 "breakup chatter" もあるが、同社は 「通常のビジネス продолжение」 として否定している。
+またMicrosoft Copilot 365ではGPT-5.6（Sol）がpreferred modelに指定されている。OpenAIとMicrosoftの関係については近間のbreakup chatterもあるが、同社は通常のビジネス継続として否定している。
 
 ---
 
 ## Fidji Simo、OpenAIのNo.2から退任
 
-OpenAIのNo.2執行役員だったFidji Simoが7月9日付で退任したことが明らかになった。Simo는 Meta에서过来10년 이상 근무하며 приложение 부문 리더を 역임했고、2023年にOpenAIのCEO（Sam Altman）の右腕として入社。Nathaniel Cedeno Babyなど有力メンバーに続いての主要メンバー離脱に、AI業界の关注的が高まっている。
+OpenAIのNo.2執行役員だったFidji Simoが7月9日付で退任したことが明らかになった。SimoはMetaで10年以上勤務し приложение 부문リーダーを歴任し、2023年にOpenAIのCEO（Sam Altman）の右腕として入社した。Nathaniel Cedeno Babyなど有力メンバーに続いての主要メンバー離脱に、AI業界の关注度が高まっている。
 
 ---
 
-## Hugging Face CEO——企業は 「AIレンタル」 からオープンソースへ转折
+## Hugging Face CEO——企業は「AIレンタル」からオープンソースへ転換
 
-Hugging FaceのCEO（Clem Delangue）はTechCrunchポッドキャスト "Equity" への出演で、企业のAI戦略について见解を述べた。Fortune 500の半分がHugging Faceを利用しているとされ、同社は "GitHub for AI" としての位置づけを]~b]めている。
+Hugging FaceのCEO（Clem Delangue）はTechCrunchポッドキャスト「Equity」への出演で、企業のAI戦略について見解を述べた。Fortune 500の半分がHugging Faceを利用しているとされ、同社はGitHub for AIとしての位置づけを]~b]めている。
 
-Delangue氏によると、企業は最初は фронтенд API（OpenAI、Anthropic等）からスタートするが、スケールするにつれてコストの压力からオープンソースモデルへの移行が進むという。同社はAnthropicのFableリリース一时的halt問題や、 `"big techがすべてを支配する"` 可能性についても忧虑を示している。
+Delangue氏によると、企業は最初は фронтенд API（OpenAI、Anthropic等）からスタートするが、スケールするにつれてコストの压力からオープンソースモデルへの移行が進むという。同社はAnthropicのFableリリース一時停止問題や、big techがすべてを支配する可能性についても忧虑を示している。
 
 ---
 
