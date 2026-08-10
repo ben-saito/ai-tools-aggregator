@@ -1,35 +1,31 @@
-# AI、科学にはデータだけではなく、理論的考えが必要と語る
+# AI for Science: Reasoning, Not Just Data, Is the Key
 
-MIT Technology Reviewは、AIが科学を革新するためには、データ釉集のほかに理論的考えが重要であることを披頼した。8月10日、MIT Technology Review)
-
----
-
-## AlphaFoldの成功は特別なアイデアであった
-
-2024年、Google DeepMindのDemis HassabisとJohn Jumperが、米発解の顕弾となったAlphaFoldでノーベルファンクロアイと一緒にネビョール豪を受賞した。このAIシステムは、殖物質の立体構造をデータから予測するもので、半世紀間挨顕してきた問題を解決した。Hassabisは「AlphaFoldはAIで科学をすべてデジタル速度へ劵うテンプレートだ」と辞じた。
-
-ただし、MIT Tech Reviewの記事は、AlphaFoldのアプローチは科学の専門的なデータセットと統計的な実験手法に依存していることを指摘する。米発解の場合、プロテアインデータ銀行と呼ばれるデータベースが必要だったが、それは53年間の国際的こみともなぎのことで成り立ったもので、約「210億ドル」の実験体を要した。
+MIT Technology Review reported on August 10 that AI for science requires not just data collection but theoretical reasoning. The article examines how the success of AlphaFold, which solved the protein folding problem, was not purely a data achievement but required fundamental scientific insight.
 
 ---
 
-## 大部分の科学ではデータが不足しい
+## AlphaFold Was a Special Case
 
-しかし、大部分の科学領域では、AlphaFold比べの統計的データセットを作成することができません。細胞の変異、化学物の小量の浛質物、実験室の湿度の変動——実験結果はたいせい換わり寄りで、現代的なニューラルネットワークを訓続的に訓続きということはできません。
+In 2024, Google DeepMind founders Demis Hassabis and John Jumper won the Nobel Prize in Chemistry for AlphaFold, the system that predicts protein structures from amino acid sequences. The system solved a problem that had occupied biologists for half a century. Hassabis described AlphaFold as a template for using AI to accelerate all of science.
 
-この問題に解を探するため、AIエージェントと各種のツールにアクセス可能なAIエージェントという新しいアプローチに触ることが提案されています。AIエージェントは、データ釉集に依存しないで、科学的な考えの過程を覇り替えることができます。
-
----
-
-## Google AI Co-Scientistの例
-
-GoogleのAI Co-Scientistは、その例として指摘されています。5月に登場したこのシステムは、消費性抵抗藥が細菌種間でのべり離しを解き、ドラッグレスジーンと固有のバクテリアバイルスの関係を探るために、AIサブエージェントを転用しました。彼女は長年間の実験室絶论の前に同じ結論に達成したという点で、実験的な研究と同等の能力を示しています。
-
-そういったAIエージェントは、データが不足しい領域では科学の革新のドライバーになる可能性があります。
+However, the MIT Tech Review article notes that AlphaFold depended on specialized scientific datasets and statistical experimental methods. In the case of proteins, the approach required the Protein Data Bank — a database built through 53 years of international collaboration requiring approximately 21 billion dollars worth of experimental data.
 
 ---
 
-エージェントは、データ釉集に依存しなく、科学的な考えの過程を覇り替える
+## Most Science Has Insufficient Data
+
+Most scientific domains cannot create statistical datasets comparable to AlphaFold. Cellular mutations, trace amounts of chemical substances, laboratory humidity fluctuations — experimental results vary so much that modern neural networks cannot be trained effectively.
+
+AI agents with access to various tools have been proposed as a new approach to this problem. AI agents can replace the process of scientific reasoning without relying on large datasets.
 
 ---
 
-*本文の情報は2026年8月10日時点のものです…*
+## Example: Google AI Co-Scientist
+
+Google AI Co-Scientist is cited as an example. Unveiled in May, the system deployed AI sub-agents to investigate how antibiotic resistance spreads between bacterial species and the relationship between drag-resistant genes and proprietary bacterial viruses. It reached the same conclusions as years of laboratory experiments, demonstrating capabilities equivalent to empirical research.
+
+Such AI agents may become drivers of scientific innovation in areas where data is insufficient.
+
+---
+
+*This article is based on reporting from August 10, 2026...*
