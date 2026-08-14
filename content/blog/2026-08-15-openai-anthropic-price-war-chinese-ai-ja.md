@@ -1,35 +1,35 @@
-# OpenAI と Anthropic 、中国AI勢の台頭で価格競争に突入
+# OpenAI and Anthropic Enter Price War as Chinese AI Rivals Gain Ground
 
 ---
 
-## GPT-5.6 Luna を80%値下げ、 Claude Opus 5 は「半額」宣言
+## GPT-5.6 Luna 80% Price Cut, Claude Opus 5 at "Half the Price"
 
-OpenAIとAnthropicが中國AI企業との競争激化を受けて、**価格切り下げ競争**を展開していることが明らかになった。OpenAIは旗艦モデルGPT-5.6 Lunaの価格を80%引き下げた。AnthropicはClaude Opus 5を投入し、「Fable 5の半額」で提供すると宣言した。
+OpenAI and Anthropic have launched an aggressive price war in response to intensifying competition from Chinese AI companies. OpenAI slashed the price of GPT-5.6 Luna, its flagship model, by **80 percent**. Anthropic released Claude Opus 5, positioning it as "frontier intelligence at half the price" of Fable 5.
 
-Silicon Dataのトークン価格インデックスによると、主要米国AIラボのモデルは2026年7月中旬以降、ユーザーが支払う価格が約4分の1低下しているという。
-
----
-
-## コスト圧力が企業行動を変化
-
-背景には企業ユーザーの**AIコスト抑制の動き**がある。多くの企業でAI請求書が膨らむ中、利用制限や安価な代替モデルへの切り替えが進んでいる。
-
-DoorDashやAirbnbは中国製モデルの導入を表明。企業ユーザーは固定月額プランから使用量に応じた従量課金制へとシフトしており、計算資源消费量に応じて料金が発生する仕組みが一般的になりつつある。
+According to Silicon Data's token price index, prices paid by customers for leading US AI lab models have dropped by nearly **one-quarter** since mid-July 2026.
 
 ---
 
-## 中国モデルの台頭： Moonshot や DeepSeek が隙を突く
+## Cost Pressures Force Enterprise AI Rethink
 
-価格下落の追い風となっているのが、**中国AI企業の台頭**だ。MoonshotやDeepSeekなどの中国開発者は、硅谷からヨーロッパまでユーザーはも獲得しており、米国のAIラボにとって深刻な脅威となっている。
+Rising AI bills are pushing companies to curb usage and seek cheaper alternatives. Many businesses are switching from flat monthly subscriptions to usage-based billing, where companies pay according to computational resources consumed.
 
-中国モデルは「オープン」であり、開発者が自由にダウンロードして改変できる。。米中の性能差が縮小する中-American開発者が 고객을 잃을可能性的高まっているとの警戒感が広がっている。
-
----
-
-## IPO控え厳しい収益性証明
-
-両社が値下げに踏み切る背景には、**IPO（新規株式公開）控えた収益性の証明**という事情もある。OpenAIとAnthropicはそれぞれ数兆ドルの評価ンダード目で公開市場へのアクセスを狙っているが、今の巨額のAI開発投資が十分に回报するのか、投资 家 から証拠が求められている。
+DoorDash and Airbnb have publicly stated they have started using Chinese-made models to rein in expenses. Some companies have responded to rising bills by imposing caps on AI usage.
 
 ---
 
-*（情報は2026年8月14日時点のものです）*
+## Chinese Models: Moonshot and DeepSeek Make Inroads
+
+The pricing pressure is being driven by the rise of capable "open" Chinese models — freely downloadable and modifiable by developers. Companies like **Moonshot** and **DeepSeek** have gained traction with users from Silicon Valley to Europe, narrowing the performance gap with leading US models.
+
+This shift has raised concerns in the US tech industry that American developers could lose customers even as they spend heavily to maintain their technological edge.
+
+---
+
+## IPO Ambitions Under Scrutiny
+
+Both companies are preparing for IPOs at trillion-dollar valuations, with investors demanding evidence that massive AI spending will generate returns. The price cuts come as both labs seek to demonstrate growth metrics and market penetration ahead of public listings.
+
+---
+
+*（This article is based on information available as of August 14, 2026）*

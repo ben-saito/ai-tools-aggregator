@@ -1,31 +1,35 @@
-# フランスの新興企業Kog 、 GPU推論の高速化で Cerebras に挑む
+# French Startup Kog Challenges Cerebras with GPU Inference Speedup
 
 ---
 
-## 標準的なデータセンターGPUで 超高速デコーディングを実現
+## Standard Datacenter GPUs Achieve Ultra-Fast Decoding
 
-フランススタートアップのKogは2026年8月14日、AMD MI300XやNvidia H200といった**標準的なデータセンターGPU**で非常に高速な単一リクエストデコーディングを実現できる技術を披露した。Cerebrasの専用チップ搭載IPOに対する市場の高い関心を受ける形だ。
+French startup Kog demonstrated on August 14, 2026, that ultra-fast single-request decoding is achievable on standard datacenter GPUs such as AMD MI300X and Nvidia H200 — directly challenging Cerebras, which garnered strong market interest with its purpose-built chips for AI inference.
 
-Kogは2026年5月にHacker Newsのフロントページに登場し、「企業が既に保有している標準的なデータセンターGPUで超高速な単一リクエストデコーディングが可能であることを証明する技術プレビュー」を公開して話題になった。
-
----
-
-## 「GPUは агент指向ワークロード 向かない」は誤解
-
-KogのCEO Gaël Delalleau氏によると、GPUは агент指向（agentic）ワークロードに向かないという一般的な見方は**誤解**だという。Kog Inference Engine（KIE）はこの課題に対処するソフトウェア最適化アプローチを採用している。
-
-DelalleauCEOはTechCrunchに対し、「200件の実質的なビジネスリード獲得に成功した」と語った。同社は 소프트웨어エンジニアを最初のターゲット層として位置づけている。
+Kog first appeared on Hacker News front page in May 2026 with a technical preview proving that "extremely fast single-request decoding is possible on the standard datacenter GPUs enterprises already own."
 
 ---
 
-## 開発者にとっての実用性
+## "GPUs Are Poorly Suited for Agentic Workflows" — A Misconception
 
- Veteran Claude Code ユーザーは、長時間待たされるケースがあることをよく知っている。Anthropic自体、速度には価値がある理解し、ClaudeのFast Modeでは価格倍率を請求している。
+According to Kog CEO Gaël Delalleau, the prevailing belief that GPUs are poorly suited for agentic workflows is a **misconception**. Kog Inference Engine (KIE) uses software optimization to unlock new capabilities on existing hardware.
 
-Kogは、こうした遅延のためにAIワークフローを諦めていたプロフェッショナル層への提供を狙う。KIE導入により、プロンプトだけでゲームやアプリを生成できるデザインコンバニオン企業では、**高速な成果物がそのまま収益増加**につながる。
-
-DelalleauCEOは現在の市場は成熟途中と認識しつつも、「KIEの本格展開準備を進めている」と語った。
+Delalleau told TechCrunch: "We had 200 tangible business leads." The company targets software engineers as its first use case. Veteran Claude Code users are well aware of hours-long wait times for results. Anthropic itself recognizes that speed has monetary value, charging a price multiple for Claude's Fast Mode.
 
 ---
 
-*（情報は2026年8月14日時点のものです）*
+## Professional Use Cases: Game and App Generation
+
+Kog is targeting customers who previously abandoned AI workflows due to latency. Design partners using prompts to generate games and apps would see faster outcomes translate directly into revenue, Delalleau explained. While the market is not yet fully mature, KIE is approaching production-ready status.
+
+---
+
+## Technical Approach
+
+KIE's optimization strategy focuses on maximizing throughput on existing GPU hardware rather than requiring purpose-built chips. This approach could significantly reduce inference costs for enterprises already invested in AMD MI300X or Nvidia H200 infrastructure.
+
+The startup's pitch: why buy specialized hardware when software optimization can squeeze more performance from what you already own?
+
+---
+
+*（This article is based on information available as of August 14, 2026）*
