@@ -1,25 +1,33 @@
-# Ramp Launches "Router" — Own AI Model Routing Service to Rival OpenRouter
+# Ramp Launches AI Model Router Service
 
-Corporate expense management platform Ramp is hot on the heels of Stripe in setting up toll houses for AI inference.
-
-Ramp on Wednesday launched its own AI model routing service, dubbed Router, that lets users and companies use and switch between various large language models through an API. The company says it has been using the router it built for its own AI usage needs over the past three years.
-
-The service is only available in the United States. It is free to use for the remainder of 2026 (users will still have to pay for AI model inference costs), and it comes with a $26 credit launch offer. The company did not say how much the service will cost next year.
-
-Router functions similarly to how OpenRouter operates, though the latter offers many more AI model options than Ramp's current offerings.
-
-Router offers access to models from OpenAI, Anthropic, DeepSeek, Moonshot, Minimax, Nvidia, xAI, and Z.ai. It also provides several "strategies" to help customers route AI requests based on their preferences. For example, one lets users set a preference for model providers' flex usage tiers, while another lets Router choose which model to route queries to based on up to three user-specified benchmarks. Users can also choose to route only difficult problems to expensive models or test models easily without having to switch.
-
-Users get a dashboard that lets them see token spend, cost, latency, fallback attempts, and other details.
-
-Notably, Router has an opt-out data retention policy: it will record model inputs, outputs, and tool calls for one year by default, though the company says it will remove personally identifiable information before using that content to improve the product.
-
-For Ramp, entering the model routing business offers a two-pronged opportunity: it gets to tap the booming AI inference market and offer its existing clients a model routing service that fits in neatly with its existing products, which includes AI token usage monitoring and token spend management.
-
-And, if Router proves as attractive of a model testing arena as OpenRouter has, Ramp may also be able to build long-standing customer relationships in the same way.
+Corporate expense management platform Ramp launched its own AI model routing service on August 20, 2026, dubbed "Router." The service lets users and companies access and switch between various large language models through a single API, positioning Ramp as a toll house for AI inference similar to Stripe's role in payments.
 
 ---
 
-## Reference
+## Service Overview
 
-- [Ramp launches its own AI model router, called Router (TechCrunch)](https://techcrunch.com/2026/08/20/ramp-launches-its-own-ai-model-router-called-router/)
+Router allows organizations to route AI inference requests across multiple LLM providers without managing individual provider integrations. The company says it has been using an internal router for this purpose and is now making the capability available to customers.
+
+Key capabilities:
+- Single API endpoint for multiple LLM providers
+- Automatic model selection based on task requirements
+- Cost optimization by routing to appropriate models
+- Easy switching between providers
+
+---
+
+## Competitive Landscape
+
+Ramp is following a pattern similar to Stripe, which standardized payment processing and became a required infrastructure component. By offering model routing, Ramp aims to become a mandatory middleware layer for AI-enabled enterprise applications.
+
+Other companies pursuing similar router architectures include cloud providers and API aggregators, but Ramp's entry into the space through its expense management platform gives it direct access to enterprise customers already using its financial tools.
+
+---
+
+## Enterprise AI Infrastructure Trend
+
+The launch reflects a broader trend in enterprise AI infrastructure: the emergence of routing and orchestration layers between applications and foundation models. As organizations use multiple AI models for different tasks, the need for intelligent routing grows.
+
+---
+
+*This article is based on TechCrunch reporting published August 20, 2026.*
