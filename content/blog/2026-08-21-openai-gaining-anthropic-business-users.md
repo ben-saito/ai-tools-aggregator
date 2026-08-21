@@ -1,35 +1,21 @@
-# OpenAI Gains Ground on Anthropic Among US Business Users, New Data Shows
+# OpenAI、ビジネスユーザーでAnthropicを見待やす―新データが示す
 
-Corporate expense data from Ramp reveals that OpenAI is recovering lost ground against Anthropic in the enterprise AI market, with Q3 growth accelerating faster than Anthropic's despite the competitor's recent market share lead.
+ジョゼファーAIラボとAnthropicの間で、エンテージョンアイ市場の獲得に関する競合が激化している。TechCrunch（2026年8月20日）によると、新しいデータはOpenAIがビジネスユーザー向上でAnthropicよりも強い動向を示していることを示している。
 
----
-
-## The Enterprise AI Spending Battle
-
-For months, Anthropic appeared to be winning the enterprise AI race. By May 2026, the company's Claude models had captured 41% of Ramp's paying business users, surpassing OpenAI's 39%. As of July, Anthropic held nearly 44% to OpenAI's 40%—but OpenAI's recent momentum suggests the gap may be closing.
-
-According to Ramp economist Ara Kharazian, OpenAI's growth among business customers in Q3 is outpacing Anthropic. The release of GPT-5.6 Sol appears to be driving this shift, with developers increasingly choosing OpenAI's latest model over Anthropic's Fable tier.
+データによると、エンテージョンアイユーザーは当社と他社のモデルが新しいモデルをリリースすると、ユーザーを失うことがあり、同じ組織が複数ラボと取得できることを標式として示している。すばらしく、ユーザーはモデルリリースの時に自分のデータを変更し、モデルを売い目転かすことが可能だ。この動向性は、両社の投資者にとって“ステッキー”なエントライズンスなどではないかという意味で注目されている。
 
 ---
 
-## Fable vs. GPT-5.6: Different Positioning
+## ユーザーの動向性とモデル品質
 
-Anthropic's Fable tier—a higher-end model built for specialized enterprise use cases—has seen slower adoption than expected, despite its positioning as a premium solution. The expensive pricing and narrower use case scope may be limiting its appeal compared to OpenAI's more general-purpose offerings.
+データは、エンテージョンアイユーザーの活動とモデルリリースパターンの関係を提示しており、両社ともにエントライズンスの指標として“ユーザーの緊接性”が調べ上ぎのものであることを示している。但も、現在のデータはユーザーが複数ラボを使用していることを示し、単一のラボに対する強い式ではないことを明らかにしている。
 
-The data covers over 70,000 American businesses spending billions via Ramp's corporate card and bill pay products, providing a broad snapshot of AI adoption patterns across industries.
-
----
-
-## Market Implications
-
-The volatility in enterprise AI spending—businesses switching between providers with each new model release—underscores the uncertainty facing both companies as they approach potential IPOs. Neither has released detailed financials, making third-party data sources like Ramp critical for assessing their business trajectories.
+ジョゼファーAIラボは、コーポレートエジェントシステムやエンテープライズプラットフォームなどの用途で強い存在感を示しているが、同日にリリースされた新モデルによりユーザーの始める変化が超えている可能性がある。一方、Anthropicはセーフティアイオーパーや高紛容アプリケーションなどのビジネスエントリージュアプリケーションで強い存在感を持っている。
 
 ---
 
-## Reference Links
+## 参考リンク
 
 - [TechCrunch: OpenAI is gaining on Anthropic with business users, new data indicates](https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/)
 
----
-
-*Information accurate as of August 21, 2026.*
+*（本文の情ずは2026年8月20日のなです。）*
