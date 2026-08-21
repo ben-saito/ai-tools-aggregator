@@ -1,31 +1,17 @@
-# Meta AI Glasses Privacy: "Zuckoff" App Highlights Concerns
+# As Demand for Meta AI Glasses Explodes, It's Harder to Avoid Creepy Recordings
 
-As Meta's AI-powered Ray-Ban glasses surge in popularity, a new iPhone app called "Zuckoff" is making it easier to detect when people are recording with Meta's smart glasses—amid growing privacy backlash.
+Meta's AI-powered Ray-Ban smart glasses have crossed a threshold: they're becoming common enough that strangers in public can't assume they're not being recorded.
 
----
+The company reported a significant surge in demand for its smart glasses lineup following the integration of Meta AI into the devices. The glasses allow wearers to capture photos, record video, and query an AI assistant in real time — all without drawing attention. That's exactly the problem, critics say.
 
-## Demand for Meta AI Glasses Surges
+Privacy advocates have dubbed the phenomenon "Zuckoff" — a play on "stalker" and Meta CEO Mark Zuckerberg — referring to the ability to record people's faces and conversations covertly. Unlike a smartphone, which is obvious when raised to record, smart glasses look like ordinary eyewear.
 
-Meta's Ray-Ban Stories smart glasses with integrated AI capabilities have seen explosive demand growth, according to Ars Technica. The glasses allow wearers to capture photos, videos, and interact with an AI assistant hands-free. But the unobtrusive nature of the device has raised significant privacy concerns from the public and regulators.
+Meta has emphasized that the device includes a front-facing LED that lights up when recording, making it technically transparent. But privacy researchers note that the LED is small, the awareness of it is low among the general public, and there's no enforcement mechanism. Some states have passed laws requiring all-party consent for recording, but enforcement is difficult when the recording device looks like sunglasses.
 
-The glasses feature a small indicator light that activates during recording, but researchers and privacy advocates have noted this light can be easy to miss in certain lighting conditions. Some users have also found ways to disable or obscure the recording indicator.
+The backlash follows a pattern familiar from the early days of Google Glass: a technology that is technically impressive but socially disruptive, deployed before norms and regulations have caught up. Meta appears to be betting that widespread adoption will normalize the device before serious regulatory pushback crystallizes.
 
----
-
-## "Zuckoff" App Detects Meta AI Glasses
-
-The "Zuckoff" app, available for iPhone, uses machine learning to identify when someone nearby is wearing Meta's smart glasses and actively recording or capturing images. The app represents one response from privacy-conscious individuals who want awareness when they may be recorded.
-
-The app's emergence highlights the tension between convenience technology and privacy expectations. While the glasses offer genuine utility for hands-free photography and AI assistance, critics argue the form factor makes it too easy to record people without their knowledge or consent.
+Whether that bet pays off may depend on how visible the recordings become — and how uncomfortable they make people feel.
 
 ---
 
-## Privacy Backlash Grows
-
-Meta has faced increasing scrutiny over its smart glasses, with some jurisdictions considering regulations that would require more prominent recording indicators. European regulators in particular have expressed concerns about the privacy implications of always-on camera devices.
-
-Meta has defended its approach, noting that the glasses comply with existing regulations and include visible recording indicators. The company has also emphasized the product's benefits for accessibility and hands-free computing.
-
----
-
-*（情報は2026年8月20日時点のものです）*
+*This article is based on reporting from Ars Technica published August 21, 2026.*
