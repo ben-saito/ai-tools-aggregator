@@ -1,71 +1,55 @@
-# AIモデルの著作権書籍学習は合法か？——裁判例と公平使用 доктриныの関係
+# Is It Legal to Train AI Models on Copyrighted Books? The Answer Is Complicated
 
-2026年8月23日、TechCrunchは「AIモデルの学習に著作権のある書籍を使用することは合法か？——それは複雑だ」という記事を公開した。本稿は、AI企业与ぶつの著作権裁判の現状と、公平使用（fair use） доктриныの限界を分析する。
-
----
-
-## 学習データとしての書籍——企業は無断で使用
-
-ChatGPT、Gemini、ClaudeなどのAIモデルは、数億冊の書籍、オンライン記事、学術論文などのデータベースで学習されている。しかしほとんどの場合、著作権者は自分の作品がAI訓練に使用されたことを知らない。
-
-2025年、Judge William AlsupはAnthropicに対し、著作權のある書籍の不正利用として15億ドル（約2200億円）の損害賠償금을命じた。これはAI企業を対象とした最初の判決の一つだった。
-
-ただし判决の本质は見かけよりも複雑だ。Alsup裁判官は實際には「AIの学習自体は合法」と認定した。問題とされたのは、書籍を不法なシャドウライブラリから入手した行為であり、学習の methodology 本身ではなかった。
+On August 23, 2026, TechCrunch published an article examining the legality of training AI models on copyrighted books. The analysis delves into the landmark Anthropic $1.5 billion copyright settlement and what it means for the future of AI training practices.
 
 ---
 
-## 「作家の読書」に例える判决
+## The Core Question: Authors Trained Into AI Without Consent
 
-Alsup裁判官の判断は、こう始まる：
-
-「読者して作家を目指すすべての人と同じように、AnthropicのLLMは、競合하거나置き換えるためではなく、『難しい曲がり角』を曲がり始めて何か違うものを創造するため』に作品学习了」
-
-裁判官は、LLMが言葉を吸收するさまを、「作家の文学研究」に例えた。既存の著作物を読み込んで分析することは、それ自体が著作権侵害にはならないという論理だ。
-
-しかしGellis弁護士は、この判决はAI企業にとってむしろ有利だと評価する：
-
-「彼の判断は、AI訓練」について考察し、『著作権作品の閲覧）に類似すると認めた点で、一般的にAI訓練にとって良いニュースだと思います」
+The AI models powering ChatGPT, Gemini, Claude, and other chatbots were trained on vast databases containing hundreds of millions of books, online articles, and academic papers. Most published authors had no knowledge their works were used to train the AI systems that now threaten to disrupt their livelihoods. It seems obviously illegal, right? The reality is far more nuanced.
 
 ---
 
-## 著作権法第107条——1976年から更新なし
+## The Anthropic Ruling: Training Legal, Piracy Is Not
 
-米国著作権法は1976年以来大幅な改正われていない。法官たちは50年前の指針を引いて、AI産業の未来を左右する法的問題に判断を下さなければならない。
+In one of the first rulings of its kind, Judge William Alsup ordered Anthropic to pay $1.5 billion in damages to a group of writers whose works were used to train the company's AI models. But at face value, this seemed like a moral victory that actually ruling AI training itself was lawful. What Alsup penalized Anthropic for was pirating books from illegal online shadow libraries to obtain training data.
 
-その判断轴となるのは主に「fair use（公平使用）」 доктриныだ。公平使用は、著作権者の許諾なしでも著作物を利用できるとする著作権法の例外規定で、批評、パロディ、教育などの文脈で保護される。
-
-法官が公平使用かどうかを判断する際に考虑する4つの要因がある：
-
-- 作品の 목적 と性格（商業利用か教育目的か）
-- 著作物の性质（ 사실か創作か）
-- 使用された分量と重要性の程度
-- 市場への影響
-
-「著作権は常に市場の保護と成長に関するものです」と、版权の専門家は語る。AI企业对ぶつの場合、学习によって著作権者の作品の市場価値が低下する可能性があるかが关键的な判断材料となる。
+"Like any reader aspiring to be a writer, Anthropic's LLMs trained upon works not to race ahead and replicate or supplant them -- but to turn a hard corner and create something different," the judge wrote, comparing the way an LLM ingests trillions of words to a writer's study of literature.
 
 ---
 
-## 企業収益性与び判决の轻重
+## Fair Use Doctrine: A Double-Edged Sword for AI Companies
 
-注目すべきは、Anthropicの2028年頃の年間収益予測が約2000億ドル（约29兆円）である点だ。15億ドルの賠償금은、この規模的企业にとって微々たる金额に過ぎない。
+The legal framework hinges on "fair use" -- a carve-out in copyright law that permits use of copyrighted material without explicit permission for purposes like commentary, parody, and education. Whether AI training qualifies as fair use depends on several factors judges consider:
 
-このことは、判决の抑止効果について疑問を投げかける。罚金の轻さが、AI企業にとって著作権リスクを抑制する incentive を十分に生み出してこい可能性がある。
+- The purpose and nature of the use (commercial vs. educational)
+- The nature of the copyrighted work (factual vs. creative)
+- The amount and substantiality of the portion used
+- The effect on the market value of the original work
 
----
-
-## 法的宙吊り状態が続く
-
-AIモデルの訓練に著作権のある著作物を使用する行為は、现阶段では明確に違法とも合法とも言い切れいない。裁判例は存在하지만、法官ごとに判断が分かれており、産業全体르는統一的な法的枠組み欠缺している。
-
-この宙吊り状態は、AI企业与版权者の关系において、Appleと音楽業界の licensing 取引のような将来的な枠組み作り迫るきっかけとなるかもしれない。
+"Copyright is always about protecting and growing the market," noted one copyright expert. The key question for AI cases: does training on copyrighted works diminish the market value of those original works?
 
 ---
 
-## 参考リンク
+## The Settlement's Limited Deterrent Effect
+
+One attorney suggested the ruling is actually more advantageous for AI companies than it appears. With Anthropic projecting approximately $200 billion in annual revenue by 2028, a $1.5 billion fine represents less than 1 percent of a single year's projected revenue. This raises questions about whether the settlement creates sufficient deterrent effect to change AI company behavior.
+
+---
+
+## Unresolved Legal Uncertainty
+
+The legal landscape remains murky. Copyright law has not been substantially updated since 1976, meaning judges must apply 50-year-old guidelines to questions that could shape the entire AI industry's future. Different courts have reached different conclusions, leaving the industry without consistent legal direction.
+
+This ambiguity may ultimately push AI companies toward licensing arrangements with copyright holders -- similar to how Apple negotiated with music labels -- rather than relying on legal exceptions that remain contested.
+
+---
+
+## Reference Links
 
 - [Is it legal to train AI models on copyrighted books? It's complicated (TechCrunch)](https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/)
-- [Anthropic $1.5B copyright settlement coverage](/ai-tools-aggregator/content/blog/2026-07-21-anthropic-copyright-settlement.md)
+- [Anthropic $1.5B copyright settlement](/ai-tools-aggregator/content/blog/2026-07-21-anthropic-copyright-settlement.md)
 
 ---
 
-*本記事の情報は2026年8月23日時点のものです*
+*This article is based on reporting from August 23, 2026.*

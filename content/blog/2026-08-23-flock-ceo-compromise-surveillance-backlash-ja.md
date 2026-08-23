@@ -1,33 +1,35 @@
-# Flock CEOが「妥协」を呼びかけ——監視企業めぐる反発が加速
+# Flock CEO Calls for "Compromise" as Surveillance Company Faces Backlash
 
-2026年8月23日、Flock SafetyのCEOは、同社の監視技術がogiる懸念）について「妥协」を呼びかけた。Flockは米国最大規模のナンバープレート読取ネットワークを運用する企業で、監視カメラ技術の扩大をめぐりニューヨutableな批判にさらされている。
-
----
-
-## Flockの監視ネットワーク——全米に拡大
-
-Flock Safetyは、警察向けの監視技术服务を提供하며、ナンバープレート認識（ALPR）システムで全米に展開する。米国内にはFlockの監視カメラが大量設置されており、agoにもようにagouteに移動するすべてのお店の車両が記録されている。
-
-この技術の監視范围とデータ保存期間は、公民的自由の侵犯だとして懸念されてきた。
+Flock Safety, the company operating one of the largest networks of license plate readers in the United States, announced changes to how police can access its surveillance infrastructure on August 23, 2026. The announcement comes as cities across the country are dropping contracts and courts scrutinize the constitutional boundaries of mass surveillance technology.
 
 ---
 
-## 后退始まる——警察官のアクセス権限を制限
+## Background: Rapid Expansion of Surveillance Network
 
-Flockは8月23日、 Officer が同社の監視インフラに|accessできる条件を変更すると発表した。CEOは「我々はコミュニティとの対話残余」と述best、社区の образовањем 받을 внимания批判に対応した。
+Flock Safety's automated license plate recognition (ALPR) system has been deployed across police departments nationwide. The system tracks vehicle movements and records data on every car that passes through monitored areas. The scope of surveillance and data retention periods have become contentious points, with critics arguing these practices infringe on constitutionally protected privacy rights.
 
-この决定は、米国の複数都市がFlockとの契約を終了し、法院がmass監視の憲法上の境界を審查し始める中で迎えた。
-
----
-
-## 監視技術と公民的自由の.balance
-
-Flockの事例は、AI駆動の監視技術が急速に拡大する中で、プライバシーと公共の 安全 のバランスがどのように取れるべきか”的问题を浮き彫りにしている。
-
-企业は「犯罪防止」と「安全確保」を理由に監視网络を正当化するが、批判者はこれが「無差別監視」につながる技术与指摘する。
-
-Flock CEOの「妥协」発言は、监视企業を取り巻く状況が转折点を迎えつつあることを示唆している。
+Multiple cities have terminated their contracts with Flock, and courts have begun examining whether mass ALPR surveillance violates Fourth Amendment protections against unreasonable searches.
 
 ---
 
-*本記事の情報は2026年8月23日時点のものです*
+## CEO Announces Policy Changes
+
+Flock's CEO stated on August 23 that the company would modify the conditions under which officers can access its surveillance infrastructure. The CEO said the company values "community dialogue" and responded to mounting criticism over the expansion of surveillance capabilities.
+
+The policy change represents a retreat for Flock, which had been rapidly expanding its surveillance footprint despite growing backlash. Critics argue the company uses "crime prevention" as justification for what amounts to indiscriminate monitoring of law-abiding citizens.
+
+---
+
+## Key Issues Under Debate
+
+Privacy advocates highlight several concerns with AI-powered surveillance technology:
+
+- **Data retention periods**: How long vehicle movement data is stored
+- **Scope of surveillance**: Geographic coverage and frequency of tracking
+- **Access controls**: Lack of checks on who can query the database and why
+
+Flock's case highlights the broader challenge of balancing public safety technology with civil liberties protections as AI-driven surveillance tools proliferate across American communities.
+
+---
+
+*This article is based on reporting from August 23, 2026.*
