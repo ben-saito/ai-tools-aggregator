@@ -1,43 +1,37 @@
-# General Intuition: $6B Valuation Reflects Robotica AI Convergence
+# Valor, Point72 Back General Intuition at $6B Valuation as AI Startup Pushes into Robotics
 
-Valor Equity Partners and Point72 have backed General Intuition, a robotics-focused AI startup, at a $6 billion valuation as the company pushes into physical AI systems that combine advanced reasoning with real-world mechanical capabilities.
-
----
-
-## The Robotics-AI Convergence Thesis
-
-General Intuition represents a new category of startup that blurs the line between AI software companies and robotics hardware makers. Rather than building AI that operates in virtual environments, the company develops systems that reason, plan, and act in physical spaces — warehouses, factories, and eventually consumer environments.
-
-The $6B valuation reflects investor conviction that the next frontier of AI value creation lies in physical systems. Foundation models trained on language and code can now be combined with robotic control systems to create AI that manipulates objects, navigates complex environments, and adapts to novel situations.
+General Intuition, the startup building a foundation model that trains generalized AI agents to move through space and time, is in talks to raise funding at a $6 billion pre-money valuation from new investors including Valor Ventures, Point72 Ventures, and Seven Seven Six, according to sources familiar with the matter.
 
 ---
 
-## Why Robotics Now?
+## Rapid Rise in Physical AI
 
-Several factors are converging to make robotics AI a compelling investment category:
+Existing investors including Khosla Ventures and General Catalyst are also participating in the round. The fresh funds would come just weeks after General Intuition raised $320 million at a $2.3 billion valuation — a dramatic jump in valuation in a very short period.
 
-**Sensor costs have collapsed**: LiDAR, depth cameras, and inertial measurement units that once cost tens of thousands of dollars now sell for hundreds. This democratizes robotic hardware development.
-
-**Foundation models provide reasoning**: Modern language and vision-language models can process complex instructions, reason about spatial relationships, and plan multi-step tasks that previously required hard-coded logic.
-
-**Labor cost pressures**: With labor costs rising across manufacturing and logistics, automation ROI calculations increasingly favor robotic solutions that can adapt to new tasks without complete reprogramming.
+The news confirms earlier reporting on the deal for what is becoming one of the hottest startups tackling physical AI.
 
 ---
 
-## Venture Interest in Physical AI
+## CEO Spun Out from Video Game Platform
 
-General Intuition's funding round signals that top-tier traditional investors — not just AI-focused funds — are now actively seeking exposure to physical AI systems. Valor and Point72 bring operational expertise in manufacturing and industrial technology alongside capital.
+CEO Pim de Witte spun out General Intuition last October from his video game clip-sharing platform Medal. The startup is using hundreds of millions of hours of gameplay and "action labels" — records of which buttons a player pressed and when — as an initial dataset for training its large action models.
 
-The round also suggests that the distinction between "AI company" and "robotics company" is becoming less meaningful. The most valuable robotics businesses in the next decade will likely be AI companies that happen to control physical hardware, rather than hardware companies that add AI features.
-
----
-
-## Industry Implications
-
-As General Intuition scales, expect increased competition with established robotics players like Figure, Boston Dynamics, and Amazon Robotics. The AI-native approach that allowed software-first companies to disrupt cloud computing and enterprise software may soon produce similar disruptions in physical systems industries.
-
-The $6B valuation also sets a benchmark for the emerging physical AI category, potentially spurring further investment and acquisition activity as major players position themselves for the coming robotics wave.
+This approach leverages a unique data source to teach AI agents how to navigate physical environments, combining the scale of video game data with the temporal precision of action logging.
 
 ---
 
-*注: 本記事の情報は2026年8月24日時点のものです*
+## Foundation Model for Physical AI
+
+General Intuition is building what it describes as a foundation model for physical AI — a system that can train generalized AI agents to move through space and time. This puts the company in direct competition with established players working on robotics and embodied AI.
+
+The $6 billion valuation reflects the intense investor interest in infrastructure-layer AI companies and the emerging field of physical AI, where models must understand and interact with the physical world.
+
+---
+
+## Infrastructure AI Valuations Surge
+
+The General Intuition deal comes on the heels of Stripe's $7 billion acquisition of OpenRouter, another AI infrastructure company. The market for AI platforms and tools is seeing premium valuations as enterprises and investors bet on the continued growth of AI deployment across industries.
+
+---
+
+*（記事の情報は2026年8月24日時点のものです）*
