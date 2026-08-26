@@ -1,38 +1,28 @@
-# Bill Gates Warns: AI Has Passed "Danger Thresholds" — Proposes Robot Tax and Human-Reserved Jobs
+# Bill Gates Warns AI Danger Thresholds Already Crossed
+
+In a new interview with MIT Technology Review, philanthropist Bill Gates expressed increasing alarm at the rate of AI technology advancement, particularly since guardrails are not keeping pace with development.
 
 ---
 
-## Gates: Any Model That Can Design Novel Molecules Is Dangerous
+## A Glorious Day with an Unsettling Message
 
-On August 26, 2026, Microsoft co-founder Bill Gates declared at a Kirkland event that AI has already crossed critical danger thresholds. Gates expressed particular concern about the bio-capabilities of frontier models: "Any model that can design novel molecules poses risks of misuse."
+In Kirkland, Washington, at a Gates Ventures conference room overlooking Lake Washington, Gates rocked back and forth in his chair, animated and serious. While the setting was placid, the message was not.
 
-Gates has been sounding alarms as a "shrill voice" on AI risks, publishing a new essay that calls for sweeping societal responses. He argues AI safety is not merely a technical challenge but an existential risk for humanity.
-
----
-
-## Robot Tax and Human-Reserved Jobs — Gates Policy Proposals
-
-Beyond warnings, Gates outlined concrete paths forward:
-
-- **Robot tax** — Tax AI-driven job displacement to protect human employment
-- **Human-reserved jobs** — Policy framework to preserve human roles immune to AI replacement
-- **Token tax** — Tax AI processing to offset gains from AI development
-
-Gates is not purely pessimistic. He remains optimistic about AI transforming agriculture, healthcare, and education, while arguing that "risk management capabilities have not kept pace."
+Gates has been sounding the alarm publicly with new essays, positioning himself as a "shrill voice" to wake the world up to what he sees as rapidly growing societal disruption.
 
 ---
 
-## What This Means for the Industry
+## Bio-Capabilities and Dual-Use Concerns
 
-Gates warnings are backed by research from Gates Ventures researchers evaluating frontier model bio-capabilities, with findings informing policy advocacy.
-
-As some in the industry prioritize performance over safety, Gates "danger threshold passed" assessment is set to accelerate debates on AI governance among policymakers, researchers, and industry leaders.
+Particularly chilling are Gates' warnings about the bio-capabilities of current frontier models. "Any model that can make novel molecules should be assumed to potentially create dangerous molecules," he noted. This dual-use problem represents a significant challenge for AI safety.
 
 ---
 
-## Reference
+## Proposed Solutions: Robot Taxes and Human-Reserved Jobs
 
-- [Bill Gates says we've passed AI's danger thresholds. Now what? (MIT Technology Review)](https://www.technologyreview.com/2026/08/26/1142946/)
+Gates advances several novel ideas: robot taxes to fund workforce retraining, token taxes, and the concept of "human-reserved jobs" -- positions where full automation is socially undesirable and human involvement should be maintained.
+
+Despite the warnings, Gates remains optimistic about AI's potential in agriculture, healthcare, and education, seeing a path to using the technology to lead humanity to a better place.
 
 ---
 
