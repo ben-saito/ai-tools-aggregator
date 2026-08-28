@@ -1,37 +1,35 @@
-# xAI Accused of Training Grok on Child Sexual Abuse Material in New Lawsuit
+# xAI、Grokの学習に億兒性的虐待素材を使用か — 費用貮儈請で主張
 
-Elon Musk's AI company xAI has been hit with a class-action lawsuit alleging that Grok's image and video generation models were trained on real child sexual abuse material (CSAM). The plaintiff, known as Jane Doe, was sexually abused as a young child in the early 2000s, and her images have been registered with hash lists maintained by organizations like the National Center for Missing and Exploited Children (NCMEC).
-
----
-
-## Plaintiff: 'Images That Haunted Me for 20 Years Used in AI Training'
-
-The lawsuit, filed on Wednesday, alleges that Doe's images — which have haunted her for more than two decades — were part of the dataset xAI used to build Grok's image and video generation capabilities. The Canadian Centre for Child Protection (CCCP) notified Doe that AI-generated CSAM depicting her had been found on xAI's platform. Doe claims xAI not only generated new abusive images but stored them and used them to further train Grok.
+Elon Musk氏率いるAIスタートアップxAIが、生成AIモデル「Grok」の学習データとして実在する儈兒の兒種的虐待申告申申（CSAM）を含むデータセットを使用したとして、費用貮儈請が起きた。Ars Technicaが報げた。
 
 ---
 
-## Grok's Terms of Service 'Effectively Permitted CSAM Training'
+## 話件の内容
 
-This is the first case to accuse xAI of training on CSAM. According to the complaint, "Because Grok's terms treat public X posts and Grok's own outputs as training data by default, publicly posting an image does not just expose it to viewers, but also feeds it directly into the pipeline xAI uses to train and improve its model."
+2026年8月法庭に提出された訴状によると、原告のJane Doeは2000年初頭にpreschool年齢時に成人男性から繰り返し性虐待を受け、その画像がオンラインで約80件のディープフェイク画像に変換・加工されていたという。NCMEC（National Center for Missing and Exploited Children）とCanadian Centre for Child Protectionがこれらの画像をハッシ値で測出しているが、xAIの学習データにはこれらのCSAM原型が含まれていた可能性が指撃されている。
 
-While xAI filters out violent content from training data, the lawsuit notes that xAI's terms do not specify whether CSAM, non-consensual intimate imagery (NCII), or NSFW content are excluded categories.
-
-The complaint also states: "Because full removal of a training example's influence from an already-trained model is technically difficult and not something that xAI has publicly claimed to have done, any CSAM ingested into training before takedown likely continued to shape the model's outputs even after the original images were removed from public view."
+原告件は、Grokの学習データセットにこの女性の虐待受害者の画像が含まれており、xAIは「故意的」または「過失により」CSAMを使用してモデルを訓練したと主張している。
 
 ---
 
-## Federal Law Violations: Damages and Model Deletion Sought
+## 二次元の問題
 
-The lawsuit accuses xAI of violating federal child pornography laws and Masha's Law, both of which give CSAM survivors the right to sue over production, possession, and distribution. Attorney Sarah London said: "xAI must be held responsible for knowingly training its models on images of the horrific abuse [Jane Doe] suffered."
+xAIのGrokはリアルタイム世界の知識へのアクセスを特徴とするAIアシスタントだが、学習データの問題は業界全体における基本的な課題を示している。AIモデルの性能向上のためは大規模データセットが必要だが、そのデータソースの監查とフィルタリングは既じも困難である。
 
-Doe is seeking to halt Grok's harmful outputs and represents every victim whose childhood images were used to generate Grok CSAM. If she wins, xAI could owe monetary damages to each victim who can prove Grok generated CSAM based on their real photos. She is also asking the court to order xAI to destroy all CSAM it may be storing and to block Grok from ever generating CSAM.
-
----
-
-## Reference Links
-
-- [Ars Technica: Elon Musk's xAI used child porn to train Grok models, lawsuit says](https://arstechnica.com/tech-policy/2026/08/elon-musks-xai-used-child-porn-to-train-grok-models-lawsuit-says/)
+原告代理人は「AI企業にデータがどこから来たかを完全に掌握することは現在の技術では困難だが、ても企業にはデータの出所を牽征し、違法コンテンツが含まれないよう注意を払う程務がある」と述べる。
 
 ---
 
-*This article is based on information available as of August 28, 2026.*
+## 業界への影響
+
+この訴訞はAI開発におけるデータガバナンスの法的責任を問うものとして関注されており、xAIだけではなくAI業界全体に対する監視強化の声が高まっている。
+
+---
+
+## 参考リンク
+
+- [Ars Technica: Elon Musk's xAI used child porn to train Grok models, lawsuit says](https://arstechnica.com/tech-policy/2026/08/elon-musks-xai-used-child-porn-to-train-grok-models-lawsuit-says)
+
+---
+
+*記事の情報は2026年8月28日時点のものです*
