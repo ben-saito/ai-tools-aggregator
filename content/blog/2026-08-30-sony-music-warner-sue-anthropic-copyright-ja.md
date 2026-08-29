@@ -1,13 +1,11 @@
-# Sony Music、Warner、Anthropicを提訴：「残忍な知的財産侵害campaign」を巡り
+# Sony Music and Warner Sue Anthropic Over "Brazen" Copyright Infringement Campaign
 
-2026年8月29日、Sony Music EntertainmentとWarner Music GroupがAI企業Anthropicを相手取り、总额数百万ドル规模の著作権侵害訴訟を提起した。TechCrunch报道 따르면、この訴訟は「非法な著作権侵害の残忍なcampaign」として特徴づけられている。
+On August 29, 2026, Sony Music Entertainment and Warner Music Group filed a copyright infringement lawsuit against AI company Anthropic, seeking millions in damages. TechCrunch reports that the lawsuit targets what it calls "a brazen campaign of illegal piracy" — accusing Anthropic of using copyrighted music, lyrics, and reviews to train its Claude AI systems without proper licensing agreements.
 
-提訴側の主张の核心は、AnthropicがAIモデル（「Claude」系统）の训练にovia、著作権で保护された音楽、歌词、评论を使用した雰囲っている。Sony MusicとWarnerは、Anthropicが适当なライセンス契约もなく米大手レーベル各社のコンテンツを大规模に吸い上げたとして、著作权侵害を主張している。
+The core of the lawsuit centers on Anthropic's use of copyrighted materials from major American record labels to train its AI models. Sony and Warner allege that Anthropic systematically scraped and used their content at scale without obtaining the necessary licenses — a practice the music industry increasingly views as illegal infringement rather than permissible "fair use."
 
-この诉讼は、AI企业与コンテンツ権利者の间的紧张関係が新たな段階に入ったことを示している。OpenAIやMetaなど他のAI大手も同種の著作権诉讼に直面しているが、Sony MusicとWarnerの提诉は、音楽業界がAI企业への攻撃を升级させたことを意味する。
+This lawsuit marks a new escalation in the ongoing tension between AI companies and content creators. While OpenAI and Meta face similar copyright litigation, the Sony Music and Warner complaint represents a significant escalation by the music industry against AI firms. The outcome could set a precedent for how AI companies handle training data from copyrighted sources.
 
-Anthropic侧の应答は今のところ明らかになっていない。同社は以前、AI训练における著作复所有权について、モデルの出力が「转换的使用」に当たると主张してきた。しかし、Sony MusicとWarnerの法的主张は、AI企业的変換使用の主张を正面から挑战するものとなる可能性が高い。
+Anthropic has not yet publicly responded to the lawsuit. The company has previously argued that AI model outputs constitute "transformative use" of training data, but the music industry appears determined to challenge that legal interpretation directly.
 
-音楽出版业界の反応も注目されている。米音楽出版社协会（NMPA）会長の声明によると、「AI企業にコンテンツを무료で 사용させる时代は终了した」という。这次诉讼は、音乐以外に扩大される可能背があり、今後のAI产业界全体に影響を与えるだろう。
-
-（参考：TechCrunch 2026年8月29日报道）
+(Reference: TechCrunch, August 29, 2026)
