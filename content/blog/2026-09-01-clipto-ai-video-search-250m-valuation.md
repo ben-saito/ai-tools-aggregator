@@ -1,41 +1,47 @@
 # Clipto Uses AI to Search Terabytes of Video, Valued at $250M
 
-Generative AI is making it easier to produce more content and harder to keep track of it. As videos, recordings, and documents accumulate, Adobe, Apple, Google, and a growing number of startups are using AI to make those files searchable. It is not yet clear whether that will support a new category of standalone software or become a standard feature of products people already use.
-
-Clipto is betting there is room for a separate product. The San Francisco-headquartered startup, which also has teams in Singapore and Hong Kong, has raised $15 million in an all-equity round at a $250 million post-money valuation. The investors include HSG, formerly Sequoia China, GL Ventures, EnvisionX Capital, Palm Drive Capital, Hans Tung, Lu Zhang, and 522 Ventures.
+Generative AI is making it easier to produce more content and harder to keep track of it. As videos, recordings, and documents accumulate, Adobe, Apple, Google, and a growing number of startups are using AI to make those files searchable. Clipto is betting there is room for a separate product -- and investors agree, backing the three-year-old startup to the tune of a $250 million valuation.
 
 ---
 
-## AI-Powered Search Across Video, Audio, and Documents
+## The Product: Video Search at Scale
 
 Clipto indexes videos, audio, images, meetings, and other files on a user's computer. Instead of scrolling through folders to find what you need, users can search by describing what they are looking for or ask ChatGPT, Claude, or other AI tools to find it for them.
 
-"The real insight is that in this AI era, we do not have a content shortage," said the founder. "The opposite is true. We have too much content. We have too much video footage sitting on our computers that is not being used."
+"The real insight is that in this AI era, we don't have a content shortage," Kang, Clipto's founder, explained in an interview. The problem is finding relevant content within the growing mountain of digital files.
 
-Clipto initially built its product for video creators trying to manage footage scattered across computers and external drives. But creators now make up only about one-quarter to one-third of its users. The rest include lawyers, doctors, researchers, marketers, human-resources professionals, professors and students.
-
----
-
-## Path to Profitability Before Fundraising
-
-Clipto reached $15 million in annual recurring revenue and achieved profitability before raising its latest round. The company says it has been growing revenue at 2.5 times year-over-year, with gross margins above 85%.
-
-The $15 million fundraise comes as AI-powered search tools are attracting significant investor interest. Competitors include Google with its Vaulted storage platform, Apple with personal context features, and Adobe with its AI search capabilities across creative files.
+The San Francisco-headquartered startup, which also has teams in Singapore and Hong Kong, has raised $15 million in an all-equity round at a $250 million post-money valuation. The investors include HSG (formerly Sequoia China), GL Ventures, EnvisionX Capital, Palm Drive Capital, Hans Tung, Lu Zhang, and 522 Ventures.
 
 ---
 
-## Looking Ahead
+## Business Metrics: $15M ARR and Profitability
 
-Clipto plans to use the new capital to expand its enterprise offerings and grow its team. The company faces competition not only from big tech companies but also from startups like Circleback, which recently added a free tier to its meeting note-taking service.
+What sets Clipto apart from tech giant competitors is its standalone positioning. While Adobe, Apple, and Google integrate AI search into existing product ecosystems, Clipto offers a dedicated application that works across platforms and file types.
 
-The broader trend is clear: as AI makes content creation easier, the challenge of organizing and finding that content is creating new business opportunities. Clipto is betting that dedicated AI search tools for personal and enterprise content will become a durable category rather than a feature bolted onto existing products.
+The company says it reached $15 million in annual recurring revenue and achieved profitability before raising its latest round -- a signal that the market for AI-powered personal content search is real and growing.
 
 ---
 
-## Reference Links
+## Competitive Landscape
+
+Clipto enters a market where established players are moving quickly. Adobe has integrated AI search into its Creative Cloud suite, Apple continues to expand Spotlight's natural language capabilities, and Google has enhanced Google Photos with AI-powered search. Microsoft has also been expanding Copilot features across Windows and OneDrive.
+
+Yet Clipto argues there is sustained demand for a focused, cross-platform search tool that works outside the walled gardens of major ecosystems.
+
+---
+
+## Developer Implications
+
+For developers, Clipto's approach illustrates a broader trend: the commoditization of semantic search infrastructure. The technical challenge of indexing and retrieving content across heterogeneous file types -- video, audio, images, documents -- at consumer scale requires solving problems in vector embeddings, multimodal indexing, and low-latency retrieval.
+
+The startup's focus on interoperability with AI assistants like ChatGPT and Claude suggests a future where AI-native file search becomes a standard feature of personal computing, rather than a differentiating feature of platform-specific products.
+
+---
+
+## Reference
 
 - [TechCrunch: Clipto uses AI to search terabytes of video and is now valued at $250M](https://techcrunch.com/2026/08/31/three-year-old-ai-media-search-startup-clipto-hits-a-250m-valuation/)
 
 ---
 
-*This article is based on information available as of September 1, 2026.*
+*本文の情報は2026年9月1日時点のものです。*
