@@ -1,33 +1,37 @@
-# Boston Dumps Flock Over Data Sharing Violations
+# Boston Dumps Flock Surveillance System Over Data Sharing Violations
 
-The city of Boston has terminated its contract with Flock Safety, a surveillance technology company, after discovering that the company enabled nationwide data lookups in violation of the contract terms. The contract required Flock's license plate readers to be restricted to local data access only — a restriction the company apparently bypassed.
-
----
-
-## The Violation
-
-According to city officials, Flock enabled a "nationwide lookup" feature that allowed law enforcement and other authorized users to search the company's database of captured license plates across the entire United States, not just the Boston metropolitan area. The contract explicitly required this feature to be disabled.
-
-The city discovered the violation during a routine audit of Flock's system configuration. Officials determined that the feature had been active for an unspecified period, potentially exposing data from millions of license plate scans to searches that fell outside the scope of the original agreement.
+The city of Boston has terminated its contract with Flock Safety, a surveillance camera company, after finding that the company shared data with law enforcement agencies nationwide in violation of its contractual agreement with the city. The decision marks a significant rebuke of the company's data practices.
 
 ---
 
-## Growing Scrutiny of ALPR Vendors
+## Contract Violation
 
-Automatic license plate reader (ALPR) technology has faced increasing scrutiny across the United States. Privacy advocates have long argued that the systems create pervasive surveillance infrastructure with inadequate oversight and retention limits.
+Boston officials discovered that Flock had been sharing license plate reader data with out-of-state law enforcement agencies beyond the scope of the original agreement. The city's contract with Flock specifically limited data sharing to Boston-area investigations, but the company allegedly expanded access without authorization.
 
-Flock Safety has become one of the largest providers of ALPR systems to local governments, contracting with police departments nationwide. The company's business model relies on building a large, shared database of license plate scans that can be queried by law enforcement across jurisdictions — a model that some argue creates mission creep risks.
-
-Boston's decision to terminate its contract may signal a new level of accountability for ALPR vendors. The city is not the first to push back against Flock; several other municipalities have raised concerns about data retention and access practices.
+The data sharing practice came to light through a civil investigation into Flock's partnerships with federal agencies and immigration enforcement. Documents revealed that Flock's cameras were capturing and retaining data on vehicles far beyond the scope of criminal investigations within Boston.
 
 ---
 
-## Contractual Safeguards and Their Limits
+## How Flock's System Works
 
-The Boston incident highlights a recurring problem in municipal surveillance procurement: contract provisions that vendors can effectively circumvent through technical configuration changes. Requiring a feature to be "disabled" is different from requiring the feature to not exist — and in software-defined systems, the distinction can be hard to enforce.
+Flock Safety operates a network of license plate readers mounted on poles and buildings throughout cities. The cameras automatically capture license plates and store the data, creating a comprehensive record of vehicle movements. The company has positioned itself as a tool for solving crime, but critics have raised concerns about the scope of data collection and retention.
 
-For municipalities deploying ALPR systems, the Boston case underscores the importance of technical audits, not just contractual language. Ensuring that contractual restrictions map to actual system behavior requires ongoing verification — a challenge for government IT teams with limited resources.
+Flock's terms of service have been criticized for allowing broad data sharing. The company's contracts with municipalities often include provisions that permit the company to use collected data for its own purposes, including sharing with law enforcement agencies beyond the original jurisdiction.
 
 ---
 
-*本文は2026年9月15日時点のArs Technica报道に基づいています。*
+## Municipal Response
+
+Boston's decision to terminate its Flock contract follows growing scrutiny of surveillance technologies in cities across the United States. Other municipalities have begun re-examining their own Flock contracts in light of the data sharing revelations.
+
+City officials stated that Boston will seek a more transparent approach to surveillance technology, with stronger data governance requirements in future contracts. The city's action may encourage other municipalities to renegotiate or terminate similar arrangements with surveillance technology providers.
+
+---
+
+## Reference Links
+
+- [TechCrunch: Boston dumps Flock, says it shared data nationwide in violation of contract](https://techcrunch.com/2026/09/15/boston-dumps-flock-says-it-shared-data-nationwide-in-violation-of-contract/)
+
+---
+
+*本文の情報は2026年9月15日時点のものです*
