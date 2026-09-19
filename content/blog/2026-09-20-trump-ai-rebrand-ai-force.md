@@ -1,38 +1,36 @@
-# Trump、AIの「新ブランド名」提案を表明 — 「AI Force」設立も明言
+# Trump Proposes 'New Brand Name' for AI, Announces 'AI Force' Creation
 
-Donald Trump元大統領は9月19日（現地時間）、SNSプラットフォーム「Truth Social」に投稿し、「Artificial Intelligence（人工知能）」という言葉が「不正確で不適切な表現である」とする見方を示した。さらにTrump家は、AIへの批判的な世論は「リベラルな陰謀」だと主張。这是英文内容测试。
-
----
-
-## 「AIは民主党のホラーだ」 — 証拠なく主張
-
-Trump元大統領は同日、短い間隔で2つの投稿を行った。最初の投稿では、AIを指す言葉としての「Artificial Intelligence」に代わる「新ブランド名」を探すべきだと述べた。約2時間後には続きの投稿を行い、「AIの壊滅や破壊を試みる動き」は「多くの民主党のホラー」の一つだと主張した。Russia、Russia、Russia（ロシア疑惑）、Ukraine（ウクライナ疑惑）などと並べる形で、移民問題や犯罪統計まで同一の手法だと断じた。
-
-注目すべきは、Trump元大統領がこれらの主張に対する具体的な証拠を一切提示しなかった点である。AIへの懸念は共和党・民主党の両党で広がっており、超党派でデータセンターやエネルギー消費の問題が議論されている。
+Donald Trump suggested on September 19 that the term "Artificial Intelligence" should be rebranded with a new name, calling the current phrase "inaccurate and ineloquent." He also claimed without evidence that the widespread backlash against AI is a "Democratic hoax."
 
 ---
 
-## 「AI Force」を設立へ — Space Force以来の新たな軍事的組織
+## 'AI Backlash is a Democratic Hoax' — Unsubstantiated Claims
 
-Trump元大統領は同日、「AI産業を大切にし、その成長を見守っていく」としつつも、「AI Force」の設立を発表した。これは2019年に自身が創設した「Space Force（宇宙軍）」に倣ったもので、米軍における新たな技術分野としての位置づけとなる。
-
-さらにTrump家は近く「AI Czar（AI担当長官）」の就任を発表するとしている。投稿によれば、「IQの高い人のみ応募可」というユニークな条件も付された。以前にAI・Crypto担当官務めていたVenture CapitalistのDavid Sacksは今年に入り辞任しており、後任探しが本格化している。
+In a series of posts on his social network Truth Social, Trump argued that criticism of AI and data centers represents a coordinated Democratic campaign similar to past controversies. He provided no evidence to support the claim that anti-AI sentiment is orchestrated rather than organic. Both Republicans and Democrats have raised concerns about data center energy consumption and environmental impact.
 
 ---
 
-## 企業側の反応 — Nvidia CEOも「ホラー」発言を支持
+## Announcing 'AI Force' — A New Military-Style Branch for AI
 
-AI Safetyに関する議論が激化する中でのこの発言のタイミングは興味深い。Anthropicの研究者が「AI企業家がAIの危険性を認識していない」として离职事件が明らかになったばかりだ。
+Trump stated he will "cherish and watch over the AI industry as it grows" while simultaneously announcing the formation of an "AI Force" — modeled after the Space Force he established in 2019. He also indicated plans to appoint an "AI Czar" in the near future, with the unusual qualification that "only high IQ individuals need apply."
 
-一方でNvidiaのCEO Jensen Huang도는Trump家の論調に同調した。All-In Summitでの対談で、Trump家の「AIホラー」主張に同意し、「我々は人々を守ろうとしている」と強調した。
+The position of AI and Crypto czar was previously held by venture capitalist David Sacks, who stepped down earlier this year to co-host the All-In Summit.
 
 ---
 
-## まとめ
+## Industry Response — Nvidia CEO Supports 'Hoax' Characterization
 
-- Trump元大統領が「Artificial Intelligence」に代わる「新ブランド名」を提案
-- 「AIへの批判は民主党のホラー」とする証拠のない主張
-- 「AI Force」設立と「AI Czar」就任を発表
-- Nvidia CEO Huang家がTrump論調を支持
+The timing of Trump's posts coincides with intensifying debate over AI safety. An Anthropic researcher recently resigned citing concerns that AI companies do not take existential risk seriously enough.
 
-*（情報は2026年9月19日時点のものです）*
+At the All-In Summit, Nvidia CEO Jensen Huang appeared alongside Trump and agreed with the characterization of AI backlash as a "hoax," stating "we're protecting people."
+
+---
+
+## Summary
+
+- Trump proposed a "new brand name" to replace "Artificial Intelligence"
+- Claimed without evidence that AI criticism constitutes a "Democratic hoax"
+- Announced creation of "AI Force" (following Space Force model) and upcoming "AI Czar" appointment
+- Nvidia CEO Jensen Huang voiced support for Trump's characterization at All-In Summit
+
+*（This article is based on information available as of September 19, 2026.）*
