@@ -1,36 +1,36 @@
-# OpenAI、AI研究者向け数学アドバイザリーボードを発足 --- 100問以上の未解決問題らを解決
+# OpenAI Forms Math Advisory Board as AI Resolves Over 100 Open Problems
 
 ---
 
-## 新しいアドバイザリーボードの役割
+## New Advisory Board Announced
 
-OpenAIは2026年9月21日、数学研究者に向けた新しい独立したアドバイザリーボードの発足を発表した。ボードはInstitute for Advanced Study（高等研究所）に</minimax:tool_call>され、数学者とOpenAIの研究チームとの橋渡し役となる。
+On September 21, 2026, OpenAI announced a new independent advisory board for the mathematical research community. The board will be hosted at the Institute for Advanced Study and will serve as a bridge between mathematicians and OpenAI's research team.
 
-「このグループは数学のコミュニティと、より広い公众との架け橋となる。数学者にOpenAIの研究をどのように進めるかについての発言권을与えるものだ」と公式 announcement は述べている。
-
----
-
-## AIが100問以上の未解決問題 を解決
-
-今回の発表に合わせ、OpenAIは同じ内部システムが Navier-Stokes Millennium Prize 問題を含む100問以上の未解決数学問題をすでに解決していると主張した。Navier-Stokes問題は、流体の動きを記述する偏微分方程式に関するもので、Clay Mathematics Instituteが設定した7つのミレニアム問題の一つだ。
-
-值得注意的是、このボードにはOpenAIの研究を减速させたり方向を変えたりする権限は与えられない。OpenAIの数学的発見のペースを維持しながら、社区との对话いを確保する 설계 となっている。
+"This group will serve as a bridge to the mathematical community and broader public, giving mathematicians a voice in how we move forward," the announcement reads.
 
 ---
 
-## 計算による数学の进步とAIの限界
+## AI Solves Over 100 Unsolved Problems
 
-近年、大規模言語モデルを始めとするAIシステムは、复杂な数式処理や证明支援において人间の数学者を补助する能力を示してきた。しかし、未解決問題を自律的に解く能力については、なお议论が分かれる。
+The announcement coincides with OpenAI's claim that its internal systems have already resolved more than 100 open mathematical problems, including the Navier-Stokes Millennium Prize problem. Navier-Stokes describes the movement of fluid dynamics through partial differential equations and is one of seven Millennium Prize problems established by the Clay Mathematics Institute.
 
-OpenAIの主张は、この技术在実際の未解決問題に対して一定的成果を上げていることを示唆しているが、外部の数学者からは検証が必要との声もある。アドバイザリーボードは、この成果の検証と、AIと数学の交叉点における更なる研究 促进挑む 。
+Importantly, the board will not be given leeway to slow down or redirect OpenAI's ongoing mathematical research. The group's role is designed to ensure dialogue with the community while maintaining the pace of OpenAI's discoveries.
 
 ---
 
-## 参考リンク
+## AI and the Limits of Mathematical Reasoning
+
+In recent years, AI systems including large language models have demonstrated the ability to assist human mathematicians in complex symbolic manipulation and proof assistance. However, the ability to autonomously solve unsolved problems remains a subject of ongoing debate.
+
+OpenAI's claim suggests their technology has achieved concrete results on real unsolved problems, though mathematicians from the broader community have called for verification. The advisory board is expected to play a key role in validating these results and promoting further research at the intersection of AI and mathematics.
+
+---
+
+## Reference Links
 
 - [OpenAI forms math advisory group | TechCrunch](https://techcrunch.com/2026/09/21/openai-forms-math-advisory-group-as-its-ai-resolves-more-than-100-open-problems/)
 - [Institute for Advanced Study](https://www.ias.edu/)
 
 ---
 
-*本文の情報は2026年9月22日時点のものです*
+*This article is based on information available as of September 22, 2026.*
