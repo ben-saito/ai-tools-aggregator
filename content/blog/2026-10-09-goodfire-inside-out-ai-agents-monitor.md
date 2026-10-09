@@ -1,32 +1,27 @@
-# Goodfire's Inside-Out Monitors Catch Rogue AI Agents at a Fraction of the Cost
----
-
-Goodfire's Inside-Out Monitors Catch Rogue AI Agents at a Fraction of the Cost
-
-Goodfire has launched a new approach to AI agent monitoring that significantly reduces the cost of keeping AI systems in check. Traditional monitoring approaches involve running a second AI to observe and evaluate every action of the primary agent—an expensive proposition at scale.
-
-Goodfire's "inside-out" monitoring instead peeks directly into the primary model's internal activations while it works. By analyzing what is happening inside the model itself, the system can detect anomalous behavior without the overhead of a second AI system.
-
-**How it works:**
-
-- Monitors internal model activations during inference
-- Identifies deviations from expected behavior patterns
-- Triggers human review only when anomalies are detected
-
-**Benefits:**
-
-- Cost reduction of approximately 90% compared to external monitoring
-- Faster detection of goal misalignment or unintended behavior
-- Compatible with a range of existing AI agent frameworks
-
-The approach represents a shift from behavioral monitoring (watching what AI does) to mechanistic monitoring (understanding why the AI is doing it). This could enable more nuanced safety interventions that address root causes rather than just symptoms.
+# Goodfire Launches Inside-Out AI Agent Monitoring
 
 ---
 
-## Developer Implications
-
-For teams deploying AI agents in production, monitoring cost is a real constraint. Goodfire's approach suggests that building safety into the inference process itself may be more scalable than external oversight layers. Early adopters report that integration complexity is manageable for common agent frameworks.
+Goodfire has unveiled a new monitoring approach called 'inside-out' that it says can detect rogue AI agents at a fraction of the cost of existing solutions. The startup's system watches agent behavior from within the execution environment rather than relying on external API call logs, enabling detection of model-level goal drift before it causes harm. Goodfire is positioning this as a practical tool for enterprises deploying autonomous AI agents in production.
 
 ---
 
-*This article is based on reporting from TechCrunch AI as of October 09, 2026.*
+## Background
+
+TechCrunch reported on this development as part of ongoing coverage of the rapidly evolving AI landscape.
+
+---
+
+## Technical Perspective
+
+This story touches on several key areas relevant to AI developers: **autonomous agents**, **AI safety monitoring**, **generative AI** applications, and **enterprise AI deployment**. The technical details vary by story but collectively illustrate how AI is moving from experimental to production across multiple domains.
+
+---
+
+## Reference Links
+
+- [Goodfire Launches Inside-Out AI Agent Monitoring](https://techcrunch.com/2026/10/08/goodfire-says-its-new-inside-out-monitors-catch-rogue-ai-agents-at-a-fraction-of-the-cost/)
+
+---
+
+*（本文の情報は2026-10-09時点のものです）*
