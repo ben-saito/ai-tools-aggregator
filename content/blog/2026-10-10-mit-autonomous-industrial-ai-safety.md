@@ -2,23 +2,30 @@
 
 ---
 
-An in-depth feature examines how industrial AI developers are approaching the safety challenge of deploying autonomous systems in environments where failures can cause physical harm, environmental damage, or large economic losses.
+## AVEVA and the Challenge of Deploying AI in Physical Environments
 
-The article traces the evolution of industrial automation safety from hardwired failsafes and deterministic control systems to the current generation of learning-based autonomous systems that must navigate environments too complex for pre-programmed responses. The central challenge is that learning-based systems are fundamentally unpredictable in edge cases: they may behave correctly in millions of normal operations and then encounter a novel situation that produces an incorrect response with dangerous consequences.
+As AI takes on more autonomous roles in industrial settings, organizations face a fundamental challenge: unlike AI that operates purely in the digital world, industrial AI interacts directly with physical systems where unexpected decisions can have consequences for safety, reliability, and critical infrastructure.
 
-Several approaches are being developed: simulation-based testing that exposes systems to millions of virtual edge cases before deployment; formal verification techniques that can prove certain properties about system behavior under bounded conditions; conservative fallback systems that detect out-of-distribution inputs and transfer control to human operators; and progressive deployment architectures that maintain human oversight as a normal rather than exceptional condition.
+A new report from AVEVA, discussed in an MIT Technology Review Insights piece, examines how organizations are approaching responsible deployment of increasingly autonomous industrial AI systems.
 
-The piece features interviews with safety engineers at several major industrial AI deployments, who describe their organizations' approaches to balancing capability development against safety verification. Several argue that current regulatory frameworks are insufficiently calibrated to the specific risks of learning-based industrial systems, and that new standards development is needed.
+## The Data Challenge
 
-The article is notable for its careful treatment of both the technical complexity and the genuine stakes involved in industrial AI deployment, avoiding both techno-utopianism and reflexive safety skepticism.
+One foundation for safe industrial AI deployment is data. Industrial systems contain information across telemetry, service logs, engineering documents, and other disparate sources. Bringing these together in a form that newer AI systems can use meaningfully is a significant technical and organizational challenge.
 
+Foundation models, physical AI, and agentic AI are making it possible to automate more complex tasks across industrial environments. But these same capabilities introduce new unpredictability — systems that are harder to explain and harder to audit than earlier rule-based or statistical approaches.
+
+## Human Oversight in the Loop
+
+The AVEVA analysis emphasizes that maintaining human oversight without defeating the purpose of automation is itself a design challenge. Organizations need to determine which decisions can be safely delegated to AI systems and which require human judgment — and how to structure handoffs between the two.
+
+The piece raises questions about how regulators and standards bodies are keeping pace with the speed of AI deployment in industrial contexts, where failures can affect power grids, manufacturing processes, and public safety.
 
 ---
 
-## Reference Links
+## Reference
 
-- [Original Article](https://www.technologyreview.com/2026/10/08/1144020/building-a-safer-path-to-autonomous-industrial-ai/)
+- [MIT Technology Review: Building a safer path to autonomous industrial AI](https://www.technologyreview.com/2026/10/08/1144020/building-a-safer-path-to-autonomous-industrial-ai/)
 
 ---
 
-*This article was generated on October 10, 2026 based on reporting from MIT Tech Review.*
+*This article was posted on October 10, 2026.*
