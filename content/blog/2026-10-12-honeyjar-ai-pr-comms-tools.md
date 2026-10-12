@@ -1,31 +1,27 @@
-# Honeyjar Wants to Bring Senior-Level PR Expertise to Every Company via AI
+# Honeyjar Uses AI to Bring PR Expert Judgment to Every Company
 
 ---
 
-Journalists, entrepreneurs, and even some public relations professionals will tell you that the PR process is broken. But could AI actually make things better? **Honeyjar**, a startup attending TechCrunch Disrupt's Startup Battlefield 200, wants to use AI to make the expertise and judgment of the best PR professionals available to everyone — including founders who have no idea where to start.
+Honeyjar, a startup attending TechCrunch Disrupt 2026 as part of Startup Battlefield 200, is building AI tools to make public relations expertise accessible to companies that lack dedicated PR teams. The platform aims to automate and augment the judgment calls that PR professionals make, from media outreach to crisis communication.
 
-The startup's founders, CEO **Michelle Masek** and CCO **Nadia Jamshidi**, have spent decades in the field, doing in-house communications and working at agencies. Masek recently served as senior vice president of marketing and communications for **Obvious Ventures**, the venture firm founded by Ev Williams.
+## The Problem with PR
 
-As Masek described the challenges involved in "helping with the why and when of comms and marketing for 110 portfolio companies," the problem becomes clear: most early-stage founders lack access to senior-level communications expertise. Honeyjar is her answer.
+The PR industry has historically required expensive expertise and relationships that smaller companies cannot afford. Honeyjar's founders argue that the process is broken and that AI can help bridge the gap by providing startup founders and comms teams with the same decision-making frameworks used by experienced PR professionals.
 
-## Automating the PR Workflow
+## AI-Powered Comms Tools
 
-Honeyjar automates processes like writing announcements, finding the best journalists to pitch, and identifying the most promising speaking opportunities. But the vision goes beyond getting press coverage.
+Honeyjar's platform uses AI to assist with writing press releases, crafting media pitches, and developing communication strategies. The system is designed to learn from best practices in PR and apply them based on the specific needs of each company.
 
-"Honeyjar can find reporters, build media lists, scan news and social, track coverage, and surface opportunities," Jamshidi said. "The bigger idea is bringing the whole communications workflow together: signals, context, strategy, judgment, timing, and execution."
+## Attending TechCrunch Disrupt
 
-The tool is not trying to replace PR professionals. Instead, Masek argues Honeyjar can make PR firms and in-house comms teams more effective, while allowing individual PR practitioners to "take on that third client without any scaling cost."
-
-## A Massive Untapped Market
-
-Masek realized there are "millions and millions of unassigned communicators responsible for the work of comms." These aren't people with "comms" in their title — they're marketers, investors, authors, creators, school superintendents, sports team leaders. "It's incredibly horizontal, this need to nail strategic communications," she said.
-
-When Honeyjar opened its waitlist, it received **10,000 signups in the first 24 hours**. Beta testers include Nextdoor, tech startup Coco Robotics, investor Bloomberg Beta, and agencies.
-
-## AI as a Force Multiplier for Strategic Communications
-
-At its core, Honeyjar represents a bet that AI can encode the tacit knowledge of veteran communications professionals — knowing when to pitch a story, which journalist covers your beat, how to time a press release for maximum impact — and make that judgment available on demand. Whether the startup can truly capture the nuanced "gut feel" of a seasoned PR veteran remains to be seen, but the early traction suggests strong demand for democratizing access to strategic communications expertise.
+Honeyjar is presenting at TechCrunch Disrupt 2026 as part of the Startup Battlefield 200 cohort, a group of early-stage startups showcase their companies to investors and media.
 
 ---
 
-*This article is based on reporting from TechCrunch (October 12, 2026).*
+## 参考リンク
+
+- [TechCrunch: Honeyjar offers AI tools to improve PR and comms](https://techcrunch.com/2026/10/12/honeyjar-offers-ai-tools-to-improve-pr-and-comms-at-every-company/)
+
+---
+
+*（本文の情報は2026年10月12日時点のものです）*
