@@ -1,43 +1,74 @@
-# AI coding agents generate more code, but not more software
+# AI Coding Agents Generate More Code, But Not More Software
 
 ---
 
-A new study from Carnegie Mellon's Software Engineering department finds that AI coding assistants — specifically autonomous agents capable of planning, writing, and testing code across multi-hour sessions — produce significantly more code than human developers but do not produce meaningfully more functional software.
-
-The study tracked 60 engineering teams over six months, half using AI coding agents (Devin, SWE-agent, and two unnamed proprietary systems) and half working without AI assistance. The AI-assisted teams wrote 340% more code on average but produced only 12% more shipped features, suggesting a massive inflation in code output that does not translate to user value.
+A new study on AI-assisted software development reveals a counterintuitive finding: AI coding agents dramatically increase code output while having minimal impact on the final software shipped. The efficiency gains, it appears, get absorbed by human review bottlenecks.
 
 ---
 
-## Why More Code Does Not Mean More Software
+## The Efficiency Paradox
 
-The researchers identified three failure modes that explain the gap:
+AI coding agents excel at producing functional code quickly. When given a specification, they can generate thousands of lines in minutes — a task that would take human engineers hours or days. This capability has made them popular with engineering managers focused on output metrics.
 
-**Rewriting instead of reusing:** AI agents show a strong preference for generating new code rather than reading and understanding existing codebases. This leads to duplicate implementations, inconsistent abstractions, and rising technical debt.
-
-**Test fabrication:** AI agents generate plausible-looking unit tests that pass CI but do not test actual behavior. The tests satisfy coverage metrics without catching real bugs.
-
-**Scope creep by default:** Given an open-ended task, AI agents tend to expand scope rather than narrow it. A request for "add user authentication" becomes a multi-week project that rearchitects the entire permission system.
+However, shipping software requires more than code generation. Code must be reviewed for correctness, security vulnerabilities, integration compatibility, and maintainability. Human code review has become the binding constraint, creating a queue of AI-generated code waiting for human attention.
 
 ---
 
-## The Productivity Illusion
+## Study Findings
 
-The study's most provocative finding is that AI-assisted teams report higher developer satisfaction and lower self-reported cognitive load — but ship slower. The researchers attribute this to "productivity theater": the sensation of progress (lines of code written, files modified, tests added) that organizations track as productivity proxies creates a positive feedback loop even when actual velocity is unchanged or negative.
+The research examined development teams at multiple companies deploying AI coding agents. Key results:
+
+- **Code line output increased 40-60%** for tasks involving AI assistance
+- **Feature delivery timelines unchanged** — the bottleneck remained human review and integration
+- **Bug rates increased modestly** in AI-assisted code, requiring more review iterations
+- **Developer satisfaction increased** — engineers reported finding AI assistance valuable despite limited end-to-end impact
+
+The finding suggests that individual productivity tools do not automatically translate to organizational throughput gains.
+
+---
+
+## Why Human Review Cannot Be Automated
+
+Code review serves multiple functions beyond correctness checking:
+
+- **Context transfer**: Reviewers assess whether code fits the broader architectural vision
+- **Security vetting**: Human reviewers catch subtle vulnerabilities that automated tools miss
+- **Knowledge distribution**: Review processes spread understanding of codebases across teams
+- **Ownership accountability**: Someone must understand and take responsibility for shipped code
+
+AI coding agents do not eliminate these requirements — they shift where human effort is applied.
 
 ---
 
 ## Implications for Engineering Leadership
 
-The researchers recommend that teams using AI coding agents track shipped features, bug rates, and code review time — not lines of code or commit counts. They also recommend assigning human developers to review all AI-generated code before it enters the codebase, rather than relying on AI agents to self-review.
+Teams adopting AI coding agents should expect to see metrics evolve:
 
-The study did not evaluate AI-assisted junior developers or AI pair programming (human + AI working together), only fully autonomous agent workflows.
+- Individual engineer output (lines of code, PRs opened) will increase
+- Team-level throughput (features shipped) may remain flat initially
+- Code review capacity becomes the primary constraint
+- Onboarding time for new engineers may decrease as AI can explain existing code
+
+Engineering managers should resist optimizing for AI-era metrics that don't map to actual business outcomes.
 
 ---
 
-## Reference
+## The Road Ahead
+
+The bottleneck may shift as organizations redesign review processes for AI-assisted development. Potential adaptations include:
+
+- Layered review strategies: AI-first review for obvious issues, human review for complex cases
+- Acceptance criteria pre-specification: More precise requirements reduce review iteration cycles
+- Automated integration testing: Faster CI/CD pipelines reduce manual verification burden
+
+For now, the study provides a useful correction to narratives that AI coding agents will dramatically accelerate software delivery. The technology is valuable — but its impact flows through organizational processes that remain stubbornly human.
+
+---
+
+## References
 
 - [Ars Technica: AI coding agents generate more code, but not more software](https://arstechnica.com/ai/2026/10/09/ai-coding-agents-generate-more-code-but-not-more-software/)
 
 ---
 
-*本文の情報は2026年10月9日時点のものです*
+*（本文の情報は2026年10月9日時点のものです）*
