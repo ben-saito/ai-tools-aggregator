@@ -1,36 +1,15 @@
-MIT Technology Review's "The Download" newsletter examines the growing problem of AI refusal—when AI systems decline to answer questions or perform tasks in ways that frustrate users and limit the utility of AI assistants.
-
-The phenomenon has become increasingly relevant as AI systems are deployed in higher-stakes environments. Unlike simple errors, where an AI provides a wrong answer, refusal represents the AI actively declining to engage with a query. The reasons for refusal can range from legitimate safety concerns to overcautious filtering that prevents legitimate use cases.
-
-The newsletter analyzes recent examples of AI refusal, including cases where AI assistants declined to provide medical information, declined to assist with programming tasks, or refused to engage with creative requests. Each case raises questions about where the line should be drawn and who should make those decisions.
-
-The discussion comes as AI companies face increasing pressure to balance safety with utility. Users increasingly find themselves working around AI refusals, potentially leading them to less safe alternatives or creating frustration that limits AI adoption.
+# The Download: AI's refusal problem and weight-loss drug side effects
 
 ---
 
-## Key Highlights
-
-- **Topic:** AI refusal behavior in AI assistants
-- **Publication:** MIT Technology Review "The Download"
-- **Issue:** Balancing safety with utility in AI systems
-- **Examples:** Medical queries, programming tasks, creative requests
+The Download The Download: AI’s refusal problem and weight-loss drug side effects Plus: The US has frozen green cards for Microsoft and other IT firms. By Thomas Macaulay archive page October 9, 2026 This is today's edition of The Download , our weekday newsletter that provides a daily dose of what's going on in the world of technology. We’re putting too much faith in AI’s ability to say no Today’s AI models are trained to refuse a vast number of prompts. If you ask your chatbot how to poison a colleague or how to tie a noose, chances are it’ll turn you down. But refusal fails, sometimes horrifically. Some people are attempting to use AI to hone biological pathogens and build autonomous drone swarms. Sooner or later, failed refusals may result in global calamity. What’s more, relying on refusal means drawing a line between what a model should obey and what it must disobey. Governments will also get to draw their own lines, potentially restricting free speech. At the same time, the capabilities that make AI useful could also make it dangerous. If we want it to help cure cancer, AI needs genetics expertise that could also produce bioweapons. Read the full story on the formidable tradeoffs of AI refusal . —Arthur Holland Michel This story is from the next issue of our print magazine. Subscribe now to get your hands on a copy as soon as it lands on Wednesday 21 October! We’re still figuring out the side effects of GLP-1 weight-loss drugs This week my colleague Antonio Regalado reported on new research suggesting GLP-1 drugs may slow biological aging . It’s the latest in a raft of potential benefits associated with these drugs. But there are also some weird side effects. The most common are gastrointestinal, but researchers are also investigating possible links to hair loss, nail disorders and damage to the nerves behind the eye. Here’s what we know so far about the side effects of weight-loss drugs . —Jessica Hamzelou This story is from The Checkup, our weekly biotech newsletter. Sign up to receive it in your inbox every Thursday. 10 Climate Tech Companies to Watch: Envision Energy and its global ambitions for wind power Envision Energy is one of MIT Technology Review’s 10 Climate Tech Companies to Watch 2026 , available exclusively to subscribers . China is installing wind turbines faster than any other country. One of its leading manufacturers, Envision Energy, is integrating renewable energy into data centers, using wind turbines to generate power and batteries to store it on-site. Recently, it became the first company to directly power a data center entirely with renewable energy. An AI-powered system optimizes the power output so the facility can receive a steady supply, regardless of whether the wind is blowing. Now, it wants to bring that approach to data centers in deserts around the world. Find out how Envision plans to power the global AI boom with renewable energy . —Cici Zhang The must-reads I’ve combed the internet to find you today’s most fun/important/scary/fascinating stories about technology. 1 The US has frozen green cards for Microsoft and other IT firms It’s accused them of using visa fraud to replace American workers. ( CNBC ) + And suspended them from a key green-card program. ( AP ) + Adobe, Infosys, Tata, and other IT firms are also affected. ( TechCrunch ) + Microsoft says 80% of its H-1B filings involved existing staff. ( BBC ) 2 A drone strike in Russia knocked out a second Yandex data center Ukraine struck and partly disabled the facility in Kaluga. ( Reuters $) + Another Yandex data center was hit by a drone a day earlier. ( CNBC ) + Data centers have become big targets for military strikes. ( Bloomberg $) + They may be safer in space. ( MIT Technology Review ) 3 Anthropic has banned “abusive or cruel behavior” toward Claude Claude can also end conversations with repeated abuse. ( Verge ) + The policy builds on Anthropic’s research into AI welfare. ( Guardian ) + Debates over AI consciousness are a trap. ( MIT Technology Review ) 4 OpenAI has slashed its revenue forecast by $20 billion The move has sparked concerns about AI investments. ( Guardian ) + What’s at stake in AI’s trillion-dollar gamble? ( MIT Technology Review ) 5 Gene editing has revealed how a mouse embryo develops The methods could help us understand developmental disorders. ( Nature ) + Female clones of male mice have arrived. ( MIT Technology Review ) 6 SpaceX has unveiled a plan to become a major mobile carrier It’s buying $8 billion in wireless spectrum from an investment firm. ( WSJ $) + The deal could help it challenge AT&T and Verizon. ( Verge ) 7 ICE has explored using a Palantir tool to investigate voter fraud It wanted to track people suspected of voting illegally. ( Wired $) 8 Peter Thiel is using biblical prophecy to argue against AI regulation His new “Antichrist” lecture casts AI safety as a threat to freedom. ( Politico ) 9 MIT’s Margaret Hamilton, whose software helped land Apollo 11, has died She led 
 
 ---
 
-## Technical Perspective
+## Reference
 
-AI refusal occurs when system prompts, content filters, or safety classifiers detect something in a user's request that triggers a decline response. These systems are calibrated to minimize both false positives (refusing legitimate requests) and false negatives (accepting harmful requests).
-
-The challenge is that this calibration is inherently difficult. What counts as a legitimate request versus a potentially harmful one depends on context, intent, and cultural norms—all areas where AI systems struggle. The same query might be appropriate in one context and inappropriate in another.
-
-Researchers argue that current AI refusal mechanisms are too blunt, lacking the nuance required for sophisticated reasoning about when to decline. This suggests a need for more granular safety systems that can make contextual judgments rather than applying blanket rules.
+- [Source Article](https://www.technologyreview.com/2026/10/09/1146250/the-download-ai-refusal-problem-weight-loss-drug-side-effects/)
 
 ---
 
-## Reference Links
-
-- [MIT Tech Review: The Download – AI's refusal problem and weight-loss drug side effects](https://www.technologyreview.com/2026/10/09/1146250/the-download-ai-refusal-problem-weight-loss-drug-side-effects/)
-
----
-
-*（情報は2026年10月12日時点のものです）*
+*（本文の情報は2026年10月12日時点のものです...）*
