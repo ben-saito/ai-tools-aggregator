@@ -1,0 +1,9 @@
+Deezer on Tuesday unveiled a new AI-generated music filter that lets users exclude synthetic tracks from their listening experience entirely. The streaming platform said the feature is in development and will roll out before the end of the year, giving subscribers a dedicated toggle to remove AI-uploaded music, albums, and related artists from search results.
+
+The move comes as AI-generated music floods platforms like Spotify, Apple Music, and YouTube Music — often without clear labeling. Deezer's filter addresses a growing user demand for more control over what appears in recommendations and search results, especially as artists and labels grapple with synthetic soundalikes that imitate real musicians without permission.
+
+Unlike previous efforts that relied on metadata tagging, Deezer's approach reportedly uses audio analysis to detect synthetic characteristics directly in the track, making it harder for producers to bypass filters by simply labeling AI content as human-made.
+
+The platform said the toggle will be turned off by default to avoid accidentally removing legitimate content, but users who want an AI-free experience can enable it in settings. Deezer did not specify which AI detection technology it is using, though the company has been exploring partnerships with audio fingerprinting startups.
+
+The launch follows Deezer's earlier efforts to build an "AI royalties" system that would redistribute earnings from AI-generated streams to human artists — a contentious issue in the music industry as streaming platforms try to balance the interests of labels, artists, and synthetic content producers.
