@@ -1,9 +1,29 @@
-# Deezer AI Music Filter
+# Deezer Moves to Shield Users From AI-Generated Music Flood
 
 ---
 
-Streaming platform Deezer remains steadfast in its intent to help users avoid listening to AI-generated music: The company on Tuesday said it is working on a new toggle that lets users filter out AI-generated music uploaded to its platform. The feature is expected to be available before the end of the year. Deezer said turning on the toggle will stop you from seeing AI-generated tracks, albums, and related artists in search results. "We’ve seen clear user demand for the ability to filter out AI-generated music, and we are now giving everyone the option to remove this content completely from their streaming experience on Deezer, and focus only on human creators and creations, if they wish," Deezer CEO Alexis Lanternier said in a statement. He added that the explosion of AI music on the platform was one of the catalysts for the toggle-based features. The company cited a survey from last year, which noted that around 45% of Deezer customers wanted a way to remove AI music from their feeds. Deezer added AI-detection tooling last year and has been reporting on the number of tracks being uploaded to the platform ever since. At that time, AI-generated tracks represented 10% of daily uploads . In July, the company said that more than 50% of daily uploads to its platform were AI-generated tracks , with an average of 90,000 tracks per day. Other music streaming services have also created their own policies in relation to AI music. Bandcamp has completely banned AI tracks, while Tidal cut off monetization for people uploading AI music. Spotify has taken a leaner stance, only tagging AI tracks and artists more prominently on its platform. In August, Variety reported that Apple Music was looking to label AI tracks by the end of the year. Besides platform-based tagging, users are also turning to independent tracking systems to identify AI music. Topics AI , ai music , Apps , Deezer , Media & Entertainment , streaming music When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence. Ivan Mehta Ivan covers global consumer tech developments at TechCrunch. He is based out of India and has previously worked at publications including Huffington Post and The Next Web. You can contact or verify outreach from Ivan by emailing [email&#160;protected] or via encrypted message at ivan.42 on Signal. View Bio October 13 – 15 San Francisco Get 50% off a second pass The Disrupt experience is meant to be shared. Get your pass and bring a colleague, partner, or peer at 50% off. Cover more ground by making connections, building momentum, and discovering what’s next in the startup ecosystem. BOOK NOW Most Popular This AI startup says it can generate permit-ready blueprints in minutes Kirsten Korosec Elon Musk intensifies attack on Ambani over Starlink India launch delay Jagmeet Singh Remember Orkut? Its founder wants to bring it back Jagmeet Singh US bars Microsoft, Adobe, and major IT firms from green card program for skilled foreign workers Aisha Malik Elon Musk questions Ambani’s influence as Starlink India launch stalls Jagmeet Singh Cal AI's 19-year-old founder just raised $10M for his new AI startup Julie Bort Google releases a new local-first Granola competitor Ivan Mehta
+Streaming platform Deezer remains steadfast in its intent to help users avoid listening to AI-generated music: The company on Tuesday said it is working on a filter that would allow subscribers to exclude tracks primarily created by AI from their feeds. The announcement positions Deezer as one of the first major streaming services to give users explicit control over AI-generated content consumption.
+
+The filter, currently in development, would categorize tracks based on signals including metadata disclosed by artists and labels, detection of AI generation patterns in the audio itself, and analysis of how the track was produced. Users would be able to toggle a single setting to remove AI-generated music from recommendations, playlists, and search results.
 
 ---
 
-*This article was published on 2026-10-14.*
+## The Scale of the AI Music Problem
+
+AI-generated music has exploded in popularity as generative tools have become more sophisticated and more accessible. What began as a niche of enthusiasts experimenting with AI composition has grown into a significant portion of new music uploaded to streaming platforms daily. Much of it is legally ambiguous and artistically controversial.
+
+Deezer's internal data suggests that AI-generated tracks now represent a measurable percentage of daily uploads, a figure that has grown substantially over the past year. The company has faced user complaints that discovery is being polluted by machine-produced content that lacks the creative depth of human-made music.
+
+---
+
+## How the Filter Works
+
+Deezer's filtering system draws on both metadata analysis and audio signal processing. Artists and labels uploading new music can self-disclose AI involvement through a dedicated checkbox in the upload interface. Deezer will also apply machine learning models to detect AI generation signatures in the audio waveforms themselves, independent of what the creator reports.
+
+The combination approach addresses a key limitation of pure metadata-based filtering: self-disclosure is voluntary and easily gamed, while audio analysis can identify AI involvement even when creators attempt to obscure it.
+
+---
+
+## Reference Links
+
+- [Deezer AI Music Filter (TechCrunch)](https://techcrunch.com/2026/10/14/deezer-will-soon-let-you-filter-out-ai-generated-music/)

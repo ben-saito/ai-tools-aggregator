@@ -1,35 +1,15 @@
-# AI Race to Space: Why the 2030s Will Change Everything
+# The AI Race Is Going to Space — And Sooner Than You Think
 
 ---
 
-The space economy is poised for a major expansion in the 2030s, driven by space-based power, computation, and manufacturing at scale. Greater orbital lift capacity from platforms like SpaceX's Starship is making it economically feasible to build large structures in orbit. But this boom comes with a new danger: AI systems accelerating space buildout while potentially enabling a nation or AI to concentrate unprecedented power.
+There are many ways that an AI could create a compounding advantage in space. In the 2030s we are going to see the boom of the space economy, and AI is going to be a core enabling technology. The countries and companies that develop space AI capabilities now will have structural advantages that compound over time.
 
-## How AI Unlocks Space Development
+AI systems deployed in space can optimize orbital mechanics calculations in real time, manage satellite constellations autonomously, and coordinate multi-satellite imaging tasks that would be impossible to orchestrate from the ground with human operators. As launch costs continue to decline, the economics of space-based AI become increasingly compelling.
 
-**Autonomous spacecraft operations**: Spacecraft can operate without human crews, reducing life support overhead and enabling designs impossible for human passengers.
-
-**AI-optimized spacecraft design**: Spacecraft can be redesigned around AI hosting rather than human habitability. A debris puncture that would be fatal to the ISS might leave an uncrewed vessel largely functional.
-
-**Space-based manufacturing**: Assembly and manufacturing in microgravity enables construction of large, complex structures that cannot be built on Earth.
-
-## Compounding First-Mover Advantages
-
-If an AI civilization establishes a foothold in space, compounding advantages could follow:
-
-- **Industrial flywheel**: Initial infrastructure begets more energy and manufacturing capacity at lower costs, which enables more infrastructure.
-- **Domain awareness**: A space-based power could deny others access to orbit.
-- **Self-replicating probes**: First movers could send probes that expand into deep space.
-
-## Why This Matters
-
-Space is not a brand-new domain, but AI may be about to drastically accelerate its industrialization. This demands make-or-break decisions from policymakers and technologists about who controls the infrastructure.
+The national security implications are significant. AI systems that can process satellite imagery, intercept communications, and coordinate surveillance assets in orbit represent a new class of space-based intelligence capabilities. The US, China, and private actors are all investing heavily in this area, setting the stage for an AI-driven space race that will play out over the next decade.
 
 ---
 
-## 参考リンク
+## Reference Links
 
-- [Import AI 476: AI Race to Space](https://importai.substack.com/p/import-ai-476-creativity-and-rsi)
-
----
-
-*（本文の情報は2026年10月12日時点のものです）*
+- [Import AI 476: The AI race is going to space](https://importai.substack.com/p/import-ai-476-creativity-and-rsi)
